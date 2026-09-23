@@ -160,6 +160,14 @@
 			{
 				"id": "dice-so-nice",
 				"manifest": "https://gitlab.com/riccisi/foundryvtt-dice-so-nice/-/raw/master/module/module.json"
+			},
+			{
+				"id": "pt-BR",
+				"type": "module",
+				"manifest": "https://github.com/mclemente/fvtt-ptbr-core-translation/releases/latest/download/module.json",
+				"compatibility": {
+					"minimum": "14"
+				}
 			}
 		]
 	},
