@@ -681,7 +681,7 @@ export class WelcomeOverlay {
 				} catch (err) {
 					error("Welcome overlay action failed:", err);
 					ui.notifications.error(
-						"Something went wrong. Check the console for details.",
+						"Algo deu errado. Verifique o console para mais detalhes.",
 					);
 				}
 			}
