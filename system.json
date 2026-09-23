@@ -13,7 +13,9 @@
 			"ko-fi": "amediocredad"
 		}
 	],
-	"esmodules": ["litmv2.js"],
+	"esmodules": [
+		"litmv2.js"
+	],
 	"styles": [
 		"litmv2.css",
 		"litmv2-welcome.css",
@@ -23,16 +25,25 @@
 	"documentTypes": {
 		"Actor": {
 			"hero": {
-				"htmlFields": ["description"]
+				"htmlFields": [
+					"description"
+				]
 			},
 			"journey": {
-				"htmlFields": ["description"]
+				"htmlFields": [
+					"description"
+				]
 			},
 			"challenge": {
-				"htmlFields": ["description", "specialFeatures"]
+				"htmlFields": [
+					"description",
+					"specialFeatures"
+				]
 			},
 			"fellowship": {
-				"htmlFields": ["description"]
+				"htmlFields": [
+					"description"
+				]
 			},
 			"story_theme": {}
 		},
@@ -47,23 +58,36 @@
 		"Item": {
 			"backpack": {},
 			"story_theme": {
-				"htmlFields": ["description"]
+				"htmlFields": [
+					"description"
+				]
 			},
 			"theme": {
-				"htmlFields": ["description"]
+				"htmlFields": [
+					"description"
+				]
 			},
 			"themebook": {
-				"htmlFields": ["description"]
+				"htmlFields": [
+					"description"
+				]
 			},
 			"trope": {
-				"htmlFields": ["description"]
+				"htmlFields": [
+					"description"
+				]
 			},
 			"vignette": {},
 			"addon": {
-				"htmlFields": ["description", "specialFeatures"]
+				"htmlFields": [
+					"description",
+					"specialFeatures"
+				]
 			},
 			"action": {
-				"htmlFields": ["description"]
+				"htmlFields": [
+					"description"
+				]
 			}
 		}
 	},
@@ -82,6 +106,11 @@
 			"lang": "en",
 			"name": "English",
 			"path": "lang/en.json"
+		},
+		{
+			"lang": "pt-BR",
+			"name": "Português (Brasil)",
+			"path": "lang/pt-BR.json"
 		},
 		{
 			"lang": "es",
@@ -108,7 +137,12 @@
 	"packs": [],
 	"flags": {
 		"hotReload": {
-			"extensions": ["css", "html", "js", "json"],
+			"extensions": [
+				"css",
+				"html",
+				"js",
+				"json"
+			],
 			"paths": [
 				"styles",
 				"templates",
