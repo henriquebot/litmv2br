@@ -46,29 +46,29 @@ const STATUS_ICONS = {
  * @type {string[]}
  */
 const DEFAULT_STATUSES = [
-	"wounded",
-	"poisoned",
-	"burned",
-	"stunned",
-	"paralyzed",
-	"crushed",
-	"exhausted",
-	"hungry",
-	"scared",
-	"confused",
-	"convinced",
-	"intimidated",
-	"humiliated",
-	"prone",
-	"exposed",
-	"surprised",
-	"drained",
-	"cursed",
-	"warded",
-	"alert",
-	"hidden",
-	"inspired",
-	"invigorated",
+	["wounded", "ferido"],
+	["poisoned", "envenenado"],
+	["burned", "queimado"],
+	["stunned", "atordoado"],
+	["paralyzed", "paralisado"],
+	["crushed", "esmagado"],
+	["exhausted", "exausto"],
+	["hungry", "faminto"],
+	["scared", "assustado"],
+	["confused", "confuso"],
+	["convinced", "convencido"],
+	["intimidated", "intimidado"],
+	["humiliated", "humilhado"],
+	["prone", "caído"],
+	["exposed", "exposto"],
+	["surprised", "surpreendido"],
+	["drained", "drenado"],
+	["cursed", "amaldiçoado"],
+	["warded", "protegido"],
+	["alert", "alerta"],
+	["hidden", "oculto"],
+	["inspired", "inspirado"],
+	["invigorated", "revigorado"],
 ];
 
 const WORLD_STATUS_PACK_ID = "world.litmv2-statuses";
@@ -232,7 +232,7 @@ export class ContentSources {
 				await foundry.documents.collections.CompendiumCollection.createCompendium(
 					{
 						name: "litmv2-statuses",
-						label: "Statuses",
+						label: game.i18n.localize("LITM.Settings.content_sources_statuses"),
 						type: "ActiveEffect",
 						system: "litmv2",
 					},
@@ -255,10 +255,10 @@ export class ContentSources {
 	 * @param {CompendiumCollection} pack
 	 */
 	static async #populateStatusPack(pack) {
-		const statusData = DEFAULT_STATUSES.map((name) => ({
+		const statusData = DEFAULT_STATUSES.map(([id, name]) => ({
 			name,
 			type: "status_tag",
-			img: STATUS_ICONS[name] ?? "icons/svg/circle.svg",
+			img: STATUS_ICONS[id] ?? "icons/svg/circle.svg",
 			disabled: false,
 			system: {
 				isHidden: false,
@@ -282,7 +282,7 @@ export class ContentSources {
 				await foundry.documents.collections.CompendiumCollection.createCompendium(
 					{
 						name: "litmv2-story-tags",
-						label: "Story Tags",
+						label: game.i18n.localize("LITM.Terms.story_tags"),
 						type: "ActiveEffect",
 						system: "litmv2",
 					},
