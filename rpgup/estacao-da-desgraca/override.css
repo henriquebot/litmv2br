@@ -1,3 +1,174 @@
 /* RPG Up — A Estação da Desgraça
    Ajustes remotos de estilo. Mantido via ChatGPT/GitHub.
 */
+
+.photo{
+  cursor:pointer;
+  background-size:cover!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  position:relative;
+}
+.photo.has-portrait{
+  color:transparent!important;
+  text-shadow:none!important;
+}
+.photo.has-portrait:after{
+  content:"FOTO // RH";
+  position:absolute;
+  left:4px;
+  bottom:4px;
+  padding:2px 4px;
+  background:rgba(9,20,22,.72);
+  color:#dce9e5;
+  font:700 7px/1 ui-monospace,SFMono-Regular,Consolas,monospace;
+  letter-spacing:.08em;
+}
+.portrait-controls{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:8px;
+  align-items:center;
+}
+.portrait-upload{
+  display:none!important;
+}
+.portrait-help{
+  color:#637c82;
+  font:600 9px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+.themes-panel{
+  margin-top:24px;
+  border:1px solid var(--line);
+  background:rgba(9,21,25,.94);
+  box-shadow:0 18px 40px rgba(0,0,0,.24);
+}
+.themes-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 16px;
+  border-bottom:1px solid var(--line);
+  background:#0d1d22;
+}
+.themes-head strong{
+  font:800 12px ui-monospace,SFMono-Regular,Consolas,monospace;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#dbe7df;
+}
+.themes-head span{
+  color:var(--cyan);
+  font:700 10px ui-monospace,SFMono-Regular,Consolas,monospace;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+.themes-intro{
+  margin:0;
+  padding:15px 16px 0;
+  color:#91a7a5;
+  font-size:13px;
+  line-height:1.55;
+}
+.theme-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  padding:16px;
+}
+.theme-card{
+  border:1px solid #254148;
+  background:linear-gradient(180deg,rgba(15,36,41,.96),rgba(8,22,26,.96));
+  padding:16px;
+  min-width:0;
+}
+.theme-card-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+.theme-no{
+  color:var(--cyan);
+  font:800 10px ui-monospace,SFMono-Regular,Consolas,monospace;
+}
+.theme-card h3{
+  margin:2px 0 0;
+  color:#e5efeb;
+  font-size:18px;
+  line-height:1.1;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+}
+.theme-type{
+  flex:0 0 auto;
+  border:1px solid #3d585e;
+  padding:4px 6px;
+  color:#8ca2a2;
+  font:700 8px ui-monospace,SFMono-Regular,Consolas,monospace;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.theme-row{
+  border-top:1px solid #1e363c;
+  padding-top:9px;
+  margin-top:9px;
+}
+.theme-label{
+  display:block;
+  margin-bottom:6px;
+  color:#6f898d;
+  font:800 8px ui-monospace,SFMono-Regular,Consolas,monospace;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+}
+.theme-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.theme-power,.theme-weakness{
+  display:inline-block;
+  border:1px solid #3c6665;
+  background:#102a2c;
+  color:#d5ebe5;
+  padding:5px 7px;
+  font:700 10px ui-monospace,SFMono-Regular,Consolas,monospace;
+}
+.theme-weakness{
+  border-color:#724943;
+  background:#2a1716;
+  color:#e5b9b3;
+}
+.theme-quest{
+  color:#cfdad5;
+  font:600 12px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;
+}
+@media(max-width:760px){
+  .theme-grid{grid-template-columns:1fr}
+}
+@media print{
+  .themes-panel{
+    break-before:page;
+    box-shadow:none;
+    background:#fff;
+    color:#152125;
+    border:1px solid #77837f;
+  }
+  .themes-head{background:#e6ece7;border-color:#77837f}
+  .themes-head strong,.theme-card h3{color:#152125}
+  .themes-intro{color:#465552}
+  .theme-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .theme-card{background:#fff;border-color:#8b9994;break-inside:avoid}
+  .theme-row{border-color:#b4bdb9}
+  .theme-power{background:#edf2ee;color:#21312e;border-color:#889691}
+  .theme-weakness{background:#f4e7e4;color:#522f2c;border-color:#a47b73}
+  .theme-quest{color:#253332}
+  .portrait-controls{display:none!important}
+  .photo{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
