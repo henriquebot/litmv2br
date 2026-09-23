@@ -58,7 +58,7 @@ function _customizeDiceSoNice() {
 		dice3d.addColorset(
 			{
 				name: "litmv2",
-				description: `${game.i18n.localize("LITM.Name")} Default`,
+				description: `${game.i18n.localize("LITM.Name")} — Padrão`,
 				category: game.i18n.localize("LITM.Name"),
 				foreground: ["#f1e7d4", "#f1e7d4", "#1c1509", "#1c1509", "#1c1509"],
 				background: ["#877376", "#446674", "#708768", "#A8A7A3", "#ac9e77"],
