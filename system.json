@@ -3,8 +3,8 @@
 	"id": "litmv2",
 	"version": "14.68",
 	"license": "LICENSE",
-	"title": "Legend in the Mist: Unofficial",
-	"description": "An unofficial, community-made system for playing the <strong>Rustic Fantasy</strong> game <em>Legend in the Mist</em> in Foundry Virtual Tabletop.",
+	"title": "Legend in the Mist: Unofficial — PT-BR",
+	"description": "Sistema comunitário e não oficial em <strong>Português do Brasil</strong> para jogar <em>Legend in the Mist</em> no Foundry Virtual Tabletop.",
 	"authors": [
 		{
 			"name": "Filip Ambrosius",
@@ -164,9 +164,9 @@
 		]
 	},
 	"background": "systems/litmv2/assets/media/litm_splash.webp",
-	"url": "https://github.com/Son-of-Oak-Community/litmv2",
-	"bugs": "https://github.com/Son-of-Oak-Community/litmv2/issues?q=is:issue+is:open+sort:updated-desc",
-	"manifest": "https://raw.githubusercontent.com/Son-of-Oak-Community/litmv2/refs/heads/main/system.json",
-	"download": "https://github.com/Son-of-Oak-Community/litmv2/archive/refs/heads/main.zip",
-	"readme": "https://raw.githubusercontent.com/Son-of-Oak-Community/litmv2/refs/heads/main/README.md"
+	"url": "https://github.com/henriquebot/litmv2br",
+	"bugs": "https://github.com/henriquebot/litmv2br/issues",
+	"manifest": "https://raw.githubusercontent.com/henriquebot/litmv2br/refs/heads/pt-br/system.json",
+	"download": "https://github.com/henriquebot/litmv2br/archive/refs/heads/pt-br.zip",
+	"readme": "https://raw.githubusercontent.com/henriquebot/litmv2br/refs/heads/pt-br/README.md"
 }
