@@ -30,17 +30,19 @@
 			"content": "TOURS.FellowshipSyncContent"
 		}
 	],
-	"suggestedNextTours": ["litmv2.storyTagSidebar"],
+	"suggestedNextTours": [
+		"litmv2.storyTagSidebar"
+	],
 	"localization": {
-		"TOURS.FellowshipTitle": "Fellowship & Relationships",
-		"TOURS.FellowshipDescription": "Learn how the Fellowship shares themes and tags with every Hero.",
-		"TOURS.FellowshipIntroTitle": "Fellowship & Relationships",
-		"TOURS.FellowshipIntroContent": "The <strong>Fellowship</strong> is a shared Actor for the whole group. Each world has one Fellowship, and every Hero is linked to it.",
-		"TOURS.FellowshipSheetTitle": "Fellowship Sheet",
-		"TOURS.FellowshipSheetContent": "Add a fellowship theme with power tags, a weakness tag, and a Quest. You can also add story themes and story tags.",
-		"TOURS.FellowshipSetupTitle": "Add a Fellowship Theme",
-		"TOURS.FellowshipSetupContent": "<strong>Drop a fellowship themebook</strong> here to create the Fellowship's theme. Use it to define the group's title, power tags, weakness tag, and Quest.",
-		"TOURS.FellowshipSyncTitle": "Shared with Every Hero",
-		"TOURS.FellowshipSyncContent": "The Fellowship's theme and tags appear on every Hero sheet. Changes to the Fellowship are shown there automatically."
+		"TOURS.FellowshipTitle": "Companhia e Relacionamentos",
+		"TOURS.FellowshipDescription": "Aprenda como a Companhia compartilha temas e tags com todos os Heróis.",
+		"TOURS.FellowshipIntroTitle": "Companhia e Relacionamentos",
+		"TOURS.FellowshipIntroContent": "A <strong>Companhia</strong> é um Ator compartilhado por todo o grupo. Cada mundo possui uma Companhia, e todos os Heróis ficam vinculados a ela.",
+		"TOURS.FellowshipSheetTitle": "Ficha da Companhia",
+		"TOURS.FellowshipSheetContent": "Adicione um tema de Companhia com tags de poder, uma tag de fraqueza e uma Missão. Você também pode adicionar temas da história e tags de história.",
+		"TOURS.FellowshipSetupTitle": "Adicionar um Tema de Companhia",
+		"TOURS.FellowshipSetupContent": "<strong>Solte um Livro de Tema de Companhia</strong> aqui para criar o tema da Companhia. Use-o para definir o título do grupo, tags de poder, tag de fraqueza e Missão.",
+		"TOURS.FellowshipSyncTitle": "Compartilhado com Todos os Heróis",
+		"TOURS.FellowshipSyncContent": "O tema e as tags da Companhia aparecem na ficha de todos os Heróis. Alterações feitas na Companhia são exibidas ali automaticamente."
 	}
 }
