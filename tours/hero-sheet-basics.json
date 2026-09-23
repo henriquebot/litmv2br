@@ -50,23 +50,25 @@
 			"content": "TOURS.HeroSheetBasicsSummaryContent"
 		}
 	],
-	"suggestedNextTours": ["litmv2.fellowship"],
+	"suggestedNextTours": [
+		"litmv2.fellowship"
+	],
 	"localization": {
-		"TOURS.HeroSheetBasicsTitle": "Hero Sheet Basics",
-		"TOURS.HeroSheetBasicsDescription": "Learn how to edit a Hero and make a roll.",
-		"TOURS.HeroSheetBasicsWelcomeTitle": "Hero Sheet Basics",
-		"TOURS.HeroSheetBasicsWelcomeContent": "This tour opens a sample Hero and explains the main sheet controls.",
-		"TOURS.HeroSheetBasicsEditModeTitle": "Play and Edit Modes",
-		"TOURS.HeroSheetBasicsEditModeContent": "Use this button to switch between <strong>Play</strong> and <strong>Edit</strong>. Edit Mode lets you change themes, tags, and Hero details.<br/><br/>Keyboard shortcut: <strong>E</strong>",
-		"TOURS.HeroSheetBasicsRollTitle": "Dice Roller",
-		"TOURS.HeroSheetBasicsRollContent": "Click tags to add them to the roll, then click this button to open the roll window.<br/><br/>Keyboard shortcut: <strong>R</strong>",
-		"TOURS.HeroSheetBasicsPromiseTitle": "Promise Track",
-		"TOURS.HeroSheetBasicsPromiseContent": "The <strong>Promise track</strong> records progress toward a Moment of Fulfillment. Click a box to mark Promise. At 5 Promise, record a <strong>Moment of Fulfillment</strong>.",
-		"TOURS.HeroSheetBasicsThemeTagsTitle": "Themes & Tags",
-		"TOURS.HeroSheetBasicsThemeTagsContent": "Each theme has <strong>power tags</strong> and <strong>weakness tags</strong>. Click a power tag to add it to a roll. The Narrator or an opponent can invoke a weakness tag.<br/><br/>A theme also has a <strong>Quest</strong> and advancement tracks. Mark their boxes during play.",
-		"TOURS.HeroSheetBasicsLayoutTitle": "Sheet Layout",
-		"TOURS.HeroSheetBasicsLayoutContent": "Open the <i class=\"fa-solid fa-ellipsis-vertical\"></i> menu and select <strong>Sheet Configuration</strong> to choose the narrow <strong>Portrait</strong> layout or wide <strong>Landscape</strong> layout.",
-		"TOURS.HeroSheetBasicsSummaryTitle": "Shortcuts",
-		"TOURS.HeroSheetBasicsSummaryContent": "<strong>E</strong> = toggle Edit Mode<br/><strong>R</strong> = open the dice roller<br/><br/>In Play Mode, click tags to add them to a roll. Use Edit Mode to change themes, tags, and Hero details."
+		"TOURS.HeroSheetBasicsTitle": "Noções Básicas da Ficha de Herói",
+		"TOURS.HeroSheetBasicsDescription": "Aprenda a editar um Herói e fazer uma rolagem.",
+		"TOURS.HeroSheetBasicsWelcomeTitle": "Noções Básicas da Ficha de Herói",
+		"TOURS.HeroSheetBasicsWelcomeContent": "Este tutorial abre um Herói de exemplo e explica os principais controles da ficha.",
+		"TOURS.HeroSheetBasicsEditModeTitle": "Modos de Jogo e Edição",
+		"TOURS.HeroSheetBasicsEditModeContent": "Use este botão para alternar entre <strong>Jogo</strong> e <strong>Edição</strong>. O Modo de Edição permite alterar temas, tags e detalhes do Herói.<br/><br/>Atalho de teclado: <strong>E</strong>",
+		"TOURS.HeroSheetBasicsRollTitle": "Rolador de Dados",
+		"TOURS.HeroSheetBasicsRollContent": "Clique nas tags para adicioná-las à rolagem e depois clique neste botão para abrir a janela de rolagem.<br/><br/>Atalho de teclado: <strong>R</strong>",
+		"TOURS.HeroSheetBasicsPromiseTitle": "Trilha de Promessa",
+		"TOURS.HeroSheetBasicsPromiseContent": "A <strong>trilha de Promessa</strong> registra o progresso até um Momento de Realização. Clique em uma caixa para marcar Promessa. Ao chegar a 5 de Promessa, registre um <strong>Momento de Realização</strong>.",
+		"TOURS.HeroSheetBasicsThemeTagsTitle": "Temas e Tags",
+		"TOURS.HeroSheetBasicsThemeTagsContent": "Cada tema possui <strong>tags de poder</strong> e <strong>tags de fraqueza</strong>. Clique em uma tag de poder para adicioná-la a uma rolagem. O Narrador ou um oponente pode invocar uma tag de fraqueza.<br/><br/>Um tema também possui uma <strong>Missão</strong> e trilhas de avanço. Marque suas caixas durante o jogo.",
+		"TOURS.HeroSheetBasicsLayoutTitle": "Layout da Ficha",
+		"TOURS.HeroSheetBasicsLayoutContent": "Abra o menu <i class=\"fa-solid fa-ellipsis-vertical\"></i> e selecione <strong>Configuração da Ficha</strong> para escolher o layout estreito <strong>Retrato</strong> ou o layout largo <strong>Paisagem</strong>.",
+		"TOURS.HeroSheetBasicsSummaryTitle": "Atalhos",
+		"TOURS.HeroSheetBasicsSummaryContent": "<strong>E</strong> = alternar Modo de Edição<br/><strong>R</strong> = abrir o rolador de dados<br/><br/>No Modo de Jogo, clique em tags para adicioná-las a uma rolagem. Use o Modo de Edição para alterar temas, tags e detalhes do Herói."
 	}
 }

@@ -3,7 +3,7 @@
 	"type": "hero",
 	"system": {
 		"promise": 0,
-		"description": "<p><span class=\"litm--ingress\">A SPIRITED WOODLAND HUNTSMAN DEDICATED ABOVE ALL TO HIS FAMILY.</span></p><blockquote><p>\"Shhhh.... quiet. Can you hear it?... It's everywhere. The forest. It has its own life, its own breath. Sometimes I sit here alone, like this, and just fall into it. It feels like plunging into a chilly, clear pond. I'm somehow more awake, more... here. I can hear every critter squeak and every reindeer huff. And deeper, the crawling and teeming in every rotten log and every creaking branch. And I can hear the wind, ruffling the leaves like my mother used to ruffle my hair. This forest is alive, and we are nothing but its lucky houseguests.\"</p></blockquote>",
+		"description": "<p><span class=\"litm--ingress\">UM CAÇADOR DA FLORESTA CHEIO DE VITALIDADE, DEVOTADO ACIMA DE TUDO À SUA FAMÍLIA.</span></p><blockquote><p>\"Shhh.... silêncio. Consegue ouvir?... Está por toda parte. A floresta. Ela tem vida própria, sua própria respiração. Às vezes fico aqui sozinho, assim, e simplesmente me deixo mergulhar nela. É como entrar em um lago frio e cristalino. De algum jeito, fico mais desperto, mais... presente. Consigo ouvir cada bichinho guinchando e cada rena bufando. E, mais fundo, tudo que rasteja e fervilha em cada tronco apodrecido e em cada galho que range. E consigo ouvir o vento, agitando as folhas como minha mãe costumava bagunçar meu cabelo. Esta floresta está viva, e nós não passamos de hóspedes sortudos em sua casa.\"</p></blockquote>",
 		"relationships": [],
 		"mof": [],
 		"fellowshipId": "",
@@ -14,17 +14,17 @@
 	},
 	"items": [
 		{
-			"name": "Deer Stalker",
+			"name": "Caçador de Cervos",
 			"type": "theme",
 			"img": "systems/litmv2/assets/media/icons/origin.svg",
 			"system": {
-				"themebook": "Circumstance",
+				"themebook": "Circunstância",
 				"level": "origin",
 				"powerTags": [
 					{
 						"isActive": true,
 						"question": "",
-						"name": "Stealthy step",
+						"name": "Passos furtivos",
 						"type": "powerTag",
 						"id": "y93nGj8mVaY0FGZ4",
 						"isScratched": false
@@ -32,7 +32,7 @@
 					{
 						"isActive": true,
 						"question": "",
-						"name": "Keen senses",
+						"name": "Sentidos aguçados",
 						"type": "powerTag",
 						"id": "DpyX5XgGyU4rqmJ8",
 						"isScratched": false
@@ -40,7 +40,7 @@
 					{
 						"isActive": false,
 						"question": "",
-						"name": "Quiet communion",
+						"name": "Comunhão silenciosa",
 						"type": "powerTag",
 						"id": "VRFAxwE43NDfeBf3",
 						"isScratched": false
@@ -48,7 +48,7 @@
 					{
 						"isActive": false,
 						"question": "",
-						"name": "Trade game and furs",
+						"name": "Comercializar caça e peles",
 						"type": "powerTag",
 						"id": "mbB963rQH7IWeNdU",
 						"isScratched": false
@@ -56,7 +56,7 @@
 					{
 						"isActive": false,
 						"question": "",
-						"name": "Living off the land",
+						"name": "Viver da terra",
 						"type": "powerTag",
 						"id": "cx4dGGG42OGaJAsh",
 						"isScratched": false
@@ -66,7 +66,7 @@
 					{
 						"isActive": true,
 						"question": "",
-						"name": "Loner",
+						"name": "Solitário",
 						"type": "weaknessTag",
 						"id": "UM7WYAPzEW3uHJww",
 						"isScratched": false
@@ -76,7 +76,7 @@
 					"value": 0
 				},
 				"quest": {
-					"description": "I must safeguard the delicate balance of the forest.",
+					"description": "Preciso proteger o delicado equilíbrio da floresta.",
 					"tracks": {
 						"abandon": {
 							"value": 0
@@ -89,12 +89,12 @@
 				"specialImprovements": [
 					{
 						"isActive": false,
-						"name": "Comfort Zone",
-						"description": "When you camp or sojourn in the forest, you may recover one scratched power tag in addition to any other benefits."
+						"name": "Zona de Conforto",
+						"description": "Quando você acampa ou permanece na floresta, pode recuperar uma tag de poder riscada além de quaisquer outros benefícios."
 					}
 				],
 				"isScratched": false,
-				"description": "<p>High in the tree-covered mountains of Hartland, deep in the Shady Forest, there lives a young deer stalker named Gerrin. Leading the simple life of a hunter, he sets out every day deep into the woods to hunt and provide for his family. Sometimes he's gone for days at a time, living under the dense canopy in solitary tranquility. For he loves the forest and respects it and guards it as a steward.</p>",
+				"description": "<p>No alto das montanhas cobertas de árvores de Hartland, nas profundezas da Floresta Sombria, vive um jovem caçador de cervos chamado Gerrin. Levando a vida simples de um caçador, ele se aventura todos os dias mata adentro para caçar e sustentar sua família. Às vezes passa dias fora, vivendo sob a copa densa em tranquila solidão. Pois ele ama a floresta, respeita-a e a protege como seu guardião.</p>",
 				"isFellowship": false,
 				"note": ""
 			},
@@ -103,17 +103,17 @@
 			"sort": 0
 		},
 		{
-			"name": "Skilled with a Bow",
+			"name": "Hábil com o Arco",
 			"type": "theme",
 			"img": "systems/litmv2/assets/media/icons/origin.svg",
 			"system": {
-				"themebook": "Skill or Trade",
+				"themebook": "Habilidade ou Ofício",
 				"level": "origin",
 				"powerTags": [
 					{
 						"isActive": true,
 						"question": "",
-						"name": "Father's yew bow",
+						"name": "Arco de teixo do meu pai",
 						"type": "powerTag",
 						"id": "dGXEz1MgHDr8CRA4",
 						"isScratched": false
@@ -121,7 +121,7 @@
 					{
 						"isActive": true,
 						"question": "",
-						"name": "Rapid second arrow",
+						"name": "Segunda flecha veloz",
 						"type": "powerTag",
 						"id": "idLFzrTs3JbXZM2E",
 						"isScratched": false
@@ -129,7 +129,7 @@
 					{
 						"isActive": false,
 						"question": "",
-						"name": "Close combat",
+						"name": "Combate corpo a corpo",
 						"type": "powerTag",
 						"id": "KvoSCNL0Feyeljib",
 						"isScratched": false
@@ -137,7 +137,7 @@
 					{
 						"isActive": false,
 						"question": "",
-						"name": "Take aim",
+						"name": "Mirar com cuidado",
 						"type": "powerTag",
 						"id": "t1WgGbLeENpzixYu",
 						"isScratched": false
@@ -145,7 +145,7 @@
 					{
 						"isActive": false,
 						"question": "",
-						"name": "Hobbling shot",
+						"name": "Disparo incapacitante",
 						"type": "powerTag",
 						"id": "TaDLJ2CilvxLWO7Y",
 						"isScratched": false
@@ -155,7 +155,7 @@
 					{
 						"isActive": true,
 						"question": "",
-						"name": "Swat away attacks",
+						"name": "Afastar ataques",
 						"type": "weaknessTag",
 						"id": "xyH2Gdgq0bea9b0g",
 						"isScratched": false
@@ -165,7 +165,7 @@
 					"value": 0
 				},
 				"quest": {
-					"description": "Every arrow I loose is a choice.",
+					"description": "Cada flecha que disparo é uma escolha.",
 					"tracks": {
 						"abandon": {
 							"value": 0
@@ -178,12 +178,12 @@
 				"specialImprovements": [
 					{
 						"isActive": false,
-						"name": "Learn from My Mistakes",
-						"description": "Once per scene, when you act using tags from this theme and don't Succeed, mark Improve on this theme."
+						"name": "Aprender com Meus Erros",
+						"description": "Uma vez por cena, quando você agir usando tags deste tema e não obtiver Sucesso, marque Aprimoramento neste tema."
 					}
 				],
 				"isScratched": false,
-				"description": "<p>Before he left their home on a matter of importance he never explained, Gerrin's father gave him a well-crafted curved bow made out of the boughs of a yew tree, sacred and known for its protective properties. \"It will serve you well, but only if you master it,\" said Father. Since then, Gerrin has practiced without ceasing, honing his archery further and further, and gaining a reputation among the woodland hunters.</p>",
+				"description": "<p>Antes de deixar o lar por uma questão importante que nunca explicou, o pai de Gerrin lhe deu um arco curvo muito bem trabalhado, feito de galhos de teixo — árvore sagrada conhecida por suas propriedades protetoras. \"Ele servirá bem a você, mas apenas se você dominá-lo\", disse seu pai. Desde então, Gerrin pratica sem descanso, aperfeiçoando cada vez mais sua arquearia e conquistando reputação entre os caçadores da floresta.</p>",
 				"isFellowship": false,
 				"note": ""
 			},
@@ -192,17 +192,17 @@
 			"sort": 0
 		},
 		{
-			"name": "Spirited Youth",
+			"name": "Jovem Impetuoso",
 			"type": "theme",
 			"img": "systems/litmv2/assets/media/icons/origin.svg",
 			"system": {
-				"themebook": "Personality",
+				"themebook": "Personalidade",
 				"level": "origin",
 				"powerTags": [
 					{
 						"isActive": true,
 						"question": "",
-						"name": "Untapped fierceness",
+						"name": "Ferocidade inexplorada",
 						"type": "powerTag",
 						"id": "NvUhx1cgTHCYGLKn",
 						"isScratched": false
@@ -210,7 +210,7 @@
 					{
 						"isActive": true,
 						"question": "",
-						"name": "Inner compass",
+						"name": "Bússola interior",
 						"type": "powerTag",
 						"id": "LBhBZJZmB1KdPPZ7",
 						"isScratched": false
@@ -218,7 +218,7 @@
 					{
 						"isActive": false,
 						"question": "",
-						"name": "Tough it out",
+						"name": "Aguentar firme",
 						"type": "powerTag",
 						"id": "6VNJ6UCZeZ0VKVer",
 						"isScratched": false
@@ -226,7 +226,7 @@
 					{
 						"isActive": false,
 						"question": "",
-						"name": "Do something unexpected",
+						"name": "Fazer algo inesperado",
 						"type": "powerTag",
 						"id": "QiEQSkQduVecM1Ki",
 						"isScratched": false
@@ -234,7 +234,7 @@
 					{
 						"isActive": false,
 						"question": "",
-						"name": "Contagious joy of life",
+						"name": "Alegria de viver contagiante",
 						"type": "powerTag",
 						"id": "Q2XmlHqyIDRAF80M",
 						"isScratched": false
@@ -242,7 +242,7 @@
 					{
 						"isActive": false,
 						"question": "",
-						"name": "Made of sterner stuff",
+						"name": "Feito de fibra resistente",
 						"type": "powerTag",
 						"id": "Xzvcl3UpPoL3tOso",
 						"isScratched": false
@@ -252,7 +252,7 @@
 					{
 						"isActive": true,
 						"question": "",
-						"name": "Hard-headed",
+						"name": "Cabeça-dura",
 						"type": "weaknessTag",
 						"id": "uFOq0owTNlc0JrHu",
 						"isScratched": false
@@ -262,7 +262,7 @@
 					"value": 0
 				},
 				"quest": {
-					"description": "Never surrender to darkness or despair.",
+					"description": "Nunca me render à escuridão ou ao desespero.",
 					"tracks": {
 						"abandon": {
 							"value": 0
@@ -275,12 +275,12 @@
 				"specialImprovements": [
 					{
 						"isActive": false,
-						"name": "Unshakeable",
-						"description": "Once per scene, when you react to lessen social or emotional Consequences and get a total result of 7 or above, you may spend all your Power to completely avoid all Consequence Effects."
+						"name": "Inabalável",
+						"description": "Uma vez por cena, quando você reagir para reduzir Consequências sociais ou emocionais e obtiver um resultado total de 7 ou mais, pode gastar todo o seu Poder para evitar completamente todos os Efeitos de Consequência."
 					}
 				],
 				"isScratched": false,
-				"description": "<p>Since the day he was born, Gerrin had a special spark to him. His mother told him many times that she's seen it in his eyes as a child and that the local Wise One had always looked at him differently: approvingly, perhaps, but also with a touch of concern. Gerrin grew up to be a fierce boy, unyielding and stubborn, but with a great force of life. Something within him shines through.</p>",
+				"description": "<p>Desde o dia em que nasceu, Gerrin tinha algo especial dentro de si. Sua mãe lhe contou muitas vezes que via isso em seus olhos quando criança e que o Sábio local sempre o observava de modo diferente: com aprovação, talvez, mas também com certa preocupação. Gerrin cresceu como um garoto feroz, irredutível e teimoso, mas cheio de uma enorme força de vida. Algo dentro dele transparece.</p>",
 				"isFellowship": false,
 				"note": ""
 			},
@@ -289,17 +289,17 @@
 			"sort": 0
 		},
 		{
-			"name": "Devoted to Family",
+			"name": "Devotado à Família",
 			"type": "theme",
 			"img": "systems/litmv2/assets/media/icons/origin.svg",
 			"system": {
-				"themebook": "Devotion",
+				"themebook": "Devoção",
 				"level": "origin",
 				"powerTags": [
 					{
 						"isActive": true,
 						"question": "",
-						"name": "Good listener",
+						"name": "Bom ouvinte",
 						"type": "powerTag",
 						"id": "87pAzz8dmP8iyquu",
 						"isScratched": false
@@ -307,7 +307,7 @@
 					{
 						"isActive": true,
 						"question": "",
-						"name": "Lend a helping hand",
+						"name": "Dar uma mão",
 						"type": "powerTag",
 						"id": "fWj8Vu3swhJDOThP",
 						"isScratched": false
@@ -315,7 +315,7 @@
 					{
 						"isActive": false,
 						"question": "",
-						"name": "Chippie's little traps",
+						"name": "Pequenas armadilhas de Chippie",
 						"type": "powerTag",
 						"id": "TJI3QPhkGFDElQgO",
 						"isScratched": false
@@ -323,7 +323,7 @@
 					{
 						"isActive": false,
 						"question": "",
-						"name": "Grandpa's tales of old",
+						"name": "Histórias antigas do vovô",
 						"type": "powerTag",
 						"id": "TdOo5WGNUkracuZX",
 						"isScratched": false
@@ -331,7 +331,7 @@
 					{
 						"isActive": false,
 						"question": "",
-						"name": "Family is my soft spot",
+						"name": "Minha família é meu ponto fraco",
 						"type": "powerTag",
 						"id": "Fhp8YDYXsErbOCJS",
 						"isScratched": false
@@ -341,7 +341,7 @@
 					{
 						"isActive": true,
 						"question": "",
-						"name": "Family is my soft spot",
+						"name": "Minha família é meu ponto fraco",
 						"type": "weaknessTag",
 						"id": "gNmWLpZGq47ghe0U",
 						"isScratched": false
@@ -351,7 +351,7 @@
 					"value": 0
 				},
 				"quest": {
-					"description": "Whatever may come, I'll be there for them.",
+					"description": "Aconteça o que acontecer, estarei ao lado deles.",
 					"tracks": {
 						"abandon": {
 							"value": 0
@@ -364,12 +364,12 @@
 				"specialImprovements": [
 					{
 						"isActive": false,
-						"name": "Goes Both Ways",
-						"description": "Once per session, if the object of your Devotion is near, you may gain a story tag representing aid granted by them, such as an item, encouragement, knowledge, or direct help."
+						"name": "Via de Mão Dupla",
+						"description": "Uma vez por sessão, se o alvo de sua Devoção estiver por perto, você pode ganhar uma tag de história representando a ajuda concedida por ele, como um item, incentivo, conhecimento ou auxílio direto."
 					}
 				],
 				"isScratched": false,
-				"description": "<p>Gerrin lives in a mountainside cabin with his mother, grandfather, and little brother Chippie. Except for his forest forays and for a special annual trip they take to the nearby hamlet of Hartwood, these three are his entire world. His mother's wise advice and knowing looks, his grandfather's ramblings about ancient kingdoms, and Chippie's little pranks and stunts - he cherishes these things above all else.</p>",
+				"description": "<p>Gerrin vive em uma cabana na encosta da montanha com sua mãe, seu avô e seu irmão caçula Chippie. Exceto por suas incursões pela floresta e por uma viagem anual especial que fazem ao povoado próximo de Hartwood, esses três são todo o seu mundo. Os conselhos sábios e olhares compreensivos de sua mãe, as divagações do avô sobre reinos antigos e as pequenas travessuras e peripécias de Chippie — ele valoriza essas coisas acima de tudo.</p>",
 				"isFellowship": false,
 				"note": ""
 			},
@@ -378,13 +378,13 @@
 			"sort": 0
 		},
 		{
-			"name": "Backpack",
+			"name": "Mochila",
 			"type": "backpack",
 			"img": "systems/litmv2/assets/media/icons/backpack.svg",
 			"system": {
 				"contents": [
 					{
-						"name": "Protective charm",
+						"name": "Amuleto protetor",
 						"type": "backpack",
 						"isActive": true,
 						"id": "",
@@ -392,7 +392,7 @@
 						"isScratched": false
 					},
 					{
-						"name": "Extra quiver of arrows",
+						"name": "Aljava extra de flechas",
 						"type": "backpack",
 						"isActive": false,
 						"id": "",
@@ -400,7 +400,7 @@
 						"isScratched": false
 					},
 					{
-						"name": "Whistling signal arrow",
+						"name": "Flecha sinalizadora assobiadora",
 						"type": "backpack",
 						"isActive": false,
 						"id": "",
@@ -408,7 +408,7 @@
 						"isScratched": false
 					},
 					{
-						"name": "Hunter's knife",
+						"name": "Faca de caçador",
 						"type": "backpack",
 						"isActive": false,
 						"id": "",
@@ -416,7 +416,7 @@
 						"isScratched": false
 					},
 					{
-						"name": "Bedroll",
+						"name": "Saco de dormir",
 						"type": "backpack",
 						"isActive": false,
 						"id": "",
@@ -424,7 +424,7 @@
 						"isScratched": false
 					},
 					{
-						"name": "Oilskin cloak",
+						"name": "Capa impermeável",
 						"type": "backpack",
 						"isActive": false,
 						"id": "",
@@ -432,7 +432,7 @@
 						"isScratched": false
 					},
 					{
-						"name": "Snowshoes",
+						"name": "Raquetes de neve",
 						"type": "backpack",
 						"isActive": false,
 						"id": "",

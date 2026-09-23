@@ -204,7 +204,7 @@ export class LitmSettings {
 
 		game.settings.register("litmv2", "welcomed", {
 			name: "LITM.Settings.welcome_screen",
-			hint: "Welcome Scene, Message, and Journal Entry has been created and displayed.",
+			hint: "A cena, a mensagem e a entrada de diário de boas-vindas foram criadas e exibidas.",
 			scope: "world",
 			config: false,
 			type: Boolean,
@@ -213,7 +213,7 @@ export class LitmSettings {
 
 		game.settings.register("litmv2", "storytags", {
 			name: "LITM.Settings.story_tags",
-			hint: "Sidebar configuration: tracked actors, limits, and visibility.",
+			hint: "Configuração da barra lateral: Atores acompanhados, limites e visibilidade.",
 			scope: "world",
 			config: false,
 			type: Object,
@@ -223,14 +223,14 @@ export class LitmSettings {
 			},
 		});
 		game.settings.register("litmv2", "systemMigrationVersion", {
-			name: "System Migration Version",
+			name: "Versão de Migração do Sistema",
 			scope: "world",
 			config: false,
 			type: Number,
 			default: -1,
 		});
 		game.settings.register("litmv2", "fellowshipId", {
-			name: "Fellowship Actor ID",
+			name: "ID do Ator Companhia",
 			scope: "world",
 			config: false,
 			type: String,

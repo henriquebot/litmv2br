@@ -1,22 +1,27 @@
 <div align="center"><img src="./assets/media/litm_splash.webp" /></div>
-<h1 align="center">⚜️<a href="https://sonofoak.com/pages/legend-in-the-mist" rel="noreferrer" target="_blank">Legend in the Mist: Unofficial</a>⚜</h1>
-<div align="center"><strong><em>Unofficial Community System for Foundry Virtual Tabletop</em></strong></div>
+<h1 align="center">⚜️<a href="https://sonofoak.com/pages/legend-in-the-mist" rel="noreferrer" target="_blank">Legend in the Mist: Unofficial — PT-BR</a>⚜</h1>
+<div align="center"><strong><em>Sistema comunitário não oficial para Foundry Virtual Tabletop — Português do Brasil</em></strong></div>
 <div align="center"><img width="30px" src="https://foundryvtt.com/static/assets/icons/fvtt.png" /></div>
 
 <br />
 
-> Spin a fireside tale of villagers and other unlikely heroes setting out on a quest into a greater unknown world, rife with peril and mystery.
+> Conte uma história ao redor da fogueira sobre aldeões e outros heróis improváveis que partem em uma jornada rumo a um mundo maior e desconhecido, repleto de perigos e mistérios.
 
-## Welcome to Legend in the Mist
+## Boas-vindas a Legend in the Mist
 
-This is an unofficial, community-made system for playing **Legend in the Mist** in Foundry Virtual Tabletop. It is not affiliated with or endorsed by Son of Oak Game Studio.
+Este é um sistema comunitário e não oficial para jogar **Legend in the Mist** no Foundry Virtual Tabletop, com tradução para **Português do Brasil**.
 
-## Installation
+O projeto original não é afiliado nem endossado pela Son of Oak Game Studio.
 
-1. Find the system called "Legend in the Mist: Unofficial" in the systems list in the setup menu.
+## Instalação
 
-2. Create a new world using the "Legend in the Mist: Unofficial" system.
+1. No Foundry VTT, abra a instalação de sistemas por URL de manifesto.
+2. Use o arquivo `system.json` desta versão PT-BR.
+3. Crie um novo mundo usando **Legend in the Mist: Unofficial — PT-BR**.
+4. Em **Configurações → Idioma**, selecione **Português (Brasil)**.
 
-\*_This is a fan-made project. Legend in the Mist is a game by **Son of Oak Game Studio**._
+## Projeto original
 
-_If you feel like you could contribute something don't hesitate with contacting me @aMediocreDad._
+Esta tradução é baseada no sistema comunitário **Legend in the Mist: Unofficial**, criado por Filip Ambrosius e pela comunidade Son of Oak.
+
+_Projeto de fã. Legend in the Mist é um jogo da **Son of Oak Game Studio**._
