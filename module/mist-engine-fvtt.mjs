@@ -29,7 +29,7 @@ import { FloatingTagAndStatusAdapter } from "./lib/floating-tag-and-status-adapt
 // Import DataModel classes
 import * as models from "./data/_module.mjs";
 import { setupMistEngineKeyBindings } from "./lib/key-binding.mjs";
-import { setupConfiguration } from "./lib/configuration.mjs";
+import { setupConfiguration, applyVisualTheme } from "./lib/configuration.mjs";
 import { setupHooks } from "./lib/hooks.mjs";
 import { RollConfirmation } from "./lib/roll-confirmation.mjs";
 import * as DetailedSpend from "./lib/detailed-spend.mjs";
@@ -214,6 +214,8 @@ registerHandlebarHelpers();
 Hooks.once("ready", async function () {
   if (needsMigration()) await migrateWorld();
 
+  applyVisualTheme();
+
   RollConfirmation.setup();
   DetailedSpend.setup();
   Collaboration.setup();
@@ -276,7 +278,7 @@ async function createItemMacro(data, slot) {
   if (data.type !== "Item") return;
   if (!data.uuid.includes("Actor.") && !data.uuid.includes("Token.")) {
     return ui.notifications.warn(
-      "You can only create macro buttons for owned Items"
+      game.i18n.localize("MIST_ENGINE.NOTIFICATIONS.OwnedItemsMacroOnly")
     );
   }
   // If it is, retrieve it based on the uuid.
@@ -317,7 +319,7 @@ function rollItemMacro(itemUuid) {
     if (!item || !item.parent) {
       const itemName = item?.name ?? itemUuid;
       return ui.notifications.warn(
-        `Could not find item ${itemName}. You may need to delete and recreate this macro.`
+        game.i18n.format("MIST_ENGINE.NOTIFICATIONS.MacroItemNotFound", { itemName })
       );
     }
 
