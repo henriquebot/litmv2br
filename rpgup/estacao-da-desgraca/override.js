@@ -15,6 +15,49 @@
   var selectedPersonality = 0;
   var selectedPast = 0;
 
+  function installPlayerName(){
+    if(el("playerName")) return;
+    var nameInput=el("name");
+    if(!nameInput) return;
+    var step=nameInput.closest(".step");
+    if(!step) return;
+
+    var label=document.createElement("label");
+    label.setAttribute("for","playerName");
+    label.className="player-name-label";
+    label.textContent="Seu nome (jogador)";
+
+    var input=document.createElement("input");
+    input.id="playerName";
+    input.autocomplete="name";
+    input.placeholder="Ex.: João Silva";
+    input.className="player-name-input";
+
+    var note=document.createElement("div");
+    note.className="player-name-note";
+    note.textContent="Uso administrativo — seu nome não aparece no dossiê do personagem.";
+
+    var characterLabel=step.querySelector('label[for="name"]');
+    if(characterLabel){
+      characterLabel.parentNode.insertBefore(label,characterLabel);
+      characterLabel.parentNode.insertBefore(input,characterLabel);
+      characterLabel.parentNode.insertBefore(note,characterLabel);
+    }
+  }
+
+  function installHRSignature(){
+    var sig=document.querySelector("#file .signature");
+    if(!sig) return;
+    var spans=sig.querySelectorAll("span");
+    if(spans.length>1){
+      spans[1].textContent="RESP. RH: ELIAS MERCER";
+    }else{
+      var s=document.createElement("span");
+      s.textContent="RESP. RH: ELIAS MERCER";
+      sig.appendChild(s);
+    }
+  }
+
   function installPortrait(){
     var callsign = el("callsign");
     var initials = el("initials");
@@ -593,6 +636,7 @@
     var role=safeText(value("roleCustom"),(d && d.roles && d.roles[ri] ? d.roles[ri].name : ""));
     var motive=safeText(value("motiveCustom"),(d && d.motives && d.motives[mi] ? d.motives[mi].text : ""));
     return {
+      playerName:value("playerName"),
       name:name,
       callsign:safeText(value("callsign"),name ? name.split(" ").slice(-1)[0] : ""),
       role:role,
@@ -648,8 +692,13 @@
     var btn=el("submitDossier");
     var p=currentDossierPayload();
 
+    if(!p.playerName){
+      if(status) status.textContent="Preencha seu nome de jogador antes de enviar.";
+      var pn=el("playerName"); if(pn) pn.focus();
+      return;
+    }
     if(!p.name || !p.role){
-      if(status) status.textContent="Preencha pelo menos o nome e a função antes de enviar.";
+      if(status) status.textContent="Preencha pelo menos o nome do personagem e a função antes de enviar.";
       return;
     }
     if(!cfg.restUrl){
@@ -664,7 +713,9 @@
       var res=await fetch(cfg.restUrl,{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(p)
+        body:JSON.stringify(Object.assign({},p,{
+          callsign:(p.callsign ? p.callsign+" // " : "")+"JOGADOR: "+p.playerName
+        }))
       });
       var data={};
       try{data=await res.json();}catch(e){}
@@ -697,7 +748,7 @@
         '<button type="button" class="action amber" id="submitDossier">Enviar dossiê ao Consórcio</button>'+
         '<button type="button" class="action secondary" id="shareDossier">Compartilhar personagem</button>'+
       '</div>'+
-      '<div class="final-actions-status" id="dossierActionStatus">O envio usa o e-mail administrativo do RPG Up. A foto não é enviada; apenas os dados do dossiê e dos quatro temas.</div>';
+      '<div class="final-actions-status" id="dossierActionStatus">O envio usa o e-mail administrativo do RPG Up. Seu nome de jogador vai apenas no aviso ao mestre. A foto não é enviada.</div>';
 
     panel.insertAdjacentElement("afterend",section);
     el("submitDossier").addEventListener("click",submitDossier);
@@ -723,7 +774,9 @@
   }
 
   upgradeCatalogAndTags();
+  installPlayerName();
   installPortrait();
+  installHRSignature();
   installSourceSelectors();
   installThemes();
   installFinalActions();
@@ -733,7 +786,7 @@
   var generate=el("generate");
   if (generate) generate.remove();
 
-  ["name","callsign","roleCustom","motiveCustom","leftBehind","incident","object"].forEach(function(id){
+  ["playerName","name","callsign","roleCustom","motiveCustom","leftBehind","incident","object"].forEach(function(id){
     var n=el(id);
     if (n) n.addEventListener("input",function(){ later(refresh); });
   });
