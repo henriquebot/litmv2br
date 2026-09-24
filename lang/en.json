@@ -487,7 +487,8 @@
       "FumbleDoubleOnes": "Fumble Roll — Double Ones",
       "RightClickToggleTagState": "Right click to toggle between tag and status",
       "TogglePositiveNegative": "Toggle between positive and negative",
-      "RightClickToggleModifier": "Right click to toggle the modifier between positive and negative"
+      "RightClickToggleModifier": "Right click to toggle the modifier between positive and negative",
+      "Power": "Power"
     },
     "ROLL_TYPES": {
       "detailed": "Detailed Roll",
