@@ -324,10 +324,10 @@ export class MistEngineItemThemekitSheet extends HandlebarsApplicationMixin(Item
         
         // use dialogv2 to create a dialog with a textarea input for the CSV data
         const csvData = await foundry.applications.api.DialogV2.prompt({
-            window: {title: "Import Tags from CSV"},
-            content: `<p>Paste your CSV data below. Commas separate tags. Wrap a tag in quotes to include commas within it (e.g. "maps, plans, and schematics").</p><textarea name="csvData" rows="10" style="width: 100%;"></textarea>`,
+            window: {title: game.i18n.localize("MIST_ENGINE.IMPORT.TagsCsvTitle")},
+            content: `<p>${game.i18n.localize("MIST_ENGINE.IMPORT.TagsCsvHelp")}</p><textarea name="csvData" rows="10" style="width: 100%;"></textarea>`,
             ok: {
-                label: "Import",
+                label: game.i18n.localize("MIST_ENGINE.LABELS.Import"),
                 callback: (event, button, dialog) => {
                     return button.form.elements.csvData.value;
                 }
