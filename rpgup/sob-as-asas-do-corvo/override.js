@@ -225,6 +225,14 @@
     };
     const customSource={concept:null,relation:null,past:null};
 
+    const caravanSecretProfiles=[
+      {
+        title:'Tenho sangue do povo da caravana',
+        hint:'ascendência · família · origem escondida',
+        detail:'Parte da minha família veio do povo que viaja com a caravana — mas quase ninguém em Lar dos Corvos sabe disso.'
+      }
+    ];
+
     function setTags(i,tags,force){
       if(!force && userEdited[i]) return;
       if(field(i,'tag0')) field(i,'tag0').value=tags[0]||'';
@@ -378,6 +386,36 @@
       caravanProfiles.pasts.forEach(x=>addChoice(pastWrap,x,'past',3,'past'));
     }
 
+    function installCaravanSecretOptions(){
+      const wrap=$('secretChoices');
+      if(!wrap) return false;
+
+      caravanSecretProfiles.forEach(item=>{
+        if([...wrap.querySelectorAll('.choice strong')].some(s=>s.textContent.trim()===item.title)) return;
+        const b=document.createElement('button');
+        b.type='button';
+        b.className='choice';
+        b.dataset.caravanSecret='1';
+        b.innerHTML='<strong>'+item.title+'</strong><small>'+item.hint+'</small>';
+        b.addEventListener('click',()=>{
+          [...wrap.children].forEach(x=>x.classList.remove('active'));
+          b.classList.add('active');
+          const detail=$('secretDetail');
+          if(detail && !detail.value.trim()) detail.value=item.detail;
+          const out=$('outSecret');
+          if(out) out.textContent=item.title+(detail&&detail.value.trim()?' — '+detail.value.trim():'');
+        });
+        wrap.appendChild(b);
+      });
+      return true;
+    }
+
+    function ensureCaravanOptions(){
+      installCaravanHistoryOptions();
+      installCaravanSecretOptions();
+      addSubtleOptions();
+    }
+
     function addSubtleOptions(){
       const wrap=$('natureChoices');
       if(!wrap || wrap.querySelector('[data-remote-nature]')) return;
@@ -519,8 +557,14 @@
       guide.innerHTML='<strong>Como funciona:</strong> cada Theme começa com um <strong>Title Tag</strong> — que já conta como uma Power Tag — mais <strong>2 Power Tags</strong>, <strong>1 Weakness Tag</strong> e <strong>1 Quest</strong>. Uma boa Power Tag descreve algo que você consegue apontar na ficção e dizer “isso ajuda nesta ação”. Pode ser habilidade, traço, relação, passado, recurso ou equipamento. <strong>Teste rápido:</strong> se a frase servir para quase qualquer rolagem, ela está ampla demais.';
     }
 
-    installCaravanHistoryOptions();
-    addSubtleOptions();
+    ensureCaravanOptions();
+    [120,350,800,1600].forEach(ms=>setTimeout(ensureCaravanOptions,ms));
+
+    const caravanObserver=new MutationObserver(()=>ensureCaravanOptions());
+    ['conceptChoices','relationChoices','pastChoices','secretChoices','natureChoices'].forEach(id=>{
+      const node=$(id);
+      if(node) caravanObserver.observe(node,{childList:true,subtree:false});
+    });
 
     const themeGrid=$('themeGrid');
     if(themeGrid){
@@ -562,8 +606,7 @@
     if($('randomAll')) $('randomAll').addEventListener('click',()=>{
       userEdited.fill(false);
       setTimeout(()=>{
-        installCaravanHistoryOptions();
-        addSubtleOptions();
+        ensureCaravanOptions();
         if(Math.random()<0.30){
           const item=subtleNatures[Math.floor(Math.random()*subtleNatures.length)];
           const index=subtleNatures.indexOf(item);
