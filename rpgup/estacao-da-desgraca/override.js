@@ -677,7 +677,12 @@
     }catch(e){
       if(e && e.name==="AbortError") return;
       var status=el("dossierActionStatus");
-      if(status) status.textContent="Não foi possível abrir o compartilhamento. Copie o link da página.";
+      try{
+        window.prompt("Copie e compartilhe este resumo:",text+"\n"+url);
+        if(status) status.textContent="Resumo pronto para copiar e compartilhar.";
+      }catch(_){
+        if(status) status.textContent="Não foi possível abrir o compartilhamento. Copie o link da página.";
+      }
     }
   }
 
@@ -742,12 +747,18 @@
       '<div class="final-actions-buttons">'+
         '<button type="button" class="action amber" id="submitDossier">Enviar dossiê ao Consórcio</button>'+
         '<button type="button" class="action secondary" id="shareDossier">Compartilhar personagem</button>'+
+        '<button type="button" class="action secondary" id="generatePdf">Gerar PDF</button>'+
       '</div>'+
       '<div class="final-actions-status" id="dossierActionStatus">O envio usa o e-mail administrativo do RPG Up. Seu nome de jogador vai apenas no aviso ao mestre. A foto não é enviada.</div>';
 
     panel.insertAdjacentElement("afterend",section);
     el("submitDossier").addEventListener("click",submitDossier);
     el("shareDossier").addEventListener("click",shareDossier);
+    el("generatePdf").addEventListener("click",function(){
+      var status=el("dossierActionStatus");
+      if(status) status.textContent="Na janela de impressão, escolha “Salvar como PDF”.";
+      setTimeout(function(){ window.print(); },60);
+    });
   }
 
   function keepPortrait(){
