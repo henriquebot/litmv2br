@@ -1,0 +1,45 @@
+name: Validate PT-BR Layer
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'lang/**'
+      - 'module/**'
+      - 'templates/**'
+      - 'css/**'
+      - 'src/scss/**'
+      - 'system.json'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/validate-ptbr.yml'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JSON
+        shell: bash
+        run: |
+          node -e "JSON.parse(require('fs').readFileSync('system.json','utf8')); JSON.parse(require('fs').readFileSync('lang/en.json','utf8')); JSON.parse(require('fs').readFileSync('lang/pt-BR.json','utf8'));"
+      - name: Check JavaScript syntax
+        shell: bash
+        run: |
+          find module -name '*.mjs' -print0 | xargs -0 -n1 node --check
+      - name: Install build dependencies
+        run: npm ci
+      - name: Compile SCSS
+        run: npm run build
+      - name: Verify PT-BR manifest entries
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const s = JSON.parse(fs.readFileSync('system.json','utf8'));
+          if (!s.languages?.some(x => x.lang === 'pt-BR' && x.path === 'lang/pt-BR.json')) throw new Error('pt-BR language entry missing');
+          const styles = (s.styles ?? []).map(x => typeof x === 'string' ? x : x.src);
+          if (!styles.includes('css/theme-scifi.css')) throw new Error('Sci-Fi stylesheet missing from manifest');
+          if (!fs.existsSync('templates/how-to-play-app/dialog-pt-BR.hbs')) throw new Error('PT-BR How To Play template missing');
+          NODE
