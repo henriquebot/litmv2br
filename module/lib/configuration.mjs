@@ -18,6 +18,20 @@ export function setupConfiguration() {
     });
 
 
+    game.settings.register("mist-engine-fvtt", "visualTheme", {
+        name: "MIST_ENGINE.SETTINGS.VisualTheme",
+        hint: "MIST_ENGINE.SETTINGS.VisualThemeHint",
+        scope: "world",
+        config: true,
+        type: String,
+        choices: {
+            default: "MIST_ENGINE.SETTINGS.VisualThemeDefault",
+            scifi: "MIST_ENGINE.SETTINGS.VisualThemeScifi"
+        },
+        default: "default",
+        onChange: (value) => applyVisualTheme(value)
+    });
+
     // game.settings.get("mist-engine-fvtt", "mightUsageEnabled");
     game.settings.register("mist-engine-fvtt", "mightUsageEnabled", {
         name: "MIST_ENGINE.SETTINGS.MightUsageEnabled",
@@ -57,8 +71,8 @@ export function setupConfiguration() {
 
     // game.settings.get("mist-engine-fvtt", "gmRollConfirmation");
     game.settings.register("mist-engine-fvtt", "gmRollConfirmation", {
-        name: "GM Roll Confirmation",
-        hint: "Player rolls from the roll dialog must be confirmed by the GM before the dice are rolled. The GM sees the player's selection and can approve or reject it.",
+        name: "MIST_ENGINE.SETTINGS.GmRollConfirmation",
+        hint: "MIST_ENGINE.SETTINGS.GmRollConfirmationHint",
         scope: "world",
         config: true,
         type: Boolean,
@@ -113,8 +127,8 @@ export function setupConfiguration() {
     });
 
     game.settings.register("mist-engine-fvtt", "tidyTagsOnCharacterSheet", {
-        name: "Tidy Tags on Character Sheet",
-        hint: "Hide planned tags and eliminate blank lines in a character's themes",
+        name: "MIST_ENGINE.SETTINGS.TidyTagsOnCharacterSheet",
+        hint: "MIST_ENGINE.SETTINGS.TidyTagsOnCharacterSheetHint",
         scope: "user",
         config: true,
         type: Boolean,
