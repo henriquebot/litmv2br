@@ -188,7 +188,7 @@
       "Actor": {
         "FloatingTagOrStatus": "Tags & Statuses"
       },
-      "AddPowertag": "Power Tags",
+      "AddPowertag": "Add Power Tag",
       "AddWeaknesstag": "Weakness Tags",
       "AssignExisting": "Assign Existing",
       "Biography": "Biography",
@@ -282,7 +282,27 @@
       "ToggleTagStatus": "Toggle between tag and status",
       "Type": "Type",
       "Compendium": "Compendium",
-      "World": "World"
+      "World": "World",
+      "Yes": "Yes",
+      "No": "No",
+      "Submit": "Submit",
+      "Promise": "Promise",
+      "Weight": "Weight",
+      "Attributes": "Attributes",
+      "RollFormula": "Roll Formula",
+      "NumberOfDice": "Number of Dice",
+      "DieSize": "Die Size",
+      "RollModifier": "Roll Modifier",
+      "Color": "Color",
+      "Green": "Green",
+      "Brown": "Brown",
+      "Black": "Black",
+      "Purple": "Purple",
+      "Questions": "Questions",
+      "ChallengeTemplates": "Challenge Templates",
+      "NpcLimits": "NPC Limits",
+      "AddSpecialImprovement": "Add Special Improvement",
+      "AddWeaknessTag": "Add Weakness Tag"
     },
     "MIGHT": {
       "Adventure": "Adventure",
@@ -380,7 +400,8 @@
       "AnswerTag": "Answer / The Tag",
       "ThemekitType": "Type, e.g. Skill Or Trade",
       "StatusTagExample": "tag or status-2 (or /sn status-2 for negative)",
-      "CampsiteTagExample": "beautiful vista or rainy-2"
+      "CampsiteTagExample": "beautiful vista or rainy-2",
+      "BackpackItemName": "Backpack item name"
     },
     "PLAYER_TUTORIAL": {
       "BackpackContent": "Your backpack holds story tags for gear and useful items. Add an item, then select it in a roll to bring it to bear. Some items expire during Camping — the Narrator will let you know.",
@@ -420,7 +441,24 @@
     },
     "PROSEMIRROR": {
       "MarkAsStatus": "Mark as Status",
-      "MarkAsTag": "Mark as Tag"
+      "MarkAsTag": "Mark as Tag",
+      "MarkAsLimit": "Mark as Limit",
+      "MarkAsWeakness": "Mark as Weakness",
+      "Icons": "Icons",
+      "OriginIcon": "Origin Icon",
+      "AdventureIcon": "Adventure Icon",
+      "GreatnessIcon": "Greatness Icon",
+      "HintIcon": "Hint Icon",
+      "FakeHeadings": "Fake Headings",
+      "FakeHeading1": "Fake Heading 1",
+      "FakeHeading2": "Fake Heading 2",
+      "FakeHeading3": "Fake Heading 3",
+      "Textframes": "Textframes",
+      "ContentWithSidebar": "Content with Sidebar",
+      "WrittenBlock": "Written Block",
+      "LongPaperBackground": "Long Paper Background",
+      "Container300": "Container 300",
+      "Container500": "Container 500"
     },
     "QUESTIONS": {
       "ConfirmDeletion": "Are you sure you want to delete this?",
@@ -437,7 +475,19 @@
       "InvertedTagHint": "Inverted for this roll (Narrator's call)",
       "ToggleChallengeInversion": "Invert for this roll only (Narrator's call)",
       "TogglePowerAsWeakness": "Count as Weakness for this roll (Narrator's call)",
-      "ToggleWeaknessAsPower": "Count as Power for this roll (Narrator's call)"
+      "ToggleWeaknessAsPower": "Count as Power for this roll (Narrator's call)",
+      "YouSelected": "You selected:",
+      "StorySelected": "Story Tags / Status selected:",
+      "ChallengeSelected": "Challenge Tags / Status selected:",
+      "MightIconAlt": "Might Icon",
+      "PositiveMods": "Positive Mods:",
+      "NegativeMods": "Negative Mods:",
+      "Roll": "Roll",
+      "CriticalDoubleSixes": "Critical Roll — Double Sixes",
+      "FumbleDoubleOnes": "Fumble Roll — Double Ones",
+      "RightClickToggleTagState": "Right click to toggle between tag and status",
+      "TogglePositiveNegative": "Toggle between positive and negative",
+      "RightClickToggleModifier": "Right click to toggle the modifier between positive and negative"
     },
     "ROLL_TYPES": {
       "detailed": "Detailed Roll",
@@ -572,7 +622,8 @@
       },
       "Quintessences": "Quintessences",
       "Rotes": "Rotes",
-      "SpecialImprovements": "Special Improvements"
+      "SpecialImprovements": "Special Improvements",
+      "Themebook": "Themebook"
     },
     "THEMEKITS": {
       "AddThemekit": "Add Theme Kit",
@@ -595,7 +646,8 @@
       "SearchPlaceholder": "Search theme kits…",
       "NoSelection": "No theme kit selected!",
       "NoActor": "No actor set for theme kit selection app!",
-      "Story": "Story"
+      "Story": "Story",
+      "Themekits": "Theme Kits"
     },
     "TUTORIAL": {
       "CampingContent": "Runs a camping or sojourn scene (Core Book p. 179): campsite tags, Rest / Reflect / Camp Action for each hero, and the backpack story-tag expiration review. Also needs an active scene.",
