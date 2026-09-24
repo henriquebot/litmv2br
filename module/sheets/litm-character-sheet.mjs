@@ -308,7 +308,7 @@ export class MistEngineLegendInTheMistCharacterSheet extends MistEngineActorShee
         // find the user (not gm) assigned to this actor
         let assignedUserNotGM = game.users.find(u => u.character?._id === this.actor.id && !u.isGM);
         if (!assignedUserNotGM) {
-            ui.notifications.error("This character is not assigned to any non GM user. Please assign the character to a user before assigning a fellowship themecard. Press F5 to reload foundry and its permissions if you encounter problems.");
+            ui.notifications.error(game.i18n.localize("MIST_ENGINE.NOTIFICATIONS.FellowshipNeedsPlayer"));
             return false;
         }
         return true;
