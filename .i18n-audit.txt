@@ -1,0 +1,22 @@
+module/apps/custom_background_editor.mjs:392	JS_NOTIFICATION	LoadImageFailed
+module/apps/custom_background_editor.mjs:412	JS_NOTIFICATION	LoadImageFailed
+module/apps/custom_background_editor.mjs:636	JS_NOTIFICATION	SavedSuccess
+module/apps/custom_background_editor.mjs:640	JS_NOTIFICATION	SaveFailed
+module/apps/custom_background_editor.mjs:655	JS_NOTIFICATION	NoWorldId
+module/lib/hooks.mjs:549	JS_UI_META	Legend In The Mist
+templates/actor/parts/actor-fellowship-themebook-partial.hbs:74	HBS_TEXT	"systems/mist-engine-fvtt/templates/actor/parts/development-partial.hbs" name=(localize 'MIST_ENGINE.LABELS.Milestone') source="fellowship-themecard" key="system.milestone" value=fellowshipThemecard.milestone}}
+templates/actor/parts/character-header.hbs:56	HBS_TEXT	'systems/mist-engine-fvtt/templates/actor/parts/floating-tags-and-status-partial.hbs' useGrid=true classCustomContainer="floating-status-container-character"}}
+templates/actor/parts/compact-character-header.hbs:41	HBS_TEXT	'systems/mist-engine-fvtt/templates/actor/parts/floating-tags-and-status-partial.hbs' useGrid=true classCustomContainer="floating-status-container-character"}}
+templates/actor/parts/floating-tags-and-status-partial.hbs:2	HBS_TEXT	'systems/mist-engine-fvtt/templates/shared/floating-tags-and-status-partial.hbs' floatingTagsAndStatuses=system.floatingTagsAndStatuses floatingTagsAndStatusesEditable=system.floatingTagsAndStatusesEditable useGrid=useGrid classCustomContainer=classCustomContainer}}
+templates/actor/parts/tab-litm-npc.hbs:19	HBS_TEXT	"systems/mist-engine-fvtt/templates/actor/parts/floating-tags-and-status-partial.hbs" class="npc-floating-tags-and-status-container" classCustomContainer="text-container-long-paper-background"}}
+templates/chat/detailed-result.hbs:5	HBS_TEXT	'systems/mist-engine-fvtt/templates/chat/selected-tags-partial.hbs' positiveTags=positiveTags negativeTags=negativeTags}}
+templates/chat/detailed-result.hbs:9	HBS_TEXT	'systems/mist-engine-fvtt/templates/chat/critical-fumble-partial.hbs' isCritical=isCritical isFumble=isFumble}}
+templates/chat/group-result.hbs:13	HBS_TEXT	'systems/mist-engine-fvtt/templates/chat/critical-fumble-partial.hbs' isCritical=isCritical isFumble=isFumble}}
+templates/chat/quick-result.hbs:5	HBS_TEXT	'systems/mist-engine-fvtt/templates/chat/selected-tags-partial.hbs' positiveTags=positiveTags negativeTags=negativeTags}}
+templates/chat/quick-result.hbs:9	HBS_TEXT	'systems/mist-engine-fvtt/templates/chat/critical-fumble-partial.hbs' isCritical=isCritical isFumble=isFumble}}
+templates/chat/reaction-result.hbs:5	HBS_TEXT	'systems/mist-engine-fvtt/templates/chat/selected-tags-partial.hbs' positiveTags=positiveTags negativeTags=negativeTags}}
+templates/chat/reaction-result.hbs:9	HBS_TEXT	'systems/mist-engine-fvtt/templates/chat/critical-fumble-partial.hbs' isCritical=isCritical isFumble=isFumble}}
+templates/item/item-challenge-addon-sheet.hbs:56	HBS_TEXT	"systems/mist-engine-fvtt/templates/actor/parts/npc-threats-edit-partial.hbs"}}
+templates/scene-app/actors.hbs:6	HBS_TEXT	"systems/mist-engine-fvtt/templates/scene-app/characters.hbs"}}
+templates/scene-app/actors.hbs:10	HBS_TEXT	"systems/mist-engine-fvtt/templates/scene-app/challenges.hbs"}}
+templates/scene-app/tags.hbs:2	HBS_TEXT	'systems/mist-engine-fvtt/templates/shared/floating-tags-and-status-partial.hbs' floatingTagsAndStatuses=sortedFloatingTagsAndStatuses floatingTagsAndStatusesEditable=currentSceneDataItem.system.floatingTagsAndStatusesEditable gmCheck=true useGrid=true}}
