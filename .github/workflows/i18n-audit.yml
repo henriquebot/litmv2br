@@ -28,7 +28,8 @@ jobs:
           findings = []
           skip_prefixes = ("packs/", "src/packs/", "lang/", "node_modules/")
           skip_files = {
-              "templates/how-to-play-app/dialog.hbs",  # intentional English fallback
+              "templates/how-to-play-app/dialog.hbs",       # intentional English fallback
+              "templates/how-to-play-app/dialog-pt-BR.hbs", # intentional localized PT-BR template
           }
 
           for p in Path(".").rglob("*"):
