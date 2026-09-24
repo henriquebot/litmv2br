@@ -487,7 +487,8 @@
       "FumbleDoubleOnes": "Falha Crítica — Dois Uns",
       "RightClickToggleTagState": "Clique com o botão direito para alternar entre tag e status",
       "TogglePositiveNegative": "Alternar entre positivo e negativo",
-      "RightClickToggleModifier": "Clique com o botão direito para alternar o modificador entre positivo e negativo"
+      "RightClickToggleModifier": "Clique com o botão direito para alternar o modificador entre positivo e negativo",
+      "Power": "Poder"
     },
     "ROLL_TYPES": {
       "detailed": "Rolagem Detalhada",
