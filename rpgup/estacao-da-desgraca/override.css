@@ -96,6 +96,34 @@
   font-size:13px;
   line-height:1.55;
 }
+
+.tag-guide{
+  margin:14px 16px 0;
+  border:1px solid #24454a;
+  border-left:3px solid var(--cyan);
+  background:rgba(12,31,35,.72);
+  padding:13px 15px;
+}
+.tag-guide-title{
+  margin:0 0 6px;
+  color:#dceae6;
+  font:900 10px/1.3 ui-monospace,SFMono-Regular,Consolas,monospace;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+}
+.tag-guide p{
+  margin:0;
+  color:#8ea5a3;
+  font-size:12px;
+  line-height:1.55;
+}
+.tag-guide strong{color:#cfe1dc}
+.tag-guide-examples{
+  margin-top:8px!important;
+  color:#789497!important;
+  font:650 10px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace!important;
+}
+
 .themes-toolbar{
   display:flex;
   justify-content:flex-end;
