@@ -112,7 +112,7 @@ export class MistEngineLegendInTheMistCharacterSheet extends MistEngineActorShee
     controls.unshift({
       action: "openThemekit",
       icon: "fa-solid fa-layer-group",
-      label: "Themekits",
+      label: game.i18n.localize("MIST_ENGINE.THEMEKITS.Themekits"),
       visible: () => this.isEditable,
       onClick: () => this.menuOpenThemekitSelection()
     });
@@ -774,7 +774,7 @@ export class MistEngineLegendInTheMistCharacterSheet extends MistEngineActorShee
     static async #handleCreateQuintessence(event, target) {
         event.preventDefault();
         this._saveScrollPositions();
-        await ArrayFieldAdapter.add(this.actor, "system.quintessences", "New Quintessence");
+        await ArrayFieldAdapter.add(this.actor, "system.quintessences", game.i18n.localize("MIST_ENGINE.THEMEBOOKS.NewQuintessence"));
     }
 
     static async #handleCreateBackpackItem(event, target) {
@@ -782,13 +782,13 @@ export class MistEngineLegendInTheMistCharacterSheet extends MistEngineActorShee
         const backpack = this.actor.items.get(target.dataset.itemId);
         this._saveScrollPositions();
 
-        let itemName = "New Item";
+        let itemName = game.i18n.localize("MIST_ENGINE.THEMEBOOKS.NewBackpackItem");
         try {
             itemName = await foundry.applications.api.DialogV2.prompt({
-                window: { title: "Enter the backpack item name" },
+                window: { title: game.i18n.localize("MIST_ENGINE.THEMEBOOKS.AddBackpackItemTitle") },
                 content: '<input name="itemName" type="text" autofocus>',
                 ok: {
-                    label: "Submit",
+                    label: game.i18n.localize("MIST_ENGINE.LABELS.Submit"),
                     callback: (event, button, dialog) => button.form.elements.itemName.value
                 }
             });
