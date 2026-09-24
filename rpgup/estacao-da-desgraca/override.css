@@ -319,3 +319,92 @@ textarea.theme-editor{
 .theme-grid .theme-card:nth-of-type(4) .theme-no{color:#d7a7ea !important}
 .theme-grid .theme-card:nth-of-type(4) .theme-reset{border-color:#75527c !important;color:#dcb8e5 !important}
 .theme-grid .theme-card:nth-of-type(4) .theme-editor{border-color:#5b3d61 !important}
+
+
+/* Seletores narrativos dos Temas 03 e 04 */
+.theme-source-selectors{
+  display:grid;
+  gap:16px;
+  margin:22px 0;
+}
+.theme-source-block{
+  border:1px solid #31464b;
+  padding:16px;
+  background:linear-gradient(180deg,rgba(12,25,29,.96),rgba(8,18,21,.96));
+}
+.theme-source-block h3{
+  margin:3px 0 6px;
+  color:#e7efec;
+  font-size:19px;
+  line-height:1.2;
+}
+.theme-source-block>p{
+  margin:0 0 13px;
+  color:#82989a;
+  font-size:12px;
+  line-height:1.5;
+}
+.source-kicker{
+  font:900 9px/1 ui-monospace,SFMono-Regular,Consolas,monospace;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.personality-source{
+  border-color:#8b692e;
+  box-shadow:inset 3px 0 0 #e6b85c;
+}
+.personality-source .source-kicker{color:#f0c97a}
+.past-source{
+  border-color:#77507f;
+  box-shadow:inset 3px 0 0 #c58bd5;
+}
+.past-source .source-kicker{color:#d7a7ea}
+.source-choice-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+}
+.source-choice{
+  appearance:none;
+  width:100%;
+  border:1px solid #2d4449;
+  background:#0b181c;
+  color:#dce7e3;
+  padding:11px 12px;
+  text-align:left;
+  cursor:pointer;
+  min-height:58px;
+  transition:border-color .15s ease,background .15s ease,transform .15s ease;
+}
+.source-choice strong{
+  display:block;
+  margin-bottom:4px;
+  font-size:12px;
+}
+.source-choice small{
+  display:block;
+  color:#6f878a;
+  font:650 9px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;
+}
+.source-choice:hover{
+  transform:translateY(-1px);
+  border-color:#57747a;
+}
+.personality-source .source-choice.active{
+  border-color:#d7a84d;
+  background:rgba(74,53,18,.55);
+  box-shadow:inset 0 0 0 1px rgba(230,184,92,.16);
+}
+.personality-source .source-choice.active small{color:#c6aa73}
+.past-source .source-choice.active{
+  border-color:#b97ac9;
+  background:rgba(55,30,60,.58);
+  box-shadow:inset 0 0 0 1px rgba(197,139,213,.15);
+}
+.past-source .source-choice.active small{color:#b99bc1}
+@media(max-width:700px){
+  .source-choice-grid{grid-template-columns:1fr}
+}
+@media print{
+  .theme-source-selectors{display:none!important}
+}
