@@ -623,7 +623,10 @@
       "Quintessences": "Quintessências",
       "Rotes": "Ritos",
       "SpecialImprovements": "Aprimoramentos Especiais",
-      "Themebook": "Livro de Tema"
+      "Themebook": "Livro de Tema",
+      "AddBackpackItemTitle": "Adicionar Item à Mochila",
+      "NewBackpackItem": "Novo Item",
+      "NewQuintessence": "Nova Quintessência"
     },
     "THEMEKITS": {
       "AddThemekit": "Adicionar Kit de Tema",
@@ -693,6 +696,11 @@
       "VignetteJsonSuccess": "Vinheta importada do JSON.",
       "VignetteJsonError": "Falha ao importar a vinheta do JSON.",
       "CsvSuccess": "Tags importadas do CSV."
+    },
+    "TOKENIZER": {
+      "Frame1": "Moldura LiTM 1",
+      "Frame2": "Moldura LiTM 2",
+      "Frame3": "Moldura LiTM 3"
     }
   },
   "TYPES": {
