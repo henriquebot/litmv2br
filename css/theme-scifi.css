@@ -1,0 +1,246 @@
+/* Optional Sci-Fi visual theme for Legend in the Mist.
+ * Activated by body.mist-theme-scifi. Rules and document structure are untouched.
+ */
+
+body.mist-theme-scifi {
+  --litm-color-bg: hsl(210 30% 10%);
+  --litm-color: hsl(188 46% 90%);
+  --litm-color-alt-bg: hsl(212 26% 15%);
+  --litm-color-dark-bg: hsl(214 38% 7%);
+  --litm-color-accent-bg: hsl(190 74% 22%);
+  --litm-color-accent: hsl(184 93% 73%);
+  --litm-color-accent-2: hsl(196 88% 61%);
+  --litm-color-accent-3: hsl(317 72% 66%);
+  --litm-color-primary-bg: hsl(201 40% 17%);
+  --litm-color-primary: hsl(184 75% 88%);
+  --litm-color-row-odd: rgb(88 219 255 / 7%);
+  --litm-color-weakness: hsl(333 80% 72%);
+  --litm-color-weakness-bg: hsl(333 72% 47% / 16%);
+  --litm-color-muted-bg: hsl(210 22% 45% / 16%);
+  --litm-color-tag-bg: hsl(185 91% 47% / 42%);
+  --litm-color-status-bg: hsl(151 67% 48% / 38%);
+  --litm-color-limit-bg: hsl(337 82% 60% / 38%);
+  --litm-tab-text-color: hsl(187 62% 86%);
+
+  --litm-font-heading: Roboto, "Segoe UI", Arial, sans-serif;
+  --litm-font-accent: Roboto, "Segoe UI", Arial, sans-serif;
+  --litm-font-text: Roboto, "Segoe UI", Arial, sans-serif;
+
+  color-scheme: dark;
+}
+
+body.mist-theme-scifi .mist-engine,
+body.mist-theme-scifi .how-to-play-app,
+body.mist-theme-scifi #themekit-character-app,
+body.mist-theme-scifi #themekit-selection-app,
+body.mist-theme-scifi #camping-app,
+body.mist-theme-scifi #group-action-app {
+  --color-text-primary: var(--litm-color);
+  --color-text-dark-primary: var(--litm-color);
+  --color-text-light-primary: hsl(185 65% 92%);
+}
+
+body.mist-theme-scifi .mist-engine .window-content,
+body.mist-theme-scifi .how-to-play-app .window-content,
+body.mist-theme-scifi #themekit-character-app > section.window-content,
+body.mist-theme-scifi #themekit-selection-app > section.window-content,
+body.mist-theme-scifi #camping-app > section.window-content,
+body.mist-theme-scifi #group-action-app > section.window-content {
+  background-image:
+    linear-gradient(rgb(75 225 255 / 4%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(75 225 255 / 4%) 1px, transparent 1px),
+    radial-gradient(circle at 15% 0%, rgb(50 209 255 / 12%), transparent 36%),
+    radial-gradient(circle at 100% 100%, rgb(206 76 255 / 8%), transparent 38%),
+    linear-gradient(145deg, hsl(214 35% 12%), hsl(210 34% 7%)) !important;
+  background-size: 28px 28px, 28px 28px, auto, auto, auto !important;
+  color: var(--litm-color);
+}
+
+body.mist-theme-scifi .mist-engine.sheet.actor.litm-character .window-content,
+body.mist-theme-scifi .mist-engine.sheet.actor.litm-character.litm-compact .window-content,
+body.mist-theme-scifi .mist-engine.sheet.actor.npc .window-content,
+body.mist-theme-scifi .mist-engine.sheet.actor.litm-journey .window-content,
+body.mist-theme-scifi .mist-engine.sheet.actor.litm-fellowship-themecard .window-content,
+body.mist-theme-scifi .mist-engine.sheet.item .window-content,
+body.mist-theme-scifi .mist-engine.sheet.themebook .window-content {
+  background-image:
+    linear-gradient(rgb(75 225 255 / 4%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(75 225 255 / 4%) 1px, transparent 1px),
+    radial-gradient(circle at 12% 12%, rgb(36 197 232 / 14%), transparent 34%),
+    linear-gradient(145deg, hsl(214 35% 12%), hsl(210 34% 7%)) !important;
+  background-size: 28px 28px, 28px 28px, auto, auto !important;
+}
+
+body.mist-theme-scifi .mist-engine .window-content::selection,
+body.mist-theme-scifi .mist-engine input::selection,
+body.mist-theme-scifi .mist-engine textarea::selection {
+  background: hsl(184 90% 58% / 35%);
+}
+
+body.mist-theme-scifi .mist-engine input,
+body.mist-theme-scifi .mist-engine textarea,
+body.mist-theme-scifi .mist-engine select,
+body.mist-theme-scifi .mist-engine button,
+body.mist-theme-scifi .how-to-play-app input,
+body.mist-theme-scifi .how-to-play-app textarea,
+body.mist-theme-scifi .how-to-play-app select,
+body.mist-theme-scifi .how-to-play-app button,
+body.mist-theme-scifi #themekit-character-app input,
+body.mist-theme-scifi #themekit-character-app textarea,
+body.mist-theme-scifi #themekit-character-app select,
+body.mist-theme-scifi #themekit-character-app button {
+  color: hsl(185 55% 91%);
+  border-color: hsl(190 72% 58% / 38%);
+}
+
+body.mist-theme-scifi .mist-engine input,
+body.mist-theme-scifi .mist-engine textarea,
+body.mist-theme-scifi .mist-engine select,
+body.mist-theme-scifi #themekit-character-app input,
+body.mist-theme-scifi #themekit-character-app textarea,
+body.mist-theme-scifi #themekit-character-app select {
+  background: hsl(211 30% 8% / 76%);
+  box-shadow: inset 0 0 0 1px rgb(77 221 255 / 4%);
+}
+
+body.mist-theme-scifi .mist-engine button,
+body.mist-theme-scifi .how-to-play-app button,
+body.mist-theme-scifi #themekit-character-app button,
+body.mist-theme-scifi #themekit-selection-app button {
+  background:
+    linear-gradient(180deg, hsl(194 52% 24% / 90%), hsl(211 40% 12% / 94%));
+  border: 1px solid hsl(187 77% 59% / 55%);
+  box-shadow:
+    inset 0 0 14px rgb(64 220 255 / 6%),
+    0 0 12px rgb(58 218 255 / 8%);
+}
+
+body.mist-theme-scifi .mist-engine button:hover,
+body.mist-theme-scifi .how-to-play-app button:hover,
+body.mist-theme-scifi #themekit-character-app button:hover,
+body.mist-theme-scifi #themekit-selection-app button:hover {
+  border-color: hsl(184 94% 72%);
+  box-shadow:
+    inset 0 0 18px rgb(70 229 255 / 12%),
+    0 0 16px rgb(70 229 255 / 20%);
+}
+
+body.mist-theme-scifi .mist-engine h1,
+body.mist-theme-scifi .mist-engine h2,
+body.mist-theme-scifi .mist-engine h3,
+body.mist-theme-scifi .mist-engine h4,
+body.mist-theme-scifi .how-to-play-app h1,
+body.mist-theme-scifi .how-to-play-app h2,
+body.mist-theme-scifi .how-to-play-app h3,
+body.mist-theme-scifi .how-to-play-app h4 {
+  color: var(--litm-color-accent) !important;
+  font-family: var(--litm-font-heading) !important;
+  letter-spacing: 0.045em;
+  text-shadow: 0 0 10px rgb(61 218 255 / 20%);
+}
+
+body.mist-theme-scifi .mist-engine h1.charname,
+body.mist-theme-scifi .mist-engine h1.npc-name {
+  color: var(--litm-color-accent) !important;
+  text-shadow:
+    0 0 7px rgb(61 218 255 / 30%),
+    0 0 18px rgb(61 218 255 / 10%);
+}
+
+body.mist-theme-scifi .mist-engine fieldset {
+  background: hsl(210 27% 10% / 66%);
+  border: 1px solid hsl(187 72% 56% / 25%);
+  box-shadow: inset 0 0 18px rgb(61 218 255 / 3%);
+}
+
+body.mist-theme-scifi .mist-engine legend {
+  color: var(--litm-color-accent-2) !important;
+}
+
+body.mist-theme-scifi .mist-engine .themebook-section-header,
+body.mist-theme-scifi .mist-engine .entry-name {
+  background: linear-gradient(90deg, hsl(192 63% 22%), hsl(211 42% 14%)) !important;
+  color: hsl(184 78% 92%) !important;
+  clip-path: none !important;
+  border-left: 2px solid var(--litm-color-accent-2);
+  border-right: 1px solid hsl(190 55% 45% / 30%);
+}
+
+body.mist-theme-scifi .mist-engine .item-powertag-line,
+body.mist-theme-scifi .mist-engine .npc-secret-item,
+body.mist-theme-scifi .mist-engine .npc-special-feature-item,
+body.mist-theme-scifi .mist-engine .npc-mighty-aspects-container,
+body.mist-theme-scifi .mist-engine .npc-threats-and-consequences-container,
+body.mist-theme-scifi .how-to-play-dialog,
+body.mist-theme-scifi .htp-camping {
+  color: var(--litm-color) !important;
+}
+
+body.mist-theme-scifi .mist-engine .npc-subtitle-text {
+  color: var(--litm-color-accent-2);
+  text-shadow: 0 0 7px rgb(67 219 255 / 24%);
+}
+
+body.mist-theme-scifi .mist-engine .npc-subtitle-container-c::before,
+body.mist-theme-scifi .mist-engine .npc-subtitle-container-c::after {
+  background: linear-gradient(to right, transparent, hsl(187 70% 55% / 55%), transparent);
+}
+
+body.mist-theme-scifi .mist-engine mark.tag,
+body.mist-theme-scifi .mist-engine .tag {
+  border: 1px solid hsl(184 86% 59% / 42%);
+  box-shadow: 0 0 8px rgb(53 220 235 / 10%);
+}
+
+body.mist-theme-scifi .mist-engine mark.status,
+body.mist-theme-scifi .mist-engine .status {
+  border: 1px solid hsl(151 70% 55% / 38%);
+  box-shadow: 0 0 8px rgb(54 223 150 / 10%);
+}
+
+body.mist-theme-scifi .mist-engine .item-weakness-line {
+  text-shadow:
+    0 0 6px rgb(255 72 165 / 35%),
+    0 0 16px rgb(255 72 165 / 18%);
+}
+
+body.mist-theme-scifi .mist-engine .item-weakness-line input {
+  border-color: hsl(327 84% 66%);
+}
+
+body.mist-theme-scifi .mist-engine .tabs [data-tab].active,
+body.mist-theme-scifi .mist-engine nav.tabs .active {
+  color: var(--litm-color-accent);
+  text-shadow: 0 0 9px rgb(67 223 255 / 28%);
+}
+
+body.mist-theme-scifi .mist-engine a:hover,
+body.mist-theme-scifi .how-to-play-app a:hover {
+  color: var(--litm-color-accent);
+  text-shadow: 0 0 8px rgb(64 224 255 / 30%);
+}
+
+body.mist-theme-scifi .mist-engine .with-line::after,
+body.mist-theme-scifi .how-to-play-app .with-line::after,
+body.mist-theme-scifi #themekit-character-app .with-line::after {
+  background-image: none !important;
+  height: 1px !important;
+  vertical-align: middle;
+  background: linear-gradient(90deg, var(--litm-color-accent-2), transparent) !important;
+  box-shadow: 0 0 6px rgb(65 224 255 / 25%);
+}
+
+body.mist-theme-scifi .how-to-play-dialog .roll-result-success,
+body.mist-theme-scifi .how-to-play-dialog .roll-result-partial-success,
+body.mist-theme-scifi .how-to-play-dialog .roll-result-failure {
+  background-image: none !important;
+  background:
+    linear-gradient(135deg, hsl(212 30% 12% / 92%), hsl(194 37% 16% / 92%)) !important;
+  border: 1px solid hsl(187 64% 55% / 28%);
+}
+
+body.mist-theme-scifi .mist-engine ::-webkit-scrollbar-thumb,
+body.mist-theme-scifi .how-to-play-app ::-webkit-scrollbar-thumb {
+  background: hsl(190 62% 38%);
+  border: 1px solid hsl(184 73% 64% / 35%);
+}
