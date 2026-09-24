@@ -261,31 +261,61 @@ textarea.theme-editor{
   .photo:not(.has-portrait):before{display:none!important}
 }
 
-/* Variação sutil de cor por card de tema */
-.theme-card:nth-child(1){
-  border-color:#2c6663;
-  background:linear-gradient(180deg,rgba(12,38,40,.98),rgba(7,24,26,.98));
-}
-.theme-card:nth-child(1) .theme-no{color:#7ce0d3}
-.theme-card:nth-child(1) .theme-reset{border-color:#2c6663;color:#9fd9d1}
 
-.theme-card:nth-child(2){
-  border-color:#3f5f86;
-  background:linear-gradient(180deg,rgba(14,28,44,.98),rgba(8,18,31,.98));
+/* Identidade visual clara por tema */
+.theme-grid .theme-card{
+  position:relative;
+  overflow:hidden;
 }
-.theme-card:nth-child(2) .theme-no{color:#8ebeff}
-.theme-card:nth-child(2) .theme-reset{border-color:#3f5f86;color:#aac8ef}
+.theme-grid .theme-card:before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:4px;
+}
 
-.theme-card:nth-child(3){
-  border-color:#7a5f2e;
-  background:linear-gradient(180deg,rgba(42,31,14,.98),rgba(24,18,8,.98));
+/* TEMA 1 — teal */
+.theme-grid .theme-card:nth-of-type(1){
+  border-color:#2f8f86 !important;
+  background:linear-gradient(180deg,rgba(12,46,45,.98),rgba(7,24,26,.98)) !important;
+  box-shadow:inset 0 0 0 1px rgba(74,184,172,.08);
 }
-.theme-card:nth-child(3) .theme-no{color:#f0c97a}
-.theme-card:nth-child(3) .theme-reset{border-color:#7a5f2e;color:#e5c58b}
+.theme-grid .theme-card:nth-of-type(1):before{background:#68d8ca}
+.theme-grid .theme-card:nth-of-type(1) .theme-no{color:#7ce0d3 !important}
+.theme-grid .theme-card:nth-of-type(1) .theme-reset{border-color:#397e77 !important;color:#a5ded7 !important}
+.theme-grid .theme-card:nth-of-type(1) .theme-editor{border-color:#2d5f5d !important}
 
-.theme-card:nth-child(4){
-  border-color:#6a4368;
-  background:linear-gradient(180deg,rgba(32,18,34,.98),rgba(18,10,20,.98));
+/* TEMA 2 — azul */
+.theme-grid .theme-card:nth-of-type(2){
+  border-color:#466fa8 !important;
+  background:linear-gradient(180deg,rgba(16,32,57,.98),rgba(8,18,31,.98)) !important;
+  box-shadow:inset 0 0 0 1px rgba(94,145,214,.09);
 }
-.theme-card:nth-child(4) .theme-no{color:#d7a7ea}
-.theme-card:nth-child(4) .theme-reset{border-color:#6a4368;color:#d0add9}
+.theme-grid .theme-card:nth-of-type(2):before{background:#75aaf0}
+.theme-grid .theme-card:nth-of-type(2) .theme-no{color:#8ebeff !important}
+.theme-grid .theme-card:nth-of-type(2) .theme-reset{border-color:#4e70a0 !important;color:#b6d1f4 !important}
+.theme-grid .theme-card:nth-of-type(2) .theme-editor{border-color:#375474 !important}
+
+/* TEMA 3 — âmbar */
+.theme-grid .theme-card:nth-of-type(3){
+  border-color:#8b692e !important;
+  background:linear-gradient(180deg,rgba(50,36,14,.98),rgba(25,18,8,.98)) !important;
+  box-shadow:inset 0 0 0 1px rgba(214,164,76,.09);
+}
+.theme-grid .theme-card:nth-of-type(3):before{background:#e6b85c}
+.theme-grid .theme-card:nth-of-type(3) .theme-no{color:#f0c97a !important}
+.theme-grid .theme-card:nth-of-type(3) .theme-reset{border-color:#80652f !important;color:#e8cb91 !important}
+.theme-grid .theme-card:nth-of-type(3) .theme-editor{border-color:#65502b !important}
+
+/* TEMA 4 — roxo */
+.theme-grid .theme-card:nth-of-type(4){
+  border-color:#77507f !important;
+  background:linear-gradient(180deg,rgba(40,22,44,.98),rgba(20,11,23,.98)) !important;
+  box-shadow:inset 0 0 0 1px rgba(175,113,190,.09);
+}
+.theme-grid .theme-card:nth-of-type(4):before{background:#c58bd5}
+.theme-grid .theme-card:nth-of-type(4) .theme-no{color:#d7a7ea !important}
+.theme-grid .theme-card:nth-of-type(4) .theme-reset{border-color:#75527c !important;color:#dcb8e5 !important}
+.theme-grid .theme-card:nth-of-type(4) .theme-editor{border-color:#5b3d61 !important}
