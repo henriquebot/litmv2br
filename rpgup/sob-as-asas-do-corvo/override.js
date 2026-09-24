@@ -566,6 +566,31 @@
       if(node) caravanObserver.observe(node,{childList:true,subtree:false});
     });
 
+    function improveThemeResetUX(){
+      const grid=$('themeGrid');
+      if(!grid) return;
+
+      grid.querySelectorAll('.theme-reset').forEach(btn=>{
+        btn.textContent='Voltar à sugestão';
+        btn.title='Desfaz suas edições manuais neste Theme e reaplica a sugestão criada pelo gerador a partir das suas escolhas.';
+        btn.setAttribute('aria-label','Voltar este Theme à sugestão do gerador');
+      });
+
+      const section=$('themeSection');
+      if(section && !section.querySelector('.theme-restore-help')){
+        const help=document.createElement('div');
+        help.className='theme-restore-help';
+        help.innerHTML='<strong>Editou um Theme e quer desfazer?</strong> Use <b>“Voltar à sugestão”</b> no card correspondente. O gerador reaplica título, Power Tags, Weakness e Quest sugeridos a partir das suas escolhas. <strong>As alterações manuais daquele Theme serão substituídas.</strong>';
+        const guide=section.querySelector('.rules-guide');
+        if(guide) guide.insertAdjacentElement('afterend',help);
+        else {
+          const head=section.querySelector('.theme-head');
+          if(head) head.insertAdjacentElement('afterend',help);
+        }
+      }
+    }
+
+    improveThemeResetUX();
     const themeGrid=$('themeGrid');
     if(themeGrid){
       themeGrid.addEventListener('input',e=>{
@@ -625,6 +650,10 @@
 
     applyReviewed(true);
     syncCaravanCustom(true);
+    improveThemeResetUX();
+
+    const themeUxObserver=new MutationObserver(()=>improveThemeResetUX());
+    if($('themeGrid')) themeUxObserver.observe($('themeGrid'),{childList:true,subtree:true});
   }
 
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>setTimeout(init,0));
