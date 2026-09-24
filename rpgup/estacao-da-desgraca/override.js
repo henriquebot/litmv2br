@@ -36,6 +36,8 @@
     var note=document.createElement("div");
     note.className="player-name-note";
     note.textContent="Uso administrativo — seu nome não aparece no dossiê do personagem.";
+    note.style.cssText="display:block!important;position:relative!important;top:auto!important;left:auto!important;margin:10px 0 18px 0!important;padding:0!important;line-height:1.5!important;clear:both!important;";
+    input.style.setProperty("margin-bottom","0","important");
 
     var characterLabel=step.querySelector('label[for="name"]');
     if(characterLabel){
