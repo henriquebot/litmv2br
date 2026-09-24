@@ -1,7 +1,7 @@
 {
   "id": "mist-engine-fvtt",
   "title": "Legend In The Mist",
-  "description": "Official Legend In The Mist System for FoundryVTT",
+  "description": "Legend In The Mist para FoundryVTT — base oficial com interface em Português (Brasil) e tema Sci-Fi opcional. Os compêndios oficiais são preservados sem tradução.",
   "authors": [
     {
       "name": "MrTheBino",
@@ -24,11 +24,11 @@
       "flags": {}
     }
   ],
-  "url": "https://github.com/MrTheBino/mist-engine-fvtt",
+  "url": "https://github.com/henriquebot/litmv2br",
   "license": "LICENSE.txt",
-  "readme": "README.md",
-  "bugs": "https://github.com/MrTheBino/mist-engine-fvtt/issues",
-  "changelog": "https://github.com/MrTheBino/mist-engine-fvtt/CHANGELOG.md",
+  "readme": "PTBR.md",
+  "bugs": "https://github.com/henriquebot/litmv2br/issues",
+  "changelog": "https://github.com/henriquebot/litmv2br/releases",
   "media": [
     {
       "type": "setup",
@@ -38,7 +38,7 @@
       "flags": {}
     }
   ],
-  "version": "14.5.4",
+  "version": "14.5.401",
   "compatibility": {
     "minimum": "13",
     "verified": "14"
@@ -101,7 +101,7 @@
   "packs": [
     {
       "name": "system-documentation",
-      "label": "System Documentation",
+      "label": "Documentação do Sistema",
       "path": "packs/system-documentation",
       "type": "JournalEntry",
       "ownership": {
@@ -113,7 +113,7 @@
     },
     {
       "name": "pregen-characters",
-      "label": "Pregen Characters",
+      "label": "Personagens Pré-Gerados",
       "path": "packs/pregen-characters",
       "type": "Actor",
       "ownership": {
@@ -125,7 +125,7 @@
     },
     {
       "name": "example-actors",
-      "label": "Example Actors",
+      "label": "Atores de Exemplo",
       "path": "packs/example-actors",
       "type": "Actor",
       "ownership": {
@@ -137,7 +137,7 @@
     },
     {
       "name": "litm-themebooks",
-      "label": "LiTM Themebooks",
+      "label": "Livros de Tema LiTM",
       "path": "packs/litm-themebooks",
       "type": "Item",
       "ownership": {
@@ -149,8 +149,8 @@
     }
   ],
   "socket": true,
-  "manifest": "https://github.com/MrTheBino/mist-engine-fvtt/releases/latest/download/system.json",
-  "download": "https://github.com/MrTheBino/mist-engine-fvtt/releases/download/14.4.2/system.zip",
+  "manifest": "https://github.com/henriquebot/litmv2br/releases/latest/download/system.json",
+  "download": "https://github.com/henriquebot/litmv2br/releases/latest/download/system.zip",
   "background": "systems/mist-engine-fvtt/assets/landingpage.webp",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
