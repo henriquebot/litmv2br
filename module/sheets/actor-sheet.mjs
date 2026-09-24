@@ -516,8 +516,8 @@ export class MistEngineActorSheet extends HandlebarsApplicationMixin(ActorSheetV
         let promptResult;
         try {
             promptResult = await foundry.applications.api.DialogV2.prompt({
-                window: { title: "Enter the status or tag" },
-                content: `<input name="srcStatusTagStr" type="text" autofocus placeholder="tag or status-2 (or /sn status-2 for negative)">
+                window: { title: game.i18n.localize("MIST_ENGINE.SCENE_APP.EnterTagStatusTitle") },
+                content: `<input name="srcStatusTagStr" type="text" autofocus placeholder="${game.i18n.localize('MIST_ENGINE.PLACEHOLDERS.StatusTagExample')}">
                 <div class="form-group"><label><input name="negative" type="checkbox"> ${game.i18n.localize("MIST_ENGINE.LABELS.CreateAsNegative")}</label></div>`,
                 ok: {
                     label: "Submit",
