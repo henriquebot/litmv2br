@@ -106,7 +106,8 @@
     },
     "CHANGELOG": {
       "DontShowAgain": "Não mostrar novamente nesta versão",
-      "UpdatedTo": "Atualizado para a versão"
+      "UpdatedTo": "Atualizado para a versão",
+      "Title": "Novidades da Versão"
     },
     "COLLAB": {
       "AffectsGroup": "O resultado afeta todo o grupo.",
@@ -173,8 +174,11 @@
         "PlannedPowertag": "Tag de Poder ou Fraqueza planejada. Selecione-a para ocultá-la da lista de tags ativas até estar pronto para usá-la.",
         "PlannedStorytag": "Tag de História planejada. Selecione-a para ocultá-la da lista de tags de história ativas até estar pronto para usá-la.",
         "Powertag": "Tag de Poder",
-        "RightClickToToggleBurnState": "Clique com o botão direito para alternar o estado de queima"
-      }
+        "RightClickToToggleBurnState": "Clique com o botão direito para alternar o estado de queima",
+        "PlannedWeaknessTag": "Tag de Fraqueza planejada. Selecione-a para ocultá-la até estar pronto para usá-la."
+      },
+      "DeletePowertag": "Excluir Tag de Poder",
+      "DeleteWeaknessTag": "Excluir Tag de Fraqueza"
     },
     "HOW_TO_PLAY": {
       "Title": "Como Jogar"
@@ -269,7 +273,13 @@
       "Themekit": "Kit de Tema",
       "ThreatsAndConsequences": "Ameaças e Consequências",
       "ToggleEditMode": "Alternar Modo de Edição",
-      "Value": "Valor"
+      "Value": "Valor",
+      "Import": "Importar",
+      "Question": "Pergunta",
+      "Tag": "Tag",
+      "Weakness": "Fraqueza",
+      "DeleteTagStatus": "Excluir esta tag/status",
+      "ToggleTagStatus": "Alternar entre tag e status"
     },
     "MIGHT": {
       "Adventure": "Aventura",
@@ -310,7 +320,15 @@
       "SetQuest": "Missão definida como {quest}",
       "OwnedItemsMacroOnly": "Você só pode criar botões de macro para Itens pertencentes a um Ator.",
       "MacroItemNotFound": "Não foi possível encontrar o item {itemName}. Talvez seja necessário excluir e recriar esta macro.",
-      "TextFieldRequired": "Posicione o cursor em um campo ou área de texto."
+      "TextFieldRequired": "Posicione o cursor em um campo ou área de texto.",
+      "MigrationStarting": "Migrando os dados do mundo para a v{version}…",
+      "MigrationComplete": "Migração para a v{version} concluída.",
+      "MigratedActorThemebooks": "Mist Engine | {count} Livro(s) de Tema migrado(s) em \"{actor}\".",
+      "MigratedFellowship": "Mist Engine | Cartão de Tema da Companhia \"{actor}\" migrado.",
+      "CreatedBackpacks": "Mist Engine | {count} Mochila(s) ausente(s) criada(s) em personagem(ns).",
+      "FellowshipNeedsPlayer": "Este personagem não está atribuído a nenhum jogador que não seja Narrador. Atribua o personagem a um jogador antes de vincular um Cartão de Tema da Companhia. Se houver problemas de permissões, recarregue o Foundry (F5).",
+      "ImportChallengeJSONSuccess": "Importação concluída com sucesso.",
+      "ImportChallengeJSONError": "Falha ao importar o JSON."
     },
     "NPC": {
       "CustomMightLevel": "Nível personalizado",
@@ -354,7 +372,11 @@
       "SpecialImprovementName": "Nome do Aprimoramento Especial",
       "Tag": "Tag",
       "Tags": "Tags",
-      "ThemebookStory": "História"
+      "ThemebookStory": "História",
+      "AnswerTag": "Resposta / A Tag",
+      "ThemekitType": "Tipo, ex.: Habilidade ou Ofício",
+      "StatusTagExample": "tag ou status-2 (ou /sn status-2 para negativo)",
+      "CampsiteTagExample": "bela paisagem ou chuvoso-2"
     },
     "PLAYER_TUTORIAL": {
       "BackpackContent": "Sua mochila guarda tags de história de equipamentos e itens úteis. Adicione um item e selecione-o em uma rolagem para colocá-lo em ação. Alguns itens expiram durante o Acampamento — o Narrador avisará.",
@@ -469,7 +491,9 @@
       "Title": "Tags da Cena",
       "UnassignJourney": "Desvincular jornada",
       "WeaknessToggleHint": "Clique para alternar esta fraqueza como ativa na cena",
-      "Weaknesses": "Fraquezas (Narrador)"
+      "Weaknesses": "Fraquezas (Narrador)",
+      "SceneTitle": "Cena: {scene}",
+      "EnterTagStatusTitle": "Inserir Tag ou Status"
     },
     "SETTINGS": {
       "SceneTagsOverlayPosAbove": "Acima da navegação da cena",
@@ -517,7 +541,9 @@
       "KeybindingsHowToPlayName": "Abrir Como Jogar",
       "KeybindingsHowToPlayHint": "Abre a janela Como Jogar.",
       "KeybindingsThemeKitName": "Abrir Seleção de Kit de Tema",
-      "KeybindingsThemeKitHint": "Abre a seleção de Kit de Tema do seu personagem."
+      "KeybindingsThemeKitHint": "Abre a seleção de Kit de Tema do seu personagem.",
+      "KeybindingsMakeTagsName": "Criar Tags",
+      "KeybindingsMakeTagsHint": "Coloca o texto selecionado entre [] para transformá-lo em uma tag."
     },
     "SheetLabels": {
       "Challenge": "Desafio",
@@ -559,7 +585,12 @@
       "ShowFilteredThemekits": "Mostrar somente \"{themebook}\"",
       "ShowingAllThemekits": "Mostrando todos os kits de tema",
       "SpecialImprovements": "Aprimoramentos Especiais",
-      "WeaknessTags": "Tags de Fraqueza"
+      "WeaknessTags": "Tags de Fraqueza",
+      "SelectionTitle": "Seleção de Kit de Tema",
+      "WindowTitle": "Kit de Tema",
+      "SearchPlaceholder": "Pesquisar kits de tema…",
+      "NoSelection": "Nenhum kit de tema selecionado!",
+      "NoActor": "Nenhum personagem definido para a seleção de kit de tema!"
     },
     "TUTORIAL": {
       "CampingContent": "Conduz uma cena de Acampamento ou Estadia (Livro Básico p. 179): tags do acampamento, Descansar / Refletir / Ação de Acampamento para cada herói e revisão da expiração das tags de história da mochila. Também requer uma cena ativa.",
@@ -594,6 +625,17 @@
       "ToolsTitle": "Sua Barra de Ferramentas do Narrador",
       "WelcomeContent": "Este tour apresenta as ferramentas que o sistema Mist Engine adiciona para você. A maioria fica aqui nos controles de cena à esquerda. Use as setas ou os botões para avançar pelo tour.",
       "WelcomeTitle": "Bem-vindo, Narrador"
+    },
+    "IMPORT": {
+      "CharacterJsonTitle": "Importar Desafio de JSON",
+      "VignetteJsonTitle": "Importar Vinheta de JSON",
+      "TagsCsvTitle": "Importar Tags de CSV",
+      "TagsCsvHelp": "Cole os dados CSV abaixo. Vírgulas separam as tags. Coloque uma tag entre aspas para incluir vírgulas nela (ex.: \"mapas, planos e esquemas\").",
+      "CharacterJsonSuccess": "Desafio importado do JSON. Verifique os dados importados e ajuste o que for necessário.",
+      "CharacterJsonError": "Falha ao importar o desafio do JSON: {error}",
+      "VignetteJsonSuccess": "Vinheta importada do JSON.",
+      "VignetteJsonError": "Falha ao importar a vinheta do JSON.",
+      "CsvSuccess": "Tags importadas do CSV."
     }
   },
   "TYPES": {
