@@ -13,7 +13,7 @@ export class ThemekitCharacterApp extends HandlebarsApplicationMixin(Application
         tag: 'div',
         window: {
             frame: true,
-            title: 'Themekit',
+            title: 'MIST_ENGINE.THEMEKITS.WindowTitle',
             icon: 'fa-solid fa-book-atlas',
             positioned: true,
             resizable: true
