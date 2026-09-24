@@ -464,3 +464,26 @@ textarea.theme-editor{
 @media print{
   .dossier-final-actions{display:none!important}
 }
+
+
+/* Nome real do jogador — administrativo, fora do dossiê */
+.player-name-label{
+  color:#d6b56a!important;
+}
+.player-name-input{
+  border-color:#6b5933!important;
+  background:rgba(53,40,17,.42)!important;
+}
+.player-name-input:focus{
+  border-color:#c49745!important;
+}
+.player-name-note{
+  margin:-5px 0 12px;
+  color:#796f59;
+  font:650 8px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace;
+  text-transform:uppercase;
+  letter-spacing:.045em;
+}
+@media print{
+  .player-name-label,.player-name-input,.player-name-note{display:none!important}
+}
