@@ -1,0 +1,404 @@
+/* RPG Up — Sob as Asas do Corvo — comparação visual inspirada no Rustic Fantasy de LitM
+   Sem assets oficiais: somente direção visual própria.
+*/
+:root{
+  --night:#263126;
+  --night2:#334032;
+  --pine:#41533d;
+  --moss:#6f7d58;
+  --sage:#a7ad88;
+  --paper:#efe4c6;
+  --paper2:#e7d7b4;
+  --paper3:#d5be8f;
+  --ink:#342d21;
+  --muted:#756a53;
+  --rust:#9a654b;
+  --wine:#7f5052;
+  --gold:#b08a4c;
+  --line:#b59d70;
+  --cream:#f7efda;
+}
+
+html{background:#2b352b}
+body{
+  background:
+    radial-gradient(circle at 12% 12%,rgba(238,228,198,.08),transparent 26%),
+    radial-gradient(circle at 88% 30%,rgba(164,171,132,.12),transparent 32%),
+    linear-gradient(180deg,#263126 0,#354232 48%,#222b23 100%);
+  color:#f1ead8;
+}
+body:before{
+  opacity:.12;
+  background:
+    repeating-linear-gradient(0deg,transparent 0 5px,rgba(255,255,255,.025) 6px),
+    repeating-linear-gradient(90deg,transparent 0 13px,rgba(0,0,0,.018) 14px);
+}
+.shell{max-width:1480px;padding-top:16px}
+.topline{
+  border-bottom:0;
+  color:#d8d2bd;
+  padding:0 8px 12px;
+}
+.brand{color:#f1dfad}
+.status{color:#c6cbb2}
+.status:after{
+  content:"  •  VISUAL ALTERNATIVO — RUSTIC FANTASY";
+  color:#d8b36f;
+}
+
+.hero{
+  overflow:hidden;
+  color:var(--ink);
+  border:1px solid #9e8559;
+  background:
+    linear-gradient(rgba(244,235,209,.96),rgba(231,215,179,.97)),
+    repeating-linear-gradient(0deg,rgba(68,55,32,.025) 0 1px,transparent 1px 5px);
+  box-shadow:0 22px 55px rgba(0,0,0,.26);
+  padding:42px 48px 36px;
+}
+.hero:before{
+  content:"❦";
+  position:absolute;
+  right:38px;
+  top:22px;
+  font-size:108px;
+  line-height:1;
+  color:rgba(64,77,51,.12);
+  transform:rotate(12deg);
+  font-family:Georgia,serif;
+}
+.hero:after{
+  inset:12px;
+  border:1px solid rgba(100,80,48,.22);
+  box-shadow:inset 0 0 0 6px rgba(255,255,255,.08);
+}
+.kicker{
+  color:#7b6744;
+  font-family:Georgia,'Times New Roman',serif;
+  letter-spacing:.11em;
+}
+h1{
+  color:#31422f;
+  font-size:clamp(40px,5vw,68px);
+  letter-spacing:-.035em;
+  max-width:900px;
+  text-shadow:0 1px rgba(255,255,255,.55);
+}
+.lead{color:#574c39;font-size:17px;max-width:900px}
+.protocol{
+  max-width:900px;
+  color:#6d5732;
+  border-left:0;
+  border-top:1px solid #b79b68;
+  border-bottom:1px solid #b79b68;
+  background:rgba(255,255,255,.15);
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:13px;
+  letter-spacing:.01em;
+  padding:11px 4px;
+}
+.protocol:before{content:"☙  ";color:#7d6f47}
+.protocol:after{content:"  ❧";color:#7d6f47}
+
+.grid{gap:22px}
+.panel{
+  color:var(--ink);
+  border:1px solid #a68e62;
+  background:
+    linear-gradient(rgba(239,228,197,.985),rgba(228,211,173,.985)),
+    repeating-linear-gradient(0deg,rgba(74,55,30,.02) 0 1px,transparent 1px 5px);
+  box-shadow:0 18px 45px rgba(0,0,0,.22);
+}
+.panel-h{
+  color:#f3ead3;
+  background:#43523d;
+  border-bottom:1px solid #293327;
+  font-family:Georgia,'Times New Roman',serif;
+  letter-spacing:.08em;
+}
+.panel-h span:last-child{color:#e2c98f}
+.panel-b{padding:20px}
+.step{
+  border:0;
+  border-bottom:1px solid rgba(117,92,53,.3);
+  padding:20px 8px 22px;
+  margin:0;
+  background:transparent;
+}
+.step:last-child{border-bottom:0}
+.step-title{gap:9px;margin-bottom:9px}
+.num{
+  color:#8d7040;
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:12px;
+}
+.step h2{
+  color:#354632;
+  font-size:19px;
+  letter-spacing:.01em;
+  text-transform:none;
+}
+.step p.help{color:#796d56;font-size:13px}
+label{
+  color:#71644c;
+  font-family:Georgia,'Times New Roman',serif;
+  letter-spacing:.05em;
+  font-size:10px;
+}
+input,select,textarea{
+  color:#352e22;
+  background:rgba(255,250,237,.68);
+  border:1px solid #ad966c;
+  border-radius:4px;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:#657654;
+  box-shadow:0 0 0 2px rgba(101,118,84,.14);
+}
+.choices{gap:9px}
+.choice{
+  color:#42392b;
+  border:1px solid #b09a72;
+  border-radius:5px;
+  background:rgba(250,243,222,.58);
+  box-shadow:0 2px 0 rgba(93,72,41,.06);
+}
+.choice:hover{
+  color:#263326;
+  border-color:#778565;
+  background:#f4ecd5;
+  transform:translateY(-1px);
+}
+.choice.active{
+  color:#f7f0dc;
+  border-color:#40513b;
+  background:#53644a;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);
+}
+.choice small{
+  color:#85765d;
+  font-family:Georgia,'Times New Roman',serif;
+  text-transform:none;
+  letter-spacing:.01em;
+  font-size:10px;
+}
+.choice.active small{color:#dcd8c2}
+
+.actions{gap:8px}
+button.action{
+  border:1px solid #4f6048;
+  border-radius:4px;
+  background:#52634b;
+  color:#f6efd9;
+  font-family:Georgia,'Times New Roman',serif;
+  letter-spacing:.045em;
+}
+button.action:hover{background:#64745a}
+button.action.secondary{
+  background:#e8dcc0;
+  color:#4c4435;
+  border-color:#a28b62;
+}
+button.action.gold{
+  background:#9b7843;
+  border-color:#785c31;
+  color:#fff3d7;
+}
+button.action.wine{
+  background:#815257;
+  border-color:#603b40;
+  color:#fae4e2;
+}
+.admin-note{color:#82755e}
+
+.toggle-row{
+  border:1px solid #ad976f;
+  border-radius:4px;
+  background:rgba(255,250,237,.55);
+}
+.toggle-row label{color:#4c4435}
+
+.folio{
+  background:
+    linear-gradient(rgba(246,237,213,.98),rgba(232,216,181,.98)),
+    repeating-linear-gradient(0deg,rgba(80,62,34,.022) 0 1px,transparent 1px 5px);
+  border:1px solid #9c8355;
+  box-shadow:0 22px 50px rgba(0,0,0,.28);
+}
+.folio:before{border:1px solid rgba(91,66,33,.26)}
+.folio:after{
+  content:"LAR DOS CORVOS";
+  right:-35px;
+  top:92px;
+  color:rgba(74,68,48,.18);
+  border-color:rgba(74,68,48,.18);
+  font-size:18px;
+}
+.folio-head{border-bottom:1px solid #7c6a49}
+.folio-head:after{
+  content:"❦";
+  display:block;
+  color:#7a7658;
+  margin-top:9px;
+  font-size:20px;
+}
+.folio-meta{color:#7a6a4c}
+.folio h3{color:#384636;text-transform:none;font-size:31px}
+.portrait{border-radius:3px;background:linear-gradient(135deg,#cfbd91,#efe0bc)}
+.field{border-bottom-color:#a28c60}
+.block{border-top-color:#b09b70}
+.block-title{color:#536048;font-family:Georgia,'Times New Roman',serif;font-size:9px}
+.folio-tag{
+  border-color:#8d7a56;
+  background:rgba(255,255,255,.28);
+  border-radius:999px;
+}
+.folio-signature{color:#776a50}
+
+.theme-section{
+  border:0;
+  background:transparent;
+  margin-top:30px;
+}
+.theme-head{
+  color:var(--ink);
+  border:1px solid #9f875e;
+  border-bottom:0;
+  background:
+    linear-gradient(rgba(242,231,202,.98),rgba(229,212,176,.98));
+  padding:22px 24px 18px;
+}
+.theme-head h2{
+  color:#34432f;
+  font-size:28px;
+  text-transform:none;
+}
+.theme-head p{color:#6d614c}
+.theme-badge{
+  color:#826a3e;
+  font-family:Georgia,'Times New Roman',serif;
+}
+.rules-guide{
+  margin:0;
+  border:1px solid #9f875e;
+  border-top:1px dashed #b49d72;
+  border-left:1px solid #9f875e;
+  background:#f2e7cb;
+  color:#655a47;
+  padding:14px 24px;
+}
+.rules-guide strong{color:#3c4a36}
+
+.theme-grid{
+  border:1px solid #9f875e;
+  border-top:0;
+  background:#d8c79f;
+  gap:16px;
+  padding:22px;
+}
+.theme-card{
+  color:#312b21;
+  border:1px solid #937d57;
+  border-radius:7px;
+  background:
+    linear-gradient(rgba(249,242,222,.985),rgba(234,219,186,.985)),
+    repeating-linear-gradient(0deg,rgba(82,60,30,.018) 0 1px,transparent 1px 5px);
+  box-shadow:0 7px 18px rgba(61,44,24,.15);
+  padding:18px 18px 17px;
+}
+.theme-card:before{
+  height:8px;
+  border-radius:6px 6px 0 0;
+}
+.theme-card:nth-child(1):before{background:#6f835d}
+.theme-card:nth-child(2):before{background:#c1904b}
+.theme-card:nth-child(3):before{background:#8a5958}
+.theme-card:nth-child(4):before{background:#6b7f86}
+.theme-card:after{
+  content:"THEME CARD";
+  position:absolute;
+  right:14px;
+  bottom:10px;
+  color:rgba(72,61,44,.26);
+  font:700 7px/1 Georgia,'Times New Roman',serif;
+  letter-spacing:.14em;
+}
+.theme-no{
+  color:#69573a;
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:11px;
+}
+.theme-reset{
+  border-color:#aa966f;
+  border-radius:3px;
+  background:#eadfc4;
+  color:#75684e;
+  font-family:Georgia,'Times New Roman',serif;
+}
+.theme-row{
+  border-top:1px solid rgba(121,98,63,.24);
+}
+.theme-label{
+  color:#75674e;
+  font-family:Georgia,'Times New Roman',serif;
+  letter-spacing:.055em;
+  font-size:9px;
+}
+.theme-card input,.theme-card textarea,.theme-card select{
+  color:#30291f;
+  background:rgba(255,252,242,.7);
+  border:0;
+  border-bottom:1px solid #a38d67;
+  border-radius:0;
+  font-family:Georgia,'Times New Roman',serif;
+  padding:9px 4px 7px;
+}
+.theme-card input:focus,.theme-card textarea:focus,.theme-card select:focus{
+  box-shadow:none;
+  border-bottom-color:#52644a;
+  background:rgba(255,255,248,.9);
+}
+.theme-title{color:#33442f!important;font-size:18px!important}
+.tiny{color:#827660;font-family:Georgia,'Times New Roman',serif}
+.optional-theme{
+  color:#493f30;
+  margin:16px 0 0;
+  border:1px dashed #9b835b;
+  background:#eee1c0;
+}
+.optional-theme h3{color:#374532}
+.optional-theme p{color:#71644f}
+
+.final-actions{
+  margin-top:22px;
+  border:1px solid #937847;
+  border-left:1px solid #937847;
+  border-radius:5px;
+  color:#3b3225;
+  background:
+    linear-gradient(rgba(239,225,191,.97),rgba(216,194,147,.98));
+  box-shadow:0 12px 30px rgba(0,0,0,.16);
+}
+.final-actions .kicker{color:#765f37}
+.final-actions h2{color:#33442f;text-transform:none}
+.final-actions p{color:#665a45}
+.final-status{color:#71644f}
+.footer{color:#b8baa7}
+.footer a{color:#ead4a0}
+
+.remote-nature-help{
+  padding-left:13px;
+  border-left:3px solid #7a8a64;
+}
+
+@media(max-width:650px){
+  .hero{padding:32px 23px 28px}
+  .hero:before{font-size:76px;right:14px}
+  .status:after{display:block;margin-top:4px}
+}
+
+@media print{
+  .status:after{display:none}
+  .theme-grid{background:#fff}
+  .theme-card{box-shadow:none}
+}
