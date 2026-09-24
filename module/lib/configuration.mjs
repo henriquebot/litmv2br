@@ -1,6 +1,13 @@
 import { ThemekitSourceSettingsApp } from "../apps/themekit-source-settings-app.mjs";
 import { MistSceneTagsOverlay } from "../apps/scene-tags-overlay.mjs";
 
+export function applyVisualTheme(theme = game.settings.get("mist-engine-fvtt", "visualTheme")) {
+    const body = document.body;
+    if (!body) return;
+    body.classList.toggle("mist-theme-scifi", theme === "scifi");
+    body.dataset.mistVisualTheme = theme || "default";
+}
+
 export function setupConfiguration() {
 
     game.settings.register("mist-engine-fvtt", "systemVersion", {
@@ -13,8 +20,8 @@ export function setupConfiguration() {
 
     // game.settings.get("mist-engine-fvtt", "mightUsageEnabled");
     game.settings.register("mist-engine-fvtt", "mightUsageEnabled", {
-        name: "Might Usage Enabled",
-        hint: "Enable or disable the usage of Might in the game.",
+        name: "MIST_ENGINE.SETTINGS.MightUsageEnabled",
+        hint: "MIST_ENGINE.SETTINGS.MightUsageEnabledHint",
         scope: "world",
         config: true,
         type: Boolean,
@@ -22,8 +29,8 @@ export function setupConfiguration() {
     });
 
     game.settings.register("mist-engine-fvtt", "disableCustomDice", {
-        name: "Disable LiTM Custom Dice",
-        hint: "Disable the use of custom dice in Legend In The Mist. This will revert to using standard dice rolls.",
+        name: "MIST_ENGINE.SETTINGS.DisableCustomDice",
+        hint: "MIST_ENGINE.SETTINGS.DisableCustomDiceHint",
         scope: "world",
         config: true,
         type: Boolean,
@@ -31,8 +38,8 @@ export function setupConfiguration() {
     });
 
     game.settings.register("mist-engine-fvtt", "disableCharacterHoverTooltip", {
-        name: "Disable Character Hover Tooltip (GM Only)",
-        hint: "Disable the character hover power tag tooltip for GMs",
+        name: "MIST_ENGINE.SETTINGS.DisableCharacterHoverTooltip",
+        hint: "MIST_ENGINE.SETTINGS.DisableCharacterHoverTooltipHint",
         scope: "world",
         config: true,
         type: Boolean,
@@ -40,8 +47,8 @@ export function setupConfiguration() {
     });
 
     game.settings.register("mist-engine-fvtt", "showCustomJSONImport", {
-        name: "Show Custom JSON Import",
-        hint: "Enable the custom JSON import feature for challenges and vignettes. This allows you to import content from external sources using a specific JSON format.",
+        name: "MIST_ENGINE.SETTINGS.ShowCustomJSONImport",
+        hint: "MIST_ENGINE.SETTINGS.ShowCustomJSONImportHint",
         scope: "world",
         config: true,
         type: Boolean,
