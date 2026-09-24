@@ -1,0 +1,83 @@
+name: PT-BR i18n Audit
+
+on:
+  push:
+    paths:
+      - '.github/workflows/i18n-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Scan user-visible hardcoded strings
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          findings = []
+          skip_prefixes = ("packs/", "src/packs/", "lang/", "node_modules/")
+          skip_files = {
+              "templates/how-to-play-app/dialog.hbs",  # intentional English fallback
+          }
+
+          for p in Path(".").rglob("*"):
+              if not p.is_file():
+                  continue
+              path = p.as_posix()
+              if path.startswith(skip_prefixes) or path in skip_files:
+                  continue
+              if p.suffix not in {".hbs", ".mjs"}:
+                  continue
+              try:
+                  s = p.read_text(encoding="utf-8")
+              except Exception:
+                  continue
+
+              if p.suffix == ".hbs":
+                  for m in re.finditer(r'>([^<>{]*[A-Za-zÀ-ÿ][^<>{]*)<', s, re.S):
+                      value = " ".join(m.group(1).split())
+                      if value and not value.startswith("!--") and len(value) < 300:
+                          line = s.count("\n", 0, m.start()) + 1
+                          findings.append((path, line, "HBS_TEXT", value))
+                  for m in re.finditer(r'\b(placeholder|title|aria-label|alt)=["\']([^"{\']*[A-Za-zÀ-ÿ][^"\']*)["\']', s):
+                      value = " ".join(m.group(2).split())
+                      line = s.count("\n", 0, m.start()) + 1
+                      findings.append((path, line, "HBS_ATTR", f"{m.group(1)}={value}"))
+              else:
+                  patterns = [
+                      ("JS_UI_META", r'\b(?:title|label|hint)\s*:\s*["\']([A-Za-z][^"\']{1,180})["\']'),
+                      ("JS_NOTIFICATION", r'ui\.notifications[^\n]{0,100}?["\']([A-Za-z][^"\']{2,180})["\']'),
+                      ("JS_TEXT", r'\.(?:textContent|innerText)\s*=\s*["\']([A-Za-z][^"\']{1,180})["\']'),
+                      ("JS_PLACEHOLDER", r'placeholder=["\']([A-Za-z][^"\']{1,180})["\']'),
+                  ]
+                  for kind, pat in patterns:
+                      for m in re.finditer(pat, s):
+                          value = " ".join(m.group(1).split())
+                          if "MIST_ENGINE." in value:
+                              continue
+                          line = s.count("\n", 0, m.start()) + 1
+                          findings.append((path, line, kind, value))
+
+          findings = sorted(set(findings))
+          out = "\n".join(f"{p}:{line}\t{kind}\t{value}" for p,line,kind,value in findings) + "\n"
+          Path(".i18n-audit.txt").write_text(out, encoding="utf-8")
+          print(out)
+          PY
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B i18n-audit-report
+          git add .i18n-audit.txt
+          git commit -m "chore: generate PT-BR i18n audit report" || true
+          git push --force origin HEAD:i18n-audit-report
