@@ -25,7 +25,7 @@
     var label=document.createElement("label");
     label.setAttribute("for","playerName");
     label.className="player-name-label";
-    label.textContent="Seu nome (jogador)";
+    label.innerHTML='Seu nome (jogador) <span class="player-name-inline-note">— uso administrativo, não aparece no dossiê</span>';
 
     var input=document.createElement("input");
     input.id="playerName";
@@ -33,17 +33,10 @@
     input.placeholder="Ex.: João Silva";
     input.className="player-name-input";
 
-    var note=document.createElement("div");
-    note.className="player-name-note";
-    note.textContent="Uso administrativo — seu nome não aparece no dossiê do personagem.";
-    note.style.cssText="display:block!important;position:relative!important;top:auto!important;left:auto!important;margin:10px 0 18px 0!important;padding:0!important;line-height:1.5!important;clear:both!important;";
-    input.style.setProperty("margin-bottom","0","important");
-
     var characterLabel=step.querySelector('label[for="name"]');
     if(characterLabel){
       characterLabel.parentNode.insertBefore(label,characterLabel);
       characterLabel.parentNode.insertBefore(input,characterLabel);
-      characterLabel.parentNode.insertBefore(note,characterLabel);
     }
   }
 
