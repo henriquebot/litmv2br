@@ -6,7 +6,7 @@ on:
     paths:
       - '.github/workflows/import-official.yml'
   pull_request:
-    types: [opened]
+    types: [opened, synchronize, reopened]
     branches: [ main ]
 
 permissions:
@@ -35,6 +35,7 @@ jobs:
 
           find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
           git archive upstream/main | tar -x
+          rm -f .github/workflows/main.yml
 
           mkdir -p .github/workflows
           cp /tmp/import-official.yml .github/workflows/import-official.yml
