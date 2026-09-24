@@ -1,55 +1,55 @@
-name: Import Official Mist Engine
+name: Sync Official Upstream Mirror
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - '.github/workflows/import-official.yml'
-  pull_request:
-    types: [opened, synchronize, reopened]
-    branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  import:
-    if: github.actor != 'github-actions[bot]'
+  sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout translation repository
+      - name: Checkout clean upstream mirror
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: upstream-official
           fetch-depth: 0
 
-      - name: Import official upstream
+      - name: Sync MrTheBino/mist-engine-fvtt main into mirror branch
         shell: bash
         run: |
           set -euo pipefail
-          cp .github/workflows/import-official.yml /tmp/import-official.yml
+
+          # GitHub's workflow token cannot change workflow files. Preserve the
+          # currently mirrored official release workflow and sync everything else.
+          mkdir -p /tmp/litm-sync
+          if [ -f .github/workflows/main.yml ]; then
+            cp .github/workflows/main.yml /tmp/litm-sync/main.yml
+          fi
 
           git remote remove upstream 2>/dev/null || true
           git remote add upstream https://github.com/MrTheBino/mist-engine-fvtt.git
           git fetch upstream main
+          UPSTREAM_SHA="$(git rev-parse upstream/main)"
 
           find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
           git archive upstream/main | tar -x
-          rm -f .github/workflows/main.yml
 
-          mkdir -p .github/workflows
-          cp /tmp/import-official.yml .github/workflows/import-official.yml
-
-          cat > .upstream.json <<'EOF'
-          {
-            "repository": "MrTheBino/mist-engine-fvtt",
-            "branch": "main",
-            "strategy": "official-upstream-plus-ptbr-overlay"
-          }
-          EOF
+          if [ -f /tmp/litm-sync/main.yml ]; then
+            mkdir -p .github/workflows
+            cp /tmp/litm-sync/main.yml .github/workflows/main.yml
+          fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "[sync-upstream] Import official Mist Engine main"
-          git push origin HEAD:main
+          git add -f packs/.gitattributes 2>/dev/null || true
+
+          if git diff --cached --quiet; then
+            echo "Mirror already matches upstream."
+            exit 0
+          fi
+
+          git commit -m "[upstream] Sync official Mist Engine ${UPSTREAM_SHA:0:12}"
+          git push origin HEAD:upstream-official
