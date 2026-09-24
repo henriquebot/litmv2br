@@ -172,6 +172,59 @@
     let remoteNature = null;
     const userEdited=[false,false,false,false];
 
+    const caravanProfiles={
+      concept:{
+        title:'Ajudante de estalagem ou hospedaria',
+        hint:'hóspedes · rumores · festival',
+        type:'Skill or Trade',
+        theme:'Ouço mais do que pareço',
+        tags:['lembrar rostos e pedidos de hóspedes','ouvir rumores sem chamar atenção'],
+        weak:'às vezes sei coisas que seria melhor não saber',
+        quest:'Descobrir o que existe além das histórias que ouvi de passagem.'
+      },
+      relations:[
+        {
+          title:'Mortimer Ramirez',
+          hint:'líder da caravana · carismático · rosto conhecido',
+          type:'People',
+          theme:'Mortimer sempre volta a Lar dos Corvos',
+          tags:['Mortimer me reconhece pelo nome','conheço hábitos e rotinas da caravana'],
+          weak:'o carisma de Mortimer torna difícil desconfiar dele',
+          quest:'Descobrir por que Mortimer parece prestar atenção em mim.'
+        },
+        {
+          title:'Alguém que volta com a caravana todo ano',
+          hint:'amizade · expectativa · festival anual',
+          type:'People',
+          theme:'Um rosto que sempre retorna',
+          tags:['reconheço seus hábitos e sinais','sei onde procurá-lo quando a caravana chega'],
+          weak:'espero que essa pessoa continue sendo quem eu lembro',
+          quest:'Descobrir o que mudou desde a última passagem da caravana.'
+        }
+      ],
+      pasts:[
+        {
+          title:'Alguém partiu com a caravana e nunca voltou',
+          hint:'despedida · ausência · pergunta',
+          type:'Past',
+          theme:'A última vez que vi essa pessoa',
+          tags:['lembrar o que essa pessoa levou e deixou para trás','reconhecer pistas ligadas àquela partida'],
+          weak:'toda partida da caravana reabre essa ausência',
+          quest:'Descobrir o que aconteceu depois que essa pessoa deixou Lar dos Corvos.'
+        },
+        {
+          title:'Uma promessa feita numa passagem anterior da caravana',
+          hint:'palavra dada · retorno · espera',
+          type:'Past',
+          theme:'Quando a caravana voltar',
+          tags:['lembrar detalhes daquela promessa','reconhecer quem estava presente quando ela foi feita'],
+          weak:'esperei por essa promessa por tempo demais',
+          quest:'Descobrir se a promessa ainda vale depois de todos esses anos.'
+        }
+      ]
+    };
+    const customSource={concept:null,relation:null,past:null};
+
     function setTags(i,tags,force){
       if(!force && userEdited[i]) return;
       if(field(i,'tag0')) field(i,'tag0').value=tags[0]||'';
@@ -187,6 +240,31 @@
       if(field(i,'quest')) field(i,'quest').value=t.quest;
     }
 
+    function syncCaravanCustom(force=false){
+      const natureCentral=$('natureTheme') && $('natureTheme').checked;
+
+      if(customSource.concept){
+        const t=Object.assign({},customSource.concept);
+        t.theme=safe($('conceptCustom') && $('conceptCustom').value,t.theme);
+        setFullTheme(0,t,force);
+        if($('outConcept')) $('outConcept').textContent=safe($('conceptCustom') && $('conceptCustom').value,t.title);
+      }
+
+      if(customSource.relation){
+        const name=safe($('relationName') && $('relationName').value);
+        const detail=safe($('relationOpen') && $('relationOpen').value);
+        const shown=customSource.relation.title+(name?' — '+name:'');
+        setFullTheme(2,customSource.relation,force);
+        if($('outRelation')) $('outRelation').textContent=shown+(detail?' — '+detail:'');
+      }
+
+      if(customSource.past && !natureCentral){
+        const detail=safe($('pastDetail') && $('pastDetail').value);
+        setFullTheme(3,customSource.past,force);
+        if($('outPast')) $('outPast').textContent=customSource.past.title+(detail?' — '+detail:'');
+      }
+    }
+
     function applyReviewed(force=false){
       const c=reviewed.concept[activeTitle('conceptChoices')];
       const r=reviewed.reason[activeTitle('reasonChoices')];
@@ -194,6 +272,7 @@
       if(c) setTags(0,c,force);
       if(r) setTags(1,r,force);
       if(rel) setTags(2,rel,force);
+      syncCaravanCustom(force);
 
       const natureCentral=$('natureTheme') && $('natureTheme').checked;
       if(remoteNature && natureCentral){
@@ -236,75 +315,67 @@
     }
 
     function installCaravanHistoryOptions(){
-      try{
-        if(typeof concepts!=='undefined'){
-          const idx=concepts.findIndex(x=>x.title==='Forasteiro recém-chegado');
-          if(idx>=0){
-            concepts[idx]={
-              title:'Ajudante de estalagem ou hospedaria',
-              hint:'hóspedes · rumores · festival',
-              type:'Skill or Trade',
-              theme:'Ouço mais do que pareço',
-              tags:['lembrar rostos e pedidos de hóspedes','ouvir rumores sem chamar atenção'],
-              weak:'às vezes sei coisas que seria melhor não saber',
-              quest:'Descobrir o que existe além das histórias que ouvi de passagem.'
-            };
-          }
-          if(typeof renderChoices==='function') renderChoices('conceptChoices',concepts,'concept');
-        }
+      const conceptWrap=$('conceptChoices');
+      const relationWrap=$('relationChoices');
+      const pastWrap=$('pastChoices');
 
-        if(typeof relations!=='undefined'){
-          if(!relations.some(x=>x.title==='Mortimer Ramirez')){
-            relations.push({
-              title:'Mortimer Ramirez',
-              hint:'líder da caravana · carismático · rosto conhecido',
-              type:'People',
-              theme:'Mortimer sempre volta a Lar dos Corvos',
-              tags:['Mortimer me reconhece pelo nome','conheço hábitos e rotinas da caravana'],
-              weak:'o carisma de Mortimer torna difícil desconfiar dele',
-              quest:'Descobrir por que Mortimer parece prestar atenção em mim.'
-            });
-          }
-          if(!relations.some(x=>x.title==='Alguém que volta com a caravana todo ano')){
-            relations.push({
-              title:'Alguém que volta com a caravana todo ano',
-              hint:'amizade · expectativa · festival anual',
-              type:'People',
-              theme:'Um rosto que sempre retorna',
-              tags:['reconheço seus hábitos e sinais','sei onde procurá-lo quando a caravana chega'],
-              weak:'espero que essa pessoa continue sendo quem eu lembro',
-              quest:'Descobrir o que mudou desde a última passagem da caravana.'
-            });
-          }
-          if(typeof renderChoices==='function') renderChoices('relationChoices',relations,'relation');
-        }
+      function clearOnNativeChoice(wrap,key){
+        if(!wrap || wrap.dataset.caravanClearBound) return;
+        wrap.dataset.caravanClearBound='1';
+        wrap.addEventListener('click',e=>{
+          const b=e.target.closest('.choice');
+          if(!b || b.dataset.caravanCustom) return;
+          customSource[key]=null;
+        });
+      }
 
-        if(typeof pasts!=='undefined'){
-          if(!pasts.some(x=>x.title==='Alguém partiu com a caravana e nunca voltou')){
-            pasts.push({
-              title:'Alguém partiu com a caravana e nunca voltou',
-              hint:'despedida · ausência · pergunta',
-              type:'Past',
-              theme:'A última vez que vi essa pessoa',
-              tags:['lembrar o que essa pessoa levou e deixou para trás','reconhecer pistas ligadas àquela partida'],
-              weak:'toda partida da caravana reabre essa ausência',
-              quest:'Descobrir o que aconteceu depois que essa pessoa deixou Lar dos Corvos.'
-            });
+      function activateCustom(wrap,button,key,item,themeIndex){
+        [...wrap.children].forEach(x=>x.classList.remove('active'));
+        button.classList.add('active');
+        customSource[key]=item;
+        userEdited[themeIndex]=false;
+        setFullTheme(themeIndex,item,true);
+        syncCaravanCustom(true);
+      }
+
+      clearOnNativeChoice(conceptWrap,'concept');
+      clearOnNativeChoice(relationWrap,'relation');
+      clearOnNativeChoice(pastWrap,'past');
+
+      if(conceptWrap){
+        const existing=[...conceptWrap.querySelectorAll('.choice')].find(b=>{
+          const s=b.querySelector('strong');
+          return s && (s.textContent.trim()==='Forasteiro recém-chegado' || s.textContent.trim()===caravanProfiles.concept.title);
+        });
+        if(existing && !existing.dataset.caravanCustom){
+          existing.dataset.caravanCustom='concept';
+          existing.dataset.caravanReplaces='forasteiro';
+          const strong=existing.querySelector('strong');
+          const small=existing.querySelector('small');
+          if(strong) strong.textContent=caravanProfiles.concept.title;
+          if(small) small.textContent=caravanProfiles.concept.hint;
+          existing.onclick=null;
+          existing.addEventListener('click',()=>activateCustom(conceptWrap,existing,'concept',caravanProfiles.concept,0));
+          if(existing.classList.contains('active')){
+            customSource.concept=caravanProfiles.concept;
+            setTimeout(()=>syncCaravanCustom(true),0);
           }
-          if(!pasts.some(x=>x.title==='Uma promessa feita numa passagem anterior da caravana')){
-            pasts.push({
-              title:'Uma promessa feita numa passagem anterior da caravana',
-              hint:'palavra dada · retorno · espera',
-              type:'Past',
-              theme:'Quando a caravana voltar',
-              tags:['lembrar detalhes daquela promessa','reconhecer quem estava presente quando ela foi feita'],
-              weak:'esperei por essa promessa por tempo demais',
-              quest:'Descobrir se a promessa ainda vale depois de todos esses anos.'
-            });
-          }
-          if(typeof renderChoices==='function') renderChoices('pastChoices',pasts,'past');
         }
-      }catch(e){}
+      }
+
+      function addChoice(wrap,item,key,themeIndex,kind){
+        if(!wrap || [...wrap.querySelectorAll('.choice strong')].some(s=>s.textContent.trim()===item.title)) return;
+        const b=document.createElement('button');
+        b.type='button';
+        b.className='choice';
+        b.dataset.caravanCustom=kind;
+        b.innerHTML='<strong>'+item.title+'</strong><small>'+item.hint+'</small>';
+        b.addEventListener('click',()=>activateCustom(wrap,b,key,item,themeIndex));
+        wrap.appendChild(b);
+      }
+
+      caravanProfiles.relations.forEach(x=>addChoice(relationWrap,x,'relation',2,'relation'));
+      caravanProfiles.pasts.forEach(x=>addChoice(pastWrap,x,'past',3,'past'));
     }
 
     function addSubtleOptions(){
@@ -438,6 +509,11 @@
       }
     }
 
+    const lead=document.querySelector('.lead');
+    if(lead){
+      lead.innerHTML='A última noite do festival em <strong>Lar dos Corvos</strong> está chegando ao fim. Quando as fogueiras apagarem, você deixará a vila para trás e seguirá estrada afora com a caravana que passa por aqui quase todos os anos. Este gerador ajuda a descobrir <strong>quem você é, o que está deixando para trás e por que decidiu partir agora</strong> — sem fechar sua história antes que ela comece.';
+    }
+
     const guide=document.querySelector('.rules-guide');
     if(guide){
       guide.innerHTML='<strong>Como funciona:</strong> cada Theme começa com um <strong>Title Tag</strong> — que já conta como uma Power Tag — mais <strong>2 Power Tags</strong>, <strong>1 Weakness Tag</strong> e <strong>1 Quest</strong>. Uma boa Power Tag descreve algo que você consegue apontar na ficção e dizer “isso ajuda nesta ação”. Pode ser habilidade, traço, relação, passado, recurso ou equipamento. <strong>Teste rápido:</strong> se a frase servir para quase qualquer rolagem, ela está ampla demais.';
@@ -475,7 +551,7 @@
 
     ['conceptCustom','reasonCustom','relationName','relationOpen','pastDetail','secretDetail','natureDetail','viktorDetail'].forEach(id=>{
       const n=$(id);
-      if(n)n.addEventListener('input',()=>setTimeout(()=>{applyReviewed(false);applyRemoteNatureUI();},0));
+      if(n)n.addEventListener('input',()=>setTimeout(()=>{applyReviewed(false);applyRemoteNatureUI();syncCaravanCustom(false);},0));
     });
 
     if($('natureTheme')) $('natureTheme').addEventListener('change',()=>{
@@ -486,6 +562,8 @@
     if($('randomAll')) $('randomAll').addEventListener('click',()=>{
       userEdited.fill(false);
       setTimeout(()=>{
+        installCaravanHistoryOptions();
+        addSubtleOptions();
         if(Math.random()<0.30){
           const item=subtleNatures[Math.floor(Math.random()*subtleNatures.length)];
           const index=subtleNatures.indexOf(item);
@@ -503,6 +581,7 @@
     if($('copyCharacter')) $('copyCharacter').onclick=copySummary;
 
     applyReviewed(true);
+    syncCaravanCustom(true);
   }
 
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>setTimeout(init,0));
