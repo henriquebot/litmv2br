@@ -60,7 +60,7 @@ export class ThemekitSelectionApp extends HandlebarsApplicationMixin(Application
         tag: 'div',
         window: {
             frame: true,
-            title: 'Themekit Selection',
+            title: 'MIST_ENGINE.THEMEKITS.SelectionTitle',
             icon: 'fa-solid fa-book-atlas',
             positioned: true,
             resizable: true
@@ -250,11 +250,11 @@ export class ThemekitSelectionApp extends HandlebarsApplicationMixin(Application
     static async #handleAddThemekit(event, target){
         event.preventDefault();
         if(!this.currentSelectedThemekit){
-            ui.notifications.warn("No themekit selected!");
+            ui.notifications.warn(game.i18n.localize("MIST_ENGINE.THEMEKITS.NoSelection"));
             return;
         }
         if(!this.actor){
-            ui.notifications.warn("No actor set for themekit selection app!");
+            ui.notifications.warn(game.i18n.localize("MIST_ENGINE.THEMEKITS.NoActor"));
             return;
         }
 
