@@ -5,6 +5,9 @@ on:
     branches: [ main ]
     paths:
       - '.github/workflows/import-official.yml'
+  pull_request:
+    types: [opened]
+    branches: [ main ]
 
 permissions:
   contents: write
@@ -17,6 +20,7 @@ jobs:
       - name: Checkout translation repository
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
 
       - name: Import official upstream
