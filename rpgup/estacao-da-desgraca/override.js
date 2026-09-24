@@ -12,6 +12,8 @@
 
   var portraitData = "";
   var themeDirty = {};
+  var selectedPersonality = 0;
+  var selectedPast = 0;
 
   function installPortrait(){
     var callsign = el("callsign");
@@ -343,6 +345,90 @@
     }
   }
 
+  var personalityProfiles = [
+    {title:"Metódico",hint:"planeja · verifica · organiza",tags:["checklist mental","percebo inconsistências","planejo antes de agir"],weak:"demoro para abandonar o plano",quest:"Provar que preparação ainda importa quando tudo sai do controle."},
+    {title:"Calmo sob pressão",hint:"crise · foco · autocontrole",tags:["voz firme em emergência","mãos estáveis","priorizo o problema imediato"],weak:"engulo o medo até explodir",quest:"Continuar sendo o ponto de apoio quando ninguém mais consegue pensar."},
+    {title:"Curioso demais",hint:"pistas · anomalias · descoberta",tags:["faço a pergunta incômoda","noto detalhes estranhos","sigo pistas improváveis"],weak:"não sei deixar um mistério quieto",quest:"Descobrir o que está escondido, mesmo quando seria mais seguro não saber."},
+    {title:"Protetor",hint:"equipe · coragem · cuidado",tags:["coloco-me entre o perigo e os outros","percebo quem precisa de ajuda","não abandono ninguém"],weak:"assumo riscos que não precisava assumir",quest:"Trazer minha equipe inteira de volta."},
+    {title:"Cético",hint:"evidência · lógica · desconfiança",tags:["peço evidências","detecto contradições","não entro em pânico fácil"],weak:"demoro a acreditar no impossível",quest:"Encontrar uma explicação que resista aos fatos."},
+    {title:"Diplomático",hint:"conversa · tensão · negociação",tags:["desarmo conflitos","leio o clima da sala","sei encontrar um acordo"],weak:"evito confronto por tempo demais",quest:"Manter a equipe unida quando o medo começar a separá-la."},
+    {title:"Lobo solitário",hint:"autonomia · silêncio · independência",tags:["trabalho bem sozinho","movo-me sem chamar atenção","não preciso de supervisão"],weak:"demoro a pedir ajuda",quest:"Aprender quando sobreviver depende de confiar em alguém."},
+    {title:"Quebra-regras",hint:"improviso · risco · iniciativa",tags:["improviso fora do manual","acho atalhos improváveis","ajo antes da autorização"],weak:"subestimo consequências",quest:"Provar que às vezes quebrar a regra é o que salva todo mundo."},
+    {title:"Paranoico",hint:"ameaça · prevenção · suspeita",tags:["sempre verifico a saída","preparo contingências","percebo comportamento suspeito"],weak:"vejo ameaça onde talvez não exista",quest:"Descobrir em quem realmente posso confiar."},
+    {title:"Otimista incorrigível",hint:"moral · esperança · conexão",tags:["levanto a moral da equipe","sempre encontro uma possibilidade","faço alguém tentar mais uma vez"],weak:"minimizo sinais ruins",quest:"Manter viva a ideia de que ainda existe uma saída."}
+  ];
+
+  var pastProfiles = [
+    {title:"Ex-militar",hint:"disciplina · combate · comando",tags:["procedimentos de combate","disciplina de campo","leio uma sala rapidamente"],weak:"respondo ao perigo como se ainda estivesse em guerra",quest:"Provar que sou mais do que aquilo para que fui treinado."},
+    {title:"Pesquisador acadêmico",hint:"teoria · arquivos · método",tags:["pesquisa documental","método científico","rede de contatos acadêmicos"],weak:"teoria demais, prática de menos",quest:"Fazer uma descoberta que justifique tudo o que abandonei."},
+    {title:"Mineiro de colônia",hint:"ambiente hostil · máquina · sobrevivência",tags:["trabalho em ambiente hostil","opero equipamento pesado","reconheço estrutura prestes a ceder"],weak:"trato meu corpo como ferramenta descartável",quest:"Nunca mais depender de alguém que considera trabalhadores substituíveis."},
+    {title:"Tripulante de cargueiro",hint:"naves · rotas · improviso",tags:["rotina de bordo","conheço rotas e docas","improviso com carga e ferramentas"],weak:"tenho hábitos difíceis de largar",quest:"Provar que consigo pertencer a algo maior que o próximo frete."},
+    {title:"Socorrista",hint:"resgate · trauma · emergência",tags:["triagem de emergência","extração de feridos","mantenho alguém consciente"],weak:"não consigo abandonar uma vítima",quest:"Nunca mais chegar tarde demais a um resgate."},
+    {title:"Operário orbital",hint:"estrutura · turno · manutenção",tags:["conheço estrutura de estação","trabalho em espaço apertado","resolvo com ferramentas básicas"],weak:"desconfio de chefia corporativa",quest:"Mostrar que experiência de chão vale mais que um cargo bonito."},
+    {title:"Explorador de fronteira",hint:"território · risco · orientação",tags:["orientação em lugar desconhecido","avalio terreno perigoso","sei montar um acampamento improvisado"],weak:"avanço antes de ter certeza",quest:"Ser o primeiro a voltar de um lugar onde ninguém deveria ter ido."},
+    {title:"Catador de sucata espacial",hint:"recuperação · gambiarra · valor",tags:["reconheço peça reaproveitável","desmonto quase qualquer coisa","faço sucata funcionar"],weak:"guardo coisas que deveria jogar fora",quest:"Encontrar algo que finalmente mude minha sorte."},
+    {title:"Funcionário corporativo",hint:"burocracia · acesso · política",tags:["conheço procedimentos internos","sei navegar burocracia","leio hierarquias corporativas"],weak:"demoro a desafiar autoridade formal",quest:"Decidir de que lado estou quando o protocolo e as pessoas entrarem em conflito."},
+    {title:"Freelancer de zona cinzenta",hint:"contatos · acesso · discrição",tags:["contatos fora do registro","sei entrar sem fazer perguntas","negocio favores"],weak:"meu passado cobra dívidas",quest:"Sair desta missão sem criar mais uma dívida impossível de pagar."}
+  ];
+
+  function selectedProfile(list,index){
+    return list[index] || list[0];
+  }
+
+  function renderSourceChoices(containerId,list,getSelected,setSelected){
+    var wrap=el(containerId);
+    if(!wrap) return;
+    wrap.innerHTML="";
+    list.forEach(function(item,i){
+      var b=document.createElement("button");
+      b.type="button";
+      b.className="source-choice"+(i===getSelected()?" active":"");
+      b.innerHTML="<strong>"+item.title+"</strong><small>"+item.hint+"</small>";
+      b.addEventListener("click",function(){
+        setSelected(i);
+        Array.prototype.forEach.call(wrap.children,function(x){x.classList.remove("active");});
+        b.classList.add("active");
+        [2,3].forEach(function(themeIndex){
+          ["title","type","tag0","tag1","tag2","weak","quest"].forEach(function(key){
+            delete themeDirty[themeIndex+":"+key];
+          });
+        });
+        refreshThemeSuggestions(false);
+      });
+      wrap.appendChild(b);
+    });
+  }
+
+  function installSourceSelectors(){
+    if(el("personalityChoices") || el("pastChoices")) return;
+    var left=el("leftBehind");
+    if(!left) return;
+
+    var host=left.parentElement;
+    if(!host) return;
+
+    var holder=document.createElement("div");
+    holder.className="theme-source-selectors";
+    holder.innerHTML=
+      '<section class="theme-source-block personality-source">'+
+        '<div class="source-kicker">TEMA 03</div>'+
+        '<h3>Como você é quando a situação aperta?</h3>'+
+        '<p>Escolha uma personalidade. Ela define o terceiro tema e sugere tags úteis para a forma como você age.</p>'+
+        '<div class="source-choice-grid" id="personalityChoices"></div>'+
+      '</section>'+
+      '<section class="theme-source-block past-source">'+
+        '<div class="source-kicker">TEMA 04</div>'+
+        '<h3>Quem você era antes do seu cargo atual?</h3>'+
+        '<p>Escolha seu passado profissional ou de vida. Ele representa habilidades e contatos adquiridos antes da estação.</p>'+
+        '<div class="source-choice-grid" id="pastChoices"></div>'+
+      '</section>';
+
+    host.insertAdjacentElement("beforebegin",holder);
+
+    renderSourceChoices("personalityChoices",personalityProfiles,function(){return selectedPersonality;},function(i){selectedPersonality=i;});
+    renderSourceChoices("pastChoices",pastProfiles,function(){return selectedPast;},function(i){selectedPast=i;});
+  }
+
   function buildThemes(){
     var d=getData();
     var ri=getRoleIndex(), mi=getMotiveIndex();
@@ -354,14 +440,14 @@
     roleTags.push(rp.tag);
 
     var mp=motiveProfiles[mi] || motiveProfiles[0];
-    var lp=leftProfile(value("leftBehind"));
-    var ip=incidentProfile(value("incident"),value("object"));
+    var pp=selectedProfile(personalityProfiles,selectedPersonality);
+    var past=selectedProfile(pastProfiles,selectedPast);
 
     return [
       {type:"Origem · Skill or Trade",title:role,tags:roleTags.slice(0,3),weak:rp.weak,quest:rp.quest},
       {type:"Origem · Devotion",title:mp.title,tags:mp.tags.slice(0,3),weak:mp.weak,quest:mp.quest},
-      {type:"Origem · People",title:lp.title,tags:lp.tags.slice(0,3),weak:lp.weak,quest:lp.quest},
-      {type:"Origem · Past",title:ip.title,tags:ip.tags.slice(0,3),weak:ip.weak,quest:ip.quest}
+      {type:"Origem · Personality",title:pp.title,tags:pp.tags.slice(0,3),weak:pp.weak,quest:pp.quest},
+      {type:"Origem · Past",title:past.title,tags:past.tags.slice(0,3),weak:past.weak,quest:past.quest}
     ];
   }
 
@@ -485,6 +571,8 @@
         "IDENTIFICAÇÃO DE EQUIPE: "+safeText(value("callsign"),name.split(" ").slice(-1)[0])+"\n"+
         "FUNÇÃO: "+role+"\n\n"+
         "POR QUE ACEITOU A MISSÃO:\n"+motive+"\n\n"+
+        "PERSONALIDADE:\n"+selectedProfile(personalityProfiles,selectedPersonality).title+"\n\n"+
+        "PASSADO ANTERIOR:\n"+selectedProfile(pastProfiles,selectedPast).title+"\n\n"+
         "O QUE FICOU PARA TRÁS:\n"+safeText(value("leftBehind"),"Não informado.")+"\n\n"+
         "REGISTRO INTERNO:\n"+safeText(value("incident"),"Não informado.")+"\n\n"+
         "OBJETO PESSOAL:\n"+safeText(value("object"),"Não informado.")+"\n\n"+
@@ -513,6 +601,7 @@
 
   upgradeCatalogAndTags();
   installPortrait();
+  installSourceSelectors();
   installThemes();
   installCopyOverride();
   refreshThemeSuggestions(true);
@@ -524,9 +613,21 @@
     var n=el(id);
     if (n) n.addEventListener("input",function(){ later(refresh); });
   });
-  ["roles","motives","randomLeft","randomIncident","randomAll"].forEach(function(id){
+  ["roles","motives","randomLeft","randomIncident"].forEach(function(id){
     var n=el(id);
     if (n) n.addEventListener("click",function(){ later(refresh); });
+  });
+
+  var randomAll=el("randomAll");
+  if(randomAll) randomAll.addEventListener("click",function(){
+    selectedPersonality=Math.floor(Math.random()*personalityProfiles.length);
+    selectedPast=Math.floor(Math.random()*pastProfiles.length);
+    renderSourceChoices("personalityChoices",personalityProfiles,function(){return selectedPersonality;},function(i){selectedPersonality=i;});
+    renderSourceChoices("pastChoices",pastProfiles,function(){return selectedPast;},function(i){selectedPast=i;});
+    later(function(){
+      themeDirty={};
+      refreshThemeSuggestions(true);
+    });
   });
 
   var mo=new MutationObserver(function(){ keepPortrait(); });
