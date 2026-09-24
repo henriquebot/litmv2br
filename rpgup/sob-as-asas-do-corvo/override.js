@@ -1,0 +1,1 @@
+/* RPG Up — Sob as Asas do Corvo\n   Ajustes remotos de comportamento. Mantido via ChatGPT/GitHub.\n*/\nwindow.RPGUP_CORVO_REMOTE = true;\n
