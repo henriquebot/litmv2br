@@ -279,14 +279,18 @@
       "Tag": "Tag",
       "Weakness": "Fraqueza",
       "DeleteTagStatus": "Excluir esta tag/status",
-      "ToggleTagStatus": "Alternar entre tag e status"
+      "ToggleTagStatus": "Alternar entre tag e status",
+      "Type": "Tipo",
+      "Compendium": "Compêndio",
+      "World": "Mundo"
     },
     "MIGHT": {
       "Adventure": "Aventura",
       "Custom": "Personalizado…",
       "Greatness": "Grandeza",
       "None": "— Nenhum —",
-      "Origin": "Origem"
+      "Origin": "Origem",
+      "Variable": "Variável"
     },
     "MOVES": {
       "LEGEND": {
@@ -590,7 +594,8 @@
       "WindowTitle": "Kit de Tema",
       "SearchPlaceholder": "Pesquisar kits de tema…",
       "NoSelection": "Nenhum kit de tema selecionado!",
-      "NoActor": "Nenhum personagem definido para a seleção de kit de tema!"
+      "NoActor": "Nenhum personagem definido para a seleção de kit de tema!",
+      "Story": "História"
     },
     "TUTORIAL": {
       "CampingContent": "Conduz uma cena de Acampamento ou Estadia (Livro Básico p. 179): tags do acampamento, Descansar / Refletir / Ação de Acampamento para cada herói e revisão da expiração das tags de história da mochila. Também requer uma cena ativa.",
