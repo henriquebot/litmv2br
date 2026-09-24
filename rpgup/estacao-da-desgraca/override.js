@@ -713,9 +713,7 @@
       var res=await fetch(cfg.restUrl,{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(Object.assign({},p,{
-          callsign:(p.callsign ? p.callsign+" // " : "")+"JOGADOR: "+p.playerName
-        }))
+        body:JSON.stringify(p)
       });
       var data={};
       try{data=await res.json();}catch(e){}
