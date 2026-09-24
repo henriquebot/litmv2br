@@ -307,7 +307,10 @@
       "NoCharacterAssignedForThemekitSelection": "Nenhum personagem atribuído ao seu usuário. Atribua um personagem para abrir a seleção de kits de tema.",
       "NoFellowshipThemecardFound": "Nenhum ator de Cartão de Tema da Companhia encontrado. Use \"Criar Novo\" para criar um primeiro.",
       "NotAllowedToUploadFilesForCustomBackground": "Você não tem permissão para enviar arquivos. Entre em contato com seu Narrador.",
-      "SetQuest": "Missão definida como {quest}"
+      "SetQuest": "Missão definida como {quest}",
+      "OwnedItemsMacroOnly": "Você só pode criar botões de macro para Itens pertencentes a um Ator.",
+      "MacroItemNotFound": "Não foi possível encontrar o item {itemName}. Talvez seja necessário excluir e recriar esta macro.",
+      "TextFieldRequired": "Posicione o cursor em um campo ou área de texto."
     },
     "NPC": {
       "CustomMightLevel": "Nível personalizado",
@@ -492,7 +495,29 @@
         "WorldItemsEntry": "Itens do mundo (diretório Itens)",
         "WorldItemsGroup": "Este Mundo",
         "WorldSource": "Compêndio do Mundo"
-      }
+      },
+      "MightUsageEnabled": "Usar Potência",
+      "MightUsageEnabledHint": "Ativa ou desativa o uso de Potência no jogo.",
+      "DisableCustomDice": "Desativar Dados Personalizados do LiTM",
+      "DisableCustomDiceHint": "Desativa os dados personalizados de Legend In The Mist e volta a usar rolagens de dados padrão.",
+      "DisableCharacterHoverTooltip": "Desativar Dica ao Passar o Mouse no Personagem (Somente Narrador)",
+      "DisableCharacterHoverTooltipHint": "Desativa para o Narrador a dica de tags de poder ao passar o mouse sobre personagens.",
+      "ShowCustomJSONImport": "Mostrar Importação JSON Personalizada",
+      "ShowCustomJSONImportHint": "Ativa a importação personalizada por JSON para desafios e vinhetas usando o formato específico do sistema.",
+      "GmRollConfirmation": "Confirmação de Rolagem pelo Narrador",
+      "GmRollConfirmationHint": "Rolagens de jogadores feitas pela janela de rolagem precisam ser confirmadas pelo Narrador antes dos dados serem rolados. O Narrador vê a seleção do jogador e pode aprovar ou rejeitar.",
+      "TidyTagsOnCharacterSheet": "Organizar Tags na Ficha de Personagem",
+      "TidyTagsOnCharacterSheetHint": "Oculta tags planejadas e elimina linhas vazias nos temas do personagem.",
+      "VisualTheme": "Tema Visual",
+      "VisualThemeHint": "Escolha o visual do sistema. O tema Padrão preserva a aparência oficial; o tema Sci-Fi aplica uma interface tecnológica sem alterar regras.",
+      "VisualThemeDefault": "Padrão — Legend in the Mist",
+      "VisualThemeScifi": "Sci-Fi",
+      "KeybindingsSceneTagsName": "Abrir Tags da Cena",
+      "KeybindingsSceneTagsHint": "Abre a janela de tags da cena.",
+      "KeybindingsHowToPlayName": "Abrir Como Jogar",
+      "KeybindingsHowToPlayHint": "Abre a janela Como Jogar.",
+      "KeybindingsThemeKitName": "Abrir Seleção de Kit de Tema",
+      "KeybindingsThemeKitHint": "Abre a seleção de Kit de Tema do seu personagem."
     },
     "SheetLabels": {
       "Challenge": "Desafio",
