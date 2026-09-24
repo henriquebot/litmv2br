@@ -665,9 +665,10 @@
       if(!grid) return;
 
       grid.querySelectorAll('.theme-reset').forEach(btn=>{
-        btn.textContent='Voltar à sugestão';
-        btn.title='Desfaz suas edições manuais neste Theme e reaplica a sugestão criada pelo gerador a partir das escolhas atuais acima.';
-        btn.setAttribute('aria-label','Voltar este Theme à sugestão do gerador');
+        if(btn.textContent!=='Voltar à sugestão') btn.textContent='Voltar à sugestão';
+        const resetTitle='Desfaz suas edições manuais neste Theme e reaplica a sugestão criada pelo gerador a partir das escolhas atuais acima.';
+        if(btn.title!==resetTitle) btn.title=resetTitle;
+        if(btn.getAttribute('aria-label')!=='Voltar este Theme à sugestão do gerador') btn.setAttribute('aria-label','Voltar este Theme à sugestão do gerador');
         var cards=[...grid.querySelectorAll('.theme-card')];
         var idx=cards.indexOf(btn.closest('.theme-card'));
         btn.onclick=function(ev){
