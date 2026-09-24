@@ -247,6 +247,7 @@
     panel.innerHTML =
       '<div class="themes-head"><strong>Anexo de Perfil // Legend in the Mist</strong><span>4 temas personalizáveis</span></div>'+
       '<p class="themes-intro">As escolhas do dossiê preenchem sugestões automáticas. Você pode editar o título, o tipo, as tags, a fraqueza e a Quest de cada tema antes de copiar ou imprimir.</p>'+
+      '<div class="tag-guide"><div class="tag-guide-title">O que faz uma boa tag?</div><p>Uma <strong>tag</strong> descreve algo concreto que seu personagem pode usar na ficção — uma habilidade, recurso, relação, conhecimento ou característica. Quando ela realmente ajuda no que você está tentando fazer, ela pode entrar na rolagem e aumentar seu <strong>Power</strong>.</p><p class="tag-guide-examples"><strong>Boa tag:</strong> “diagnóstico de sistemas”, “reflexos de sobrevivente”, “contatos na manutenção”. &nbsp; <strong>Evite:</strong> “sou bom”, “faço qualquer coisa”, “sempre consigo”. Prefira algo específico, evocativo e útil em várias situações, mas que não resolva tudo sozinho.</p></div>'+
       '<div class="themes-toolbar"><button type="button" class="action secondary" id="litmRestoreAll">Restaurar todas as sugestões</button></div>'+
       '<div class="theme-grid" id="litmThemeGrid"></div>';
     grid.insertAdjacentElement("afterend",panel);
