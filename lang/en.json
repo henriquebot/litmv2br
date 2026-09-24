@@ -279,14 +279,18 @@
       "Tag": "Tag",
       "Weakness": "Weakness",
       "DeleteTagStatus": "Delete this tag/status",
-      "ToggleTagStatus": "Toggle between tag and status"
+      "ToggleTagStatus": "Toggle between tag and status",
+      "Type": "Type",
+      "Compendium": "Compendium",
+      "World": "World"
     },
     "MIGHT": {
       "Adventure": "Adventure",
       "Custom": "Custom…",
       "Greatness": "Greatness",
       "None": "— None —",
-      "Origin": "Origin"
+      "Origin": "Origin",
+      "Variable": "Variable"
     },
     "MOVES": {
       "LEGEND": {
@@ -590,7 +594,8 @@
       "WindowTitle": "Theme Kit",
       "SearchPlaceholder": "Search theme kits…",
       "NoSelection": "No theme kit selected!",
-      "NoActor": "No actor set for theme kit selection app!"
+      "NoActor": "No actor set for theme kit selection app!",
+      "Story": "Story"
     },
     "TUTORIAL": {
       "CampingContent": "Runs a camping or sojourn scene (Core Book p. 179): campsite tags, Rest / Reflect / Camp Action for each hero, and the backpack story-tag expiration review. Also needs an active scene.",
