@@ -2,39 +2,37 @@
     data-group="{{tabs.form.group}}">
     <div class="box-shadowed-container">
         <div class="flexrow">
-            <label><strong>Type</strong></label>
+            <label><strong>{{localize "MIST_ENGINE.LABELS.Type"}}</strong></label>
             <select name="system.type">
                 <option value="">-</option>
-                <option value="litm-origin" {{#if (eq system.type "litm-origin" )}}selected{{/if}}>LitM - Origin
+                <option value="litm-origin" {{#if (eq system.type "litm-origin" )}}selected{{/if}}>LitM - {{localize "MIST_ENGINE.MIGHT.Origin"}}
                 </option>
-                <option value="litm-adventure" {{#if (eq system.type "litm-adventure" )}}selected{{/if}}>LitM -
-                    Adventure</option>
-                <option value="litm-variable" {{#if (eq system.type "litm-variable" )}}selected{{/if}}>LitM - Variable
+                <option value="litm-adventure" {{#if (eq system.type "litm-adventure" )}}selected{{/if}}>LitM - {{localize "MIST_ENGINE.MIGHT.Adventure"}}</option>
+                <option value="litm-variable" {{#if (eq system.type "litm-variable" )}}selected{{/if}}>LitM - {{localize "MIST_ENGINE.MIGHT.Variable"}}
                 </option>
-                <option value="litm-greatness" {{#if (eq system.type "litm-greatness" )}}selected{{/if}}>LitM -
-                    Greatness</option>
+                <option value="litm-greatness" {{#if (eq system.type "litm-greatness" )}}selected{{/if}}>LitM - {{localize "MIST_ENGINE.MIGHT.Greatness"}}</option>
             </select>
         </div>
     </div>
     <div class="box-shadowed-container">
         <div class="flexrow">
-            <label><strong>Color</strong></label>
+            <label><strong>{{localize "MIST_ENGINE.LABELS.Color"}}</strong></label>
             <select name="system.color">
                 <option value="">-</option>
-                <option value="litm-origin" {{#if (eq system.color "litm-origin" )}}selected{{/if}}>Green</option>
-                <option value="litm-adventure" {{#if (eq system.color "litm-adventure" )}}selected{{/if}}>Brown</option>
-                <option value="litm-variable" {{#if (eq system.color "litm-variable" )}}selected{{/if}}>Black</option>
-                <option value="litm-greatness" {{#if (eq system.color "litm-greatness" )}}selected{{/if}}>Purple
+                <option value="litm-origin" {{#if (eq system.color "litm-origin" )}}selected{{/if}}>{{localize "MIST_ENGINE.LABELS.Green"}}</option>
+                <option value="litm-adventure" {{#if (eq system.color "litm-adventure" )}}selected{{/if}}>{{localize "MIST_ENGINE.LABELS.Brown"}}</option>
+                <option value="litm-variable" {{#if (eq system.color "litm-variable" )}}selected{{/if}}>{{localize "MIST_ENGINE.LABELS.Black"}}</option>
+                <option value="litm-greatness" {{#if (eq system.color "litm-greatness" )}}selected{{/if}}>{{localize "MIST_ENGINE.LABELS.Purple"}}
                 </option>
             </select>
         </div>
     </div>
     <div class="box-shadowed-container">
         <div class="item-powertag-line flexrow">
-            <h4 class="with-line">Questions</h4>
+            <h4 class="with-line">{{localize "MIST_ENGINE.LABELS.Questions"}}</h4>
         </div>
         <div class="themebook-section-header clickable" data-action="addEmptyPowertag" data-item-id="{{themebook._id}}">
-            <i class="fas fa-plus add-line-icon " title="{{localize " MIST_ENGINE.LABELS.AddPowertag"}}"></i> {{localize
+            <i class="fas fa-plus add-line-icon " title="{{localize "MIST_ENGINE.LABELS.AddPowertag"}}"></i> {{localize
             "MIST_ENGINE.LABELS.AddPowertag"}}
         </div>
         <div data-array-list="system.powertags">
@@ -45,7 +43,7 @@
 
         <div class="themebook-section-header clickable" data-action="addEmptyWeaknessTag"
             data-item-id="{{themebook._id}}">
-            <i class="fas fa-plus add-line-icon " title="{{localize " MIST_ENGINE.LABELS.AddWeaknesstag"}}"></i>
+            <i class="fas fa-plus add-line-icon " title="{{localize "MIST_ENGINE.LABELS.AddWeaknesstag"}}"></i>
             {{localize "MIST_ENGINE.LABELS.AddWeaknesstag"}}
         </div>
         <div data-array-list="system.weaknesstags">
@@ -56,7 +54,7 @@
     </div>
     {{#unless system.options.isStoryTheme}}
     <div class="box-shadowed-container">
-        <h4 class="with-line">Special Improvements</h4>
+        <h4 class="with-line">{{localize "MIST_ENGINE.LABELS.SpecialImprovements"}}</h4>
         {{#each system.specialImprovements as |imp index|}}
         {{> "systems/mist-engine-fvtt/templates/item/parts/themebook-special-improvement-line.hbs" index=index imp=imp showDelete=true}}
         {{/each}}
