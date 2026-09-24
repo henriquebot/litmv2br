@@ -1,6 +1,0 @@
-{
-	"compilerOptions": {
-		"strict": true
-	},
-	"include": ["litmv2.js", "modules", "foundry/public/scripts/foundry.mjs"]
-}

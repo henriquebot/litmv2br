@@ -1,0 +1,188 @@
+import MistEngineItemBase from "./base-item.mjs";
+import {buildSpecialImprovements,buildPowerTag} from "./util.mjs";
+
+export default class MistEngineItemThemeBook extends MistEngineItemBase {
+
+    static defineSchema() {
+        const fields = foundry.data.fields;
+        const schema = super.defineSchema();
+
+        const requiredInteger = { required: true, nullable: false, integer: true };
+
+
+        schema.type = new fields.StringField({ blank: true });
+        schema.color = new fields.StringField({ blank: true });
+        schema.quest = new fields.StringField({ blank: true });
+        schema.story = new fields.StringField({ blank: true });
+        schema.tabCategory = new fields.StringField({ blank: false, initial: "main" });
+
+        schema.abandon = new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 });
+        schema.improve = new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 });
+        schema.milestone = new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 });
+
+        schema.themeKitUUID = new fields.StringField({ blank: true });
+
+        
+        // new schema for powertags and weaknesstags
+        schema.powertags = new fields.ArrayField(buildPowerTag(), { min: 0, required: false });
+        schema.weaknesstags = new fields.ArrayField(buildPowerTag(), { min: 0, required: false });
+
+        schema.options = new fields.SchemaField({
+            isStoryTheme: new fields.BooleanField({ initial: false }),
+        });
+
+
+        // deprecated old schema definitions for powertags & weaknesstags, we keep them for now to avoid breaking existing themebooks, but they will be removed in a future update
+        schema.powertag1 = new fields.SchemaField({
+            name: new fields.StringField({ blank: true }),
+            question: new fields.StringField({ blank: true }),
+            burned: new fields.BooleanField({ initial: false }),
+            toBurn: new fields.BooleanField({ initial: false }),
+            planned: new fields.BooleanField({ initial: false }),
+            selected: new fields.BooleanField({ initial: false })
+        });
+
+        schema.powertag2 = new fields.SchemaField({
+            name: new fields.StringField({ blank: true }),
+            question: new fields.StringField({ blank: true }),
+            burned: new fields.BooleanField({ initial: false }),
+            toBurn: new fields.BooleanField({ initial: false }),
+            planned: new fields.BooleanField({ initial: false }),
+            selected: new fields.BooleanField({ initial: false })
+        });
+
+        schema.powertag3 = new fields.SchemaField({
+            name: new fields.StringField({ blank: true }),
+            question: new fields.StringField({ blank: true }),
+            burned: new fields.BooleanField({ initial: false }),
+            toBurn: new fields.BooleanField({ initial: false }),
+            planned: new fields.BooleanField({ initial: false }),
+            selected: new fields.BooleanField({ initial: false })
+        });
+
+        schema.powertag4 = new fields.SchemaField({
+            name: new fields.StringField({ blank: true }),
+            question: new fields.StringField({ blank: true }),
+            burned: new fields.BooleanField({ initial: false }),
+            toBurn: new fields.BooleanField({ initial: false }),
+            planned: new fields.BooleanField({ initial: false }),
+            selected: new fields.BooleanField({ initial: false })
+        });
+
+        schema.powertag5 = new fields.SchemaField({
+            name: new fields.StringField({ blank: true }),
+            question: new fields.StringField({ blank: true }),
+            burned: new fields.BooleanField({ initial: false }),
+            toBurn: new fields.BooleanField({ initial: false }),
+            planned: new fields.BooleanField({ initial: false }),
+            selected: new fields.BooleanField({ initial: false })
+        });
+
+        schema.powertag6 = new fields.SchemaField({
+            name: new fields.StringField({ blank: true }),
+            question: new fields.StringField({ blank: true }),
+            burned: new fields.BooleanField({ initial: false }),
+            toBurn: new fields.BooleanField({ initial: false }),
+            planned: new fields.BooleanField({ initial: false }),
+            selected: new fields.BooleanField({ initial: false })
+        });
+
+        schema.powertag7 = new fields.SchemaField({
+            name: new fields.StringField({ blank: true }),
+            question: new fields.StringField({ blank: true }),
+            burned: new fields.BooleanField({ initial: false }),
+            toBurn: new fields.BooleanField({ initial: false }),
+            planned: new fields.BooleanField({ initial: false }),
+            selected: new fields.BooleanField({ initial: false })
+        });
+
+        schema.powertag8 = new fields.SchemaField({
+            name: new fields.StringField({ blank: true }),
+            question: new fields.StringField({ blank: true }),
+            burned: new fields.BooleanField({ initial: false }),
+            toBurn: new fields.BooleanField({ initial: false }),
+            planned: new fields.BooleanField({ initial: false }),
+            selected: new fields.BooleanField({ initial: false })
+        });
+
+        schema.powertag9 = new fields.SchemaField({
+            name: new fields.StringField({ blank: true }),
+            question: new fields.StringField({ blank: true }),
+            burned: new fields.BooleanField({ initial: false }),
+            toBurn: new fields.BooleanField({ initial: false }),
+            planned: new fields.BooleanField({ initial: false }),
+            selected: new fields.BooleanField({ initial: false })
+        });
+
+        schema.powertag10 = new fields.SchemaField({
+            name: new fields.StringField({ blank: true }),
+            question: new fields.StringField({ blank: true }),
+            burned: new fields.BooleanField({ initial: false }),
+            toBurn: new fields.BooleanField({ initial: false }),
+            planned: new fields.BooleanField({ initial: false }),
+            selected: new fields.BooleanField({ initial: false })
+        });
+
+
+        schema.weaknesstag1 = new fields.SchemaField({
+            name: new fields.StringField({ blank: true }),
+            question: new fields.StringField({ blank: true }),
+            burned: new fields.BooleanField({ initial: false }),
+            toBurn: new fields.BooleanField({ initial: false }),
+            planned: new fields.BooleanField({ initial: false }),
+            selected: new fields.BooleanField({ initial: false })
+        });
+
+        schema.weaknesstag2 = new fields.SchemaField({
+            name: new fields.StringField({ blank: true }),
+            question: new fields.StringField({ blank: true }),
+            burned: new fields.BooleanField({ initial: false }),
+            toBurn: new fields.BooleanField({ initial: false }),
+            planned: new fields.BooleanField({ initial: false }),
+            selected: new fields.BooleanField({ initial: false })
+        });
+
+        schema.weaknesstag3 = new fields.SchemaField({
+            name: new fields.StringField({ blank: true }),
+            question: new fields.StringField({ blank: true }),
+            burned: new fields.BooleanField({ initial: false }),
+            toBurn: new fields.BooleanField({ initial: false }),
+            planned: new fields.BooleanField({ initial: false }),
+            selected: new fields.BooleanField({ initial: false })
+        });
+
+        schema.weaknesstag4 = new fields.SchemaField({
+            name: new fields.StringField({ blank: true }),
+            question: new fields.StringField({ blank: true }),
+            burned: new fields.BooleanField({ initial: false }),
+            toBurn: new fields.BooleanField({ initial: false }),
+            planned: new fields.BooleanField({ initial: false }),
+            selected: new fields.BooleanField({ initial: false })
+        });
+
+        foundry.utils.mergeObject(schema, buildSpecialImprovements());
+        return schema;
+    }
+
+    prepareDerivedData() {
+        this.hasSpecialImprovements = this.specialImprovements.some(imp => imp.active);
+
+        this.hasAssignedThemekit = false;
+        // if themeKitUUID is set, we try to get the themekit item and set it as a property of the themebook for easy access later
+        if(this.themeKitUUID && this.themeKitUUID.trim() !== ""){
+            fromUuid(this.themeKitUUID).then(themekit => {
+                this.themekit = themekit;
+                this.hasAssignedThemekit = true;
+            }).catch(err => {
+                console.error(`Error fetching themekit with UUID ${this.themeKitUUID}:`, err);
+                this.themekit = null;
+                this.themeKitUUID = null;
+            });
+        }
+
+        // if color is empty then we set it equal to type
+        if(!this.color || this.color.trim() === ""){
+            this.color = this.type;
+        }
+    }
+}

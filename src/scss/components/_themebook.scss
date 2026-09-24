@@ -1,0 +1,348 @@
+.themebooks-container {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    min-width: 233px;
+    grid-template-columns: repeat(auto-fit, 186px);
+    justify-content: center;
+    &.edit-mode{
+        grid-template-columns: repeat(auto-fit, 260px);
+    }
+}
+
+.themebooks-container-stylized {
+
+
+    > :nth-child(2) {
+        top: 3.75rem;
+        left: 11rem;
+        rotate: 0deg;
+
+        &::before {
+            content: "";
+            position: absolute;
+            background: url(../assets/raven.webp) no-repeat center / contain;
+            height: 45%;
+            width: 45%;
+            z-index: 3;
+            pointer-events: none;
+            //top: 10.5rem;
+            left: -3.625rem;
+            rotate: 10deg;
+        }
+    }
+
+    > :nth-child(3) {
+        top: 3.75rem;
+        left: 11rem;
+        rotate: 0deg;
+
+        &::before {
+            content: "";
+            position: absolute;
+            background: url(../assets/flowers-top.webp) no-repeat center / contain;
+            height: 55%;
+            width: 55%;
+            z-index: 3;
+            pointer-events: none;
+            top: 10.5rem;
+            left: -3.625rem;
+            rotate: 10deg;
+        }
+    }
+}
+
+ .backpack-stylized{
+        top: 3.75rem;
+        left: 11rem;
+        rotate: 0deg;
+
+        &::before {
+            content: "";
+            position: absolute;
+            background: url(../assets/necklace.webp) no-repeat center / contain;
+            height: 80%;
+            width: 80%;
+            z-index: 3;
+            pointer-events: none;
+            top: 5.0rem;
+            left: -4.625rem;
+            rotate: 10deg;
+        }
+    }
+
+    .fellowship-themebook-stylized{
+        top: 3.75rem;
+        left: 11rem;
+        rotate: 0deg;
+
+        &::before {
+            content: "";
+            position: absolute;
+            background: url(../assets/middle-branches.webp) no-repeat center / contain;
+            height: 80%;
+            width: 80%;
+            z-index: 3;
+            pointer-events: none;
+            top: 3rem;
+            left: 4rem;
+            rotate: -10deg;
+        }
+    }
+
+.themebook-container {
+    flex-grow: 0.25;
+    padding-bottom: 8px;
+
+    // Drag-and-drop reordering / tab-move of cards in the Main/Other grid:
+    // the dragged card is inserted BEFORE this card -> insertion bar on its
+    // left edge (the box-shadow strip sits in the 10px grid gap) plus a subtle
+    // highlight. NOTE: no position/::before here — the stylized grid already
+    // uses ::before for decorations and top/left offsets on positioned cards.
+    &.drag-over {
+        outline: 2px dashed rgba($c-brown, 0.4);
+        outline-offset: -2px;
+        border-radius: 4px;
+        box-shadow: -8px 0 0 0 $c-brown;
+    }
+
+    // The card currently being dragged.
+    &.card-dragging {
+        opacity: 0.35;
+    }
+
+    .card-drag-handle {
+        cursor: grab;
+        color: rgba($c-icon-brown, 0.3);
+        margin-right: 4px;
+        font-size: 0.8em;
+        vertical-align: middle;
+        transition: color 0.15s ease;
+
+        &:active { cursor: grabbing; }
+        &:hover { color: $c-icon-brown; }
+    }
+
+    &:hover .card-drag-handle { color: rgba($c-icon-brown, 0.7); }
+
+    .themebook-icon-line {
+        margin: 2px 0;
+        color: black;
+    }
+
+    .quest-container {
+        h3 {
+            font-family: Labrada, serif;
+            font-weight: 800;
+            text-align: center;
+            background-color: rgba(114, 74, 50, 0.2);
+            color: $c-brown;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            margin: 3px 2px;
+            padding: 2px;
+        }
+
+        .quest-text {
+            font-family: $font-dreamland;
+            font-style: italic;
+            font-weight: bold;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            text-align: center;
+            padding: 2px 10px;
+            color: darken($c-brown, 10%);
+            -webkit-font-smoothing: antialiased;
+        }
+    }
+}
+
+// Dragging over empty grid space: the card would be appended at the end.
+.card-grid.drag-over-append {
+    outline: 2px dashed $c-brown;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+// A Main/Other tab button acting as a drop target while dragging a card.
+.sheet-tabs a[data-action="tab"].drag-over {
+    background-color: rgba($c-brown, 0.25);
+    outline: 2px dashed $c-brown;
+    outline-offset: -2px;
+    border-radius: 4px;
+}
+
+.themebook-style {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+
+    h2 {
+        text-align: center;
+        font-family: var(--litm-font-heading);
+        font-size: 0.7rem;
+        line-height: 1.5em;
+        padding: 2px;
+        height: 30px;
+        margin: -7px -8px 0px -8px;
+        text-transform: uppercase;
+        color: $c-white;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    &.litm-adventure {
+        h2 {
+            background-image: url("../assets/headers/header-adventure.webp");
+            background-repeat: no-repeat;
+            background-size: 100% 20px;
+        }
+
+    }
+
+    &.litm-origin {
+        h2 {
+            background-image: url("../assets/headers/header-origin.webp");
+            background-repeat: no-repeat;
+            background-size: 100% 20px;
+        }
+
+    }
+
+    &.litm-variable {
+        h2 {
+            background-image: url("../assets/headers/header-black.webp");
+            background-repeat: no-repeat;
+            background-size: 100% 20px;
+        }
+    }
+
+    &.litm-greatness {
+        h2 {
+            background-image: url("../assets/headers/header-greatness.webp");
+            background-repeat: no-repeat;
+            background-size: 100% 20px;
+        }
+    }
+
+    &.litm-backpack {
+        h2 {
+            background-image: url("../assets/headers/header-backpack.webp");
+            background-repeat: no-repeat;
+            background-size: 100% 20px;
+        }
+    }
+
+    &.litm-quintessence {
+        h2 {
+            background-image: url("../assets/headers/header-backpack.webp");
+            background-repeat: no-repeat;
+            background-size: 100% 20px;
+        }
+    }
+
+    &.litm-fellowship-relationship {
+        h2 {
+            background-image: url("../assets/headers/header-backpack.webp");
+            background-repeat: no-repeat;
+            background-size: 100% 20px;
+        }
+    }
+
+    &.litm-fellowship-themecard {
+        h2 {
+            background-image: url("../assets/headers/header-backpack.webp");
+            background-repeat: no-repeat;
+            background-size: 100% 20px;
+        }
+    }
+
+    &.litm-rote {
+        h2 {
+            background-image: url("../assets/headers/header-backpack.webp");
+            background-repeat: no-repeat;
+            background-size: 100% 20px;
+        }
+    }
+
+    .themebook-icon {
+        height: 12px;
+        width: 12px;
+        float: right;
+        display: inline-block;
+        object-fit: cover;
+        margin: 2px 2px 0 0;
+
+        &.litm-adventure {
+            background-image: url('../assets/icons/icon-adventure-litm.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        &.litm-greatness {
+            background-image: url('../assets/icons/icon-greatness-litm.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        &.litm-origin {
+            background-image: url('../assets/icons/icon-origin-litm.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        &.litm-variable {
+            background-image: url('../assets/icons/icon-variable-litm.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        &.litm-backpack {
+            background-image: url('../assets/icons/icon-backpack.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        &.litm-quintessence {
+            background-image: url('../assets/icons/icon-variable-litm.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        &.litm-fellowship-relationship {
+            background-image: url('../assets/icons/icon-variable-litm.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        &.litm-fellowship-themecard {
+            background-image: url('../assets/icons/icon-variable-litm.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+    }
+
+    .development-container {
+        margin-top: auto;
+    }
+
+    .development-partial-container,
+    .fellowship-promises-container {
+        color: $c-brown;
+        font-family: Labrada, serif;
+        font-size: xx-small;
+        text-transform: uppercase;
+        text-align: center;
+
+        .marker {
+            color: $c-off-white;
+
+            &.checked {
+                color: $c-styled-text;
+            }
+        }
+    }
+
+    .fellowship-entries {
+        flex-grow: 1;
+    }
+}

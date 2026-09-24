@@ -1,0 +1,228 @@
+@mixin tag-mark-def {
+  mark {
+    padding-left: 2px;
+    padding-right: 3px;
+    border-radius: 2px;
+    font-style: italic;
+    white-space: nowrap;
+
+    // Use a linear gradient so that the tag colour doesn't fill the whole of the line height.
+    // Makes it mlook better for tags in long text, such as journal entries.
+
+    &.tag,
+    &.tag.yellow {
+      background: linear-gradient(to bottom, transparent 20%, $c-tag-yellow 21%, $c-tag-yellow 90%, transparent 91%);
+    }
+
+    &.status,
+    &.tag.green {
+      background: linear-gradient(to bottom, transparent 20%, $c-tag-green 21%, $c-tag-green 90%, transparent 91%);
+    }
+
+    &.status.negative,
+    &.weakness,
+    &.tag.orange {
+      background: linear-gradient(to bottom, transparent 20%, $c-tag-orange 21%, $c-tag-orange 90%, transparent 91%);
+    }
+
+    &.limit,
+    &.tag.red {
+      background: linear-gradient(to bottom, transparent 20%, $c-limit-red 21%, $c-limit-red 90%, transparent 91%);
+    }
+
+    &.might {
+      background: transparent;
+      font-weight: bold;
+    }
+
+    .might-icon {
+      @include might-icon-def;
+    }
+  }
+
+  .limit-inline,
+  .npc-limit-item {
+    display: inline-block;
+
+    mark.limit {
+      padding-right: 0.8em;
+    }
+
+    .limit-value {
+      background-image: url("../assets/icons/icon-litm-limit-shield.svg");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-position: center;
+      display: inline-block;
+      margin: 0 0 0 -0.5em;
+      padding: 0 0 0.1em 0;
+      width: 1.1em;
+      height: auto;
+      text-align: center;
+      color: white;
+    }
+  }
+}
+
+@mixin might-icon-def {
+  height: 1em;
+  width: 1em;
+  flex-shrink: 0; // never let a flex row squeeze the icon to nothing (issue #96)
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  position: relative;
+  top: 0.2em;
+  
+  background-image: url("../assets/icons/might-icon-adventure.webp");
+  margin-right: 0.2em;
+  
+  &.adventure {
+    background-image: url("../assets/icons/might-icon-adventure.webp");
+  }
+  
+  &.greatness {
+    background-image: url("../assets/icons/might-icon-greatness.webp");
+  }
+
+  &.origin {
+    background-image: url("../assets/icons/might-icon-origin.webp");
+    margin-right: 0; // origin icon is slightly smaller, so doesn't need right margin
+  }
+}
+
+@mixin styled-fielset{
+    font-family: $font-primary;
+    border-radius: 5px;
+    legend{
+        button{
+            display: inline-block;
+        }
+    }
+}
+
+/* journal styling */
+@mixin letter-box{
+    background-color: #AA9980;
+    color: white;
+    min-width: 20px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 3px;
+}
+
+@mixin themekit-big-box{
+    background-color: #E7E3E0;
+    color: #6E5933;
+    min-width: 250px;
+    margin: 10px;
+    text-align: center;
+    background-size: cover;
+    font-family: $font-manuscript;
+    flex: 1;
+    
+    background-image: url('../assets/boxes/box-no-header-origin.webp');
+    background-size: 100% 100%;
+
+
+    .heading{
+        color: white;
+        font-family: $font-primary;
+        margin-top: 10px;
+        background-image: url('../assets/headers/header-origin.webp');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        margin-top: 0;
+        padding: 10px 14px 8px;
+
+        p {
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.85em;
+        }
+    }
+
+    .themekit-title{
+        font-size: 1.8em;
+        font-weight: bold;
+        font-style: italic;
+        width: fit-content;
+        margin: 8px auto 0;
+        padding: 0 6px;
+        p{
+          background-color: $c-tag-yellow;
+        }
+    }
+    .powertags,.weaknesstags{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .line {
+        width: 80%;
+        margin: 4px auto;
+
+        p {
+            margin: 0;
+            background-image: url('../assets/tag-divider.webp');
+            background-repeat: no-repeat;
+        }
+    }
+
+    .quest{
+        font-family: $font-dreamland;
+        color: black;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@mixin themekit-box{
+    background-color: #E7E3E0;
+    color: #6E5933;
+    min-width: 250px;
+    margin: 10px;
+    text-align: center;
+    min-height: 150px;
+    background-image: url('../assets/boxes/box-square-neutral.webp');
+    background-size: 100% 100%;
+
+    .heading{
+        font-size: 1em;
+        font-family: $font-primary;
+        color: #6E5933;
+        text-decoration: none;
+        border-bottom: 0;
+        font-weight: bold;
+    }
+
+    mark{
+        margin-bottom: 2px;
+    }
+
+    &.origin{
+      background-image: url('../assets/boxes/box-square-origin.webp');
+      background-size: 100% 100%;
+        .heading{
+            color: #4D8061;
+        }
+    }
+
+    &.adventure{
+      background-image: url('../assets/boxes/box-square-adventure.webp');
+      background-size: 100% 100%;
+        .heading{
+            color: #7D3C3C;
+        }
+    }
+
+    &.greatness{
+      background-image: url('../assets/boxes/box-square-greatness.webp');
+      background-size: 100% 100%;
+        .heading{
+            color: #5B5B91;
+        }
+    }
+}

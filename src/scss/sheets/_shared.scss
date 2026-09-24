@@ -1,0 +1,233 @@
+// Shared styles used across multiple sheets.
+@include tag-mark-def;
+
+.editModeToggle {
+  float: right;
+}
+
+.header-right-side {
+  flex-grow: 1;
+}
+
+.trash-icon-container {
+  flex-grow: 0;
+  color: black;
+}
+
+.value-input-small {
+  width: 100px;
+  flex-grow: 0.05;
+}
+
+.value-input-huge {
+  width: 100px;
+  flex-grow: 20;
+}
+
+.empty-message {
+  font-family: $font-primary;
+  font-size: 1.2em;
+  font-style: italic;
+  color: $c-styled-text;
+  margin: 10px;
+  text-align: center;
+}
+
+.mode-toggle-button {
+  margin-inline-end: auto;
+}
+
+.quest-textarea {
+  width: 100%;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.letter-box {
+  min-width: 15px;
+}
+
+.roll-button {
+  margin: 5px;
+  font-family: $font-primary;
+  width: 100%;
+  // Explicit colors so the button stays readable regardless of Foundry's
+  // light/dark application theme — the default button flips to a light
+  // background with dark text in light mode and washes out over the sheet
+  // (issue #100). Match the system's brown button aesthetic.
+  background: $c-brown;
+  color: $c-white;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  text-shadow: none;
+
+  &:hover:not(:disabled) {
+    background: color-mix(in srgb, $c-brown 82%, white);
+    box-shadow: 0 0 6px $c-brown;
+    color: $c-white;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+  }
+
+  i {
+    color: $c-white;
+  }
+}
+
+// Other character-sheet action buttons that otherwise inherit Foundry's
+// theme-dependent default look (issue #100): themekit selection and the
+// fellowship create/assign buttons. Same brown, theme-independent treatment.
+.themekit-button,
+.empty-message button {
+  background: $c-brown;
+  color: $c-white;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  font-family: $font-primary;
+  text-shadow: none;
+
+  &:hover:not(:disabled) {
+    background: color-mix(in srgb, $c-brown 82%, white);
+    box-shadow: 0 0 6px $c-brown;
+    color: $c-white;
+  }
+
+  i {
+    color: $c-white;
+  }
+}
+
+.lock-toggle-container {
+  cursor: pointer;
+  color: black;
+
+  &.locked {
+    color: darkred;
+  }
+}
+
+.special-improvement-section-label {
+  font-family: Labrada, serif;
+  font-weight: 800;
+  text-align: center;
+  color: $c-brown;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  margin: 3px 2px 3px 2px;
+  text-shadow: 1px 1px 2px rgb(255, 249, 249);
+}
+
+.powertags-container {
+  margin: 2px;
+  flex-grow: 1;
+
+  .themebook-section-header {
+    background-color: rgb(120 70 37);
+    font-family: $font-primary;
+    text-align: center;
+    padding: 2px 4px;
+    text-transform: uppercase;
+    clip-path: polygon(
+        0 0.2em, 0.3em 0.2em, 0.3em 0,
+        calc(100% - 0.3em) 0, calc(100% - 0.3em) 0.2em,
+        100% 0.3em, 100% calc(100% - 0.2em),
+        calc(100% - 0.2em) calc(100% - 0.2em),
+        calc(100% - 0.2em) 100%, 0.2em 100%,
+        0.3em calc(100% - 0.2em), 0 calc(100% - 0.2em)
+    );
+  }
+}
+
+// Tab content areas.
+.tab-notes,
+.tab-biography {
+  height: 100%;
+  color: $c-styled-text;
+  font-family: $font-primary;
+  padding: 1em;
+  font-size: 1.1em;
+  overflow: hidden auto;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $c-text-redish;
+    font-family: $font-primary;
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+
+  h3 {
+    display: flex;
+    align-items: center;
+
+    &.with-line {
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 105px;
+        height: 6px;
+        background-image: url(../assets/header-backline.webp);
+        background-repeat: no-repeat;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .line-with-image {
+    img { display: inline; margin-right: 3px; }
+    p   { display: inline; }
+  }
+}
+
+section [data-group="litm-character-sheet"] {
+  .tab-biography,
+  .tab-notes {
+    margin-left: var(--litm-premium-left-margin);
+  }
+}
+
+.tab-description {
+  font-family: $font-primary;
+  color: $c-dark-styled-text;
+  height: 100%;
+
+  .tag    { background-color: $c-tag-yellow; border-radius: 4px; }
+  .status { background-color: $c-tag-green;  border-radius: 4px; }
+}
+
+// Challenges and consequences (used in npc and journey sheets).
+.challenge-entry-container,
+.npc-challenges-container {
+  font-family: $font-primary;
+  color: $c-styled-text;
+
+  h2 {
+    font-family: $font-primary;
+    color: $c-styled-text;
+    font-size: 1.3em;
+  }
+
+  .list-entries {
+    margin-top: 20px;
+
+    .entry-content {
+      flex-direction: row;
+      display: flex;
+    }
+
+    .entry-content-no-edit {
+      .icon-col { flex-grow: 0.075; }
+      .text-col { flex-grow: 1; }
+      gap: 3px;
+    }
+  }
+}
+
+.tab.journey-consequences {
+  a {
+    font-family: $font-primary;
+    color: $c-styled-text;
+  }
+}

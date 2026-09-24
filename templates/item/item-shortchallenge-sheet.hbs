@@ -1,0 +1,18 @@
+<section class="tab {{tabs.form.id}} {{tabs.form.cssClass}} scrollable" id="form"
+    data-tab="{{tabs.form.id}}" data-group="{{tabs.form.group}}">
+    {{#if (isCustomJSONImportEnabled true)}}
+        <div class="">
+            <button data-action="importShortChallengeJSON"><i class="fas fa-file-import"></i>{{localize 'MIST_ENGINE.ACTIONS.ImportShortChallengeVignetteJSON'}}</button>
+        </div>
+    {{/if}}
+    <textarea data-dtype="String" class="textarea-short-description editable-item" name="system.shortDescription" placeholder="{{localize 'MIST_ENGINE.PLACEHOLDERS.ShortDescription'}}">{{system.shortDescription}}</textarea>
+    <fieldset>
+    <legend>Consequences <button data-action="createEntry"><i class='fas fa-plus'></i></button></legend>
+    {{#each system.list as |entry index|}}
+        <div class="list-entry flexrow">
+            <textarea class="editable-item" data-index="{{index}}" style="flex-grow: 8;">{{entry}}</textarea>
+            <a style="flex-grow: 0.2" data-action="deleteEntry" data-index="{{index}}"><i class="fas fa-trash"></i></a>
+        </div>
+    {{/each}}
+    </fieldset>
+</section>

@@ -1,0 +1,475 @@
+.litm-pc-powertag {
+    font-family: $font-primary-italic;
+    font-weight: normal;
+    color: black;
+    position: relative;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-style: italic;
+
+    &.powertag-name {
+        font-style: italic;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &.selected {
+        z-index: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: -8px -10px;
+            background: url("../assets/circle-selection.svg") no-repeat center;
+            background-size: 100% 100%;
+            pointer-events: none;
+        }
+    }
+
+    &.burned {
+        text-decoration: line-through;
+        color: gray;
+    }
+
+    &.empty {
+        color: rgba(0, 0, 0, 0.5);
+
+        &:hover {
+            cursor: default;
+        }
+    }
+
+    &.first {
+        font-weight: 600;
+        font-size: 1.2em;
+        line-height: 1.2em;
+        top: -5px;
+    }
+}
+
+.litm-pc-storytag {
+    font-family: $font-primary-italic;
+    font-weight: normal;
+    color: black;
+    min-height: 23px;
+    border-bottom: 1.5px solid rgb(0, 0, 0, 0.1);
+    position: relative;
+    text-align: center;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &.selected {
+        z-index: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: -8px -10px;
+            background: url("../assets/circle-selection.svg") no-repeat center;
+            background-size: 100% 100%;
+            pointer-events: none;
+        }
+    }
+
+    &.burned {
+        text-decoration: line-through;
+        color: gray;
+    }
+
+    // Camping & Sojourns story tag expiration (p. 179)
+    &.expiring {
+        color: #a3641e;
+    }
+
+    &.expired {
+        text-decoration: line-through;
+        color: gray;
+
+        &:hover {
+            cursor: default;
+        }
+    }
+
+    &.empty {
+        color: rgba(0, 0, 0, 0.5);
+
+        &:hover {
+            cursor: default;
+        }
+    }
+}
+
+// Overcome (Core Book p. 29): a Hero at tier 5 / a Challenge at a Limit
+.overcome-badge {
+    display: inline-block;
+    background: #8c1f14;
+    color: white;
+    font-family: var(--litm-font-heading);
+    font-size: 0.55em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 1px 6px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: 6px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.npc-limit-item.limit-reached {
+    mark.limit {
+        outline: 2px solid #8c1f14;
+        font-weight: bold;
+    }
+}
+
+.special-improvement-label {
+    font-family: var(--litm-font-text);
+    font-weight: normal;
+    color: black;
+    text-align: center;
+}
+
+.litm-pc-weakness {
+    font-family: $font-primary-italic;
+    color: black;
+    position: relative;
+    text-align: center;
+    font-style: italic;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &.selected {
+        z-index: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: -8px -10px;
+            background: url("../assets/circle-selection.svg") no-repeat center;
+            background-size: 100% 100%;
+            pointer-events: none;
+        }
+    }
+}
+
+.litm-pc-fellowship-relationship-companion {
+    font-family: $font-primary-italic;
+    font-weight: normal;
+    color: black;
+    margin-right: 5px;
+}
+
+.litm-pc-fellowship-relationship {
+    font-family: $font-primary-italic;
+    font-weight: normal;
+    color: black;
+    position: relative;
+    text-align: center;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &.selected {
+        z-index: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: -8px -10px;
+            background: url("../assets/circle-selection.svg") no-repeat center;
+            background-size: 100% 100%;
+            pointer-events: none;
+        }
+    }
+
+    &.scratched {
+        text-decoration: line-through;
+        color: gray;
+    }
+}
+
+.litm-pc-quintessence {
+    font-family: $font-primary-italic;
+    font-weight: normal;
+    color: black;
+    flex-grow: 8;
+
+    &.selected {
+        text-shadow: 0 0 15px rgb(64, 255, 0);
+        font-weight: bold;
+    }
+}
+
+.burn-indicator {
+    flex-grow: 0.15;
+    align-self: flex-start;
+}
+
+.weakness-indicator {
+    flex-grow: 0.15;
+    align-self: flex-start;
+}
+
+.burn-icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    display: inline-block;
+    background-image: url("../assets/icons/icon-burn-scratch-empty.svg");
+
+    &.to-burn {
+        background-image: url("../assets/icons/icon-burn-scratch-to-burn.svg");
+    }
+}
+
+.tag-icon-litm-adventure {
+    mask-image: url("../assets/icons/icon-adventure-litm.svg");
+    background-color: $c-icon-red;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+}
+
+.tag-icon-litm-origin {
+    mask-image: url("../assets/icons/icon-origin-litm.svg");
+    background-color: $c-icon-green;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 10px;
+    height: 15px;
+    display: inline-block;
+}
+
+.tag-icon-litm-variable {
+    mask-image: url("../assets/icons/icon-variable-litm.svg");
+    background-color: $c-icon-brown;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+}
+
+.tag-icon-litm-greatness {
+    mask-image: url("../assets/icons/icon-greatness-litm.svg");
+    background-color: $c-icon-blue;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+}
+
+.tag-icon-litm-consequence {
+    background-image: url("../assets/icons/icon-litm-consequence.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+}
+
+.npc-tag {
+    background-color: $c-tag-yellow;
+}
+
+.npc-tag-status-value {
+    background-color: $c-tag-green;
+}
+
+// Floating tags and statuses.
+.floating-tags-and-status-container {
+    color: $c-styled-text;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.npc-floating-tags-and-status-container {
+    width: auto !important;
+}
+
+.floating-tags-and-status-entries {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5em;
+
+    &.grid {
+        display: grid;
+        gap: 0.4em 0.6em;
+    }
+}
+
+.floating-tag-and-status-entry {
+    position: relative;
+}
+
+// Floating tag/status input rows.
+.fts-input-name {
+    padding: 1px 3px;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    gap: 3px;
+
+    .fts-selectable {
+        flex: 1;
+        text-align: center;
+    }
+
+    .fts-tag-modifier-toggle,
+    .fts-tag-status-toggle {
+        pointer-events: cursor;
+        font-size: 0.75em;
+        flex-shrink: 0;
+    }
+
+    .might-icon {
+        @include might-icon-def;
+    }
+
+    &.tag {
+        background-color: $c-tag-yellow;
+        font-family: var(--litm-font-text);
+        font-style: normal;
+        border-radius: 3px 2px 3px 2px;
+        text-align: center;
+        border: 1px solid rgba(100, 55, 8, 0.65);
+        box-shadow:
+            inset 0 1px 2px rgba(255, 205, 90, 0.12),
+            0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    &.status {
+        background-color: $c-tag-green;
+        font-family: var(--litm-font-text);
+        font-style: normal;
+        border-radius: 3px 2px 3px 2px;
+        text-align: center;
+        border: 1px solid rgba(20, 60, 18, 0.55);
+        box-shadow:
+            inset 0 1px 2px rgba(100, 200, 80, 0.12),
+            inset 0 -1px 2px rgba(10, 40, 8, 0.15);
+    }
+
+    &.negative {
+        background-color: $c-tag-orange;
+    }
+
+    &.status.negative {
+        background-color: $c-tag-orange;
+        border: 1px solid rgba(100, 55, 8, 0.55);
+        box-shadow:
+            inset 0 1px 2px rgba(255, 205, 90, 0.12),
+            inset 0 -1px 2px rgba(60, 30, 5, 0.15);
+    }
+}
+
+.fts-input-value {
+    flex-shrink: 2;
+}
+
+.fts-selectable {
+    cursor: pointer;
+    position: relative;
+
+    &.selected {
+        z-index: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: -8px -10px;
+            background: url("../assets/circle-selection.svg") no-repeat center;
+            background-size: 100% 100%;
+            pointer-events: none;
+        }
+    }
+}
+
+.fts-input-marking {
+    flex-grow: 0.1;
+    text-align: center;
+    cursor: pointer;
+
+    i.marking-circle {
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.08);
+        color: rgba(0, 0, 0, 0.35);
+        width: 22px;
+        height: 22px;
+        display: inline-block;
+        font-family: var(--litm-font-text);
+        font-style: normal;
+        font-size: 0.68em;
+        line-height: 22px;
+        text-align: center;
+        border: 1.5px solid rgba(0, 0, 0, 0.15);
+        transition: background-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+    }
+
+    i.marking-circle.inactive {
+        opacity: 0.4;
+    }
+
+    i.active {
+        background-color: rgba(0, 0, 0, 0.72);
+        color: rgba(255, 255, 255, 0.9);
+        border-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+.fts-tag-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.25em;
+    width: 100%;
+}
+
+.fts-markings-container {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+    margin-top: 3px;
+}
+
+.fts-tag-modifier-toggle {
+    cursor: pointer;
+}
+
+.fts-tag-status-toggle {
+    cursor: pointer;
+}
+
+.npc-limit-description {
+    .tag {
+        background-color: $c-tag-green;
+        color: $c-dark-styled-text;
+        font-family: $font-primary;
+        border-radius: 2px;
+        text-align: center;
+    }
+
+    .status {
+        background-color: $c-tag-yellow;
+        color: $c-dark-styled-text;
+        font-family: $font-primary;
+        border-radius: 2px;
+        text-align: center;
+    }
+}

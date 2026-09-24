@@ -1,0 +1,5 @@
+{
+  "repository": "MrTheBino/mist-engine-fvtt",
+  "branch": "main",
+  "strategy": "official-upstream-plus-ptbr-overlay"
+}

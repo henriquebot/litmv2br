@@ -1,0 +1,54 @@
+import MistEngineItemBase from "./base-item.mjs";
+import { buildFloatingTagsAndStatuses } from "./util.mjs";
+
+export default class MistEngineSceneData extends MistEngineItemBase {
+  static defineSchema() {
+    const fields = foundry.data.fields;
+    const requiredInteger = { required: true, nullable: false, integer: true };
+    const schema = super.defineSchema();
+
+    schema.sceneKey = new fields.StringField({ required: true, blank: true });
+
+    schema.assignedJourneyId = new fields.StringField({ required: false, blank: true, initial: "" });
+    schema.storyThemeIds = new fields.ArrayField(new fields.StringField(), { required: false, initial: [] });
+
+    foundry.utils.mergeObject(schema, buildFloatingTagsAndStatuses());
+
+    schema.might = new fields.SchemaField({
+      selected: new fields.BooleanField({ initial: false }),
+      scale: new fields.NumberField({ ...requiredInteger, initial: 0 }),
+    });
+
+
+    // Camping & Sojourns mode (Core Book p. 179-181)
+    schema.camping = new fields.SchemaField({
+      active: new fields.BooleanField({ initial: false }),
+      mode: new fields.StringField({ initial: "camp", choices: ["camp", "sojourn"] }),
+      duration: new fields.StringField({ initial: "days", choices: ["days", "weeks", "months"] }),
+      period: new fields.NumberField({ ...requiredInteger, initial: 1, min: 1, max: 3 }),
+      thirdPeriodOpen: new fields.BooleanField({ initial: false })
+    });
+
+    schema.diceRollTagsStatus = new fields.ArrayField(new fields.SchemaField({
+      name: new fields.StringField({ required: true, blank: false }),
+      value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+      positive: new fields.BooleanField({ initial: false }),
+      isStatus: new fields.BooleanField({ initial: false }),
+    }), { required: true, nullable: false, initial: [] });
+
+    return schema;
+  }
+
+  prepareDerivedData() {
+    super.prepareDerivedData();
+    this.hasDiceRollModifiers = (this.diceRollTagsStatus.length > 0);
+
+    this.floatingTagsAndStatuses.forEach(tag =>{
+      let max = 0;
+      for(let i = 0; i < tag.markings.length; i++){
+        if(tag.markings[i]) max = i+1;
+      }
+      tag.value = max;
+    });
+  }
+}

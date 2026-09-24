@@ -1,138 +1,153 @@
 {
-	"$schema": "https://json.schemastore.org/foundryvtt-system-manifest.json",
-	"id": "litmv2",
-	"version": "14.68",
-	"license": "LICENSE",
-	"title": "Legend in the Mist: Unofficial",
-	"description": "An unofficial, community-made system for playing the <strong>Rustic Fantasy</strong> game <em>Legend in the Mist</em> in Foundry Virtual Tabletop.",
-	"authors": [
-		{
-			"name": "Filip Ambrosius",
-			"discord": "aMediocreDad#2483",
-			"email": "hello@amediocre.dev",
-			"ko-fi": "amediocredad"
-		}
-	],
-	"esmodules": ["litmv2.js"],
-	"styles": [
-		"litmv2.css",
-		"litmv2-welcome.css",
-		"litmv2-journal.css",
-		"litmv2-journal-content.css"
-	],
-	"documentTypes": {
-		"Actor": {
-			"hero": {
-				"htmlFields": ["description"]
-			},
-			"journey": {
-				"htmlFields": ["description"]
-			},
-			"challenge": {
-				"htmlFields": ["description", "specialFeatures"]
-			},
-			"fellowship": {
-				"htmlFields": ["description"]
-			},
-			"story_theme": {}
-		},
-		"ActiveEffect": {
-			"power_tag": {},
-			"weakness_tag": {},
-			"fellowship_tag": {},
-			"relationship_tag": {},
-			"story_tag": {},
-			"status_tag": {}
-		},
-		"Item": {
-			"backpack": {},
-			"story_theme": {
-				"htmlFields": ["description"]
-			},
-			"theme": {
-				"htmlFields": ["description"]
-			},
-			"themebook": {
-				"htmlFields": ["description"]
-			},
-			"trope": {
-				"htmlFields": ["description"]
-			},
-			"vignette": {},
-			"addon": {
-				"htmlFields": ["description", "specialFeatures"]
-			},
-			"action": {
-				"htmlFields": ["description"]
-			}
-		}
-	},
-	"languages": [
-		{
-			"lang": "cn",
-			"name": "中文",
-			"path": "lang/cn.json"
-		},
-		{
-			"lang": "de",
-			"name": "Deutsch",
-			"path": "lang/de.json"
-		},
-		{
-			"lang": "en",
-			"name": "English",
-			"path": "lang/en.json"
-		},
-		{
-			"lang": "es",
-			"name": "Español",
-			"path": "lang/es.json"
-		},
-		{
-			"lang": "fr",
-			"name": "Français",
-			"path": "lang/fr.json"
-		},
-		{
-			"lang": "no",
-			"name": "Norsk",
-			"path": "lang/no.json"
-		}
-	],
-	"socket": true,
-	"compatibility": {
-		"minimum": 14,
-		"verified": 14,
-		"maximum": 14
-	},
-	"packs": [],
-	"flags": {
-		"hotReload": {
-			"extensions": ["css", "html", "js", "json"],
-			"paths": [
-				"styles",
-				"templates",
-				"lang",
-				"litmv2.css",
-				"litmv2-welcome.css",
-				"litmv2-journal.css",
-				"litmv2-journal-content.css",
-				"litmv2.js"
-			]
-		}
-	},
-	"relationships": {
-		"recommends": [
-			{
-				"id": "dice-so-nice",
-				"manifest": "https://gitlab.com/riccisi/foundryvtt-dice-so-nice/-/raw/master/module/module.json"
-			}
-		]
-	},
-	"background": "systems/litmv2/assets/media/litm_splash.webp",
-	"url": "https://github.com/Son-of-Oak-Community/litmv2",
-	"bugs": "https://github.com/Son-of-Oak-Community/litmv2/issues?q=is:issue+is:open+sort:updated-desc",
-	"manifest": "https://raw.githubusercontent.com/Son-of-Oak-Community/litmv2/refs/heads/main/system.json",
-	"download": "https://github.com/Son-of-Oak-Community/litmv2/archive/refs/heads/main.zip",
-	"readme": "https://raw.githubusercontent.com/Son-of-Oak-Community/litmv2/refs/heads/main/README.md"
+  "id": "mist-engine-fvtt",
+  "title": "Legend In The Mist",
+  "description": "Official Legend In The Mist System for FoundryVTT",
+  "authors": [
+    {
+      "name": "MrTheBino",
+      "discord": "MrTheBino",
+      "flags": {}
+    },
+    {
+      "name": "3rddogpaul",
+      "discord": "3rddogpaul",
+      "flags": {}
+    },
+    {
+      "name": "coreyhickson",
+      "discord": "Corey",
+      "flags": {}
+    },
+    {
+      "name": "aMediocreDad",
+      "discord": "aMediocreDad",
+      "flags": {}
+    }
+  ],
+  "url": "https://github.com/MrTheBino/mist-engine-fvtt",
+  "license": "LICENSE.txt",
+  "readme": "README.md",
+  "bugs": "https://github.com/MrTheBino/mist-engine-fvtt/issues",
+  "changelog": "https://github.com/MrTheBino/mist-engine-fvtt/CHANGELOG.md",
+  "media": [
+    {
+      "type": "setup",
+      "url": "systems/mist-engine-fvtt/assets/landingpage.webp",
+      "thumbnail": "systems/mist-engine-fvtt/assets/landingpage.webp",
+      "loop": false,
+      "flags": {}
+    }
+  ],
+  "version": "14.5.4",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14"
+  },
+  "esmodules": [
+    "module/mist-engine-fvtt.mjs"
+  ],
+  "styles": [
+    {
+      "src": "css/mist-engine-fvtt.css"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    },
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "lang/de.json",
+      "flags": {}
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json",
+      "flags": {}
+    },
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "lang/es.json",
+      "flags": {}
+    },
+    {
+      "lang": "ru",
+      "name": "Русский",
+      "path": "lang/ru.json",
+      "flags": {}
+    },
+    {
+      "lang": "uk",
+      "name": "Українська",
+      "path": "lang/uk.json",
+      "flags": {}
+    }
+  ],
+  "packs": [
+    {
+      "name": "system-documentation",
+      "label": "System Documentation",
+      "path": "packs/system-documentation",
+      "type": "JournalEntry",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "system": "mist-engine-fvtt",
+      "flags": {}
+    },
+    {
+      "name": "pregen-characters",
+      "label": "Pregen Characters",
+      "path": "packs/pregen-characters",
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "system": "mist-engine-fvtt",
+      "flags": {}
+    },
+    {
+      "name": "example-actors",
+      "label": "Example Actors",
+      "path": "packs/example-actors",
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "system": "mist-engine-fvtt",
+      "flags": {}
+    },
+    {
+      "name": "litm-themebooks",
+      "label": "LiTM Themebooks",
+      "path": "packs/litm-themebooks",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "system": "mist-engine-fvtt",
+      "flags": {}
+    }
+  ],
+  "socket": true,
+  "manifest": "https://github.com/MrTheBino/mist-engine-fvtt/releases/latest/download/system.json",
+  "download": "https://github.com/MrTheBino/mist-engine-fvtt/releases/download/14.4.2/system.zip",
+  "background": "systems/mist-engine-fvtt/assets/landingpage.webp",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "power",
+  "grid": {
+    "distance": 5,
+    "units": "ft"
+  },
+  "flags": {}
 }

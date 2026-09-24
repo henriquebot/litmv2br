@@ -1,0 +1,105 @@
+<div class="themebook-container container-themebook-with-border {{#unless editMode}}fellowship-themebook-stylized{{/unless}}"
+    data-id="{{id}}" data-card-key="{{cardKey}}">
+    {{#if fellowshipThemecard}}
+    <div class="themebook-style litm-fellowship-themecard flexcol">
+        <h2 class="theme-name"><i class="card-drag-handle fa-solid fa-grip-vertical" draggable="true" data-drag-type="card" data-card-key="{{cardKey}}" title="{{localize 'MIST_ENGINE.LABELS.DragCardHint'}}"></i>
+            {{#if (notEmpty fellowshipThemecardName)}}
+            {{fellowshipThemecardName}}
+            {{else}}
+            {{localize 'MIST_ENGINE.THEMEBOOKS.Fellowship'}}
+            {{/if}}
+            {{#if editMode}}
+            <a class="themebook-icon" data-action="removeFellowshipThemecard"
+                data-tooltip="{{localize 'MIST_ENGINE.LABELS.RemoveFellowshipThemecard'}}"
+                aria-label="{{localize 'MIST_ENGINE.LABELS.RemoveFellowshipThemecard'}}">
+                <i class="fas fa-user-xmark"></i>
+            </a>
+            {{/if}}
+        </h2>
+        <div class="powertags-container">
+            {{#if editMode}}
+            <div class="themebook-section-header clickable" data-action="addEmptyPowertag"
+                data-item-id="{{themebook._id}}" data-source='fellowship-themecard'>
+                <i class="fas fa-plus add-line-icon " title="{{localize " MIST_ENGINE.LABELS.AddPowertag"}}"></i>
+                {{localize "MIST_ENGINE.LABELS.AddPowertag"}}
+            </div>
+            {{/if}}
+            {{#each fellowshipThemecard.powertags as |powertag index|}}
+            {{> "systems/mist-engine-fvtt/templates/shared/litm/themebook-powertag-line.hbs" index=index
+            powertag=powertag source='fellowship-themecard' editMode=../editMode firstTag=@first noBurn=true
+            tidyTags=../tidyTags}}
+            {{/each}}
+
+
+            {{#if editMode}}
+            <div class="themebook-section-header clickable" data-action="addEmptyWeaknessTag"
+                data-item-id="{{themebook._id}}" data-source='fellowship-themecard'>
+                <i class="fas fa-plus add-line-icon " title="{{localize " MIST_ENGINE.LABELS.AddWeaknesstag"}}"></i>
+                {{localize "MIST_ENGINE.LABELS.AddWeaknesstag"}}
+            </div>
+            {{/if}}
+            {{#each fellowshipThemecard.weaknesstags as |weaknesstag index|}}
+            {{> "systems/mist-engine-fvtt/templates/shared/litm/themebook-weakness-line.hbs" index=index
+            weaknesstag=weaknesstag source='fellowship-themecard' editMode=../editMode tidyTags=../tidyTags}}
+            {{/each}}
+
+            {{#if fellowshipThemecard.hasSpecialImprovements}}
+            <h3 class="special-improvement-section-label">{{localize 'MIST_ENGINE.THEMEBOOKS.SpecialImprovements'}}</h3>
+            {{/if}}
+            {{#each fellowshipThemecard.specialImprovements as |specialImprovement index|}}
+            {{#if (notEmpty specialImprovement.name)}}
+            {{> "systems/mist-engine-fvtt/templates/shared/litm/themebook-special-improvement-line.hbs" index=index
+            source='fellowship-themecard'
+            specialImprovement=specialImprovement editMode=../editMode}}
+            {{/if}}
+            {{/each}}
+        </div>
+        <div class="quest-container">
+            {{#if editMode}}
+            <textarea class="themebook-entry-input quest-textarea" data-key="system.quest"
+                data-source='fellowship-themecard'
+                placeholder="{{localize 'MIST_ENGINE.PLACEHOLDERS.QuestGoal'}}">{{fellowshipThemecard.quest}}</textarea>
+            {{else}}
+            <h3>{{localize 'MIST_ENGINE.LABELS.Quest'}}</h3>
+            <p class="quest-text">{{fellowshipThemecard.quest}}</p>
+            {{/if}}
+        </div>
+        <div class="development-container flexrow">
+            {{> "systems/mist-engine-fvtt/templates/actor/parts/development-partial.hbs" name=(localize
+            'MIST_ENGINE.LABELS.Abandon') source="fellowship-themecard"
+            key="system.abandon" value=fellowshipThemecard.abandon}}
+            {{> "systems/mist-engine-fvtt/templates/actor/parts/development-partial.hbs" name=(localize
+            'MIST_ENGINE.LABELS.Improve') source="fellowship-themecard"
+            key="system.improve" value=fellowshipThemecard.improve}}
+            {{> "systems/mist-engine-fvtt/templates/actor/parts/development-partial.hbs" name=(localize
+            'MIST_ENGINE.LABELS.Milestone')
+            source="fellowship-themecard" key="system.milestone" value=fellowshipThemecard.milestone}}
+        </div>
+    </div>
+    {{else}}
+    <div class="themebook-style litm-fellowship-themecard flexcol">
+        <h2 class="theme-name"><i class="card-drag-handle fa-solid fa-grip-vertical" draggable="true" data-drag-type="card" data-card-key="{{cardKey}}" title="{{localize 'MIST_ENGINE.LABELS.DragCardHint'}}"></i>{{localize 'MIST_ENGINE.THEMEBOOKS.Fellowship'}}
+        </h2>
+        <div class="powertags-container">
+            <div class="empty-message">
+                <p>{{localize 'MIST_ENGINE.HELP.FellowshipCreation'}}</p>
+                <div class="flexrow" style="gap: 0.5em; justify-content: center;">
+                    <button data-action="createFellowshipThemecard"><i class="fa-solid fa-plus icon-hover"></i>
+                        {{localize 'MIST_ENGINE.LABELS.CreateNew'}}</button>
+                    <button data-action="assignFellowshipThemecard"><i class="fa-solid fa-people-arrows icon-hover"></i>
+                        {{localize 'MIST_ENGINE.LABELS.AssignExisting'}}</button>
+                </div>
+                {{!-- A themecard id is still stored but the actor is gone or not
+                      visible to this user — offer a way to clear the stale link. --}}
+                {{#if (notEmpty system.actorSharedSingleThemecardId)}}
+                <p>{{localize 'MIST_ENGINE.NOTIFICATIONS.FellowshipThemecardUnavailable'}}</p>
+                <div class="flexrow" style="gap: 0.5em; justify-content: center;">
+                    <button data-action="removeFellowshipThemecard"><i class="fa-solid fa-user-xmark icon-hover"></i>
+                        {{localize 'MIST_ENGINE.LABELS.RemoveFellowshipThemecard'}}</button>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    {{/if}}
+</div>

@@ -1,0 +1,168 @@
+.item-form {
+  font-family: $font-primary;
+}
+
+.sheet-header {
+  font-family: Labrada, serif;
+  flex: 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+
+  .profile-img {
+    flex: 0 0 100px;
+    height: 100px;
+    margin-right: 10px;
+  }
+
+  .header-fields {
+    width: 100%;
+    flex: 1;
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: row;
+
+    &.npc,
+    &.journey {
+      display: flex;
+      flex-direction: column;
+      color: $c-styled-text;
+    }
+
+    .change-custom-background-btn {
+      height: auto;
+      color: var(--litm-tab-text-color);
+      &:not(:hover) {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    .col-character-name {
+      min-width: var(--litm-premium-left-margin);
+      max-width: var(--litm-premium-left-margin);
+
+      &.edit-mode {
+        width: 80%;
+        max-width: 80%;
+        min-width: 80%;
+      }
+    }
+
+    .col-main {
+      min-width: 150px;
+    }
+
+    .col-status {
+      flex-grow: 0.75;
+    }
+  }
+
+  h1.charname,
+  h1.journey-name {
+    padding: 0px;
+    border-bottom: 0;
+    width: 100%;
+    text-align: center;
+
+    input {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+  }
+
+  .character-name-container {
+    position: absolute;
+    top: 32rem;
+    max-width: 300px;
+    width: 300px;
+  }
+
+  label {
+    font-family: var(--font-body);
+  }
+
+  .portrait-img {
+    height: 150px;
+    border: 1px solid black;
+    margin-right: 10px;
+    border-radius: 6px;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1em;
+    justify-content: center;
+  }
+
+  .short-description {
+    font-family: $font-primary;
+    font-size: 14px;
+    color: var(--litm-color-accent);
+    text-align: center;
+    flex-grow: 1;
+  }
+
+  .difficulty-icons {
+    display: flex;
+    flex-direction: row;
+
+    img {
+      height: 26px;
+      margin-top: 7px;
+    }
+  }
+}
+
+.tox {
+  .tox-editor-container {
+    background: $c-white;
+  }
+
+  .tox-edit-area {
+    padding: 0 8px;
+  }
+}
+
+.form-group {
+  margin-bottom: 5px;
+  gap: 5px;
+}
+
+.table-group {
+  display: table;
+  width: 100%;
+
+  .table-row {
+    display: table-row;
+
+    .table-cell {
+      display: table-cell;
+      padding: 2px 3px;
+    }
+  }
+}
+
+.list-entry {
+  margin-bottom: 5px;
+}
+
+.textarea-short-description {
+  width: 100%;
+}
+
+p.help-text {
+  font-size: 0.9em;
+  color: $c-dark-styled-text;
+  margin-bottom: 10px;
+}
+
+.help-text {
+  color: $c-styled-text;
+  font-family: $font-primary;
+  font-weight: bold;
+}

@@ -1,0 +1,162 @@
+import { ArrayFieldAdapter } from "./array-field-adapter.mjs";
+
+// Adapter for handling floating tags and statuses logic
+// This module provides static methods to manage floating tags and statuses
+// for actors and items in a Foundry VTT system.
+//
+// All element-level mutations delegate to ArrayFieldAdapter, which performs the
+// same read -> mutate -> write-whole-array pattern these methods used to hand-roll.
+export class FloatingTagAndStatusAdapter {
+    /** Dot-path of the floating tags/statuses array within a document's system data. */
+    static PATH = "system.floatingTagsAndStatuses";
+
+    /**
+     * Add a floating tag/status to a list, stacking statuses per the
+     * tracking-card rule (Core Book p. 29): a same-named status marks the box
+     * of its tier; if that box is already marked, the next empty box to the
+     * right is marked instead. The status tier is the highest marked box.
+     * Non-statuses and new names are simply appended. A same-named status of
+     * the *opposite* polarity (e.g. a negative "dazed" dropped onto an
+     * existing positive "dazed") is never stacked onto the existing entry —
+     * that would silently flip its polarity and corrupt roll math — it is
+     * instead appended as its own separate entry.
+     * @param {Array} list        current floatingTagsAndStatuses array
+     * @param {object} ftsObject  entry to add (from parseFloatingTagAndStatusString or a drop)
+     * @returns {Array} a new array with the entry appended or stacked
+     */
+    static withStatusStacked(list, ftsObject){
+        const current = list ?? [];
+        const norm = s => String(s ?? "").trim().toLowerCase();
+        // missing/undefined `positive` defaults to true, matching the schema
+        // default (module/data/util.mjs) - compare both sides on that basis
+        const isPositive = v => v !== false;
+        if (ftsObject.isStatus && norm(ftsObject.name) !== "") {
+            const idx = current.findIndex(e =>
+                e.isStatus &&
+                norm(e.name) === norm(ftsObject.name) &&
+                isPositive(e.positive) === isPositive(ftsObject.positive)
+            );
+            if (idx !== -1) {
+                const existing = foundry.utils.deepClone(current[idx]);
+                const markings = [...(existing.markings ?? Array(6).fill(false))];
+                while (markings.length < 6) markings.push(false);
+                let tier = Math.max(1, Math.min(ftsObject.value || 1, 6)) - 1;
+                if (markings[tier]) {
+                    tier = markings.findIndex((m, i) => i > tier && !m); // next empty box to the right
+                }
+                if (tier !== -1) markings[tier] = true;
+                existing.markings = markings;
+                existing.value = markings.lastIndexOf(true) + 1;
+                const result = [...current];
+                result[idx] = existing;
+                return result;
+            }
+        }
+        return [...current, ftsObject];
+    }
+
+    static parseFloatingTagAndStatusString(srcString){
+        // A leading "/sn" marks the entry as a negative status/tag, mirroring
+        // the [/sn name-X] enricher token used in journal/description text.
+        let str = srcString.trim();
+        let positive = true;
+        if (str.startsWith("/sn")) {
+            positive = false;
+            str = str.slice(3).trim();
+        }
+
+        let ftsObject = { name: str, description: "", isStatus: false, positive, value: 0, markings: Array(6).fill(false) };
+        if (str.includes("-")) {
+            const parts = str.split("-");
+            const last = parts[parts.length - 1].trim();
+            // Only a purely numeric suffix marks a status ("dazed-2"). A
+            // hyphenated word like "quick-witted" is a plain tag and must keep
+            // its full name instead of becoming a broken value-0 status.
+            if (/^\d+$/.test(last)) {
+                ftsObject.isStatus = true;
+                ftsObject.value = parseInt(last) || 0;
+                ftsObject.name = parts.slice(0, parts.length - 1).join("-").trim();
+                if(ftsObject.value > 0 && ftsObject.value <= 6){
+                    ftsObject.markings[ftsObject.value-1] = true;
+                }
+            }
+        }
+
+        return ftsObject;
+    }
+
+    static async handleTagStatusModifierToggle(objectToUpdate, arrayIndex){
+        return ArrayFieldAdapter.toggle(objectToUpdate, this.PATH, arrayIndex, "positive");
+    }
+
+    static async handleTagStatusSelectedToggle(objectToUpdate, arrayIndex){
+        return ArrayFieldAdapter.toggle(objectToUpdate, this.PATH, arrayIndex, "selected");
+    }
+
+    static async handleTagStatusMightToggle(objectToUpdate, arrayIndex, mightIcon){
+        // callers pass raw `dataset.index` strings, so normalize before indexing
+        const i = ArrayFieldAdapter._toIndex(arrayIndex);
+        const fts = objectToUpdate?.system?.floatingTagsAndStatuses;
+        if (!fts || Number.isNaN(i) || i < 0 || i >= fts.length) return false;
+        // might toggles between 0 and 3
+        const newMight = (fts[i].might || 0) === 0 ? 3 : 0;
+        return ArrayFieldAdapter.patch(objectToUpdate, this.PATH, i, { might: newMight, mightIcon });
+    }
+
+    static async handleTagStatusToggle(objectToUpdate, arrayIndex){
+        const i = ArrayFieldAdapter._toIndex(arrayIndex);
+        const fts = objectToUpdate?.system?.floatingTagsAndStatuses;
+        if (!fts || Number.isNaN(i) || i < 0 || i >= fts.length) return false;
+        const newStatus = !(fts[i].isStatus || false);
+        // resetting value/might/markings to keep tag <-> status transitions consistent
+        const patch = newStatus
+            ? { isStatus: true, might: 0, markings: [true, false, false, false, false, false] }
+            : { isStatus: false, value: 0, might: 0, markings: [false, false, false, false, false, false] };
+        return ArrayFieldAdapter.patch(objectToUpdate, this.PATH, i, patch);
+    }
+
+    static async handleDeleteFloatingTagOrStatus(objectToUpdate, arrayIndex){
+        return ArrayFieldAdapter.remove(objectToUpdate, this.PATH, arrayIndex);
+    }
+
+    static async handleFtStatChanged(objectToUpdate, arrayIndex, key, newValue){
+        return ArrayFieldAdapter.set(objectToUpdate, this.PATH, arrayIndex, key, newValue);
+    }
+
+    static async handleToggleFloatingTagOrStatusMarking(objectToUpdate, arrayIndex, markingIndex){
+        return ArrayFieldAdapter.toggle(objectToUpdate, this.PATH, arrayIndex, `markings.${markingIndex}`);
+    }
+
+    /**
+     * Is this floating tag/status entry a status? Mirrors the fixup test in
+     * DiceRollApp.getPreparedTagsAndStatusesForRoll (dice-roll-app.mjs): the
+     * `isStatus` flag, OR (for entries where it wasn't set) a positive value.
+     * @param {object} entry
+     * @returns {boolean}
+     */
+    static isStatusEntry(entry){
+        return entry?.isStatus === true || (entry?.value ?? 0) > 0;
+    }
+
+    /**
+     * Build a display-only, sorted VIEW of a floating tags/statuses array:
+     * tags first, then statuses, stable within each group (insertion order
+     * preserved - see issue #28). Never mutates `list` or reorders the
+     * persisted array; every entry in the returned copy carries its
+     * ORIGINAL index from `list` as `originalIndex`, so templates can keep
+     * using that for `data-index` on elements whose handlers mutate the
+     * persisted array by index.
+     *
+     * Every context-prep site that feeds the floating-tags-and-status
+     * partial (or the scene app's own markup for it) must build the view
+     * through this single helper so the sort logic only exists once.
+     * @param {Array} list  current floatingTagsAndStatuses array (or null/undefined)
+     * @returns {Array} new array of `{...entry, originalIndex}`, sorted
+     */
+    static sortedFloatingView(list){
+        const arr = list ?? [];
+        return arr
+            .map((entry, originalIndex) => ({ ...entry, originalIndex }))
+            .sort((a, b) => Number(this.isStatusEntry(a)) - Number(this.isStatusEntry(b)));
+    }
+}

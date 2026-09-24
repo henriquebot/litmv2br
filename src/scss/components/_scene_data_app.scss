@@ -1,0 +1,405 @@
+#scene-data-app>section.window-content {
+    border-style: solid;
+    border-width: 10px 10px 10px 10px;
+    -moz-border-image: url("../assets/bg2-litm.webp") 10 10 10 10 fill stretch stretch;
+    -webkit-border-image: url("../assets/bg2-litm.webp") 10 10 10 10 fill stretch stretch;
+    -o-border-image: url("../assets/bg2-litm.webp") 10 10 10 10 fill stretch stretch;
+    border-image: url("../assets/bg2-litm.webp") 10 10 10 10 fill stretch stretch;
+    color: $c-styled-text;
+
+    .actor-img {
+        height: 28px;
+        display: inline-block;
+    }
+
+    .npc-subtitle-text {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1em;
+    }
+
+    .floating-tags-and-status-entries {
+        gap: 5px;
+        font-style: italic;
+    }
+}
+
+.scene-app-characters {
+    .character-name {
+        font-family: $font-primary;
+        font-size: 1.2em;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+    }    
+}
+
+.scene-app-no-actors {
+    p {
+        font-family: var(--litm-font-text);
+        text-align: center;
+        padding: 1rem;
+    }
+}
+
+.scene-app-actor-header{
+    font-family: $font-primary;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.scene-app-dice-roll-modifiers {
+    .listing {
+        .mod-entry {
+            background-color: $c-tag-yellow;
+            color: $c-styled-text;
+            font-family: $font-primary;
+            border-radius: 2px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 2px;
+            font-style: italic;
+
+            &.positive {
+                background-color: $c-tag-green;
+            }
+
+            &.negative {
+                background-color: $c-tag-orange;
+            }
+        }
+    }
+
+}
+
+
+.character-container {
+    .selected-tags-container {
+        margin: 10px 0;
+        gap: 2px;
+
+
+        .tag {
+            font-family: Labrada, serif;
+            font-weight: bold;
+            border-radius: 2px;
+            text-align: center;
+            font-style: italic;
+
+            &.positive {
+                background-color: $c-tag-green;
+                color: $c-styled-text;
+                padding: 2px;
+            }
+
+            &.negative {
+                background-color: $c-tag-orange;
+                color: $c-styled-text;
+                padding: 2px;
+            }
+        }
+
+        .might-icon {
+            width: 12px;
+            display: inline-block;
+
+            filter: invert(100%) sepia(100%) grayscale(100%) brightness(200%);
+        }
+    }
+
+    .weakness-tags-container {
+        margin: 10px 0;
+
+        .scene-weakness-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            justify-content: center;
+        }
+
+        .scene-weakness-tag {
+            font-family: Labrada, serif;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 0.85rem;
+            border-radius: 2px;
+            padding: 2px 6px;
+            cursor: pointer;
+            background-color: $c-tag-orange;
+            color: $c-styled-text;
+            opacity: 0.55; // inactive weaknesses are dimmed
+            transition: opacity 0.15s ease, box-shadow 0.15s ease;
+
+            i {
+                margin-right: 3px;
+            }
+
+            &:hover {
+                opacity: 0.85;
+            }
+
+            &.selected {
+                opacity: 1;
+                box-shadow: 0 0 0 2px $c-text-redish; // "circled" = active in scene
+            }
+
+            &.burned {
+                opacity: 0.4;
+                text-decoration: line-through;
+            }
+        }
+    }
+
+    // Mighty aspects (issue #90) — display-only; GM-only reveal toggle.
+    .mighty-aspects-entries {
+        margin: 8px 0;
+        font-family: $font-primary;
+
+        .mighty-aspects-label {
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+            color: $c-brown;
+        }
+
+        .mighty-aspect-entry {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.85rem;
+            padding: 1px 0;
+
+            .might-icon {
+                @include might-icon-def;
+            }
+
+            .might-level {
+                font-weight: bold;
+                font-size: 0.7rem;
+                text-transform: uppercase;
+                border-radius: 2px;
+                padding: 0 4px;
+                color: $c-off-white; // light text on the dark (brown / red) chips
+                background-color: $c-brown; // adventure (default)
+
+                &.origin { background-color: $c-tag-green; color: $c-styled-text; } // dark text on light green
+                &.greatness { background-color: $c-text-redish; }
+            }
+
+            .might-aspect-name {
+                font-style: italic;
+            }
+        }
+    }
+}
+
+
+.scene-app {
+
+    &.application:not(.minimized) { overflow: visible; }
+
+
+    .window-content.scene-app-body {
+        overflow: visible;
+        min-height: 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+
+        > #tags,
+        > .scene-app-dice-roll-modifiers {
+            flex: 0 0 auto;
+        }
+
+
+        > section.tab {
+            display: none;
+            min-height: 0;
+
+            &.active {
+                display: flex;
+                flex: 1 1 auto;
+                flex-direction: column;
+                overflow: hidden;
+            }
+
+            .tab-content-inner {
+                flex: 1 1 auto;
+                min-height: 0;
+                overflow-y: auto;
+            }
+        }
+    }
+
+
+    nav.sheet-tabs.scene-app-side-tabs.vertical {
+        position: absolute;
+        top: 70px;
+        left: 100%;
+        margin-left: 10px;
+        width: auto;
+        height: auto;
+        z-index: -1;
+
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 3px;
+        padding: 6px 4px;
+
+        background: $c-black;
+        border-radius: 0 6px 6px 0;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            margin: 0;
+            padding: 0;
+            border: none;
+            border-radius: 4px;
+            color: $c-off-white;
+            background: none;
+            transition: color 0.15s ease, background 0.15s ease;
+
+            i {
+                margin: 0;
+                font-size: 1.05rem;
+                color: inherit;
+            }
+
+            // Icons only — the localized label is kept for the tooltip but hidden.
+            span { display: none; }
+
+            &:hover {
+                color: $c-white;
+                background: rgba(255, 255, 255, 0.15);
+            }
+
+            &.active {
+                color: $c-tag-yellow;
+                background: rgba(255, 255, 255, 0.12);
+                // Ink accent on the window-facing edge marks the active tab.
+                box-shadow: inset 3px 0 0 $c-tag-yellow;
+            }
+        }
+    }
+
+    // Journeys tab content.
+    .scene-app-journey {
+        .scene-app-journey-header {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .scene-app-journey-actions {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: inline-flex;
+            gap: 0.5rem;
+
+            a {
+                cursor: pointer;
+                color: $c-icon-brown;
+            }
+        }
+
+        // Journey identity, mirrored from the journey sheet (read-only).
+        .journey-name {
+            font-family: $font-primary;
+            font-size: 36px;
+            text-align: center;
+            color: $c-styled-text;
+            margin: 0;
+        }
+
+        .npc-roles {
+            font-family: var(--litm-font-accent);
+            font-size: large;
+            text-align: center;
+            color: $c-styled-text;
+        }
+
+        .short-description {
+            margin: 0.4rem 0;
+            font-family: $font-primary;
+            color: $c-styled-text;
+            text-align: start;
+        }
+
+        .tags {
+            text-align: center;
+            font-family: $font-primary;
+        }
+
+        .scene-app-journey-empty p {
+            font-family: $font-primary;
+            text-align: center;
+            padding: 1rem;
+        }
+    }
+
+    // Story Themes tab content.
+    .scene-story-themes {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        .scene-story-theme {
+            // Center the theme name; keep the open/remove actions top-right.
+            .scene-story-theme-header {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .scene-story-theme-actions {
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: inline-flex;
+                gap: 0.5rem;
+
+                a {
+                    cursor: pointer;
+                    color: $c-icon-brown;
+                }
+            }
+
+            .scene-story-theme-tags {
+                @include tag-mark-def;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4px;
+                justify-content: center;
+                margin-top: 0.25rem;
+
+                mark.draggable {
+                    cursor: grab;
+
+                    i {
+                        margin-right: 3px;
+                    }
+                }
+            }
+        }
+
+        .scene-story-themes-empty p {
+            font-family: $font-primary;
+            text-align: center;
+            padding: 1rem;
+        }
+    }
+}

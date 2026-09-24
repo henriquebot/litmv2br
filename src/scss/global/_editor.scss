@@ -1,0 +1,100 @@
+.editor {
+  &.prosemirror {
+    height: 100%;
+  }
+}
+
+.editor-content,
+.tab-notes {
+
+  @include tag-mark-def;
+
+  .themekit-box{
+    @include themekit-box;
+  }
+
+  .letter-box{
+    @include letter-box;
+  }
+
+  .themekit-big-box{
+    @include themekit-big-box;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: $c-styled-text;
+    font-family: $font-primary;
+  }
+
+  h3 {
+    display: flex;
+    align-items: center;
+
+    &.with-line {
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 105px;
+        height: 6px;
+        background-image: url(../assets/header-backline.webp);
+        background-repeat: no-repeat;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .line-with-image {
+    img {
+      display: inline;
+      margin-right: 3px;
+    }
+
+    p {
+      display: inline;
+    }
+  }
+
+  .inline-img {
+    display: inline;
+    margin-right: 3px;
+  }
+
+  table.example-actions-table {
+
+    background-color: transparent;
+    border-collapse: collapse;
+
+    td {
+      border: 1px solid black;
+      text-align: center;
+      border-top: 0;
+      align-content: start;
+      width: 50%;
+
+      .black-strong {
+        color: black;
+        font-weight: bold;
+      }
+    }
+
+    tr:first-child th {
+      border-top: 0;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    tr td:first-child,
+    tr th:first-child {
+      border-left: 0;
+    }
+
+    tr td:last-child,
+    tr th:last-child {
+      border-right: 0;
+    }
+  }
+}

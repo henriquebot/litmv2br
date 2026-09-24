@@ -1,0 +1,95 @@
+.roll-dialog-container {
+    .selected-tags-container {
+        margin: 10px 0;
+        gap: 2px;
+
+        .tag,
+        .status {
+            font-family: Labrada, serif;
+            font-weight: bold;
+            border-radius: 2px;
+            text-align: center;
+            font-style: italic;
+            color: $c-styled-text;
+            padding: 2px;
+        }
+
+        .tag {
+            &.positive {
+                background-color: $c-tag-yellow;
+            }
+
+            &.negative {
+                background-color: $c-tag-orange;
+            }
+
+            &.unapplied-preview {
+                opacity: 0.75;
+                background-color: $c-tag-gray;
+            }
+
+            &.clickable {
+                cursor: pointer;
+            }
+
+            // #35: a tag flipped for this roll only (Weakness as Power or Power
+            // as Weakness) — it renders with the flipped colour, so a dashed
+            // ring is the only clue it isn't a native tag of that kind
+            // #104: same treatment for a Challenge/Scene-Story entry flipped
+            // against the roll for this roll only
+            &.inverted-tag,
+            &.inverted-challenge {
+                outline: 2px dashed $c-brown;
+                outline-offset: -2px;
+            }
+        }
+
+        .status {
+            &.positive {
+                background-color: $c-tag-green;
+            }
+
+            &.negative {
+                background-color: $c-tag-orange;
+            }
+        }
+
+        .tag-icon {
+            float: left;
+        }
+
+        .deselect-icon {
+            float: right;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+    }
+
+    .power-label {
+        width: 100%;
+        text-align: center;
+        display: block;
+        font-size: large;
+    }
+
+    .might-label {
+        width: 100%;
+        text-align: center;
+        display: block;
+        font-size: large;
+    }
+
+    .might-scale-entry {
+        text-align: center;
+    }
+
+    .might-scale-radio {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .might-icon {
+        @include might-icon-def;
+    }
+}

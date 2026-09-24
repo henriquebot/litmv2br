@@ -1,0 +1,40 @@
+.tab {
+    flex-grow: 1;
+}
+
+nav.tabs [data-tab] {
+    font-family: $font-primary;
+    color: black;
+    font-weight: bold;
+
+    .active {
+        color: black;
+    }
+}
+
+nav.tabs [data-group="npc-sheet"] {
+    color: black;
+    font-family: $font-primary;
+    font-weight: bold;
+}
+
+nav.tabs [data-group="litm-character-sheet"] {
+    color: var(--litm-tab-text-color);
+    font-family: $font-primary;
+    font-weight: bold;
+}
+
+.litm-character-sheet-tabs {
+    margin-left: var(--litm-premium-left-margin);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+nav.tabs [data-group="litm-journey-sheet"] {
+    color: var(--litm-tab-text-color);
+    font-family: $font-primary;
+    font-weight: bold;
+}
+
+.litm-journey-sheet-tabs {
+    background-color: rgba(0, 0, 0, 0.5);
+}

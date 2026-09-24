@@ -1,0 +1,221 @@
+.message-content {
+    // Style inline tag/status/weakness/limit marks (and their colour variants
+    // yellow/green/orange/red) the same way the journal and sheets do.
+    @include tag-mark-def;
+
+    .selected-tags {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-family: Labrada, serif;
+        font-size: 0.9em;
+        gap: 2px;
+        color: $c-styled-text;
+        font-weight: 400;
+
+
+        .tag {
+            background-color: gray;
+            padding: 2px 2px;
+            text-align: center;
+            border-radius: 5px;
+
+            &.positive {
+                background-color: $c-tag-green;
+                color: white;
+            }
+
+            &.negative {
+                background-color: $c-tag-orange;
+                color: black;
+            }
+
+            // #35: a tag the roller flipped for this roll (Weakness as Power or
+            // Power as Weakness) — it renders with the flipped colour, so a
+            // dashed ring is the only clue it isn't a native tag of that kind
+            // #104: same treatment for a Challenge/Scene-Story entry flipped
+            // against the roll for this roll only
+            &.inverted-tag,
+            &.inverted-challenge {
+                outline: 2px dashed $c-brown;
+                outline-offset: -2px;
+            }
+        }
+    }
+}
+
+.consequence-container {
+    padding-top: 5px;
+    font-family: Labrada, serif;
+
+    // The outcome-tier banner (6- / 7-9 / 10+ with its icon) stays centred…
+    .heading {
+        display: block;
+        text-align: center;
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 4px;
+    }
+
+    // …but the outcome description and its options read left-aligned so longer,
+    // multi-sentence text and bullet lists (Detailed action) stay legible.
+    p {
+        text-align: left;
+        margin: 4px 0;
+        line-height: 1.4;
+    }
+
+    ul {
+        text-align: left;
+        margin: 4px 0;
+        padding-left: 1.4em;
+        list-style: disc;
+
+        li {
+            margin: 2px 0;
+            line-height: 1.35;
+        }
+    }
+
+    .power-counter {
+        text-align: center;
+        margin-top: 6px;
+        padding-top: 4px;
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+    }
+}
+
+.consequence-result-negative {
+    background-image: url("../assets/outcome-bg-litm-negative.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 6px 10px;
+}
+
+.consequence-result-neutral {
+    background-image: url("../assets/outcome-bg-litm-neutral.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 6px 10px;
+}
+
+.consequence-result-positive {
+    background-image: url("../assets/outcome-bg-litm-positive.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 6px 10px;
+}
+
+.consequence-result-icon {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    display: inline-block;
+    top: 10px;
+    left: -5px;
+
+    &.negative {
+        background-image: url("../assets/icons/icon-litm-negative.svg");
+    }
+
+    &.positive {
+        background-image: url("../assets/icons/icon-litm-positive.svg");
+    }
+
+    &.neutral {
+        background-image: url("../assets/icons/icon-litm-neutral.svg");
+    }
+}
+
+.power-counter{
+    font-weight: 800;
+}
+// Detailed action interactive Power spending (Core Book p. 154)
+.detailed-spend {
+    margin-top: 8px;
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
+    padding-top: 6px;
+    font-family: $font-primary;
+
+    &.readonly {
+        opacity: 0.85;
+
+        .detailed-spend-options,
+        .detailed-spend-undo {
+            display: none;
+        }
+    }
+
+    .detailed-spend-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 800;
+        color: $c-styled-text;
+        text-transform: uppercase;
+        font-size: 0.85em;
+
+        .detailed-spend-remaining {
+            font-size: 1.1em;
+        }
+    }
+
+    .detailed-spend-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin: 6px 0;
+
+        .detailed-spend-btn {
+            flex: 1 1 auto;
+            width: auto;
+            font-family: $font-primary;
+            background: $c-brown;
+            color: $c-white;
+            border: 1px solid rgba(0, 0, 0, 0.35);
+            border-radius: 3px;
+            padding: 2px 6px;
+            font-size: 0.85em;
+            line-height: 1.3;
+
+            &:hover:not(:disabled) {
+                background: color-mix(in srgb, $c-brown 82%, white);
+                box-shadow: 0 0 4px $c-brown;
+            }
+
+            &:disabled {
+                opacity: 0.45;
+            }
+
+            .detailed-spend-cost {
+                font-weight: 800;
+            }
+        }
+    }
+
+    .detailed-spend-list {
+        list-style: none;
+        margin: 4px 0 0 0;
+        padding: 0;
+        font-size: 0.9em;
+
+        li {
+            margin: 2px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .detailed-spend-undo {
+            cursor: pointer;
+            color: $c-text-redish;
+        }
+
+        .detailed-spend-cost {
+            opacity: 0.7;
+        }
+    }
+}

@@ -1,0 +1,781 @@
+.journal-entry-page {
+    min-height: 40px;
+}
+
+.journal-page-content pre code {
+    white-space: pre-wrap;
+}
+
+.journal-entry-content {
+  @include tag-mark-def;
+
+    background-image: url(../assets/bg-pargement-texture.webp);
+    background-repeat: no-repeat;
+    row-gap: 0.5em;
+    color: $c-dark-styled-text;
+    font-family: $font-primary;
+    font-size: 1.1em;
+
+    .skull-icon{
+        position: relative;
+        width: 24px;
+        height: 24px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+        margin-right: 2px;
+        display: inline-block;
+        background-image: url("../assets/icons/icon-litm-negative.svg");
+    }
+
+    .written-block{
+        font-family: $font-written;
+        font-size: 1.2em;
+        h2{
+            font-family: $font-written-brush;
+            border-bottom: 0;
+        }
+    }
+
+    .scene-art{
+        display: block;
+        margin: 1.6em auto;
+        max-width: 600px;
+        padding: 10px;
+        background-color: #efe4cc;
+        background-image: url(../assets/bg-pargement-texture.webp);
+        background-size: cover;
+        border: 2px solid $c-brown;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+
+        img{
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0;
+            border: 1px solid rgba($c-dark, 0.55);
+            cursor: pointer;
+        }
+
+        // portrait pieces shouldn't dominate the text column
+        &.portrait{
+            max-width: 420px;
+        }
+    }
+
+
+    .scene-art-grid{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1em;
+        align-items: start;
+        margin: 1.6em 0;
+
+        & + .scene-art-grid{
+            margin-top: 1em;
+        }
+
+        .scene-art{
+            margin: 0;
+            max-width: none;
+            padding: 6px;
+
+            &.portrait{
+                max-width: none;
+            }
+        }
+    }
+
+    .style-artset{
+        img{
+            display: block;
+            margin: 0.3em auto;
+            max-width: 50%;
+            height: auto;
+            border: 0;
+            cursor: pointer;
+        }
+    }
+
+    .text-container-300{
+        padding: 30px;
+    }
+    
+    .themekit-box-container{
+         display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .tropes-wrapper{
+        .tropes-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .trope{
+            background-image: url(../assets/boxes/box-square-paper.webp);
+            background-size: 100% 100%;
+            max-width: 400px;
+            min-width: 400px;
+            padding: 20px;
+        }
+    }
+
+    .torch-icon{
+        background-image: url(../assets/icons/torch.webp)
+    }
+    
+    .trope-title {
+        color: $c-brown;
+        font-weight: bold;
+        text-transform: none;
+        font-style: normal;
+        border-bottom: 0;
+        margin-bottom: 0.2em;
+    }
+
+    .theme-kits-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        p {
+            margin: 0;
+            font-family: $font-primary;
+            font-size: 0.8em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: $c-styled-text;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            flex: 1;
+            height: 2px;
+            background-color: $c-beige;
+        }
+    }
+
+    .tropes-label {
+        display: inline-block;
+        padding: 8px 20px 12px;
+        min-width: 220px;
+
+        h1 {
+            color: white;
+            border-bottom: 0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.1;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+
+            .trope-type {
+                display: block;
+                font-size: 0.45em;
+                font-weight: normal;
+                font-style: italic;
+                text-transform: none;
+                letter-spacing: 0.08em;
+                opacity: 0.85;
+                margin-bottom: 0.1em;
+                line-height: 1.3;
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 8px;
+                background-image: url(../assets/lines/line-white.webp);
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                margin-top: 4px;
+            }
+        }
+    }
+
+    .themekit-box {
+        @include themekit-box;
+    }
+
+    .letter-box {
+        @include letter-box;
+        margin-right: 5px;
+    }
+
+    .themekit-big-box {
+        @include themekit-big-box;
+        max-width: 300px;
+        min-height: 370px;
+
+        .heading {
+            position: relative;
+
+            .header-icon {
+                display: block;
+                width: 20px;
+                height: 20px;
+                background-color: white;
+                mask-size: contain;
+                mask-repeat: no-repeat;
+                mask-position: center;
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+
+                &.origin {
+                    mask-image: url('../assets/icons/icon-origin-litm.svg');
+                }
+                &.adventure {
+                    mask-image: url('../assets/icons/icon-adventure-litm.svg');
+                }
+                &.greatness {
+                    mask-image: url('../assets/icons/icon-greatness-litm.svg');
+                }
+            }
+        }
+
+        &.origin {
+            background-image: url('../assets/boxes/box-no-header-origin.webp');
+
+            .heading {
+                background-image: url('../assets/headers/header-origin.webp');
+            }
+        }
+        &.adventure {
+            background-image: url('../assets/boxes/box-no-header-adventure.webp');
+
+            .heading {
+                background-image: url('../assets/headers/header-adventure.webp');
+            }
+        }
+
+        &.greatness {
+            background-image: url('../assets/boxes/box-no-header-greatness.webp');
+
+            .heading {
+                background-image: url('../assets/headers/header-greatness.webp');
+            }
+        }
+    }
+
+
+
+    p.fh2 {
+        color: $c-text-redish;
+        font-family: CaveatBrush-Regular, cursive;
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 1.25em;
+        border-bottom: none;
+    }
+
+    p.fh3 {
+        color: $c-text-redish;
+        font-family: CaveatBrush-Regular, cursive;
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 1.0em;
+        border-bottom: none;
+    }
+
+    p.fh1 {
+        color: $c-text-redish;
+        font-family: CaveatBrush-Regular, cursive;
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 1.5em;
+        border-bottom: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $c-text-redish;
+        font-family: $font-primary;
+        text-transform: uppercase;
+        font-weight: 900;
+
+        &.with-line {
+            display: flex;
+            align-items: center;
+            border-bottom: 0;
+
+            &::after {
+                content: "";
+                display: inline-block;
+                width: 105px;
+                height: 6px;
+                // Tint the line with the heading's own text color (currentColor) so the
+                // line always matches the heading; the webp now supplies only the shape.
+                background-color: currentColor;
+                mask-image: url(../assets/header-backline.webp);
+                -webkit-mask-image: url(../assets/header-backline.webp);
+                mask-repeat: no-repeat;
+                -webkit-mask-repeat: no-repeat;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    h1, h2, h3, h4, h5, h6 { letter-spacing: 0.02em; }
+    h3 { font-size: 1.3em; }
+    h4 { font-size: 1.08em; }
+    h5 { font-size: 0.98em; }
+    h6 { font-size: 0.9em; }
+
+    .heading-wrapper-medival {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+
+        p {
+            margin: 0;
+            font-family: $font-primary;
+            font-size: 0.8em;
+            color: $c-text-redish;
+            letter-spacing: 0.1em;
+            text-align: left;
+            margin-left: 40px;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        h1 {
+            border-bottom: 0;
+            font-family: Ecstasy, serif;
+            color: $c-dark;
+            text-transform: none;
+            font-weight: normal;
+            margin: 0;
+            font-size: 4.2em;
+            text-align: left;
+            margin-left: 30px;
+        }
+    }
+
+    .themebook-title-wrapper {
+           display: block;
+            
+            background-repeat: no-repeat;
+            background-position: bottom left;
+            background-size: 100% 100%;
+            min-height: 160px;
+            padding-left: 45px;
+            padding-top: 8px;
+
+        .main-title{
+            top: -20px;
+            position: relative;
+        }
+
+        .sub-title{
+           font-style: italic;
+           padding-left: 20px;
+        }
+
+        &.origin{
+            background-image: url(../assets/lines/underline-origin-mirror.webp);
+            .sub-title{
+                color: #4E8061;
+            }
+        }
+
+        &.adventure{
+            background-image: url(../assets/lines/underline-adventure-mirror.webp);
+            .sub-title{
+                color: #7C3C3B;
+            }
+        }
+        
+        &.greatness{
+            background-image: url(../assets/lines/underline-greatness-mirror.webp);
+            .sub-title{
+                color: #5D5B90;
+            }
+        }
+
+        &.neutral{
+            background-image: url(../assets/lines/underline-neutral-mirror.webp);
+            .sub-title{
+                color: #595448;
+            }
+            .main-title{
+                top: 0px;
+                left: 20px;
+            }
+        }
+
+        img {
+            display: inline-block;
+            width: 42px;
+            height: 42px;
+            vertical-align: middle;
+            margin-right: 6px;
+            margin-top: 0;
+        }
+
+        h2 {
+            display: inline-block;
+            font-family: Ecstasy, serif;
+            font-weight: normal;
+            text-transform: none;
+            color: $c-dark;
+            border-bottom: 0;
+            vertical-align: middle;
+            font-size: 3.2em;
+        }
+    }
+
+    .theme-description{
+        font-weight: bold;
+        &.neutral{
+            color: #595448;
+        }
+        &.greatness{
+            color: #5D5B90;
+        }
+        &.adventure{
+            color: #7C3C3B;
+        }
+        &.origin{
+            color: #4E8061;
+        }
+    }
+    .underline-graphic {
+        display: block;
+        width: 100%;
+        margin-top: -8px;
+        /* an den Text heranschieben */
+    }
+
+    .line-with-image {
+        img {
+            display: inline;
+            margin-right: 3px;
+        }
+
+        p {
+            display: inline;
+        }
+    }
+
+    .bigger-redish-text {
+        color: $c-text-redish;
+        font-size: 1.2em;
+    }
+
+    .redish-text {
+        color: $c-text-redish;
+    }
+
+    .notes {
+        background-image: url(../assets/notes_darker_2.webp);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        padding: 30px;
+    }
+
+    .note-written-text {
+        font-family: $font-written;
+        font-size: 1.2em;
+    }
+
+    .icon-origin,
+    .icon-adventure,
+    .icon-greatness {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        background-color: $c-icon-brown;
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        mask-position: center;
+        vertical-align: middle;
+    }
+
+    .icon-origin {
+        mask-image: url("../assets/icons/icon-origin-litm.svg");
+        background-color: $c-icon-green;
+    }
+
+    .icon-adventure {
+        mask-image: url("../assets/icons/icon-adventure-litm.svg");
+        background-color: $c-icon-red;
+    }
+
+    .icon-greatness {
+        mask-image: url("../assets/icons/icon-greatness-litm.svg");
+        background-color: $c-icon-blue;
+    }
+
+    .icon-hint {
+        color: $c-icon-brown;
+        vertical-align: middle;
+        font-size: 1em;
+    }
+
+    .callout {
+        border: none;
+        color: $c-dark-styled-text;
+        font-family: $font-written;
+        font-size: 1.2em;
+        h3{
+            font-family: $font-written;
+        }
+    }
+
+    .four-grid-with-borders {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        align-items: start;
+
+        > p {
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            padding: 4px 6px;
+        }
+    }
+
+    .half-half {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        align-items: start;
+    }
+
+    .tag-category-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 28px;
+        row-gap: 12px;
+        align-items: start;
+
+        .tag-cell { min-width: 0; }
+
+        h3 {
+            text-align: center;
+            margin: 0.3em 0 0.4em;
+        }
+
+        p {
+            text-align: center;
+            margin: 0.15em 0;
+        }
+    }
+
+    .loot-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, auto);
+        grid-auto-flow: column;
+        column-gap: 28px;
+        row-gap: 12px;
+        align-items: start;
+
+        .loot-cell {
+            min-width: 0;
+        }
+
+        h3 {
+            text-align: center;
+            margin: 0.3em 0 0.4em;
+        }
+
+        p {
+            text-align: center;
+            margin: 0.15em 0;
+        }
+    }
+
+    .content-with-sidebar {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: flex-start;
+
+        .left-bar {
+            flex: 0 0 60%;
+            min-width: 0;
+        }
+
+        .right-bar {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+
+        .written-block {
+            font-size: 1em;
+        }
+    }
+
+    .content-with-sidebar-inverted {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: flex-start;
+
+        .left-bar {
+            flex: 0 0 40%;
+            min-width: 0;
+        }
+
+        .right-bar {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+
+        .written-block {
+            font-size: 0.9em;
+        }
+    }
+
+     .content-with-sidebar-half-half {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: flex-start;
+
+        .left-bar {
+            flex: 0 0 50%;
+            min-width: 0;
+        }
+
+        .right-bar {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+
+        .written-block {
+            font-size: 0.9em;
+        }
+    }
+
+    /* Book-style tables (see the "Oracle" tables in Vol. II as reference):
+       red small-caps header band, zebra-striped warm parchment rows. */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0.8em 0;
+        font-family: $font-primary;
+        font-size: 0.95em;
+        line-height: 1.3;
+        border: 1px solid rgba($c-brown, 0.35);
+        background-color: #f1e6cc;
+        color: $c-dark;
+
+        p {
+            margin: 0;
+            color: $c-dark;
+        }
+
+        // header cells (rendered as <th> in the table's first row)
+        th {
+            background-color: rgba($c-brown, 0.22);
+            color: $c-text-redish;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 700;
+            font-size: 0.82em;
+            text-align: left;
+            padding: 0.5em 0.8em;
+            border-bottom: 2px solid rgba($c-brown, 0.55);
+        }
+
+        td {
+            padding: 0.4em 0.8em;
+            vertical-align: top;
+            color: $c-dark;
+            border-bottom: 1px solid rgba($c-brown, 0.15);
+        }
+
+        // zebra striping – tint every other body row (header is the first row)
+        tr:nth-of-type(even) td {
+            background-color: rgba($c-brown, 0.13);
+        }
+
+        // emphasise the first column (the roll / key column)
+        td:first-child {
+            white-space: nowrap;
+            font-weight: 600;
+        }
+    }
+
+    /* Book-style "Rotes" (Vol. II "ROTES" section): titled cards with coloured
+       POWER / SUCCESS / CONSEQUENCES banner ribbons, green/red power markers,
+       and skull-bulleted consequences. */
+    .rote {
+        border: 1px solid rgba($c-brown, 0.4);
+        border-radius: 4px;
+        background-color: rgba($c-off-white, 0.4);
+        padding: 0.5em 1em 0.8em;
+        margin: 1em 0;
+
+        .rote-title {
+            font-family: $font-written-brush;
+            color: $c-text-redish;
+            font-size: 1.7em;
+            line-height: 1.1;
+            border-bottom: 0;
+            margin: 0.1em 0 0.3em;
+        }
+
+        // POWER / SUCCESS / CONSEQUENCES ribbons – colour sampled per type from the book
+        .rote-banner {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-weight: 700;
+            font-size: 0.8em;
+            color: $c-off-white;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+            padding: 0.28em 0.5em;
+            margin: 0.8em 0 0.45em;
+            border-radius: 2px;
+
+            &.power        { background-color: #967e6f; }
+            &.success      { background-color: #cc9a54; }
+            &.consequences { background-color: #665c7a; }
+        }
+
+        // power direction markers: green ▲ helps, red ▽ hinders
+        .rote-power {
+            font-style: normal;
+            font-weight: 700;
+            margin-right: 0.2em;
+
+            &.up   { color: $c-icon-green; }
+            &.down { color: $c-icon-red; }
+        }
+
+        // consequences list: skull bullets instead of the default disc
+        .rote-banner.consequences + ul {
+            list-style: none;
+            padding-left: 0.25em;
+
+            .skull-icon {
+                width: 1.15em;
+                height: 1.15em;
+                top: 0.22em;
+                margin-right: 0.15em;
+            }
+        }
+    }
+}
+
+/* fix for Campaign Codex */
+article.cc-enriched section.journal-entry-content {
+    background: transparent !important;
+}

@@ -1,0 +1,47 @@
+<div>
+    <header class="sheet-header">
+        <div class="header-fields journey">
+            {{#if system.editMode}}
+            {{!-- Edit Mode Layout --}}
+            <div class="flexcol gap-5">
+                <div class="title">
+                    <img class="portrait-img" data-action="editImage" src="{{actor.img}}" data-edit="img"
+                        title="{{actor.name}}" height="120" />
+                    <h1 class="journey-name">
+                        <input name="name" type="text" class="custom-font-color" value="{{actor.name}}"
+                            placeholder="{{localize 'MIST_ENGINE.PLACEHOLDERS.Name'}}" />
+                    </h1>
+                </div>
+                <div>
+                    <input name="system.role" type="text" class="custom-font-color" value="{{system.role}}"
+                        placeholder="{{localize 'MIST_ENGINE.PLACEHOLDERS.Role'}}" />
+                </div>
+                <div class="mt-5">
+                    <textarea class="textarea-short-description custom-font-color" name="system.shortDescription"
+                        placeholder="{{localize 'MIST_ENGINE.PLACEHOLDERS.ShortDescription'}}">{{system.shortDescription}}</textarea>
+                </div>
+                <div>
+                    <input class="taggable-text custom-font-color" name="system.tags" type="text"
+                        value="{{system.tags}}" placeholder="{{localize 'MIST_ENGINE.PLACEHOLDERS.Tags'}}" />
+                </div>
+            </div>
+            <div class="grid grid-3col">
+                <button data-action="clickedCustomBackground" class="change-custom-background-btn">{{localize
+                    'MIST_ENGINE.LABELS.SelectCustomBackground'}}</button>
+                <button data-action="clickedRemoveCustomBackground" class="change-custom-background-btn">{{localize
+                    'MIST_ENGINE.LABELS.RemoveCustomBackground'}}</button>
+                <color-picker id="customFontColor" name="system.customFontColor" value="{{system.customFontColor}}"
+                    placeholder="{{localize 'MIST_ENGINE.PLACEHOLDERS.ColorPicker'}}"></color-picker>
+            </div>
+            {{else}}
+            {{!-- Normal Layout --}}
+            <div class="flexcol">
+                <h1 class="journey-name custom-font-color">{{actor.name}}</h1>
+                <div class="npc-roles custom-font-color">{{system.role}}</div>
+                <div class="short-description custom-font-color">{{{simpleFormatText system.shortDescription}}}</div>
+                <p class="tags custom-font-color">{{{textWithTags system.tags}}}</p>
+            </div>
+            {{/if}}
+        </div>
+    </header>
+</div>

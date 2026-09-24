@@ -1,0 +1,50 @@
+<div class="character-token-overlay">
+    <div class="character-token-overlay themebooks-container grid grid-4col">
+        {{!-- Iterate over each themebook and render the partial --}}
+        {{#each themebooks as |themebook id|}}
+        <div class="flexcol">
+            <h4>{{themebook.name}}</h4>
+            {{#each themebook.system.powertags as |powertag|}}
+                {{#if (tagFilledAndNotPlanned powertag)}}
+                    {{> "systems/mist-engine-fvtt/templates/overlay/tag-entry.hbs" powertag=powertag}}
+                {{/if}}
+            {{/each}}
+
+            {{#each themebook.system.weaknesstags as |weaknesstag|}}
+                {{#if (tagFilledAndNotPlanned weaknesstag)}}
+                    {{> "systems/mist-engine-fvtt/templates/overlay/tag-entry.hbs" powertag=weaknesstag isWeakness=true}}
+                {{/if}}
+            {{/each}}
+        </div>
+
+        {{/each}}
+    </div>
+    <div class="character-token-overlay themebooks-container grid grid-4col">
+        <div class="backpack flexcol">
+            <h4>{{localize 'MIST_ENGINE.THEMEBOOKS.Backpack'}}</h4>
+            {{#if backpack}}
+                {{#each backpack.system.items as |item|}}
+                    <div class="overlay-tag-entry {{#if item.burned}}burned{{/if}}">{{item.name}}</div>
+                {{/each}}
+            {{else}}
+                <div>{{localize 'MIST_ENGINE.HELP.NoBackpackEquipped'}}</div>
+            {{/if}}
+        </div>
+        {{#if hasFellowshipThemecard}}
+        <div class="fellowship-themecard flexcol">
+            <h4>{{fellowshipThemecard.name}}</h4>
+            {{#each fellowshipThemecard.system.powertags as |powertag|}}
+                {{#if (tagFilledAndNotPlanned powertag)}}
+                    {{> "systems/mist-engine-fvtt/templates/overlay/tag-entry.hbs" powertag=powertag}}
+                {{/if}}
+            {{/each}}
+
+            {{#each fellowshipThemecard.system.weaknesstags as |weaknesstag|}}
+                {{#if (tagFilledAndNotPlanned weaknesstag)}}
+                    {{> "systems/mist-engine-fvtt/templates/overlay/tag-entry.hbs" powertag=weaknesstag isWeakness=true}}
+                {{/if}}
+            {{/each}}
+        </div>
+        {{/if}}
+    </div>
+</div>

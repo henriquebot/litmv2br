@@ -1,0 +1,41 @@
+<div class="challenge-entry-container {{#unless editMode}}text-container-500{{/unless}}">
+    {{#if editMode}}
+        <fieldset>
+            <legend>{{challenge.name}} <button data-action="createChallengeListEntry" data-item-id="{{challenge.id}}"><i class='fas fa-plus'></i></button> <button data-action="deleteChallenge" data-item-id="{{challenge.id}}"><i class='fas fa-trash'></i></button> </legend>
+            <p class="help-text">{{localize 'MIST_ENGINE.HELP.GMTagShortCuts'}}</p>
+            <div class="box-shadowed-container">
+                <input type="text" class="editable-challenge-item" value="{{challenge.name}}" data-item-id="{{challenge.id}}" data-key="name"/>
+                <div class="short-description mt-10">
+                    <input type="text" class="editable-challenge-item" value="{{challenge.system.shortDescription}}" data-item-id="{{challenge.id}}" data-key="system.shortDescription" title="{{localize 'MIST_ENGINE.PLACEHOLDERS.ShortDescription'}}" placeholder="{{localize 'MIST_ENGINE.PLACEHOLDERS.ShortDescription'}}"/>
+                </div>
+            </div>
+            <div class="list-entries box-shadowed-container">
+                {{#each challenge.system.list as |entry index|}}
+                    <div class="list-entry flexrow">
+                        <div class="entry-content" style="flex-grow: 8;">
+                                <input type="text" value="{{entry}}" class="editable-challenge-item-list-entry" data-index="{{index}}" data-item-id="{{../challenge.id}}"/>
+                                <a class="themebook-icon" data-action="deleteChallengeListItem" data-index="{{index}}" data-item-id="{{../challenge.id}}">
+                                    <i class='fas fa-trash'></i>
+                                </a>
+                        </div>
+                    </div>
+                {{/each}}
+                <button data-action="createChallengeListEntry" data-item-id="{{challenge.id}}"><i class='fas fa-plus'></i>{{localize "MIST_ENGINE.ACTIONS.AddConsequence"}}</button>
+            </div>
+        </fieldset>
+    {{else}}
+        <h2>{{challenge.name}}</h2>
+        <div class="short-description">{{{challenge.shortDescriptionHTML}}}</div>
+        <div class="list-entries">
+            {{#each challenge.listHTML as |entryHTML index|}}
+                <div class="list-entry">
+
+                    <div class="entry-content-no-edit flexrow">
+                        <div class="icon-col"><i class="skull-icon"></i></div>
+                        <div class="text-col">{{{entryHTML}}}</div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{/if}}
+</div>

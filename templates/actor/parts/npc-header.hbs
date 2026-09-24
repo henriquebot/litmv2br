@@ -1,0 +1,42 @@
+<div>
+    <header class="sheet-header">
+        <img class="portrait-img" data-action="editImage" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"
+            height="120" />
+        <div class="header-fields npc">
+            {{#if system.editMode}}
+            {{!-- Edit Mode Layout --}}
+            <div class="title">
+                <h1 class="npc-name edit-mode">
+                    <input name="name" type="text" value="{{actor.name}}"
+                        placeholder="{{localize 'MIST_ENGINE.PLACEHOLDERS.Name'}}" />
+                </h1>
+            </div>
+            <div class="npc-types">
+                <div class="field-roles">
+                    <input type="text" class="npc-roles-input" value="{{join system.roles ", "}}" placeholder="{{localize 'MIST_ENGINE.LABELS.Npc.roles'}}"/>
+                </div>
+                <div class="field-difficulty">
+                    <input type="number" name="system.difficulty" value="{{system.difficulty}}" min="0" max="5" placeholder="{{localize 'MIST_ENGINE.LABELS.Npc.difficulty'}}"/>
+                </div>
+            </div>
+            <div class="npc-short-description">
+                <textarea name="system.shortDescription"
+                    placeholder="{{localize 'MIST_ENGINE.PLACEHOLDERS.ShortDescription'}}">{{system.shortDescription}}</textarea>
+            </div>
+            {{else}}
+            {{!-- Normal Layout --}}
+            <div class="title">
+                <h1 class="npc-name">{{actor.name}}</h1>
+                <div class="difficulty-icons">
+                    {{#times system.difficulty}}
+                    <img src="systems/mist-engine-fvtt/assets/icons/icon-litm-difficulty.webp"
+                        title="{{localize 'MIST_ENGINE.LABELS.Npc.difficulty'}}" />
+                    {{/times}}
+                </div>
+            </div>
+            <div class="npc-roles">{{join system.roles ", "}}</div>
+            <div class="npc-short-description">{{{simpleFormatText system.shortDescription}}}</div>
+            {{/if}}
+        </div>
+    </header>
+</div>

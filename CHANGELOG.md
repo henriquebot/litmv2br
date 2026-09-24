@@ -1,0 +1,481 @@
+# CHANGELOG
+
+If you encounter bugs, submit a ticket on Github (https://github.com/MrTheBino/mist-engine-fvtt). You can also find us on the offical Sons Of Oak Discord server.
+
+# 14.5.4
+- FIX: [BUG] Cannot delete Fellowship theme from character #132
+- FIX: Camping & Sojour only lists player characters active in the current scene, same behaviour like scene app
+
+# 14.5.3
+- FEAT: new scene tag overlay, configurable via the game settings. It displays the scene tag & stasuses of the current scene.
+
+# 14.5.2
+- FIX: [Bug Report] On both versions of the character sheet, tags and statuses can not be deleted #126
+- FIX: [Bug Report] On either version of the character sheet, the tier of a status cannot be set anymore #127
+
+# 14.5.1 - Nymphetamine
+- FEAT: dedicated "Mist Engine" toolbar group for the system apps (Scene Tracker, Camping & Sojourns, Acting Together, How To Play) #91 (by aMediocreDad)
+- FEAT: per-roll weakness-to-power inversion in the roll dialog (Narrator's discretion) #35 (by aMediocreDad)
+- FEAT: apply challenge statuses against the roll without editing the challenge #104 (by aMediocreDad)
+- FEAT: [/sn] syntax for negative statuses in text fields and journals #81 (by aMediocreDad)
+- FEAT: tags are grouped before statuses in Tags & Statuses lists #28 (by aMediocreDad)
+- FEAT: challenge consequence fields are enriched, @UUID links work there #73 (by aMediocreDad)
+- FEAT: hotkey ALT+T opens the ThemeKit selection #70 (by aMediocreDad)
+- FEAT: setting to choose the theme-kit source compendiums #101 (by aMediocreDad)
+- FEAT: theme kit list is filtered by the launching theme book #102 (by aMediocreDad)
+- FEAT: guided tours for the Narrator and for players (Settings -> Tour Management)
+- FEAT: overhauled custom background editor: multiple artwork layers, zoom at cursor, layout guide with name preview, background gallery, re-editable compositions
+- FEAT: reworked System Documentation journal with all current features and screenshots
+- FIX: fixed-width theme cards that wrap instead of stretching #37 (by aMediocreDad)
+- FIX: editor tag/status buttons produce enricher-consistent markup #58 (by aMediocreDad)
+- FIX: backpack tags cannot be queued to burn #98 (by aMediocreDad)
+- FIX: create missing backpacks for pre-14.5 characters during migration #105 (by aMediocreDad)
+- FIX: selecting challenge tags no longer clears hero selection in roll dialog #83 (by aMediocreDad)
+- FIX: scene app registers characters/challenges on viewed (non-active) scenes #93 (by aMediocreDad)
+- FIX: inline tag/status marks are styled in chat messages
+- FIX: tags with hyphenated names (e.g. "quick-witted") are no longer turned into broken value-0 statuses by the create-tag dialogs
+- internal clean up: removed unused font files
+- FIX: parsing statuses "example-status" translates now correctly to a tag because of the missing number at the end
+- FIX: [Bug Report] Deleting a relationship tag always deletes the first entry in the relationship list #125
+- FEAT: compact character sheets option in the "toggle controls" dropdopwn of a character sheet
+
+# 14.5.0 - The mundane and the magic (D.T.)
+- FEAT: roll dialog works now without an active scene
+- FIX: (UI) Light mode makes buttons on character sheet hard to read #100
+- FIX: Backpack items dropped on actors do appear in backpack on actor #99
+- FIX: Rolling with Might +3 or +6 always results in 4 or 7 as the Power shown in the card, regardless of other modifiers #97
+- FEAT: proposal implementation of rotes, need feedback
+- FEAT: visual indicator while dragging containers in the player character sheet
+- FEAT: Camping & Sojourns application, gets triggered by GMs only
+- FIX: various small fixes regarding dice rolls in reference to the rules
+- FEAT: request help option for players (there must be more than one player online, GM's excluded)
+- FEAT: group actions, triggered by GMs only
+- FEAT: Detailed actions in chat messages for detailed rolls (incl. undo functions)
+- FEAT: Feature Request: After player finishes roll dialog, send an overview dialog of tags/statuses/bonuses/penalties to Narrator for approval. (enabled via Game Options in Foundry) #36
+- FIX: styling for chat messages improved
+- FEAT: improvements on faster data entering for GMs
+
+# 14.4.4
+- FIX: duplicate() bug fixed during quintessence creation on the character sheet
+
+# 14.4.3
+- FEAT: added native support for Tokenizer 2, added 3 official token frames
+- FEAT: improved styling for premium journal entries
+
+# 14.4.2
+- FIX: importing actors / items from compendium to the world doesn't overwrite it's images
+- FIX: premium package journal styling for scene art
+- FIX: localization fixes regarding prose-mirror
+- FIX: [BUG] Issues with Might settings in Challenges #96
+
+  
+# 14.4.1
+- FEAT: improved might aspect handling, they are a seperate field in the challenges now, GMs have to tell a player if they have to use the modifier in the roll dialog or not
+- FEAT: SceneApp supports journeys (one journey at a time) and story themes
+- FEAT: [Feature Request] Tie Story Themes to a Scene #75
+- FIX: premium package styling
+- FIX: [Bug/rules] Only one TAG per throw should be burned/scratched #92
+  
+# 14.4.0
+- FEAT: confirmation dialogs when deleting entries from different item sheets
+- FEAT:  Expose character weakness tags on Scene app #85 
+- Challenge Add ons, drag'n'drop them on a challenge to apply them
+- FIX: [Bug] Multiple instances of the same Challenge in the same scene have odd behaviors in Scene app #88
+ - FEAT: re-order the different cards via drag'n'drop in the character sheet in the main and other tab the way you want to
+ - FIX: [Bug] Multiple instances of the same Challenge in the same scene have odd behaviors in Scene app #88
+ - internal code clean up
+ - FIX: [Bug] Manually entered roll mods values do not change the total power. #95
+ 
+# 14.3.7
+- FEAT: [Feature Request] CTRL+Hover to show token tags #94
+- FEAT: final styling for premium modules
+
+# 14.3.6
+- FEAT: styling for premium modules
+- FIX: [Improvement] Rename "Add Challenge" button in Journey form to "Add Short Challenge / Vignette" #89
+- FIX: [BUG] Special Improvements can no longer be deleted from Themebooks #80
+- FEAT: [Improvement] Resizable text field and scrollbar for chalenge description
+ #79
+
+# 14.3.5
+- FIX: SceneApp won't open if minimzed, improved behaviour of the application
+- FEAT: styling for premium modules
+  
+# 14.3.4
+- FIX: #82 Fixed negative status remains green ( by Paul Umbers)
+- FIX: #77 Fixed might icons overlaying each on other ( by Paul Umbers)
+- FEAT: scene app information if there are missing actors on the scene
+  
+# 14.3.3
+- FIX: Challenges tags don’t uncheck after a roll #78
+- FIX: Negative TAGs and Statuses on Challenges displayed as positive in detailed roll #62
+- FEAT: assigned themekit to existing themebooks appends special improvements to the themebook
+- FEAT: Change default token image for Challenges #76
+ 
+# 14.3.2
+- FIX: deleting consequences in a journey
+- FEAT: migration of themekits into a themebook, now all 3 possible ways to import themekits to themebook should be covered
+- FEAT: parsing of tags & stasuses improved
+
+# 14.3.1
+- FIX: [UI] Special Features text in Challenge Sheet is now All Caps #72
+- FIX: [CSS BUG: 14.3.0] Special Features on Challenges #69
+- FIX: Foundry package page directs Update Notes to changelog.md #68
+- FIX: [UI]: Might Icons Disappeared from Tags & Status Panel in Challenge Sheets #71
+
+# 14.3.0
+- FEAT: added icons for the themekits in the selection app to indicate if it's from a compendium or not
+- FEAT: Themekit interface improvements and/or Drag-and-Drop for Themekits. #53
+- FEAT: CSV import for power tags and weakness tags does not support quotes to escape commas within the tag text
+- FEAT: update on the styling of tags & powertags made by the great Paul Umbers! Thanks guy!
+- FEAT: Improved journey sheets made by Paul Umbers
+- FEAT: changes in styles for the upcomming premium modules
+- FEAT: Added changelog dialog on foundry / world start up
+- FEAT: added updated formatting options in the documentation
+- FIX: fixed color coding in the themekit selection
+- FIX: Themekit drag-and-drop does not populate Special Improvements on character sheet #63
+- FIX: Themekit assignment from a Themebook does not populate power tags, weakness tags, or the Quest text. #65
+- FIX: changed negative & positive icons in the scene app to it matches the roll dialog
+- FIX: fix for toggling tags from the tags & status in the roll dialog
+- FIX: journal page headers are working again
+- FIX: fixed style for code blocks in the journals
+
+# 14.2.3
+- hotfix for roll dialog  
+
+# 14.2.1
+- fix for themekits and disappearing tags
+  
+# 14.2.0
+- themekits have a new option called "story theme", which hides quests, storys, improvements etc, to make them a Story Theme
+- fixed a bug in open and using a themekit selection app
+  
+# 14.1.0 
+- drag'n'drop support for themekits onto a character ([Feature Request] Themekit interface improvements and/or Drag-and-Drop for Themekits. #53)
+- added themebook types (Origin, Greatness etc) to themekits
+- fix: first powertag of a themebook is bigger in size
+
+# 14.0.0 "Happy Easter!"
+- Foundry 14 compatible
+- migration to unlimited powertags & weaknesstags for characters
+- lots of small improvements
+
+MAKE BACKUP OF YOUR WORLD BEFORE USING THIS VERSION!
+
+A small roadmap:
+
+- options for themebooks so they behave like simple tag containers if wanted (e.g story themes or whatever)
+- improvements for themekits
+- unified coloring of tags, statuses and improvements on their look
+- huge improvements for challenges regarding their look
+
+# 13.7.9.2
+- hotfix for scene app while activating another scene
+  
+# 13.7.9.1
+- hotfix for secrets & special features for challenges
+  
+# 13.7.9 - "Iron Focus 2X"
+- hotfix release for case where character sheets are "jumping"
+- tiny styling issues
+- disabled JS for journal styling of tags, will come back in a better version, but at present they broke journal functionality
+
+# 13.7.8 - "Iron Focus"
+- small improvements for challenge GM features during entering data
+- import challenges, short challenges & vignettes via special JSON files, enabled via config settings
+- set adventure, origin and greatness might 
+- improvements here and there regarding challenge rendering
+- fixed notes for journeys
+- styling fixes
+- Feature Request: Add a scroll bar to the scene tags window #49
+  
+# 13.7.7 - "Shield Bash"
+- added might for tags, right click on a tag and you can turn it into a mighty tag
+- scene app improvements for GMs, more control for us!
+- improvements for journeys
+- fixed the "jumping" in sheet behaviour after updating some powertags or whatever, if you still see some jumping anywhere tell me!
+- move to other tab context menu moved to the title of the themebook fix for: Right-clicking to toggle Burned state prompts "Move to Other/Main Tab" #48
+- lots of small GM QOL features for editing stuff in the system
+- icons for tags & stasuses are visible per default, no hover effect anymore. Too many complains from users regarding the hover effect.
+
+# 13.7.6
+- fix: The result of the roll shows a another Character Name in Chat Messages #45
+- Hello GM! Update: a lot of improvements for the GM to enter data into their world
+- styling fixes
+
+# 13.7.5
+- switch tab functionality for themebooks, no you can have more themebooks without scrambling your character sheet
+- color option for themebooks
+- lots of styling
+- macro support for Scene Tags dialog and new How To Play Dialog
+- tag style polishment by coreyhickson
+- fix: SceneApp won't get re-rendered if it's not open
+  
+# 13.7.4
+- improved themekit selection dialog
+- added might as [/m MIGHT] in text
+- improvements on the challenge sheet
+- improvement on the tooltips
+- small fixes here and there
+  
+# 13.7.3
+- scene app can handle challenge tags & statuses
+- dice rolls can handle challenge tags & statuses
+- removed old tags & statuses from challenges
+- added secrets to challenges
+- added torch icon for secrets
+- spanish fan translation by Quarel
+- solo mode fellowships by coreyhickson, solo fellowships are still seperate actors
+- many other small fixes and improvements
+  
+# 13.7.2
+- fixed explanation of CSV import for themekits
+  
+# 13.7.1
+- added message to themekit selection if there are now themekits available
+- fixed add weakness button in themekit item
+- Fix data-actor-id hierarchy #40 by trevorschadt
+
+# 13.7.0
+- themekit support, create themekits with powertags,weaknesstags,quest and special improvements. Easy import of tags via a fast CSV import
+- added themekit menu item to the actor sheet (top right 3 point menu)
+- added themekit assignment for empty characters
+- assign & remove themekits to exisiting themebooks
+- add powertags from themekits to themebooks
+- faster deletion of tags & statuses
+
+# 13.6.9
+- hotfix for CORS problem in the custom background editor, hope this fixes the issue with theForge
+  
+# 13.6.8
+- Updated NPC sheet header layout, added roles field (Paul)
+- fix: removing token hover information when a tokens gets deleted
+  
+# 13.6.7
+- fixed font colors for all actor sheets except characters
+- removed lock icon for fellowship themecard actors, not needed because not supported for them
+- added option field for characters to change the font color of the character name
+  
+# 13.6.6
+- added line guide in the custom background editor to help you position your artwork
+  
+# 13.6.5
+- added a small custom background editor, you can select a custom background or use the default one, then you can upload your own artwork and place it on the background, then export it as PNG or set it directly as the actors background. User rights are checked.
+  
+# 13.6.4
+- hot fix, added button to remove custom background
+  
+# 13.6.3
+- this system is now the official supported system by Son Of Oak
+- new stylized character sheets
+- pre-packaged 3 characters
+- lots of small tiny improvements here and there
+
+# 13.6.1
+- compendiums are now getting packed during release creation
+  
+# 13.6.0
+- compendiums are not packaged during release packaging
+- planning of powertags for characters implemented
+- switch positve & negative status of player selected statuses in the dice roll dialog
+- posive & netagive statused are grayed out in the dice roll dialog if they are not getting used by the rules (only use the highest negative or positive status)
+- configuration option to disable system integrated custom dices for DiceSoNice
+- quick powertag view for GMs (configurable via options)
+  
+# 13.5.8
+- deselecting of player selected powertags, tags & statuses in the dice roll dialog 
+  
+# 13.5.7
+- UI improvements
+- 
+# 13.5.5
+- backpack fix while duplicating characters, characters are compendium ready now
+- moved might modifier to roll dialog as requested
+
+# 13.5.4
+- added french translations by Sunny Sun Sun
+  
+# 13.5.3
+- journey actor
+- short challenges / vignettes
+- NPCs can use short challenges as templates via drag'n'drop
+  
+# 13.5.2
+- updated en.json to make the system more translationable
+- fixed a bug: new characters automaticly have an empty backpack
+  
+# 13.5.1
+- might usage can be turned off and on via system configuration in Foundry
+  
+# 13.5.0
+- added might to the scene tag app, GMs can adjust might for the characters roll
+- basic journal styling
+- amount of power is displayed in the dice roll dialog
+- improved tag & status parsing in journals
+  
+# 13.4.6
+- reverted fix: Journal Tags: Tags with diacritics (e.g., ç, ã) are not recognized #25 until a better regex is done
+- faster entering of tags & statuses and also backpack items
+- Change Request: Easier adding items from the backpack #20
+- added custom dice for Dice So Nice
+
+# 13.4.5
+- fixed a small bug in the scene tags app
+- new version schema for upcomming development branches for Foundry 14, 13.X.X will always work for Foundry 13
+
+# 0.4.4
+- GMs see now the selected tags & statuses for a roll of a character in the scene tags window before a character makes a roll
+- GMs can open a character sheet in the scene tags window by clicking on the character name
+- the improve markings of a themebook are getting increased if a character used a weakness tag
+- fellowship tags are getting scratched after being used
+- small css improvements
+- some small bug fixes & usability improvements
+- fix: Status/Tags on the character sheet and in the turn tracker should be shown in the same color #24
+- fix: Change Request: Treat fellowship tags differently from standard tags #23
+- change: Change Request: Change the order of rows on the character sheet #22
+- fix: Formatting: the top most backpack item should probably not be in bold #19
+- fix: Journal Tags: Tags with diacritics (e.g., ç, ã) are not recognized #25
+  
+# 0.4.3
+- items got some love with styling
+- actor fellowship themecard: entering questions not the actual power tags, editing / adding powertags is added on character sheets -> same behaviour with the other themebooks
+- usability improvements
+  
+# 0.4.2
+- fixed quest text area while editing the fellowship themecard
+- removed auto assign of fellowship themecards in actors and replaced it with an "assign button" with ui notifications when something isn't setup correctly
+- added unassign fellowship themecard icon on character sheets while in editing mode
+  
+# 0.4.1
+- Headers in Description fields and Biographies are displayed in white #18
+  
+# 0.4
+- new reactive dice roll dialog, you can open the dice roll dialog and then select power tags, statuses etc, the new dice roll dialog will display the new selections
+- many small bugfixes
+
+# 0.3.12
+- added the posibility to add tags & statuses to the short description of challenges
+- compendium entry for Statuses provided by Markus Raab
+  
+# 0.3.11
+- Backpack section of character sheet (edit mode): The fields have become smaller, and the trash bin icon is displayed in white #16
+- added basic documentation
+- added themebooks as compendium, only their name without the actual content from the book got added
+  
+# 0.3.10
+- just a version bump
+  
+# 0.3.9
+- Change Request: Label the "Legend in the Mist NPC" as "Legend in the Mist Challenge" instead #14
+- Feature: On the NPC Sheet in Edit mode for Threats & Consequences offer the possibility to delete consequence lines again
+- Change Request: larger description field on the items #12
+- Change Request: Legend in the Mist NPC sheet should be able to display Immunities in the Limit section #13
+
+# 0.3.8
+- Refined character theme card styling
+- backpack items drag and drop between different character sheets, the backpack item in the source character doesn't get deleted on purpose
+  
+# 0.3.7
+- GHI: Change Request: Smaller icon on the themebook sheet #8
+- GHI: Themebook Description: White text on bright background & copied text cannot be saved #7
+- Added tag/status drop to scene data app
+- Added border image to scene data app
+  
+# 0.3.6
+- improved handling status / tags acording to the rules (takes +- of hightest tier status) (Page 69 of LITM, Making a Roll)
+- improved UX
+- scene tag app: GM can toggle dice roll mods between positive and negative, story tags can be selected by the gm for the next roll of a character
+- only used tags / statuses during a roll are shown in the chat windows
+
+# 0.3.5
+- improved internal handling of fellowship theme cards
+- selecting tags doesn't send always a fellowship changed signal
+
+# 0.3.4
+- fixed entering / saving the quest for the fellowship themecard
+
+# 0.3.3
+- improved internal handling of fellowship theme cards
+
+# 0.3.2
+- styling fixes
+- correct permission management in the scene tags window / app
+- stopped prevent edit mode toggling via submiting / editing data via the ENTER key
+- fixed some small bugs for the scene tags app
+
+# 0.3.1
+- fellowship themecard actors are linked now per default
+
+# 0.3
+- UI improvements
+- tags & status handling improved
+- many bug fixes
+- consolidated code 
+- etc... first BETA release
+  
+# 0.2.11
+- added more powertags & weakness fields to the themebooks
+  
+# 0.2.10
+- addes special improvements for themebooks and fellowship themecards
+- fixed nasty bug in fellowship themecard assignment
+- started merging general code functions in helper classes
+- scene tags app can now updated the tags & statuses of characters (markings and type)
+- many small bug fixes
+ 
+# 0.2.9
+- simplified tag & status behaviour in character and npc sheets
+  
+# 0.2.8
+ - create quintessence fix in the character sheet
+ - creating a new status switches directly to edit mode for statuses
+
+# 0.2.7
+- Ctrl-J opens the scene tag window
+- added tags and statuses to journals which can be dragged to actors, In a page you can use the following text: [tag] [status-value] [-limit:value] thanks to 3rddogpaul
+- tags & statuses of characters are getting show in the scene tags window. Only if the characters are in the current activated scene
+  
+# 0.2.6
+- quintessences are now items, hover over the quintessence name and you will see the description for easier referencing
+- added markiers for statuses
+- moved tags & status to the right side of the sheets
+- bug fixes here and there
+- Ctrl-T opens the scene tag window
+  
+# 0.2.5
+- fixed scrolling issues in NPC and character sheets
+  
+# 0.2.4
+ - drag'n'drop of tags & status from NPCs to characters, thanks to 3rddogpaul
+ - started implementing fellowship themecards, needs some heavy testing
+ - started to restructure some things, to shape things up and to be able to use them as components
+ - help texts for empty messages
+ - many bugfixes
+ - fixed weakness tag typo, all weakness texts must be entered again if you are already using the system
+ - added weakness tag edit lines in themebooks for the questions
+
+# 0.2.3
+- automaticly link character actor data to the token
+  
+## 0.2.2
+- slighty improved editing of npc sheet
+- improved slighty visual styles
+- fixed dice roll results
+- added fumble and critical roll indicators  (needs styling and altered output in the chat window)
+- fixed special feature rending on npc sheets
+- fellowship relation tags can be used in rolls
+- visual indicator via mouse over on selectable tags
+
+## 0.2.1
+- all new characters are getting a backpack assigned per default
+- weakness in themebooks got a colored border to better identify them
+- moved dice roll results to language file in lang/en.json
+- improved slightly some styling
+- fixes here and there
+- first powertag in a themebook is bolder now to highlight it
+- still a lot to do especially on the styling part
+
+## 0.2
+
+- scene window dialog for handing scene and story markers / tags (found in the left sidebar under Journal Notes > Scene Tags)
+- temporary statuses for characters and npcs

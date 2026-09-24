@@ -1,0 +1,111 @@
+<div class="npc-beautified-container-stats flexrow">
+    <div class="left-half">
+        {{!-- Limits --}}
+        <div class="npc-limits-container">
+            <div class="npc-subtitle-container-c">
+                <div class="npc-subtitle-text">{{localize "MIST_ENGINE.LABELS.Npc.limits"}}</div>
+            </div>
+            <div class="npc-limits-list flexcol">
+                {{#each system.limits as |limit|}}
+                <div class="npc-limit-item {{#if limit.reached}}limit-reached{{/if}}">
+                    <mark class="limit">{{limit.name}}</mark>
+                    <span class="limit-value">{{npcLimitValue limit.value}}</span>
+                    {{#if limit.reached}}<span class="overcome-badge" title="{{localize 'MIST_ENGINE.OVERCOME.LimitReachedHint'}}">{{localize 'MIST_ENGINE.OVERCOME.Overcome'}}</span>{{/if}}
+                </div>
+                {{#if (notEmpty limit.consequence)}}
+                        <div class="npc-limit-consequence"><i class="icon-round-arrow-up"></i>{{{limit.consequenceHTML}}}</div>
+                {{/if}}
+                {{/each}}
+            </div>
+        </div>
+        {{!-- Mighty Aspects --}}
+        {{#if system.mightyAspects.length}}
+        <div class="npc-mighty-aspects-container">
+            <div class="npc-subtitle-container-c">
+                <div class="npc-subtitle-text">{{localize "MIST_ENGINE.NPC.MightyAspects"}}</div>
+            </div>
+            <div class="npc-mighty-aspects-list flexcol">
+                {{#each system.mightyAspects as |aspect|}}
+                {{#if (notEmpty aspect.aspect)}}
+                <div class="npc-mighty-aspect-item">
+                    {{#if aspect.mightIcon}}<i class="might-icon {{aspect.mightIcon}}"></i>{{/if}}
+                    <span class="might-level {{aspect.level}}">{{mightLevelLabel aspect.level}}</span>
+                    <span class="might-aspect-name">{{aspect.aspect}}</span>
+                </div>
+                {{/if}}
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+        {{!-- Secrets --}}
+        {{#if hasSecrets}}
+        <div class="npc-secret-container">
+            <div class="npc-subtitle-container-c">
+                <div class="npc-subtitle-text">{{localize "MIST_ENGINE.NPC.Secrets"}}</div>
+            </div>
+            <div class="npc-secrets-list flexcol">
+                {{#each system.secrets as |secret|}}
+                <div class="npc-secret-item">
+                    <div class="npc-secret-name">
+                        <img src="systems/mist-engine-fvtt/assets/icons/torch.webp" class="npc-secret-icon">{{secret.name}}
+                    </div>
+                    <div class="npc-secret-description">
+                        {{{secret.descriptionHTML}}}
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+        {{!-- Special Features --}}
+        {{#if hasSpecialFeatures}}
+            <div class="npc-special-features-container">
+                <div class="npc-subtitle-container-c">
+                    <div class="npc-subtitle-text">{{localize "MIST_ENGINE.LABELS.Npc.SpecialFeatures"}}</div>
+                </div>
+                <div class="npc-special-features-list flexcol">
+                    {{#each system.specialFeatures as |feature|}}
+                    <div class="npc-special-feature-item">
+                        <div class="npc-special-feature-name">{{{feature.nameHTML}}}</div>
+                        <div class="npc-special-feature-description">{{{feature.descriptionHTML}}}</div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        {{/if}}
+    </div>
+
+    <div class="right-half">
+        {{!-- Threats & Consequences --}}
+        <div class="npc-threats-and-consequences-container">
+            <div class="npc-subtitle-container-c">
+                <div class="npc-subtitle-text">{{localize "MIST_ENGINE.LABELS.Npc.ThreatsAndConsequences"}}</div>
+            </div>
+            {{#each system.threatsAndConsequences as |threat|}}
+            <div class="entry">
+                <div class="entry-header">
+                    {{#if (notEmpty threat.name)}}
+                        <span class="entry-name">{{threat.name}}</span>
+                    {{/if}}
+                    {{#if (notEmpty threat.description)}}
+                        <strong>{{{threat.descriptionHTML}}}</strong>
+                    {{/if}}
+                </div>
+                <ul class="entry-list">
+                    {{#each threat.listHTML as |html|}}
+                    <li class="entry-item">{{{html}}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="hr-gray-line" style="margin-bottom: 10px;"></div>
+            {{/each}}
+        </div>
+
+        {{!-- Challenges / PreMade templates--}}
+        <div class="npc-challenges-container">
+            {{#each challenges}}
+                {{> systems/mist-engine-fvtt/templates/actor/parts/challenge-partial.hbs challenge=this editMode=editMode}}
+            {{/each}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+.window-app {
+  font-family: $font-primary;
+}
+
+.rollable {
+  &:hover,
+  &:focus {
+    color: #000;
+    text-shadow: 0 0 10px red;
+    cursor: pointer;
+  }
+}
+
+.clickable {
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+}

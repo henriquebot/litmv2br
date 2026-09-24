@@ -1,0 +1,35 @@
+<div class="themebook-container container-themebook-with-border" data-id="{{id}}" data-card-key="{{cardKey}}">
+    <div class="themebook-style litm-fellowship-relationship flexcol">
+        <h2 class="theme-name"><i class="card-drag-handle fa-solid fa-grip-vertical" draggable="true" data-drag-type="card" data-card-key="{{cardKey}}" title="{{localize 'MIST_ENGINE.LABELS.DragCardHint'}}"></i>{{localize 'MIST_ENGINE.THEMEBOOKS.FellowshipRelationship'}}
+
+            {{#if editMode}}
+            <a data-action="createFellowship">
+                <i class='fas fa-plus'></i>
+            </a>
+            {{else}}
+            <i class="themebook-icon litm-fellowship-relationship"></i>
+            {{/if}}
+        </h2>
+        <div class="fellowship-entries">
+            {{#each system.fellowships as |entry index|}}
+            <div class="form-group flexrow">
+                {{#if ../editMode}}
+                <input type="text" class="character-updatable-fellowship" data-index="{{index}}" data-key="companion"
+                    value="{{entry.companion}}" placeholder="{{localize 'MIST_ENGINE.PLACEHOLDERS.Companion'}}" />
+                <input type="text" class="character-updatable-fellowship" data-index="{{index}}"
+                    data-key="relationshipTag" value="{{entry.relationshipTag}}" placeholder="{{localize 'MIST_ENGINE.PLACEHOLDERS.Tag'}}" />
+                <a class="themebook-icon" data-action="deleteFellowship" data-index="{{index}}">
+                    <i class='fas fa-trash'></i>
+                </a>
+                {{else}}
+                <div class="flexrow item-powertag-line">
+                    <span class="litm-pc-fellowship-relationship-companion">{{entry.companion}}</span>
+                    <span class="litm-pc-fellowship-relationship pcfr-selectable {{#if entry.selected}}selected{{/if}} {{#if entry.scratched}}scratched{{/if}}" data-index="{{index}}">{{entry.relationshipTag}}</span>
+                </div>
+
+                {{/if}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

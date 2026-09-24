@@ -1,0 +1,613 @@
+{
+  "name": "Documentation",
+  "_id": "TrgMWh3RyxxBkZoB",
+  "pages": [
+    {
+      "sort": 100000,
+      "name": "Scene App",
+      "type": "text",
+      "_id": "9j9ESpVGQStpEOlM",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "\n<p>The Scene App is the Narrator's main tracker: shared scene tags &amp; statuses, dice-roll modifiers, the characters present with their selected tags, plus journeys and story themes. Tags you add here flow live into the players' roll dialogs. Tags are always listed before statuses.</p>\n<h2>Opening it</h2>\n<p>Use the <strong>Mist Engine</strong> toolbar group on the left (smog icon) &rarr; <em>Scene Tags</em>, or press <strong>Ctrl+J</strong>. Requires an active scene.</p>\n<p><img src=\"systems/mist-engine-fvtt/assets/docs/toolbar.png\" alt=\"Mist Engine toolbar\"/></p>\n<p><img src=\"systems/mist-engine-fvtt/assets/docs/scene-app.png\" alt=\"Scene App\"/></p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "b16EOKUCwwbnVrnm": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "mist-engine-fvtt",
+        "systemVersion": "0.3.10",
+        "createdTime": 1760166649327,
+        "modifiedTime": 1784880000000,
+        "lastModifiedBy": "wgZHyBDokH67OG0A"
+      },
+      "_key": "!journal.pages!TrgMWh3RyxxBkZoB.9j9ESpVGQStpEOlM"
+    },
+    {
+      "sort": 0,
+      "name": "Welcome",
+      "type": "text",
+      "_id": "YAJ4PJzLv83so7Zp",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "\n<p><strong>Legend in the Mist</strong> for Foundry VTT. Almost every input in this system shows a short help text when you hover it.</p>\n<h2>Guided Tours</h2>\n<p>Two guided tours ship with the system: the <strong>Narrator Tour</strong> (GM tools) and the <strong>Hero Tour</strong> (character sheet &amp; rolling). Each starts automatically on first login and can be replayed any time via <em>Settings &rarr; Tour Management</em>.</p>\n<p><img src=\"systems/mist-engine-fvtt/assets/docs/character-sheet.png\" alt=\"Hero character sheet\"/></p>\n<h2>Feedback</h2>\n<p>Found a bug? Open an issue on the GitHub page or reach us on the Sons of Oak Discord (#vtt), also via DM.</p>\n<h2>Recommended modules</h2>\n<ul><li><p>Dice So Nice!</p></li><li><p>Tokenizer: The Token Editor</p></li></ul>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "b16EOKUCwwbnVrnm": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "mist-engine-fvtt",
+        "systemVersion": "0.3.10",
+        "createdTime": 1760177917349,
+        "modifiedTime": 1784880000000,
+        "lastModifiedBy": "wgZHyBDokH67OG0A"
+      },
+      "_key": "!journal.pages!TrgMWh3RyxxBkZoB.YAJ4PJzLv83so7Zp"
+    },
+    {
+      "sort": 200000,
+      "name": "Fellowship Themebooks",
+      "type": "text",
+      "_id": "zLZwDJ0ul7XRcL0Q",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "\n<p>The fellowship shares one themecard, technically a separate actor owned by all fellowship players.</p>\n<ol>\n<li><p>Create an actor of type <strong>Fellowship Themecard</strong>.</p></li>\n<li><p>Give all fellowship players ownership of that actor.</p></li>\n<li><p>Assign each character to their player (User Configuration). Do <strong>not</strong> assign the themecard actor itself to anyone.</p></li>\n</ol>\n<p>Then create or assign the card from a hero's character sheet &mdash; every connected hero sees the same card and can use its tags in rolls. Reflecting during camping can improve it like any theme.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "b16EOKUCwwbnVrnm": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "mist-engine-fvtt",
+        "systemVersion": "0.3.10",
+        "createdTime": 1760178163217,
+        "modifiedTime": 1784880000000,
+        "lastModifiedBy": "b16EOKUCwwbnVrnm"
+      },
+      "_key": "!journal.pages!TrgMWh3RyxxBkZoB.zLZwDJ0ul7XRcL0Q"
+    },
+    {
+      "sort": 300000,
+      "name": "Roll Dialog",
+      "type": "text",
+      "_id": "8W29zhp0MktAgqbd",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "\n<p>The roll dialog is <strong>reactive</strong>: open it with Quick, Detailed or Reaction Roll (the Sacrifice button has its own small dialog), then (de)select tags &amp; statuses on the character sheet or the scene &mdash; the dialog updates and totals your Power live.</p>\n<p><img src=\"systems/mist-engine-fvtt/assets/docs/roll-dialog.png\" alt=\"Roll dialog\"/></p>\n<ul>\n<li><p><strong>Burn a tag:</strong> click the burn icon next to a power tag (+3 Power for that one roll, then scratched until recovered).</p></li>\n<li><p><strong>Weaknesses</strong> count &minus;1 Power. With the Narrator's blessing, click a selected weakness in the dialog to invert it: +1 Power for this roll only (marked in the chat card and the GM confirmation).</p></li>\n<li><p><strong>Challenge statuses</strong> can be flipped against the roll for that single roll &mdash; without editing the challenge.</p></li>\n<li><p><strong>Request Help:</strong> if another player is online, this button asks fellow heroes to contribute one tag each (+1 Power, cannot be burned).</p></li>\n<li><p><strong>Might scale</strong> (optional setting) adds &minus;6&hellip;+6.</p></li>\n</ul>\n<h2>Detailed action &mdash; spending Power</h2>\n<p>On a successful Detailed action the chat card offers an interactive <em>Spend Power</em> menu (Core Book p. 154): add/scratch a tag (2), status per tier (1), discover (1), feat (1), single-use (1) &mdash; with undo, synced to all clients. Only the roller or the GM may spend.</p>\n<h2>GM Roll Confirmation</h2>\n<p>Optional setting: player rolls are first sent to the Narrator, who sees the full selection and approves or rejects before the dice fall.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "b16EOKUCwwbnVrnm": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "mist-engine-fvtt",
+        "systemVersion": "0.3.12",
+        "createdTime": 1760356778764,
+        "modifiedTime": 1784880000000,
+        "lastModifiedBy": "b16EOKUCwwbnVrnm"
+      },
+      "_key": "!journal.pages!TrgMWh3RyxxBkZoB.8W29zhp0MktAgqbd"
+    },
+    {
+      "sort": 50000,
+      "name": "Themebooks",
+      "type": "text",
+      "_id": "TNrdkuLAGN0Bi8Or",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "\n<p>The compendium <strong>LiTM Themebooks</strong> contains every themebook from the Core Book (without the optional power-tag questions, see p. 92). Drag a themebook onto a character sheet in Edit Mode to add it. It also contains a ready-to-use <strong>Backpack</strong> &mdash; drag it onto a character.</p>\n<h2>ThemeKits</h2>\n<p>ThemeKits are prebuilt tag packages. Open the ThemeKit selection via the character sheet header button or <strong>Alt+T</strong>, pick a kit and it is imported into the character. The list is filtered to the theme book you launched it from, so you only see kits that fit. Two settings control where kits are pulled from: <em>ThemeKit source compendiums</em> and <em>include world items</em>.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "wgZHyBDokH67OG0A": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "mist-engine-fvtt",
+        "systemVersion": "13.6.2",
+        "createdTime": 1770893255261,
+        "modifiedTime": 1784880000000,
+        "lastModifiedBy": "wgZHyBDokH67OG0A"
+      },
+      "_key": "!journal.pages!TrgMWh3RyxxBkZoB.TNrdkuLAGN0Bi8Or"
+    },
+    {
+      "sort": 400000,
+      "name": "Macros",
+      "type": "text",
+      "_id": "LOMCGxOsObrJIjIF",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>If you want to create a macro for showing the scene tags dialog. Use this code</p><pre><code>MistSceneApp.getInstance().render(true, { focus: true })</code></pre><p>If you want to create a macro for showing the how to play  dialog. Use this code</p><pre><code>HowToPlayApp.getInstance().render(true, { focus: true })</code></pre>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "wgZHyBDokH67OG0A": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "mist-engine-fvtt",
+        "systemVersion": "13.7.4",
+        "createdTime": 1772987114722,
+        "modifiedTime": 1772987184058,
+        "lastModifiedBy": "wgZHyBDokH67OG0A"
+      },
+      "_key": "!journal.pages!TrgMWh3RyxxBkZoB.LOMCGxOsObrJIjIF"
+    },
+    {
+      "sort": 500000,
+      "name": "Context Menus",
+      "type": "text",
+      "_id": "rxKkomgqbydE295L",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h2>Moving themebooks in the character sheet</h2><p>You can right click on themebook's title in a character sheet to toggle the context menu for moving the themebook from the <strong>Main</strong> tab to the <strong>Other </strong>tab and reverse</p><p></p><h2>Tags &amp; Statuses</h2><p>You can right click a tag in the Tags &amp; Statuses Box of characters, challenges and the scene app to set the tag as a mighty tag.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "wgZHyBDokH67OG0A": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "mist-engine-fvtt",
+        "systemVersion": "13.7.6",
+        "createdTime": 1773387846872,
+        "modifiedTime": 1773387951291,
+        "lastModifiedBy": "wgZHyBDokH67OG0A"
+      },
+      "_key": "!journal.pages!TrgMWh3RyxxBkZoB.rxKkomgqbydE295L"
+    },
+    {
+      "sort": 600000,
+      "name": "JSON Import",
+      "type": "text",
+      "_id": "AB7WK9k5t3DDp7T7",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>You can import complete challenges, short challenges and vignettes via a custom json import. Enable via the config settings the JSON import and you will see the corresponding buttons.</p><p></p><p>The JSON format is defined here: <a href=\"https://github.com/MrTheBino/mist-engine-fvtt/wiki/Custom-JSON-Import\">https://github.com/MrTheBino/mist-engine-fvtt/wiki/Custom-JSON-Import</a></p><p></p><p></p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "wgZHyBDokH67OG0A": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "mist-engine-fvtt",
+        "systemVersion": "13.7.7",
+        "createdTime": 1773655012086,
+        "modifiedTime": 1773655148387,
+        "lastModifiedBy": "wgZHyBDokH67OG0A"
+      },
+      "_key": "!journal.pages!TrgMWh3RyxxBkZoB.AB7WK9k5t3DDp7T7"
+    },
+    {
+      "sort": 700000,
+      "name": "Tags & Statuses",
+      "type": "text",
+      "_id": "kl5naCLpcBfq9FIt",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "\n<p>Use these tokens in almost every text field (sheets, journals, chat) to render Mist-engine style marks. The marks are draggable into sheets and rolls.</p>\n<ul>\n<li><p><code>[tag]</code> &mdash; a simple tag</p></li>\n<li><p><code>[status-1]</code> &mdash; a status with tier 1&ndash;6</p></li>\n<li><p><code>[/s status]</code> / <code>[/s status-2]</code> &mdash; status without / with tier</p></li>\n<li><p><code>[/sn status]</code> / <code>[/sn status-2]</code> &mdash; a <strong>negative</strong> status (counts against the roll)</p></li><li><p><code>[/w weakness]</code> &mdash; a weakness tag</p></li>\n<li><p><code>[/l limit]</code> / <code>[/l limit-4]</code> &mdash; limit without / with value</p></li>\n<li><p><code>[/m might]</code> &mdash; a might word; <code>[/ma &hellip;]</code>, <code>[/mg &hellip;]</code>, <code>[/mo &hellip;]</code> for adventure / greatness / origin</p></li>\n<li><p><code>[/b text]</code> &mdash; bold</p></li>\n</ul>\n<p>The rich-text editor toolbar has matching buttons, and <strong>Alt+B</strong> converts the selected text in the editor. In plain input fields use the Ctrl+Shift shortcuts (see Hotkeys).</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "wgZHyBDokH67OG0A": 3
+      },
+      "flags": {},
+      "_stats": {
+        "coreVersion": "14.363",
+        "systemId": "mist-engine-fvtt",
+        "systemVersion": "14.2.2",
+        "createdTime": 1779787022474,
+        "modifiedTime": 1784880000000,
+        "lastModifiedBy": "wgZHyBDokH67OG0A",
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null
+      },
+      "_key": "!journal.pages!TrgMWh3RyxxBkZoB.kl5naCLpcBfq9FIt"
+    },
+    {
+      "sort": 800000,
+      "name": "Hotkeys",
+      "type": "text",
+      "_id": "HotkeysDocPage01",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "\n<h2>Global</h2>\n<table><tbody>\n<tr><td><strong>Ctrl+J</strong></td><td>Open Scene Tags App</td><td>Everyone</td></tr>\n<tr><td><strong>Ctrl+H</strong></td><td>Open How To Play</td><td>Everyone</td></tr>\n<tr><td><strong>Alt+T</strong></td><td>Open ThemeKit selection for your character</td><td>Players</td></tr>\n</tbody></table>\n<h2>Text fields</h2>\n<p>Select text in an input or textarea first, then press:</p>\n<table><tbody>\n<tr><td><strong>Ctrl+Shift+A</strong></td><td>Wrap as Tag <code>[&hellip;]</code></td></tr>\n<tr><td><strong>Ctrl+Shift+S</strong></td><td>Wrap as Status <code>[/s &hellip;]</code></td></tr>\n<tr><td><strong>Ctrl+Shift+X</strong></td><td>Wrap as Might <code>[/m &hellip;]</code></td></tr>\n<tr><td><strong>Ctrl+Shift+Y</strong></td><td>Wrap as Bold <code>[/b &hellip;]</code></td></tr>\n</tbody></table>\n<p>In the rich-text editor, <strong>Alt+B</strong> converts the selected text into tag markup.</p>\n<h2>Canvas</h2>\n<table><tbody>\n<tr><td><strong>Ctrl+Hover</strong></td><td>Show a token's tags &amp; statuses overlay</td><td>GM only</td></tr>\n</tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "wgZHyBDokH67OG0A": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "14.363",
+        "systemId": "mist-engine-fvtt",
+        "systemVersion": "14.3.7",
+        "createdTime": 1751068800000,
+        "modifiedTime": 1784880000000,
+        "lastModifiedBy": "wgZHyBDokH67OG0A"
+      },
+      "_key": "!journal.pages!TrgMWh3RyxxBkZoB.HotkeysDocPage01"
+    },
+    {
+      "sort": 350000,
+      "name": "Collaboration",
+      "type": "text",
+      "_id": "CollabDocPage001",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "\n<h2>Helping Each Other</h2>\n<p>While one hero rolls, they can press <em>Request Help</em>. Every other player gets a dialog to contribute one of their tags: +1 Power each, contributed tags cannot be burned. Contributions are listed in the roll and the chat card.</p>\n<h2>Acting Together</h2>\n<p>The Narrator starts a group action via the Mist Engine toolbar. Each hero contributes one tag (+1 Power); a single hero may burn a tag (+3). The Narrator can add a modifier; one roll resolves the action for the whole group.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "wgZHyBDokH67OG0A": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "mist-engine-fvtt",
+        "systemVersion": "13.7.4",
+        "createdTime": 1772987114722,
+        "modifiedTime": 1772987184058,
+        "lastModifiedBy": "wgZHyBDokH67OG0A"
+      },
+      "_key": "!journal.pages!TrgMWh3RyxxBkZoB.CollabDocPage001"
+    },
+    {
+      "sort": 360000,
+      "name": "Camping & Sojourns",
+      "type": "text",
+      "_id": "CampingDocPage01",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "\n<p>Camping mode (Core Book p. 179) runs from the Mist Engine toolbar (campground icon, Narrator only, needs an active scene). Choose <strong>Camp</strong> or <strong>Sojourn</strong> plus a duration &mdash; sojourns grant +1/+2/+3 bonus Power on camp actions (days/weeks/months).</p>\n<ul>\n<li><p>A camp has <strong>two periods</strong>; the Narrator may open a risky third.</p></li>\n<li><p>Each hero once per camp: <strong>Rest</strong> (expire one of their statuses), <strong>Reflect</strong> (improve a theme &mdash; also the fellowship themecard), and a <strong>Camp Action</strong> (a roll with the sojourn bonus, or spend half their Power without rolling).</p></li>\n<li><p><strong>Fellowship quality time:</strong> recover a scratched relationship tag or create a new one.</p></li>\n<li><p><strong>Campsite tags</strong> are floating tags/statuses on the scene, usable in camp rolls.</p></li>\n<li><p><strong>Backpack review:</strong> mark story tags as expiring, then apply the expiration; the Narrator can recreate expired items later.</p></li>\n</ul>\n<p>Every activity is posted to chat so the whole table follows along.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "wgZHyBDokH67OG0A": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "mist-engine-fvtt",
+        "systemVersion": "13.7.4",
+        "createdTime": 1772987114722,
+        "modifiedTime": 1772987184058,
+        "lastModifiedBy": "wgZHyBDokH67OG0A"
+      },
+      "_key": "!journal.pages!TrgMWh3RyxxBkZoB.CampingDocPage01"
+    },
+    {
+      "sort": 850000,
+      "name": "Settings",
+      "type": "text",
+      "_id": "SettingsDocPage1",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "\n<p>System settings (Configure Settings &rarr; Mist Engine):</p>\n<ul>\n<li><p><strong>GM Roll Confirmation</strong> &mdash; player rolls need Narrator approval first.</p></li>\n<li><p><strong>Might Usage</strong> &mdash; enables the Might scale (&minus;6&hellip;+6) in the roll dialog.</p></li>\n<li><p><strong>Disable LiTM Custom Dice</strong> &mdash; use plain d6 instead of the custom faces.</p></li>\n<li><p><strong>Disable Character Hover Tooltip</strong> &mdash; turns off the Ctrl+Hover token overlay.</p></li>\n<li><p><strong>Show Custom JSON Import</strong> &mdash; shows the JSON import buttons (see JSON Import).</p></li>\n<li><p><strong>Tidy Tags on Character Sheet</strong> &mdash; compacter tag display.</p></li>\n<li><p><strong>ThemeKit source compendiums / include world items</strong> &mdash; where the ThemeKit selection pulls its kits from.</p></li>\n</ul>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "wgZHyBDokH67OG0A": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "mist-engine-fvtt",
+        "systemVersion": "13.7.4",
+        "createdTime": 1772987114722,
+        "modifiedTime": 1772987184058,
+        "lastModifiedBy": "wgZHyBDokH67OG0A"
+      },
+      "_key": "!journal.pages!TrgMWh3RyxxBkZoB.SettingsDocPage1"
+    },
+    {
+      "sort": 40000,
+      "name": "Character Sheet",
+      "type": "text",
+      "_id": "CharSheetDocPg01",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<p>Every hero sheet has two modes, switched with the <strong>lock icon</strong> in the window header: <em>Game Mode</em> for play &mdash; click a power tag to select it, then roll from the buttons at the top &mdash; and <em>Edit Mode</em> for building the character.</p>\n<h2>Arranging the cards</h2>\n<p>Themebooks, rotes, quintessences, the fellowship, the backpack and the fellowship themecard are all <strong>cards</strong> in one grid. Drag a card by its title to reorder it, or drop it onto the <strong>Main</strong> / <strong>Other</strong> tab button to move it to the other tab; right-clicking a card title offers the same move. An insertion marker shows where the card will land. The arrangement is stored per character.</p>\n<h2>Sheet layouts</h2>\n<p>The hero sheet ships in two layouts. Switch between them at any time from the <strong>controls menu</strong> in the window header (the &hellip; button), or via <em>Configure Sheet</em>:</p>\n<ul>\n<li><p><strong>Full layout with artwork</strong> &mdash; the default. Reserves a column down the left edge for the character's artwork, with the name and short description set on top of it. See <em>Custom Background Editor</em>.</p></li>\n<li><p><strong>Compact layout</strong> &mdash; drops the artwork column and puts the character portrait next to the roll buttons instead, on a dark backdrop. The window is markedly narrower, which suits heroes without artwork and smaller screens. Everything else is identical: tags, cards, rolling, drag &amp; drop, Edit Mode. Only the custom-background buttons and the name-colour picker are gone, because that layout paints no artwork.</p></li>\n</ul>\n<p>Switching throws nothing away &mdash; a custom background stays stored on the character and reappears the moment you switch back to the full layout. The choice is per character, so artwork-heavy heroes and plain ones can sit side by side. Narrators who want one layout everywhere can set it as the default under <em>Configure Sheet</em>.</p>\n<h2>Rotes</h2>\n<p>A rote (Core Book p. 98) is the outline of one specific magic ability &mdash; a technique, spell, maneuver or recipe. Drop a rote item onto the sheet and it becomes a card of its own; click it to select its title as a positive tag for the next roll.</p>",
+        "format": 1,
+        "markdown": null
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "wgZHyBDokH67OG0A": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "14.365",
+        "systemId": "mist-engine-fvtt",
+        "systemVersion": "14.5.1",
+        "createdTime": 1784880000000,
+        "modifiedTime": 1784880000000,
+        "lastModifiedBy": "wgZHyBDokH67OG0A"
+      },
+      "_key": "!journal.pages!TrgMWh3RyxxBkZoB.CharSheetDocPg01"
+    },
+    {
+      "sort": 45000,
+      "name": "Custom Background Editor",
+      "type": "text",
+      "_id": "CustomBgEdDocP01",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "content": "<p>Heroes can carry their own artwork, drawn down the left side of the full sheet layout. Open the editor from the character sheet in <strong>Edit Mode</strong> &rarr; <em>Custom Background Editor</em>. It also works for Journey actors.</p>\n<h2>Building a composition</h2>\n<ul>\n<li><p><strong>Pick Background</strong> chooses the base plate; the thumbnail strip under the toolbar offers the backgrounds shipped with the system.</p></li>\n<li><p>Artwork is added in <strong>layers</strong>, as many as you like: <em>Upload Artwork</em>, paste with <strong>Ctrl+V</strong>, or drag &amp; drop an image file onto the canvas.</p></li>\n<li><p>Click selects a layer, dragging moves it, the <strong>mouse wheel zooms at the cursor</strong>, the arrow keys nudge it (<strong>Shift</strong> for 10&nbsp;px steps) and <strong>Del</strong> removes it. <em>Flip</em>, <em>Center</em>, <em>Scale</em> and <em>Reset</em> sit in the toolbar.</p></li>\n<li><p><strong>Guide</strong> shades the 300&nbsp;px name &amp; portrait column of the sheet and previews the character name in place, so no important part of the artwork ends up hidden behind it. The guide is a drawing aid only &mdash; it is never part of the saved image.</p></li>\n<li><p><strong>Name Color</strong> picks the colour the character name is drawn in on the sheet.</p></li>\n</ul>\n<h2>Saving</h2>\n<p><strong>Set as Custom Background</strong> writes the composition to the character, <strong>Export as PNG</strong> downloads it instead. Saving needs <em>file upload</em> permission for your user. Compositions stay <strong>re-editable</strong>: reopening the editor restores the background and every layer exactly as you left them, so you can adjust a hero's artwork later instead of rebuilding it.</p>\n<p>The compact sheet layout shows no artwork, so its header has no background buttons. The artwork is only hidden, never deleted.</p>",
+        "format": 1,
+        "markdown": null
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "ownership": {
+        "default": -1,
+        "wgZHyBDokH67OG0A": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "14.365",
+        "systemId": "mist-engine-fvtt",
+        "systemVersion": "14.5.1",
+        "createdTime": 1784880000000,
+        "modifiedTime": 1784880000000,
+        "lastModifiedBy": "wgZHyBDokH67OG0A"
+      },
+      "_key": "!journal.pages!TrgMWh3RyxxBkZoB.CustomBgEdDocP01"
+    }
+  ],
+  "folder": null,
+  "categories": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "b16EOKUCwwbnVrnm": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.348",
+    "systemId": "mist-engine-fvtt",
+    "systemVersion": "0.3.10",
+    "createdTime": 1760166629690,
+    "modifiedTime": 1760166629690,
+    "lastModifiedBy": "b16EOKUCwwbnVrnm"
+  },
+  "_key": "!journal!TrgMWh3RyxxBkZoB"
+}

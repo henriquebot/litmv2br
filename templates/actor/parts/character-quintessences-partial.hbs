@@ -1,0 +1,64 @@
+<div class="themebook-container container-themebook-with-border" data-id="{{id}}" data-card-key="{{cardKey}}">
+    <div class="themebook-style litm-quintessence flexcol">
+        <h2 class="theme-name"><i class="card-drag-handle fa-solid fa-grip-vertical" draggable="true" data-drag-type="card" data-card-key="{{cardKey}}" title="{{localize 'MIST_ENGINE.LABELS.DragCardHint'}}"></i>{{localize 'MIST_ENGINE.THEMEBOOKS.Quintessences'}}
+
+            {{#if editMode}}
+            <a data-action="createItem" data-type="quintessence" >
+                <i class='fas fa-plus'></i>
+            </a>
+            {{else}}
+            <i class="themebook-icon litm-quintessence"></i>
+            {{/if}}
+        </h2>
+        <div class="fellowship-promises">
+            <div class="fellowship-promises-container" >
+                {{#if (lt system.promises 1)}}
+                <i class="marker fa-solid fa-circle"></i>
+                {{else}}
+                <i class="marker checked fa-solid fa-circle"></i>
+                {{/if}}
+
+                {{#if (lt system.promises 2)}}
+                <i class="marker fa-solid fa-circle"></i>
+                {{else}}
+                <i class="marker checked fa-solid fa-circle"></i>
+                {{/if}}
+
+                {{#if (lt system.promises 3)}}
+                <i class="marker fa-solid fa-circle"></i>
+                {{else}}
+                <i class="marker checked fa-solid fa-circle"></i>
+                {{/if}}
+                {{#if (lt system.promises 4)}}
+                <i class="marker fa-solid fa-circle"></i>
+                {{else}}
+                <i class="marker checked fa-solid fa-circle"></i>
+                {{/if}}
+                {{#if (lt system.promises 5)}}
+                <i class="marker fa-solid fa-circle"></i>
+                {{else}}
+                <i class="marker checked fa-solid fa-circle"></i>
+                {{/if}}
+                <div class="fellowship-promises-label">Promise</div>
+            </div>
+        </div>
+        <div>
+            {{#each quintessences as |entry index|}}
+            <div class="form-group flexrow item-powertag-line" >
+                {{#if ../editMode}}
+                    <span class="litm-pc-quintessence" data-tooltip-html="{{{itemTooltipHTML entry}}}">{{entry.name}}</span>
+                    <a class="themebook-icon" data-action="editItem" data-item-id="{{entry.id}}">
+                        <i class='fas fa-pencil'></i>
+                    </a>
+                    <a class="themebook-icon" data-action="deleteItem" data-item-id="{{entry.id}}">
+                        <i class='fas fa-trash'></i>
+                    </a>
+                {{else}}
+                    <span class="litm-pc-quintessence" data-tooltip-html="{{{itemTooltipHTML entry}}}">{{entry.name}}</span>
+                {{/if}}
+            </div>
+            {{/each}}
+        </div>
+        
+    </div>
+</div>

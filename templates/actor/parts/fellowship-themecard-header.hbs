@@ -1,0 +1,19 @@
+<div>
+    <header class="sheet-header {{#if system.editMode}}edit-mode{{else}}stylized-background{{/if}}">
+        <div class="flexrow">
+            <div class="image-container">
+                <img class="portrait-img" data-action="editImage" src="{{actor.img}}" data-edit="img"
+                    title="{{actor.name}}" height="120" />
+            </div>
+        </div>
+        <div class="flexcol header-right-side">
+            <div class="flexcol">
+                <h1 class="charname"><input name="name" type="text" class="custom-font-color" value="{{actor.name}}" placeholder="{{localize 'MIST_ENGINE.PLACEHOLDERS.Name'}}" /></h1>
+                <div class="short-description"><input name="system.shortDescription" type="text"
+                        class="custom-font-color"
+                        value="{{system.shortDescription}}" placeholder="{{localize 'MIST_ENGINE.PLACEHOLDERS.ShortDescription'}}" /></div>
+            </div>
+        </div>
+    </header>
+
+</div>
