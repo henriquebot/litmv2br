@@ -89,7 +89,7 @@ export class MistEngineActorSheet extends HandlebarsApplicationMixin(ActorSheetV
         sheet: { // this is the group name
             tabs:
                 [
-                    { id: 'character', group: 'sheet', label: 'DCC.Character' },
+                    { id: 'character', group: 'sheet', label: 'MIST_ENGINE.SheetLabels.Character' },
                 ],
             initial: 'character'
         }
@@ -351,14 +351,14 @@ export class MistEngineActorSheet extends HandlebarsApplicationMixin(ActorSheetV
         let confirmed = true;
         if (target.dataset.confirm && target.dataset.confirm == "1") {
             confirmed = await foundry.applications.api.DialogV2.confirm({
-                title: "Confirm Deletion",
-                content: "Are you sure you want to delete this tag/status?",
+                title: game.i18n.localize("MIST_ENGINE.QUESTIONS.ConfirmDeletionTitle"),
+                content: game.i18n.localize("MIST_ENGINE.QUESTIONS.ConfirmDeletion"),
                 yes: {
-                    label: "Yes",
+                    label: game.i18n.localize("MIST_ENGINE.LABELS.Yes"),
                     callback: () => true
                 },
                 no: {
-                    label: "No",
+                    label: game.i18n.localize("MIST_ENGINE.LABELS.No"),
                     callback: () => false
                 }
             });
@@ -520,7 +520,7 @@ export class MistEngineActorSheet extends HandlebarsApplicationMixin(ActorSheetV
                 content: `<input name="srcStatusTagStr" type="text" autofocus placeholder="${game.i18n.localize('MIST_ENGINE.PLACEHOLDERS.StatusTagExample')}">
                 <div class="form-group"><label><input name="negative" type="checkbox"> ${game.i18n.localize("MIST_ENGINE.LABELS.CreateAsNegative")}</label></div>`,
                 ok: {
-                    label: "Submit",
+                    label: game.i18n.localize("MIST_ENGINE.LABELS.Submit"),
                     callback: (event, button, dialog) => ({
                         srcStatusTagStr: button.form.elements.srcStatusTagStr.value,
                         negative: button.form.elements.negative.checked
