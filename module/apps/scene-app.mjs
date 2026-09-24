@@ -186,7 +186,7 @@ export class MistSceneApp extends HandlebarsApplicationMixin(ApplicationV2) {
         // setr the title of the dialog
         let titleElement = this.element.querySelector(".window-title");
         if (titleElement) {
-            titleElement.textContent = `Scene: ${this.currentSceneName}`;
+            titleElement.textContent = game.i18n.format("MIST_ENGINE.SCENE_APP.SceneTitle", { scene: this.currentSceneName });
         }
     }
 
@@ -838,8 +838,8 @@ export class MistSceneApp extends HandlebarsApplicationMixin(ApplicationV2) {
         let promptResult;
         try {
             promptResult = await foundry.applications.api.DialogV2.prompt({
-                window: { title: "Enter the status or tag" },
-                content: `<input name="srcStatusTagStr" type="text" autofocus placeholder="tag or status-2 (or /sn status-2 for negative)">
+                window: { title: game.i18n.localize("MIST_ENGINE.SCENE_APP.EnterTagStatusTitle") },
+                content: `<input name="srcStatusTagStr" type="text" autofocus placeholder="${game.i18n.localize('MIST_ENGINE.PLACEHOLDERS.StatusTagExample')}">
                 <div class="form-group"><label><input name="negative" type="checkbox"> ${game.i18n.localize("MIST_ENGINE.LABELS.CreateAsNegative")}</label></div>`,
                 ok: {
                     label: "Submit",
