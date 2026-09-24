@@ -245,13 +245,13 @@
       if(index===0){
         if(customSource.concept){
           var cc=Object.assign({},customSource.concept);
-          cc.theme=safe(el("conceptCustom") && el("conceptCustom").value,cc.theme);
+          cc.theme=safe($("conceptCustom") && $("conceptCustom").value,cc.theme);
           return cc;
         }
         var ct=activeTitle("conceptChoices");
         var cp=profile("concepts",ct,reviewed.concept[ct]);
         if(!cp) return null;
-        cp.theme=safe(el("conceptCustom") && el("conceptCustom").value,cp.theme);
+        cp.theme=safe($("conceptCustom") && $("conceptCustom").value,cp.theme);
         return cp;
       }
 
@@ -259,7 +259,7 @@
         var rt=activeTitle("reasonChoices");
         var rp=profile("reasons",rt,reviewed.reason[rt]);
         if(!rp) return null;
-        var rd=safe(el("reasonCustom") && el("reasonCustom").value);
+        var rd=safe($("reasonCustom") && $("reasonCustom").value);
         if(rd) rp.quest="Levar esta decisão até o fim: "+rd;
         return rp;
       }
@@ -272,15 +272,15 @@
         var lt=activeTitle("relationChoices");
         var lp=profile("relations",lt,reviewed.relation[lt]);
         if(!lp) return null;
-        var rn=safe(el("relationName") && el("relationName").value);
+        var rn=safe($("relationName") && $("relationName").value);
         lp.theme=rn ? lt+": "+rn : lt;
-        var ro=safe(el("relationOpen") && el("relationOpen").value);
+        var ro=safe($("relationOpen") && $("relationOpen").value);
         if(ro) lp.quest="Descobrir o que fazer com este vínculo: "+ro;
         return lp;
       }
 
       if(index===3){
-        var central=el("natureTheme") && el("natureTheme").checked;
+        var central=$("natureTheme") && $("natureTheme").checked;
         if(central){
           if(remoteNature) return Object.assign({},remoteNature);
           var nt=activeTitle("natureChoices");
