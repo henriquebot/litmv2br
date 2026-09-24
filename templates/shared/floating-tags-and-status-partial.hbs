@@ -43,7 +43,7 @@
             {{else}}
             <div class="fts-input-name  {{#if this.isStatus}}status{{else}}tag{{/if}} {{#if this.positive}}positive{{else}}negative{{/if}}">
                 {{#if (isRenderBlockAllowed ../gmCheck)}}
-                    <i class="fa-solid {{#if this.positive}}fa-thumbs-up{{else}}fa-thumbs-down{{/if}} fts-tag-modifier-toggle" data-action="toggleFloatingTagOrStatusModifier" data-index="{{this.originalIndex}}" title="toggle between positive and negative"></i>
+                    <i class="fa-solid {{#if this.positive}}fa-thumbs-up{{else}}fa-thumbs-down{{/if}} fts-tag-modifier-toggle" data-action="toggleFloatingTagOrStatusModifier" data-index="{{this.originalIndex}}" title="{{localize 'MIST_ENGINE.ROLL.TogglePositiveNegative'}}"></i>
                 {{/if}}
                 <span class="fts-selectable {{#if this.selected}}selected{{/if}}" data-action="toggleFloatingTagOrStatusSelected" data-index="{{this.originalIndex}}" title="{{floatingTagStatusTitleHelper this}}">
                     {{#if this.might}}<i class="might-icon {{this.mightIcon}}"></i>{{/if}}
