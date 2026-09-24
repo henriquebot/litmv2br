@@ -1,6 +1,6 @@
 {
   "id": "mist-engine-fvtt",
-  "title": "Legend In The Mist",
+  "title": "Legend In The Mist — PT-BR",
   "description": "Legend In The Mist para FoundryVTT — base oficial com interface em Português (Brasil) e tema Sci-Fi opcional. Os compêndios oficiais são preservados sem tradução.",
   "authors": [
     {
@@ -38,7 +38,7 @@
       "flags": {}
     }
   ],
-  "version": "14.5.401",
+  "version": "14.5.402",
   "compatibility": {
     "minimum": "13",
     "verified": "14"
