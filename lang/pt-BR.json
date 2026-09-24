@@ -188,7 +188,7 @@
       "Actor": {
         "FloatingTagOrStatus": "Tags e Status"
       },
-      "AddPowertag": "Tags de Poder",
+      "AddPowertag": "Adicionar Tag de Poder",
       "AddWeaknesstag": "Tags de Fraqueza",
       "AssignExisting": "Atribuir Existente",
       "Biography": "Biografia",
@@ -282,7 +282,27 @@
       "ToggleTagStatus": "Alternar entre tag e status",
       "Type": "Tipo",
       "Compendium": "Compêndio",
-      "World": "Mundo"
+      "World": "Mundo",
+      "Yes": "Sim",
+      "No": "Não",
+      "Submit": "Confirmar",
+      "Promise": "Promessa",
+      "Weight": "Peso",
+      "Attributes": "Atributos",
+      "RollFormula": "Fórmula de Rolagem",
+      "NumberOfDice": "Número de Dados",
+      "DieSize": "Tamanho do Dado",
+      "RollModifier": "Modificador da Rolagem",
+      "Color": "Cor",
+      "Green": "Verde",
+      "Brown": "Marrom",
+      "Black": "Preto",
+      "Purple": "Roxo",
+      "Questions": "Perguntas",
+      "ChallengeTemplates": "Modelos de Desafio",
+      "NpcLimits": "Limites do Desafio",
+      "AddSpecialImprovement": "Adicionar Aprimoramento Especial",
+      "AddWeaknessTag": "Adicionar Tag de Fraqueza"
     },
     "MIGHT": {
       "Adventure": "Aventura",
@@ -380,7 +400,8 @@
       "AnswerTag": "Resposta / A Tag",
       "ThemekitType": "Tipo, ex.: Habilidade ou Ofício",
       "StatusTagExample": "tag ou status-2 (ou /sn status-2 para negativo)",
-      "CampsiteTagExample": "bela paisagem ou chuvoso-2"
+      "CampsiteTagExample": "bela paisagem ou chuvoso-2",
+      "BackpackItemName": "Nome do item da Mochila"
     },
     "PLAYER_TUTORIAL": {
       "BackpackContent": "Sua mochila guarda tags de história de equipamentos e itens úteis. Adicione um item e selecione-o em uma rolagem para colocá-lo em ação. Alguns itens expiram durante o Acampamento — o Narrador avisará.",
@@ -420,7 +441,24 @@
     },
     "PROSEMIRROR": {
       "MarkAsStatus": "Marcar como Status",
-      "MarkAsTag": "Marcar como Tag"
+      "MarkAsTag": "Marcar como Tag",
+      "MarkAsLimit": "Marcar como Limite",
+      "MarkAsWeakness": "Marcar como Fraqueza",
+      "Icons": "Ícones",
+      "OriginIcon": "Ícone de Origem",
+      "AdventureIcon": "Ícone de Aventura",
+      "GreatnessIcon": "Ícone de Grandeza",
+      "HintIcon": "Ícone de Dica",
+      "FakeHeadings": "Títulos Estilizados",
+      "FakeHeading1": "Título Estilizado 1",
+      "FakeHeading2": "Título Estilizado 2",
+      "FakeHeading3": "Título Estilizado 3",
+      "Textframes": "Molduras de Texto",
+      "ContentWithSidebar": "Conteúdo com Barra Lateral",
+      "WrittenBlock": "Bloco de Texto",
+      "LongPaperBackground": "Fundo Longo",
+      "Container300": "Contêiner 300",
+      "Container500": "Contêiner 500"
     },
     "QUESTIONS": {
       "ConfirmDeletion": "Tem certeza de que deseja excluir isto?",
@@ -437,7 +475,19 @@
       "InvertedTagHint": "Invertida nesta rolagem (decisão do Narrador)",
       "ToggleChallengeInversion": "Inverter apenas nesta rolagem (decisão do Narrador)",
       "TogglePowerAsWeakness": "Contar como Fraqueza nesta rolagem (decisão do Narrador)",
-      "ToggleWeaknessAsPower": "Contar como Poder nesta rolagem (decisão do Narrador)"
+      "ToggleWeaknessAsPower": "Contar como Poder nesta rolagem (decisão do Narrador)",
+      "YouSelected": "Você selecionou:",
+      "StorySelected": "Tags / Status de História selecionados:",
+      "ChallengeSelected": "Tags / Status do Desafio selecionados:",
+      "MightIconAlt": "Ícone de Potência",
+      "PositiveMods": "Modificadores Positivos:",
+      "NegativeMods": "Modificadores Negativos:",
+      "Roll": "Rolar",
+      "CriticalDoubleSixes": "Rolagem Crítica — Dois Seis",
+      "FumbleDoubleOnes": "Falha Crítica — Dois Uns",
+      "RightClickToggleTagState": "Clique com o botão direito para alternar entre tag e status",
+      "TogglePositiveNegative": "Alternar entre positivo e negativo",
+      "RightClickToggleModifier": "Clique com o botão direito para alternar o modificador entre positivo e negativo"
     },
     "ROLL_TYPES": {
       "detailed": "Rolagem Detalhada",
@@ -572,7 +622,8 @@
       },
       "Quintessences": "Quintessências",
       "Rotes": "Ritos",
-      "SpecialImprovements": "Aprimoramentos Especiais"
+      "SpecialImprovements": "Aprimoramentos Especiais",
+      "Themebook": "Livro de Tema"
     },
     "THEMEKITS": {
       "AddThemekit": "Adicionar Kit de Tema",
@@ -595,7 +646,8 @@
       "SearchPlaceholder": "Pesquisar kits de tema…",
       "NoSelection": "Nenhum kit de tema selecionado!",
       "NoActor": "Nenhum personagem definido para a seleção de kit de tema!",
-      "Story": "História"
+      "Story": "História",
+      "Themekits": "Kits de Tema"
     },
     "TUTORIAL": {
       "CampingContent": "Conduz uma cena de Acampamento ou Estadia (Livro Básico p. 179): tags do acampamento, Descansar / Refletir / Ação de Acampamento para cada herói e revisão da expiração das tags de história da mochila. Também requer uma cena ativa.",
