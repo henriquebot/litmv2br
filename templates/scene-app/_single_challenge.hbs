@@ -21,8 +21,8 @@
                         {{#if this.might}}<i class="might-icon {{this.mightIcon}}"></i>{{/if}}
                         {{this.name}}{{#if this.isStatus}}-{{this.value}}{{/if}}
                     </span>
-                    <i class="fa-solid fa-trash fts-tag-status-toggle" data-action="deleteFloatingTagOrStatus" data-index="{{fts.originalIndex}}" data-confirm="1" title="delete this tag/status" data-source="litm-npc" data-actor-id="{{../challenge.id}}" data-token-id="{{../challenge.tokenId}}"></i>
-                    <i class="fa-solid fa-arrows-to-dot fts-tag-status-toggle" data-action="toggleFloatingTagOrStatus" data-index="{{fts.originalIndex}}" title="toggle between tag and status" data-source="litm-npc" data-actor-id="{{../challenge.id}}" data-token-id="{{../challenge.tokenId}}"></i>
+                    <i class="fa-solid fa-trash fts-tag-status-toggle" data-action="deleteFloatingTagOrStatus" data-index="{{fts.originalIndex}}" data-confirm="1" title="{{localize 'MIST_ENGINE.LABELS.DeleteTagStatus'}}" data-source="litm-npc" data-actor-id="{{../challenge.id}}" data-token-id="{{../challenge.tokenId}}"></i>
+                    <i class="fa-solid fa-arrows-to-dot fts-tag-status-toggle" data-action="toggleFloatingTagOrStatus" data-index="{{fts.originalIndex}}" title="{{localize 'MIST_ENGINE.LABELS.ToggleTagStatus'}}" data-source="litm-npc" data-actor-id="{{../challenge.id}}" data-token-id="{{../challenge.tokenId}}"></i>
                 </div>
 
             </div>
