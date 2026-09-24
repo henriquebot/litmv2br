@@ -85,6 +85,8 @@
       }
     };
 
+    const baseSuggestionProfiles={"concepts":{"Caçador ou mateiro":["Skill or Trade","Conhecedor das trilhas","confio mais na mata do que nas pessoas","Descobrir o que existe além das trilhas que conheço."],"Artesão ou ferreiro":["Skill or Trade","Mãos de ofício","não sei deixar um trabalho pela metade","Criar algo que sobreviva à minha antiga vida."],"Curandeiro ou herbalista":["Skill or Trade","Remédios dos Vales","assumo a dor dos outros como minha","Aprender uma cura que minha comunidade não conhece."],"Guarda ou vigia":["Skill or Trade","Olhos de vigia","vejo suspeitos antes de ver estranhos","Descobrir que tipo de pessoa sou quando ninguém me dá ordens."],"Lavrador ou criador":["Skill or Trade","Filho da terra","penso pequeno quando o mundo fica grande demais","Ver com meus próprios olhos o que existe além dos campos."],"Mascate ou comerciante":["Skill or Trade","Tudo tem seu preço","sempre calculo o que posso ganhar","Encontrar a oportunidade que nunca apareceria ficando em casa."],"Músico ou contador de histórias":["Skill or Trade","Histórias ao redor da fogueira","às vezes prefiro uma boa história à verdade","Voltar um dia com uma história que ninguém nos Vales conhece."],"Escriba ou estudioso":["Skill or Trade","Leitor do que foi escrito","preciso entender antes de deixar para lá","Encontrar uma resposta que meus livros não possuem."],"Peregrino ou devoto":["Devotion","Caminho de devoção","interpreto sinais onde talvez não existam","Descobrir o que minha fé exige de mim longe de casa."],"Andarilho ou fora-da-lei":["Circumstance","Sempre de passagem","demoro a confiar em qualquer autoridade","Encontrar um lugar onde eu não precise continuar fugindo."],"Servo ou criado de casa importante":["Skill or Trade","Conheço os bastidores","aprendi a engolir minha opinião","Viver uma história que finalmente seja minha."]},"reasons":{"Procurar alguém":["Devotion","Não vou parar de procurar","qualquer pista pode me fazer perder o rumo","Encontrar quem estou procurando — ou descobrir por que desapareceu."],"Fugir de alguma coisa":["Circumstance","Preciso pôr distância nisso","olho para trás mesmo quando não devo","Chegar longe o bastante para finalmente escolher meu próprio caminho."],"Conhecer o mundo":["Devotion","O mundo é maior que os Vales","subestimo perigos que nunca vi","Conhecer um lugar que antes existia apenas nas histórias."],"Cumprir uma missão":["Devotion","Eu dei minha palavra","minha promessa vem antes do meu conforto","Cumprir a missão que me colocou nesta estrada."],"Buscar conhecimento":["Devotion","Há algo que preciso entender","curiosidade antes da cautela","Descobrir a verdade por trás do mistério que me tirou de casa."],"Encontrar uma nova vida":["Devotion","Desta vez vai ser diferente","quero deixar problemas para trás sem resolvê-los","Construir uma vida que não pareça uma continuação da antiga."],"Investigar um mistério":["Devotion","Alguma coisa não fecha","não consigo ignorar uma pergunta aberta","Descobrir o que realmente está acontecendo nos Vales."],"Acompanhar ou proteger alguém":["Devotion","Não vai viajar sozinho","assumo riscos pelos outros","Garantir que a pessoa que acompanho chegue onde precisa chegar."],"Buscar uma cura":["Devotion","Existe uma cura em algum lugar","agarro-me a qualquer possibilidade de cura","Encontrar uma cura antes que seja tarde."],"Escapar de mim mesmo":["Past","Não quero ser quem eu era","meu passado sabe onde me ferir","Provar, principalmente para mim, que posso escolher diferente."]},"relations":{"Família":["People","Meu sangue, minha história","família sabe exatamente como me atingir","Descobrir o que minha família precisa de mim agora."],"Amor ou antiga paixão":["People","Uma pessoa que ainda importa","meu coração complica decisões simples","Descobrir o que ainda existe entre nós."],"Mentor ou mestre":["People","A voz do meu mestre","ainda busco aprovação que talvez nunca venha","Descobrir se devo seguir ou superar o caminho que me ensinaram."],"Amigo de infância":["People","Nós nos conhecemos desde antes","velhos hábitos voltam quando estamos juntos","Descobrir se nossa amizade sobrevive à estrada."],"Rival":["People","Sempre um passo à minha frente","não suporto parecer inferior","Descobrir se preciso vencer essa pessoa ou entendê-la."],"Minha comunidade":["People","Gente que me viu crescer","carrego a opinião da minha vila comigo","Voltar digno das histórias que contarão sobre mim."],"Alguém a quem devo":["People","Ainda estou em dívida","minha dívida pode falar mais alto que meu bom senso","Quitar a dívida sem criar outra pior."],"Alguém que me deve":["People","Ainda não terminamos","não sei deixar uma cobrança morrer","Conseguir o que me foi prometido — ou entender por que nunca veio."]},"pasts":{"Uma dívida antiga":["Past","Uma conta ainda aberta","a dívida sempre encontra um jeito de voltar","Encerrar essa dívida sem perder mais do que devo."],"Um erro que feriu alguém":["Past","Eu estava lá quando aconteceu","congelo quando algo lembra aquele dia","Encontrar uma forma de reparar o que ainda puder ser reparado."],"Uma acusação nunca esclarecida":["Past","Meu nome ficou manchado","fico defensivo quando duvidam de mim","Descobrir a verdade antes que o boato vire minha única história."],"Alguém desapareceu":["Past","O lugar vazio à mesa","qualquer semelhança reacende minha esperança","Descobrir o que realmente aconteceu."],"Uma promessa quebrada":["Past","Eu não cumpri minha palavra","promessas me atingem mais do que deveriam","Ter uma chance de fazer diferente quando outra promessa importar."],"Um lugar ao qual não posso voltar":["Past","A porta fechou atrás de mim","evito falar sobre de onde vim","Descobrir se quero voltar — e se ainda existe algo para voltar."],"Uma herança estranha":["Past","Algo foi deixado para mim","não sei por que fui escolhido","Descobrir o verdadeiro significado do que herdei."],"Um segredo de família":["Past","Na minha casa não se falava disso","tenho medo do que a verdade pode mudar","Descobrir o que minha família tentou esconder."],"Um antigo cativeiro ou controle":["Past","Ninguém volta a me prender","reajo mal quando tentam decidir por mim","Construir uma vida em que minhas escolhas sejam realmente minhas."],"Um encontro com o impossível":["Past","Eu vi algo que não devia existir","às vezes não confio nos meus próprios sentidos","Descobrir se aquilo foi real — e por que aconteceu comigo."]},"natures":{"Sou não-humano e isso é visível":["People","Estranho entre humanos","chamo atenção onde preferia passar despercebido"],"Sou não-humano, mas escondo isso":["People","Por trás do disfarce","meu disfarce falha sob pressão"],"Tenho sangue ou marca feérica":["Trait","Tocado pelo Feérico","o mundo feérico também me percebe"],"Fui criado longe da sociedade":["People","Criado fora das vilas","costumes comuns me confundem"],"Fui tratado como curiosidade ou propriedade":["Past","Nunca mais uma atração","reajo mal quando me tratam como coisa"]}};
+
     const subtleNatures = [
       {
         title:'Aprendi os Velhos Caminhos',
@@ -232,6 +234,98 @@
         detail:'Parte da minha família veio do povo que viaja com a caravana — mas quase ninguém em Lar dos Corvos sabe disso.'
       }
     ];
+
+    function suggestedThemeFor(index){
+      function profile(group,title,tags){
+        var m=baseSuggestionProfiles[group] && baseSuggestionProfiles[group][title];
+        if(!m) return null;
+        return {type:m[0],theme:m[1],tags:tags||[],weak:m[2],quest:m[3]||''};
+      }
+
+      if(index===0){
+        if(customSource.concept){
+          var cc=Object.assign({},customSource.concept);
+          cc.theme=safe(el("conceptCustom") && el("conceptCustom").value,cc.theme);
+          return cc;
+        }
+        var ct=activeTitle("conceptChoices");
+        var cp=profile("concepts",ct,reviewed.concept[ct]);
+        if(!cp) return null;
+        cp.theme=safe(el("conceptCustom") && el("conceptCustom").value,cp.theme);
+        return cp;
+      }
+
+      if(index===1){
+        var rt=activeTitle("reasonChoices");
+        var rp=profile("reasons",rt,reviewed.reason[rt]);
+        if(!rp) return null;
+        var rd=safe(el("reasonCustom") && el("reasonCustom").value);
+        if(rd) rp.quest="Levar esta decisão até o fim: "+rd;
+        return rp;
+      }
+
+      if(index===2){
+        if(customSource.relation){
+          var cr=Object.assign({},customSource.relation);
+          return cr;
+        }
+        var lt=activeTitle("relationChoices");
+        var lp=profile("relations",lt,reviewed.relation[lt]);
+        if(!lp) return null;
+        var rn=safe(el("relationName") && el("relationName").value);
+        lp.theme=rn ? lt+": "+rn : lt;
+        var ro=safe(el("relationOpen") && el("relationOpen").value);
+        if(ro) lp.quest="Descobrir o que fazer com este vínculo: "+ro;
+        return lp;
+      }
+
+      if(index===3){
+        var central=el("natureTheme") && el("natureTheme").checked;
+        if(central){
+          if(remoteNature) return Object.assign({},remoteNature);
+          var nt=activeTitle("natureChoices");
+          var nm=baseSuggestionProfiles.natures[nt];
+          if(nm){
+            return {
+              type:nm[0],
+              theme:nm[1],
+              tags:reviewed.nature[nt]||[],
+              weak:nm[2],
+              quest:"Descobrir o que minha natureza significa quando eu finalmente estiver longe de onde cresci."
+            };
+          }
+        }
+
+        var pp=null;
+        if(customSource.past){
+          pp=Object.assign({},customSource.past);
+        }else{
+          var pt=activeTitle("pastChoices");
+          pp=profile("pasts",pt,reviewed.past[pt]);
+        }
+        if(!pp) return null;
+
+        var vt=activeTitle("viktorChoices");
+        if(vt && vt!=="Não tenho vínculo com Viktor" && reviewed.viktor[vt]){
+          pp.tags=(pp.tags||[]).slice();
+          pp.tags[1]=reviewed.viktor[vt];
+          pp.weak="meu vínculo com Viktor pode me alcançar";
+        }
+        return pp;
+      }
+      return null;
+    }
+
+    function refreshThemeFromSource(index){
+      var t=suggestedThemeFor(index);
+      if(!t) return;
+      userEdited[index]=false;
+      setFullTheme(index,t,true);
+    }
+
+    function refreshAllThemesFromSources(){
+      [0,1,2,3].forEach(refreshThemeFromSource);
+    }
 
     function setTags(i,tags,force){
       if(!force && userEdited[i]) return;
@@ -572,8 +666,14 @@
 
       grid.querySelectorAll('.theme-reset').forEach(btn=>{
         btn.textContent='Voltar à sugestão';
-        btn.title='Desfaz suas edições manuais neste Theme e reaplica a sugestão criada pelo gerador a partir das suas escolhas.';
+        btn.title='Desfaz suas edições manuais neste Theme e reaplica a sugestão criada pelo gerador a partir das escolhas atuais acima.';
         btn.setAttribute('aria-label','Voltar este Theme à sugestão do gerador');
+        var cards=[...grid.querySelectorAll('.theme-card')];
+        var idx=cards.indexOf(btn.closest('.theme-card'));
+        btn.onclick=function(ev){
+          if(ev) ev.preventDefault();
+          if(idx>=0) refreshThemeFromSource(idx);
+        };
       });
 
       const section=$('themeSection');
@@ -602,7 +702,7 @@
         if(!card || !e.target.closest('.theme-reset')) return;
         const cards=[...themeGrid.querySelectorAll('.theme-card')];
         const i=cards.indexOf(card);
-        if(i>=0){userEdited[i]=false;setTimeout(()=>{applyReviewed(false);applyRemoteNatureUI();},0)}
+        if(i>=0){userEdited[i]=false;setTimeout(()=>{refreshThemeFromSource(i);applyRemoteNatureUI();},0)}
       });
     }
 
@@ -615,17 +715,36 @@
     ];
     sourceMap.forEach(([id,i])=>{
       const n=$(id);
-      if(n)n.addEventListener('click',()=>{userEdited[i]=false;setTimeout(()=>applyReviewed(false),0)});
+      if(n)n.addEventListener('click',()=>{
+        userEdited[i]=false;
+        setTimeout(()=>{
+          refreshThemeFromSource(i);
+          applyRemoteNatureUI();
+        },0);
+      });
     });
 
+    const themeSourceInputs={
+      conceptCustom:0,
+      reasonCustom:1,
+      relationName:2,
+      relationOpen:2
+    };
     ['conceptCustom','reasonCustom','relationName','relationOpen','pastDetail','secretDetail','natureDetail','viktorDetail'].forEach(id=>{
       const n=$(id);
-      if(n)n.addEventListener('input',()=>setTimeout(()=>{applyReviewed(false);applyRemoteNatureUI();syncCaravanCustom(false);},0));
+      if(n)n.addEventListener('input',()=>setTimeout(()=>{
+        if(Object.prototype.hasOwnProperty.call(themeSourceInputs,id)) refreshThemeFromSource(themeSourceInputs[id]);
+        applyRemoteNatureUI();
+        syncCaravanCustom(false);
+      },0));
     });
 
     if($('natureTheme')) $('natureTheme').addEventListener('change',()=>{
       userEdited[3]=false;
-      setTimeout(()=>{applyReviewed(false);applyRemoteNatureUI();},0);
+      setTimeout(()=>{
+        refreshThemeFromSource(3);
+        applyRemoteNatureUI();
+      },0);
     });
 
     if($('randomAll')) $('randomAll').addEventListener('click',()=>{
@@ -639,8 +758,8 @@
           if(b) b.click();
         }else{
           remoteNature=null;
-          applyReviewed(true);
         }
+        setTimeout(()=>refreshAllThemesFromSources(),20);
       },0);
     });
 
@@ -650,6 +769,7 @@
 
     applyReviewed(true);
     syncCaravanCustom(true);
+    refreshAllThemesFromSources();
     improveThemeResetUX();
 
     const themeUxObserver=new MutationObserver(()=>improveThemeResetUX());
