@@ -4,30 +4,27 @@
             height="60" style="flex-grow: 0.25;" />
         <div class="flexcol">
             <h2 class="item-name" style="flex-grow: 4;"><input name="name" type="text" value="{{item.name}}"
-                    placeholder="Name" /></h2>
+                    placeholder="{{localize 'MIST_ENGINE.PLACEHOLDERS.Name'}}" /></h2>
             <div class="flexrow">
                 <input type="text" name="system.themekit_type" value="{{item.system.themekit_type}}"
-                    placeholder="Type, e.g. Skill Or Trade" />
+                    placeholder="{{localize 'MIST_ENGINE.PLACEHOLDERS.ThemekitType'}}" />
                 <div class="flexrow">
-                    <label style="flex-grow: 0.2;"><strong>Type</strong></label>
+                    <label style="flex-grow: 0.2;"><strong>{{localize "MIST_ENGINE.LABELS.Type"}}</strong></label>
                     <select name="system.themebook_type" style="flex-grow: 1;">
                         <option value="">-</option>
                         <option value="litm-origin" {{#if (eq system.themebook_type "litm-origin" )}}selected{{/if}}>
-                            LitM -
-                            Origin
+                            LitM - {{localize "MIST_ENGINE.MIGHT.Origin"}}
                         </option>
                         <option value="litm-adventure" {{#if (eq system.themebook_type "litm-adventure"
                             )}}selected{{/if}}>
-                            LitM -
-                            Adventure</option>
+                            LitM - {{localize "MIST_ENGINE.MIGHT.Adventure"}}</option>
                         <option value="litm-variable" {{#if (eq system.themebook_type "litm-variable"
                             )}}selected{{/if}}>
-                            LitM - Variable
+                            LitM - {{localize "MIST_ENGINE.MIGHT.Variable"}}
                         </option>
                         <option value="litm-greatness" {{#if (eq system.themebook_type "litm-greatness"
                             )}}selected{{/if}}>
-                            LitM -
-                            Greatness</option>
+                            LitM - {{localize "MIST_ENGINE.MIGHT.Greatness"}}</option>
                     </select>
                 </div>
             </div>
