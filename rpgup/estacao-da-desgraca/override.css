@@ -408,3 +408,59 @@ textarea.theme-editor{
 @media print{
   .theme-source-selectors{display:none!important}
 }
+
+
+/* Finalização, envio ao mestre e compartilhamento */
+.dossier-final-actions{
+  margin:18px 0 0;
+  border:1px solid #6f5b31;
+  border-left:4px solid var(--amber);
+  background:
+    linear-gradient(135deg,rgba(54,42,18,.90),rgba(10,22,25,.96) 55%);
+  padding:18px;
+  box-shadow:0 16px 38px rgba(0,0,0,.22);
+}
+.final-actions-kicker{
+  color:var(--amber);
+  font:900 9px/1 ui-monospace,SFMono-Regular,Consolas,monospace;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.dossier-final-actions h2{
+  margin:5px 0 7px;
+  color:#edf2ee;
+  font-size:22px;
+  text-transform:uppercase;
+}
+.dossier-final-actions p{
+  margin:0;
+  max-width:800px;
+  color:#9aabaa;
+  font-size:13px;
+  line-height:1.55;
+}
+.final-actions-buttons{
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+#submitDossier.sent{
+  border-color:#4f8a6c;
+  background:#173126;
+  color:#b9e4ca;
+}
+#submitDossier:disabled{
+  cursor:wait;
+  opacity:.72;
+}
+.final-actions-status{
+  margin-top:10px;
+  color:#6f8789;
+  font:650 9px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace;
+  text-transform:uppercase;
+  letter-spacing:.035em;
+}
+@media print{
+  .dossier-final-actions{display:none!important}
+}
