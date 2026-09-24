@@ -113,8 +113,8 @@ function setupKBThemekitSelectionApp(){
 
 function setupKBTaggingBindings(){
     game.keybindings.register("mist-engine-fvtt", "enrichTextWithTags", {
-    name: "Make Tags",
-    hint: "Surround selected text with [] to make it a tag",
+    name: "MIST_ENGINE.SETTINGS.KeybindingsMakeTagsName",
+    hint: "MIST_ENGINE.SETTINGS.KeybindingsMakeTagsHint",
     editable: [{ key: "KeyB", modifiers: ["Alt"] }],
     onDown: () => withFocusedTextControl(ctrl => surroundSelection(ctrl, "[", "]")),
     restricted: false,
