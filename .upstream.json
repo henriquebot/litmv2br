@@ -1,5 +1,9 @@
 {
   "repository": "MrTheBino/mist-engine-fvtt",
   "branch": "main",
-  "strategy": "official-upstream-plus-ptbr-overlay"
+  "mirrorBranch": "upstream-official",
+  "translationBranch": "main",
+  "lastImportedCommit": "da7bfb04484d2f509fc8f1f54d849668dd64c605",
+  "strategy": "official upstream mirror + PT-BR/theme overlay on main",
+  "compendiumsTranslated": false
 }
