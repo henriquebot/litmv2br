@@ -50,7 +50,9 @@
         'Rival':['sei como meu rival pensa','competição aguça meu foco'],
         'Minha comunidade':['conheço costumes e rumores de vilas pequenas','rede de vizinhos e conhecidos'],
         'Alguém a quem devo':['conheço a rede de favores dessa pessoa','negociar prazo e contrapartida'],
-        'Alguém que me deve':['sei quem pode me levar até essa pessoa','guardo provas da promessa feita']
+        'Alguém que me deve':['sei quem pode me levar até essa pessoa','guardo provas da promessa feita'],
+        'Mortimer Ramirez':['Mortimer me reconhece pelo nome','conheço hábitos e rotinas da caravana'],
+        'Alguém que volta com a caravana todo ano':['reconheço seus hábitos e sinais','sei onde procurá-lo quando a caravana chega']
       },
       past: {
         'Uma dívida antiga':['negociar prazos e condições','conheço cobradores e redes de favores'],
@@ -62,7 +64,9 @@
         'Uma herança estranha':['reconhecer símbolos ligados à herança','proteger e esconder o que recebi'],
         'Um segredo de família':['perceber silêncios e meias-verdades','lembrar fragmentos de histórias antigas'],
         'Um antigo cativeiro ou controle':['reconhecer táticas de controle','achar saídas e pontos fracos de contenção'],
-        'Um encontro com o impossível':['lembrar detalhes sobrenaturais','reconhecer sinais do mesmo tipo de fenômeno']
+        'Um encontro com o impossível':['lembrar detalhes sobrenaturais','reconhecer sinais do mesmo tipo de fenômeno'],
+        'Alguém partiu com a caravana e nunca voltou':['lembrar o que essa pessoa levou e deixou para trás','reconhecer pistas ligadas àquela partida'],
+        'Uma promessa feita numa passagem anterior da caravana':['lembrar detalhes daquela promessa','reconhecer quem estava presente quando ela foi feita']
       },
       nature: {
         'Sou não-humano e isso é visível':['um sentido próprio da minha espécie','uma capacidade física que humanos não possuem'],
@@ -231,6 +235,78 @@
       if($('natureTheme') && $('natureTheme').checked) setFullTheme(3,remoteNature,false);
     }
 
+    function installCaravanHistoryOptions(){
+      try{
+        if(typeof concepts!=='undefined'){
+          const idx=concepts.findIndex(x=>x.title==='Forasteiro recém-chegado');
+          if(idx>=0){
+            concepts[idx]={
+              title:'Ajudante de estalagem ou hospedaria',
+              hint:'hóspedes · rumores · festival',
+              type:'Skill or Trade',
+              theme:'Ouço mais do que pareço',
+              tags:['lembrar rostos e pedidos de hóspedes','ouvir rumores sem chamar atenção'],
+              weak:'às vezes sei coisas que seria melhor não saber',
+              quest:'Descobrir o que existe além das histórias que ouvi de passagem.'
+            };
+          }
+          if(typeof renderChoices==='function') renderChoices('conceptChoices',concepts,'concept');
+        }
+
+        if(typeof relations!=='undefined'){
+          if(!relations.some(x=>x.title==='Mortimer Ramirez')){
+            relations.push({
+              title:'Mortimer Ramirez',
+              hint:'líder da caravana · carismático · rosto conhecido',
+              type:'People',
+              theme:'Mortimer sempre volta a Lar dos Corvos',
+              tags:['Mortimer me reconhece pelo nome','conheço hábitos e rotinas da caravana'],
+              weak:'o carisma de Mortimer torna difícil desconfiar dele',
+              quest:'Descobrir por que Mortimer parece prestar atenção em mim.'
+            });
+          }
+          if(!relations.some(x=>x.title==='Alguém que volta com a caravana todo ano')){
+            relations.push({
+              title:'Alguém que volta com a caravana todo ano',
+              hint:'amizade · expectativa · festival anual',
+              type:'People',
+              theme:'Um rosto que sempre retorna',
+              tags:['reconheço seus hábitos e sinais','sei onde procurá-lo quando a caravana chega'],
+              weak:'espero que essa pessoa continue sendo quem eu lembro',
+              quest:'Descobrir o que mudou desde a última passagem da caravana.'
+            });
+          }
+          if(typeof renderChoices==='function') renderChoices('relationChoices',relations,'relation');
+        }
+
+        if(typeof pasts!=='undefined'){
+          if(!pasts.some(x=>x.title==='Alguém partiu com a caravana e nunca voltou')){
+            pasts.push({
+              title:'Alguém partiu com a caravana e nunca voltou',
+              hint:'despedida · ausência · pergunta',
+              type:'Past',
+              theme:'A última vez que vi essa pessoa',
+              tags:['lembrar o que essa pessoa levou e deixou para trás','reconhecer pistas ligadas àquela partida'],
+              weak:'toda partida da caravana reabre essa ausência',
+              quest:'Descobrir o que aconteceu depois que essa pessoa deixou Lar dos Corvos.'
+            });
+          }
+          if(!pasts.some(x=>x.title==='Uma promessa feita numa passagem anterior da caravana')){
+            pasts.push({
+              title:'Uma promessa feita numa passagem anterior da caravana',
+              hint:'palavra dada · retorno · espera',
+              type:'Past',
+              theme:'Quando a caravana voltar',
+              tags:['lembrar detalhes daquela promessa','reconhecer quem estava presente quando ela foi feita'],
+              weak:'esperei por essa promessa por tempo demais',
+              quest:'Descobrir se a promessa ainda vale depois de todos esses anos.'
+            });
+          }
+          if(typeof renderChoices==='function') renderChoices('pastChoices',pasts,'past');
+        }
+      }catch(e){}
+    }
+
     function addSubtleOptions(){
       const wrap=$('natureChoices');
       if(!wrap || wrap.querySelector('[data-remote-nature]')) return;
@@ -367,6 +443,7 @@
       guide.innerHTML='<strong>Como funciona:</strong> cada Theme começa com um <strong>Title Tag</strong> — que já conta como uma Power Tag — mais <strong>2 Power Tags</strong>, <strong>1 Weakness Tag</strong> e <strong>1 Quest</strong>. Uma boa Power Tag descreve algo que você consegue apontar na ficção e dizer “isso ajuda nesta ação”. Pode ser habilidade, traço, relação, passado, recurso ou equipamento. <strong>Teste rápido:</strong> se a frase servir para quase qualquer rolagem, ela está ampla demais.';
     }
 
+    installCaravanHistoryOptions();
     addSubtleOptions();
 
     const themeGrid=$('themeGrid');
