@@ -131,7 +131,7 @@ export function setupHooks() {
 
     config.push({
       action: "toggle-limit",
-      title: "Mark as Limit",
+      title: game.i18n.localize("MIST_ENGINE.PROSEMIRROR.MarkAsLimit"),
       icon: '<i class="fa-solid fa-shield fa-fw"></i>',
       scope: "text",
       cmd: applyLimit,
@@ -170,7 +170,7 @@ export function setupHooks() {
 
     config.push({
       action: "toggle-weakness",
-      title: "Mark as Weakness",
+      title: game.i18n.localize("MIST_ENGINE.PROSEMIRROR.MarkAsWeakness"),
       icon: '<i class="fa-light fa-angles-down fa-fw"></i>',
       scope: "text",
       cmd: applyWeakness,
@@ -231,69 +231,69 @@ export function setupHooks() {
       };
 
       menus.icons = {
-        title: "Icons",
+        title: game.i18n.localize("MIST_ENGINE.PROSEMIRROR.Icons"),
         cssClass: "icons",
         icon: '<i class="fa-solid fa-icons fa-fw"></i>',
         entries: [
-          { action: "icon-origin",    title: "Origin Icon",    cmd: insertIcon("icon-origin") },
-          { action: "icon-adventure", title: "Adventure Icon", cmd: insertIcon("icon-adventure") },
-          { action: "icon-greatness", title: "Greatness Icon", cmd: insertIcon("icon-greatness") },
-          { action: "icon-hint", title: "Hint Icon", cmd: insertIconElement("fa-solid fa-circle-question icon-hint") },
+          { action: "icon-origin",    title: game.i18n.localize("MIST_ENGINE.PROSEMIRROR.OriginIcon"),    cmd: insertIcon("icon-origin") },
+          { action: "icon-adventure", title: game.i18n.localize("MIST_ENGINE.PROSEMIRROR.AdventureIcon"), cmd: insertIcon("icon-adventure") },
+          { action: "icon-greatness", title: game.i18n.localize("MIST_ENGINE.PROSEMIRROR.GreatnessIcon"), cmd: insertIcon("icon-greatness") },
+          { action: "icon-hint", title: game.i18n.localize("MIST_ENGINE.PROSEMIRROR.HintIcon"), cmd: insertIconElement("fa-solid fa-circle-question icon-hint") },
         ],
       };
     }
 
     menus.fakeHeadings = {
-      title: "Fake Headings",
+      title: game.i18n.localize("MIST_ENGINE.PROSEMIRROR.FakeHeadings"),
       cssClass: "fake-headings",
       icon: '<i class="fa-solid fa-heading fa-fw"></i>',
       entries: [
         {
           action: "fake-h1",
-          title: "Fake Heading 1",
+          title: game.i18n.localize("MIST_ENGINE.PROSEMIRROR.FakeHeading1"),
           cmd: setFakeHeading("fh1"),
         },
         {
           action: "fake-h2",
-          title: "Fake Heading 2",
+          title: game.i18n.localize("MIST_ENGINE.PROSEMIRROR.FakeHeading2"),
           cmd: setFakeHeading("fh2"),
         },
         {
           action: "fake-h3",
-          title: "Fake Heading 3",
+          title: game.i18n.localize("MIST_ENGINE.PROSEMIRROR.FakeHeading3"),
           cmd: setFakeHeading("fh3"),
         },
       ],
     };
 
     menus.textframes = {
-      title: "Textframes",
+      title: game.i18n.localize("MIST_ENGINE.PROSEMIRROR.Textframes"),
       cssClass: "textframes",
       icon: '<i class="fa-solid fa-layer-group fa-fw"></i>',
       entries: [
         {
           action: "content-with-sidebar",
-          title: "Content with Sidebar",
+          title: game.i18n.localize("MIST_ENGINE.PROSEMIRROR.ContentWithSidebar"),
           cmd: wrapInContentSidebar,
         },
         {
           action: "written-block",
-          title: "Written Block",
+          title: game.i18n.localize("MIST_ENGINE.PROSEMIRROR.WrittenBlock"),
           cmd: wrapInFrame("written-block"),
         },
         {
           action: "text-container-long-paper-background",
-          title: "Long Paper Background",
+          title: game.i18n.localize("MIST_ENGINE.PROSEMIRROR.LongPaperBackground"),
           cmd: wrapInFrame("text-container-long-paper-background"),
         },
         {
           action: "text-container-300",
-          title: "Container 300",
+          title: game.i18n.localize("MIST_ENGINE.PROSEMIRROR.Container300"),
           cmd: wrapInFrame("text-container-300"),
         },
         {
           action: "text-container-500",
-          title: "Container 500",
+          title: game.i18n.localize("MIST_ENGINE.PROSEMIRROR.Container500"),
           cmd: wrapInFrame("text-container-500"),
         },
       ],
@@ -553,15 +553,15 @@ export function setupHooks() {
           frames: [
             {
               src: "systems/mist-engine-fvtt/assets/token_frames/litm-token-frame-1.png",
-              label: "LitM Frame 1",
+              label: game.i18n.localize("MIST_ENGINE.TOKENIZER.Frame1"),
             },
             {
               src: "systems/mist-engine-fvtt/assets/token_frames/litm-token-frame-2.png",
-              label: "LitM Frame 2",
+              label: game.i18n.localize("MIST_ENGINE.TOKENIZER.Frame2"),
             },
             {
               src: "systems/mist-engine-fvtt/assets/token_frames/litm-token-frame-3.png",
-              label: "LitM Frame 3",
+              label: game.i18n.localize("MIST_ENGINE.TOKENIZER.Frame3"),
             },
           ],
         },
