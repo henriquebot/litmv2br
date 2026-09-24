@@ -32,6 +32,9 @@ export class HowToPlayApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
     constructor(options = {}) {
         super(options);
+        HowToPlayApp.PARTS.dialog.template = game.i18n.lang === "pt-BR"
+            ? "systems/mist-engine-fvtt/templates/how-to-play-app/dialog-pt-BR.hbs"
+            : "systems/mist-engine-fvtt/templates/how-to-play-app/dialog.hbs";
         HowToPlayApp.instance = this;
     }
     async _prepareContext(options) {
