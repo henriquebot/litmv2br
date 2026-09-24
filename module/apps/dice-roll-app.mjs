@@ -108,12 +108,12 @@ export class DiceRollApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
         // set the dialog title according to the type
         if (this.rollType === 'quick') {
-            this.options.window.title = 'Quick Dice Roll';
+            this.options.window.title = game.i18n.localize("MIST_ENGINE.ROLL_TYPES.quick");
         } else if (this.rollType === 'detailed') {
-            this.options.window.title = 'Detailed Dice Roll';
+            this.options.window.title = game.i18n.localize("MIST_ENGINE.ROLL_TYPES.detailed");
         }
         else if (this.rollType === 'reaction') {
-            this.options.window.title = 'Reaction Roll';
+            this.options.window.title = game.i18n.localize("MIST_ENGINE.ROLL_TYPES.reaction");
         }
     }
 
