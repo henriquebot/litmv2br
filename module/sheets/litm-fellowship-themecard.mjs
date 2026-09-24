@@ -64,8 +64,8 @@ export class MistEngineLegendInTheMistFellowshipThemecard extends MistEngineActo
         sheet: { // this is the group name
             tabs:
                 [
-                    { id: 'themebook', group: 'sheet', label: 'Themebook' },
-                    { id: 'special_improvements', group: 'sheet', label: 'Special Improvements' },
+                    { id: 'themebook', group: 'sheet', label: 'MIST_ENGINE.THEMEBOOKS.Themebook' },
+                    { id: 'special_improvements', group: 'sheet', label: 'MIST_ENGINE.LABELS.SpecialImprovements' },
                 ],
             initial: 'themebook'
         }
