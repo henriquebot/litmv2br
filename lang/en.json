@@ -307,7 +307,10 @@
       "NoCharacterAssignedForThemekitSelection": "No character assigned to your user. Assign a character to open the theme kit selection.",
       "NoFellowshipThemecardFound": "No Fellowship Theme Card actors found. Use \"Create New\" to make one first.",
       "NotAllowedToUploadFilesForCustomBackground": "You do not have permission to upload files. Please contact your GM.",
-      "SetQuest": "Set quest to {quest}"
+      "SetQuest": "Set quest to {quest}",
+      "OwnedItemsMacroOnly": "You can only create macro buttons for owned Items.",
+      "MacroItemNotFound": "Could not find item {itemName}. You may need to delete and recreate this macro.",
+      "TextFieldRequired": "Place the cursor in a text field or text area."
     },
     "NPC": {
       "CustomMightLevel": "Custom level",
@@ -492,7 +495,29 @@
         "WorldItemsEntry": "Items in the world (Items directory)",
         "WorldItemsGroup": "This World",
         "WorldSource": "World Compendium"
-      }
+      },
+      "MightUsageEnabled": "Might Usage Enabled",
+      "MightUsageEnabledHint": "Enable or disable the usage of Might in the game.",
+      "DisableCustomDice": "Disable LiTM Custom Dice",
+      "DisableCustomDiceHint": "Disable the use of custom dice in Legend In The Mist. This will revert to using standard dice rolls.",
+      "DisableCharacterHoverTooltip": "Disable Character Hover Tooltip (GM Only)",
+      "DisableCharacterHoverTooltipHint": "Disable the character hover power tag tooltip for GMs.",
+      "ShowCustomJSONImport": "Show Custom JSON Import",
+      "ShowCustomJSONImportHint": "Enable the custom JSON import feature for challenges and vignettes. This allows importing content from external sources using the system JSON format.",
+      "GmRollConfirmation": "GM Roll Confirmation",
+      "GmRollConfirmationHint": "Player rolls from the roll dialog must be confirmed by the GM before the dice are rolled. The GM sees the player's selection and can approve or reject it.",
+      "TidyTagsOnCharacterSheet": "Tidy Tags on Character Sheet",
+      "TidyTagsOnCharacterSheetHint": "Hide planned tags and eliminate blank lines in a character's themes.",
+      "VisualTheme": "Visual Theme",
+      "VisualThemeHint": "Choose the system appearance. Default preserves the official Legend in the Mist look; Sci-Fi applies a technological interface without changing rules.",
+      "VisualThemeDefault": "Default — Legend in the Mist",
+      "VisualThemeScifi": "Sci-Fi",
+      "KeybindingsSceneTagsName": "Open Scene Tags",
+      "KeybindingsSceneTagsHint": "Opens the scene tags window.",
+      "KeybindingsHowToPlayName": "Open How To Play",
+      "KeybindingsHowToPlayHint": "Opens the How To Play window.",
+      "KeybindingsThemeKitName": "Open Theme Kit Selection",
+      "KeybindingsThemeKitHint": "Opens the Theme Kit selection for your character."
     },
     "SheetLabels": {
       "Challenge": "Challenge",
