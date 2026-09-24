@@ -49,6 +49,9 @@
   "styles": [
     {
       "src": "css/mist-engine-fvtt.css"
+    },
+    {
+      "src": "css/theme-scifi.css"
     }
   ],
   "languages": [
@@ -86,6 +89,12 @@
       "lang": "uk",
       "name": "Українська",
       "path": "lang/uk.json",
+      "flags": {}
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json",
       "flags": {}
     }
   ],
