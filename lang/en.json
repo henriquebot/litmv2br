@@ -106,7 +106,8 @@
     },
     "CHANGELOG": {
       "DontShowAgain": "Don't show again for this version",
-      "UpdatedTo": "Updated to version"
+      "UpdatedTo": "Updated to version",
+      "Title": "Changelog"
     },
     "COLLAB": {
       "AffectsGroup": "The outcome affects the entire group.",
@@ -173,8 +174,11 @@
         "PlannedPowertag": "Planned Power or Weakness Tag. Select it to hide it from the active tags list until you are ready to use it.",
         "PlannedStorytag": "Planned Story Tag. Select it to hide it from the active story tags list until you are ready to use it.",
         "Powertag": "Power Tag",
-        "RightClickToToggleBurnState": "Right click to toggle burn state"
-      }
+        "RightClickToToggleBurnState": "Right click to toggle burn state",
+        "PlannedWeaknessTag": "Planned Weakness Tag. Select it to hide it until you are ready to use it."
+      },
+      "DeletePowertag": "Delete Power Tag",
+      "DeleteWeaknessTag": "Delete Weakness Tag"
     },
     "HOW_TO_PLAY": {
       "Title": "How To Play"
@@ -269,7 +273,13 @@
       "Themekit": "Theme Kit",
       "ThreatsAndConsequences": "Threats & Consequences",
       "ToggleEditMode": "Toggle Edit Mode",
-      "Value": "Value"
+      "Value": "Value",
+      "Import": "Import",
+      "Question": "Question",
+      "Tag": "Tag",
+      "Weakness": "Weakness",
+      "DeleteTagStatus": "Delete this tag/status",
+      "ToggleTagStatus": "Toggle between tag and status"
     },
     "MIGHT": {
       "Adventure": "Adventure",
@@ -310,7 +320,15 @@
       "SetQuest": "Set quest to {quest}",
       "OwnedItemsMacroOnly": "You can only create macro buttons for owned Items.",
       "MacroItemNotFound": "Could not find item {itemName}. You may need to delete and recreate this macro.",
-      "TextFieldRequired": "Place the cursor in a text field or text area."
+      "TextFieldRequired": "Place the cursor in a text field or text area.",
+      "MigrationStarting": "Migrating world data to v{version}…",
+      "MigrationComplete": "Migration to v{version} complete.",
+      "MigratedActorThemebooks": "Mist Engine | Migrated {count} themebook(s) on \"{actor}\".",
+      "MigratedFellowship": "Mist Engine | Migrated fellowship theme card \"{actor}\".",
+      "CreatedBackpacks": "Mist Engine | Created {count} missing backpack(s) on character actor(s).",
+      "FellowshipNeedsPlayer": "This character is not assigned to any non-GM user. Assign the character to a user before assigning a Fellowship Theme Card. Reload Foundry (F5) if permissions appear stale.",
+      "ImportChallengeJSONSuccess": "Import completed successfully.",
+      "ImportChallengeJSONError": "Failed to import JSON."
     },
     "NPC": {
       "CustomMightLevel": "Custom level",
@@ -354,7 +372,11 @@
       "SpecialImprovementName": "Special Improvement Name",
       "Tag": "Tag",
       "Tags": "Tags",
-      "ThemebookStory": "Story"
+      "ThemebookStory": "Story",
+      "AnswerTag": "Answer / The Tag",
+      "ThemekitType": "Type, e.g. Skill Or Trade",
+      "StatusTagExample": "tag or status-2 (or /sn status-2 for negative)",
+      "CampsiteTagExample": "beautiful vista or rainy-2"
     },
     "PLAYER_TUTORIAL": {
       "BackpackContent": "Your backpack holds story tags for gear and useful items. Add an item, then select it in a roll to bring it to bear. Some items expire during Camping — the Narrator will let you know.",
@@ -469,7 +491,9 @@
       "Title": "Scene Tags",
       "UnassignJourney": "Unassign journey",
       "WeaknessToggleHint": "Click to toggle this weakness as active in the scene",
-      "Weaknesses": "Weaknesses (GM)"
+      "Weaknesses": "Weaknesses (GM)",
+      "SceneTitle": "Scene: {scene}",
+      "EnterTagStatusTitle": "Enter Tag or Status"
     },
     "SETTINGS": {
       "SceneTagsOverlayPosAbove": "Above the scene navigation",
@@ -517,7 +541,9 @@
       "KeybindingsHowToPlayName": "Open How To Play",
       "KeybindingsHowToPlayHint": "Opens the How To Play window.",
       "KeybindingsThemeKitName": "Open Theme Kit Selection",
-      "KeybindingsThemeKitHint": "Opens the Theme Kit selection for your character."
+      "KeybindingsThemeKitHint": "Opens the Theme Kit selection for your character.",
+      "KeybindingsMakeTagsName": "Make Tags",
+      "KeybindingsMakeTagsHint": "Surround selected text with [] to make it a tag."
     },
     "SheetLabels": {
       "Challenge": "Challenge",
@@ -559,7 +585,12 @@
       "ShowFilteredThemekits": "Show only \"{themebook}\"",
       "ShowingAllThemekits": "Showing all theme kits",
       "SpecialImprovements": "Special Improvements",
-      "WeaknessTags": "Weakness Tags"
+      "WeaknessTags": "Weakness Tags",
+      "SelectionTitle": "Theme Kit Selection",
+      "WindowTitle": "Theme Kit",
+      "SearchPlaceholder": "Search theme kits…",
+      "NoSelection": "No theme kit selected!",
+      "NoActor": "No actor set for theme kit selection app!"
     },
     "TUTORIAL": {
       "CampingContent": "Runs a camping or sojourn scene (Core Book p. 179): campsite tags, Rest / Reflect / Camp Action for each hero, and the backpack story-tag expiration review. Also needs an active scene.",
@@ -594,6 +625,17 @@
       "ToolsTitle": "Your GM Toolbar",
       "WelcomeContent": "This tour shows the tools the Mist Engine system adds for you. Most of them live here in the scene controls on the left. Use the arrow keys or the buttons to move through the tour.",
       "WelcomeTitle": "Welcome, Narrator"
+    },
+    "IMPORT": {
+      "CharacterJsonTitle": "Import Challenge from JSON",
+      "VignetteJsonTitle": "Import Vignette from JSON",
+      "TagsCsvTitle": "Import Tags from CSV",
+      "TagsCsvHelp": "Paste your CSV data below. Commas separate tags. Wrap a tag in quotes to include commas within it (e.g. \"maps, plans, and schematics\").",
+      "CharacterJsonSuccess": "Challenge imported from JSON. Please check the imported data and adjust as necessary.",
+      "CharacterJsonError": "Failed to import challenge from JSON: {error}",
+      "VignetteJsonSuccess": "Vignette imported from JSON.",
+      "VignetteJsonError": "Failed to import vignette from JSON.",
+      "CsvSuccess": "Tags imported from CSV."
     }
   },
   "TYPES": {
