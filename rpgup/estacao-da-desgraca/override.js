@@ -587,6 +587,123 @@
     };
   }
 
+  function currentDossierPayload(){
+    var d=getData(), ri=getRoleIndex(), mi=getMotiveIndex();
+    var name=safeText(value("name"),"");
+    var role=safeText(value("roleCustom"),(d && d.roles && d.roles[ri] ? d.roles[ri].name : ""));
+    var motive=safeText(value("motiveCustom"),(d && d.motives && d.motives[mi] ? d.motives[mi].text : ""));
+    return {
+      name:name,
+      callsign:safeText(value("callsign"),name ? name.split(" ").slice(-1)[0] : ""),
+      role:role,
+      motive:motive,
+      personality:selectedProfile(personalityProfiles,selectedPersonality).title,
+      past:selectedProfile(pastProfiles,selectedPast).title,
+      leftBehind:value("leftBehind"),
+      incident:value("incident"),
+      object:value("object"),
+      themes:readThemes(),
+      website:""
+    };
+  }
+
+  function shareSummary(){
+    var p=currentDossierPayload();
+    var d=getData(), mi=getMotiveIndex();
+    var motiveTitle=(d && d.motives && d.motives[mi] ? d.motives[mi].name : "uma missão longe de casa");
+    var who=p.name || "Meu personagem";
+    return who+" — "+(p.role || "colaborador do Consórcio Orbital")+"\n"+
+      "Personalidade: "+p.personality+"\n"+
+      "Passado: "+p.past+"\n"+
+      "Motivo da viagem: "+motiveTitle+"\n\n"+
+      "Faça o seu Dossiê de Colaborador do Consórcio Orbital:";
+  }
+
+  async function shareDossier(){
+    var cfg=window.RPGUP_DOSSIE_CONFIG || {};
+    var url=cfg.shareUrl || window.location.href;
+    var text=shareSummary();
+    try{
+      if(navigator.share){
+        await navigator.share({
+          title:"Dossiê de Colaborador do Consórcio Orbital",
+          text:text,
+          url:url
+        });
+        return;
+      }
+      await navigator.clipboard.writeText(text+"\n"+url);
+      var status=el("dossierActionStatus");
+      if(status) status.textContent="Resumo + link copiados. Cole no WhatsApp, Discord ou rede social.";
+    }catch(e){
+      if(e && e.name==="AbortError") return;
+      var status=el("dossierActionStatus");
+      if(status) status.textContent="Não foi possível abrir o compartilhamento. Copie o link da página.";
+    }
+  }
+
+  async function submitDossier(){
+    var cfg=window.RPGUP_DOSSIE_CONFIG || {};
+    var status=el("dossierActionStatus");
+    var btn=el("submitDossier");
+    var p=currentDossierPayload();
+
+    if(!p.name || !p.role){
+      if(status) status.textContent="Preencha pelo menos o nome e a função antes de enviar.";
+      return;
+    }
+    if(!cfg.restUrl){
+      if(status) status.textContent="O envio ao mestre precisa da versão mais recente do plugin do gerador.";
+      return;
+    }
+
+    if(btn){btn.disabled=true;btn.textContent="ENVIANDO...";}
+    if(status) status.textContent="Transmitindo dossiê para o Consórcio...";
+
+    try{
+      var res=await fetch(cfg.restUrl,{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(p)
+      });
+      var data={};
+      try{data=await res.json();}catch(e){}
+      if(!res.ok){
+        var msg=(data && data.message) ? data.message : "Não foi possível enviar o dossiê.";
+        throw new Error(msg);
+      }
+      if(status) status.textContent=(data && data.message) ? data.message : "Dossiê enviado. O mestre foi avisado.";
+      if(btn){btn.textContent="DOSSIÊ ENVIADO ✓";btn.classList.add("sent");}
+    }catch(e){
+      if(status) status.textContent=e.message || "Não foi possível enviar o dossiê.";
+      if(btn){btn.disabled=false;btn.textContent="ENVIAR DOSSIÊ AO CONSÓRCIO";}
+      return;
+    }
+  }
+
+  function installFinalActions(){
+    if(el("dossierFinalActions")) return;
+    var panel=el("litmThemesPanel");
+    if(!panel) return;
+
+    var section=document.createElement("section");
+    section.id="dossierFinalActions";
+    section.className="dossier-final-actions";
+    section.innerHTML=
+      '<div class="final-actions-kicker">PROTOCOLO DE FINALIZAÇÃO</div>'+
+      '<h2>Dossiê pronto?</h2>'+
+      '<p>Envie uma cópia ao mestre para avisar que seu personagem está concluído ou compartilhe um resumo com seus amigos.</p>'+
+      '<div class="final-actions-buttons">'+
+        '<button type="button" class="action amber" id="submitDossier">Enviar dossiê ao Consórcio</button>'+
+        '<button type="button" class="action secondary" id="shareDossier">Compartilhar personagem</button>'+
+      '</div>'+
+      '<div class="final-actions-status" id="dossierActionStatus">O envio usa o e-mail administrativo do RPG Up. A foto não é enviada; apenas os dados do dossiê e dos quatro temas.</div>';
+
+    panel.insertAdjacentElement("afterend",section);
+    el("submitDossier").addEventListener("click",submitDossier);
+    el("shareDossier").addEventListener("click",shareDossier);
+  }
+
   function keepPortrait(){
     var initials=el("initials");
     if (!initials || !portraitData) return;
@@ -599,10 +716,17 @@
     refreshThemeSuggestions(false);
   }
 
+  if(window.RPGUP_DOSSIE_CONFIG){
+    document.title="Gerador de Dossiê — Consórcio Orbital | RPG Up";
+    var og=document.querySelector('meta[property="og:url"]');
+    if(og && window.RPGUP_DOSSIE_CONFIG.shareUrl) og.setAttribute("content",window.RPGUP_DOSSIE_CONFIG.shareUrl);
+  }
+
   upgradeCatalogAndTags();
   installPortrait();
   installSourceSelectors();
   installThemes();
+  installFinalActions();
   installCopyOverride();
   refreshThemeSuggestions(true);
 
