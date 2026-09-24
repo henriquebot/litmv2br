@@ -1,0 +1,291 @@
+/* RPG Up — A Estação da Desgraça
+   Ajustes remotos de estilo. Mantido via ChatGPT/GitHub.
+*/
+
+.photo{
+  cursor:pointer;
+  background-size:cover!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  position:relative;
+  overflow:hidden;
+}
+.photo:not(.has-portrait):before{
+  content:"CLIQUE AQUI\A PARA ANEXAR\A A FOTO";
+  white-space:pre;
+  position:absolute;
+  inset:5px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:8px 5px;
+  border:1px dashed rgba(37,58,59,.42);
+  background:rgba(213,221,214,.86);
+  color:#354744;
+  font:900 8px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.photo:not(.has-portrait):hover:before{
+  background:rgba(230,238,232,.96);
+  border-color:#365e5b;
+  color:#183b39;
+}
+.photo.has-portrait{
+  color:transparent!important;
+  text-shadow:none!important;
+}
+.photo.has-portrait:after{
+  content:"FOTO // RH";
+  position:absolute;
+  left:4px;
+  bottom:4px;
+  padding:2px 4px;
+  background:rgba(9,20,22,.72);
+  color:#dce9e5;
+  font:700 7px/1 ui-monospace,SFMono-Regular,Consolas,monospace;
+  letter-spacing:.08em;
+}
+.portrait-controls{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:8px;
+  align-items:center;
+}
+.portrait-upload{
+  display:none!important;
+}
+.portrait-help{
+  color:#637c82;
+  font:600 9px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+.themes-panel{
+  margin-top:24px;
+  border:1px solid var(--line);
+  background:rgba(9,21,25,.94);
+  box-shadow:0 18px 40px rgba(0,0,0,.24);
+}
+.themes-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 16px;
+  border-bottom:1px solid var(--line);
+  background:#0d1d22;
+}
+.themes-head strong{
+  font:800 12px ui-monospace,SFMono-Regular,Consolas,monospace;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#dbe7df;
+}
+.themes-head span{
+  color:var(--cyan);
+  font:700 10px ui-monospace,SFMono-Regular,Consolas,monospace;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+.themes-intro{
+  margin:0;
+  padding:15px 16px 0;
+  color:#91a7a5;
+  font-size:13px;
+  line-height:1.55;
+}
+
+.tag-guide{
+  margin:14px 16px 0;
+  border:1px solid #24454a;
+  border-left:3px solid var(--cyan);
+  background:rgba(12,31,35,.72);
+  padding:13px 15px;
+}
+.tag-guide-title{
+  margin:0 0 6px;
+  color:#dceae6;
+  font:900 10px/1.3 ui-monospace,SFMono-Regular,Consolas,monospace;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+}
+.tag-guide p{
+  margin:0;
+  color:#8ea5a3;
+  font-size:12px;
+  line-height:1.55;
+}
+.tag-guide strong{color:#cfe1dc}
+.tag-guide-examples{
+  margin-top:8px!important;
+  color:#789497!important;
+  font:650 10px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace!important;
+}
+
+.themes-toolbar{
+  display:flex;
+  justify-content:flex-end;
+  padding:10px 16px 0;
+}
+.theme-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  padding:16px;
+}
+.theme-card{
+  border:1px solid #254148;
+  background:linear-gradient(180deg,rgba(15,36,41,.96),rgba(8,22,26,.96));
+  padding:16px;
+  min-width:0;
+}
+.theme-card-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+.theme-no{
+  color:var(--cyan);
+  font:800 10px ui-monospace,SFMono-Regular,Consolas,monospace;
+}
+.theme-card h3{
+  margin:2px 0 0;
+  color:#e5efeb;
+  font-size:18px;
+  line-height:1.1;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+}
+.theme-row{
+  border-top:1px solid #1e363c;
+  padding-top:9px;
+  margin-top:9px;
+}
+.theme-label{
+  display:block;
+  margin-bottom:6px;
+  color:#6f898d;
+  font:800 8px ui-monospace,SFMono-Regular,Consolas,monospace;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+}
+.theme-editor{
+  width:100%;
+  border:1px solid #2a4a50!important;
+  background:#071317!important;
+  color:#e2efeb!important;
+  padding:9px 10px!important;
+  border-radius:0!important;
+  font:650 12px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace!important;
+  box-shadow:none!important;
+}
+.theme-editor:focus{
+  border-color:#5aa9a1!important;
+  box-shadow:0 0 0 2px rgba(124,224,211,.07)!important;
+}
+textarea.theme-editor{
+  min-height:70px!important;
+  resize:vertical;
+}
+.theme-title-input{
+  font-size:16px!important;
+  font-weight:850!important;
+  text-transform:uppercase;
+}
+.theme-type-input{
+  font-size:10px!important;
+  color:#9fb3b4!important;
+}
+.theme-tag-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:7px;
+}
+.theme-hint{
+  margin-top:6px;
+  color:#536b70;
+  font:600 8px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+.theme-reset{
+  appearance:none;
+  border:1px solid #365256;
+  background:#101e22;
+  color:#8fa6a7;
+  padding:6px 8px;
+  cursor:pointer;
+  font:800 8px ui-monospace,SFMono-Regular,Consolas,monospace;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.theme-reset:hover{color:#e4efeb;border-color:#58827f}
+@media(max-width:900px){
+  .theme-tag-grid{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .theme-grid{grid-template-columns:1fr}
+  .themes-head{align-items:flex-start;flex-direction:column}
+}
+@media print{
+  .themes-panel{
+    break-before:page;
+    box-shadow:none;
+    background:#fff;
+    color:#152125;
+    border:1px solid #77837f;
+  }
+  .themes-head{background:#e6ece7;border-color:#77837f}
+  .themes-head strong{color:#152125}
+  .themes-intro{color:#465552}
+  .themes-toolbar,.theme-reset{display:none!important}
+  .theme-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .theme-card{background:#fff;border-color:#8b9994;break-inside:avoid}
+  .theme-row{border-color:#b4bdb9}
+  .theme-editor{
+    background:#fff!important;
+    color:#152125!important;
+    border:0!important;
+    border-bottom:1px solid #8b9994!important;
+    padding:4px 0!important;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  .portrait-controls,.portrait-help{display:none!important}
+  .photo{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .photo:not(.has-portrait):before{display:none!important}
+}
+
+/* Variação sutil de cor por card de tema */
+.theme-card:nth-child(1){
+  border-color:#2c6663;
+  background:linear-gradient(180deg,rgba(12,38,40,.98),rgba(7,24,26,.98));
+}
+.theme-card:nth-child(1) .theme-no{color:#7ce0d3}
+.theme-card:nth-child(1) .theme-reset{border-color:#2c6663;color:#9fd9d1}
+
+.theme-card:nth-child(2){
+  border-color:#3f5f86;
+  background:linear-gradient(180deg,rgba(14,28,44,.98),rgba(8,18,31,.98));
+}
+.theme-card:nth-child(2) .theme-no{color:#8ebeff}
+.theme-card:nth-child(2) .theme-reset{border-color:#3f5f86;color:#aac8ef}
+
+.theme-card:nth-child(3){
+  border-color:#7a5f2e;
+  background:linear-gradient(180deg,rgba(42,31,14,.98),rgba(24,18,8,.98));
+}
+.theme-card:nth-child(3) .theme-no{color:#f0c97a}
+.theme-card:nth-child(3) .theme-reset{border-color:#7a5f2e;color:#e5c58b}
+
+.theme-card:nth-child(4){
+  border-color:#6a4368;
+  background:linear-gradient(180deg,rgba(32,18,34,.98),rgba(18,10,20,.98));
+}
+.theme-card:nth-child(4) .theme-no{color:#d7a7ea}
+.theme-card:nth-child(4) .theme-reset{border-color:#6a4368;color:#d0add9}
