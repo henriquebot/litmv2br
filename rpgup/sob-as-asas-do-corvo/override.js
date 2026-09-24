@@ -340,6 +340,7 @@
       setTags(i,t.tags,true);
       if(field(i,'weak')) field(i,'weak').value=t.weak;
       if(field(i,'quest')) field(i,'quest').value=t.quest;
+      setTimeout(renderFolioThemeSummary,0);
     }
 
     function syncCaravanCustom(force=false){
@@ -551,6 +552,54 @@
       });
     }
 
+    function installFolioThemeSummary(){
+      const list=$('openQuestions');
+      if(!list) return;
+      const block=list.closest('.block');
+      if(block){
+        const title=block.querySelector('.block-title');
+        if(title) title.textContent='Observações gerais';
+        block.classList.add('theme-summary-block');
+      }
+      list.classList.add('theme-summary-list');
+    }
+
+    function renderFolioThemeSummary(){
+      installFolioThemeSummary();
+      const list=$('openQuestions');
+      if(!list) return;
+
+      const themes=readThemes();
+      list.innerHTML='';
+
+      themes.forEach((t,i)=>{
+        if(!t.title && !t.tags.length && !t.weak) return;
+        const li=document.createElement('li');
+        li.className='theme-summary-item';
+
+        const title=document.createElement('strong');
+        title.className='theme-summary-title';
+        title.textContent=(i+1)+'. '+(t.title || 'Theme');
+        li.appendChild(title);
+
+        if(t.tags.length){
+          const tags=document.createElement('span');
+          tags.className='theme-summary-tags';
+          tags.textContent=t.tags.join(' · ');
+          li.appendChild(tags);
+        }
+
+        if(t.weak){
+          const weak=document.createElement('span');
+          weak.className='theme-summary-weak';
+          weak.textContent='Fraqueza: '+t.weak;
+          li.appendChild(weak);
+        }
+
+        list.appendChild(li);
+      });
+    }
+
     function readThemes(){
       return [0,1,2,3].map((i)=>({
         type:safe(field(i,'type')&&field(i,'type').value),
@@ -589,7 +638,7 @@
         viktor:activeTitle('viktorChoices'),
         viktorDetail:safe($('viktorDetail')&&$('viktorDetail').value),
         backpack:$('backpack') ? $('backpack').value : '',
-        openQuestions:[...document.querySelectorAll('#openQuestions li')].map(x=>x.textContent.trim()),
+        openQuestions:[],
         themes:readThemes(),
         website:''
       };
@@ -697,6 +746,7 @@
       themeGrid.addEventListener('input',e=>{
         const m=(e.target.id||'').match(/^theme-(\d+)-/);
         if(m && e.isTrusted) userEdited[Number(m[1])]=true;
+        setTimeout(renderFolioThemeSummary,0);
       });
       themeGrid.addEventListener('click',e=>{
         const card=e.target.closest('.theme-card');
@@ -706,6 +756,12 @@
         if(i>=0){userEdited[i]=false;setTimeout(()=>{refreshThemeFromSource(i);applyRemoteNatureUI();},0)}
       });
     }
+
+    const folioSummarySources=['conceptChoices','reasonChoices','relationChoices','pastChoices','secretChoices','natureChoices','viktorChoices'];
+    folioSummarySources.forEach(id=>{
+      const n=$(id);
+      if(n)n.addEventListener('click',()=>setTimeout(renderFolioThemeSummary,40));
+    });
 
     const sourceMap=[
       ['conceptChoices',0],
@@ -771,6 +827,8 @@
     applyReviewed(true);
     syncCaravanCustom(true);
     refreshAllThemesFromSources();
+    installFolioThemeSummary();
+    setTimeout(renderFolioThemeSummary,30);
     improveThemeResetUX();
 
     const themeUxObserver=new MutationObserver(()=>improveThemeResetUX());
