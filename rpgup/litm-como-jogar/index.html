@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Legend in the Mist — Como Jogar em Resumo | RPG Up</title>
+<meta name="description" content="Referência rápida em PT-BR para jogar Legend in the Mist: tags, temas, rolagens, consequências, acampamento, reação e mais.">
+<meta property="og:title" content="Legend in the Mist — Como Jogar em Resumo | RPG Up">
+<meta property="og:description" content="Uma folha de referência responsiva em PT-BR para Legend in the Mist.">
+<meta property="og:type" content="website">
+<style>
+:root{
+  --forest:#314232;
+  --forest2:#506048;
+  --paper:#f3ead2;
+  --paper2:#e7d6b3;
+  --paper3:#d9c39b;
+  --ink:#332b21;
+  --muted:#70634e;
+  --red:#a33a36;
+  --red2:#7f2d2b;
+  --gold:#c69b48;
+  --gold2:#a97e30;
+  --line:#b99d6e;
+  --blue:#385c6b;
+  --shadow:0 15px 36px rgba(28,22,14,.18);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:#243025}
+body{
+  margin:0;
+  color:var(--ink);
+  font-family:Georgia,"Times New Roman",serif;
+  background:
+    radial-gradient(circle at 14% 4%,rgba(228,219,181,.18),transparent 24rem),
+    radial-gradient(circle at 88% 14%,rgba(91,113,84,.3),transparent 28rem),
+    linear-gradient(180deg,#30402f 0,#202b22 100%);
+  min-height:100vh;
+}
+a{color:inherit}
+.wrap{max-width:1480px;margin:auto;padding:18px 22px 54px}
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  color:#e6dfca;font:800 10px/1.25 ui-monospace,SFMono-Regular,Consolas,monospace;
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;
+}
+.topbar a{text-decoration:none}.topbar a:hover{color:#fff1b9}
+.top-actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{
+  appearance:none;border:1px solid rgba(241,228,193,.35);background:rgba(19,27,20,.45);
+  color:#f2ead3;padding:9px 11px;cursor:pointer;text-decoration:none;
+  font:800 9px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.08em;text-transform:uppercase;
+}
+.btn:hover{background:rgba(255,255,255,.08)}
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(247,239,215,.98),rgba(231,216,182,.98));
+  border:1px solid #a88c5f;box-shadow:var(--shadow);
+  padding:34px 40px 29px;text-align:center;
+}
+.hero:before,.hero:after{
+  content:"";position:absolute;left:22px;right:22px;height:1px;background:#9e8357;opacity:.65;
+}
+.hero:before{top:20px}.hero:after{bottom:20px}
+.eyebrow{
+  color:var(--red);font:700 13px/1 Georgia,"Times New Roman",serif;
+  text-transform:uppercase;letter-spacing:.18em;
+}
+h1{
+  color:#241f19;margin:7px 0 2px;
+  font-size:clamp(42px,7vw,86px);line-height:.9;letter-spacing:-.055em;
+}
+.subtitle{font-size:clamp(19px,2.5vw,32px);letter-spacing:.22em;text-transform:uppercase;margin:10px 0 0}
+.hero-note{
+  display:inline-block;margin-top:22px;background:#f8f0d9;border:1px solid #c9ad7c;
+  padding:8px 13px;font-weight:700;font-size:13px;box-shadow:0 4px 12px rgba(65,48,25,.08)
+}
+.quicknav{
+  display:flex;gap:8px;overflow:auto;padding:13px 0 3px;scrollbar-width:thin;
+}
+.quicknav a{
+  white-space:nowrap;text-decoration:none;color:#f1e8cf;border:1px solid rgba(226,212,175,.25);
+  background:rgba(13,19,14,.32);padding:8px 10px;border-radius:999px;
+  font:800 9px ui-monospace,SFMono-Regular,Consolas,monospace;text-transform:uppercase;letter-spacing:.06em;
+}
+.quicknav a:hover{background:rgba(255,255,255,.08)}
+.scene-flow{
+  margin:18px 0;background:linear-gradient(180deg,#f4ead2,#e6d3ac);
+  border:1px solid #ad8d5e;box-shadow:var(--shadow);padding:17px 18px;
+}
+.scene-flow h2{margin:0;color:var(--red);font-size:22px}
+.flow{
+  display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:10px;
+  font-weight:800;
+}
+.flow span{
+  background:#fbf4df;border:1px solid #b89a69;padding:8px 11px;
+}
+.flow b{color:var(--red);font-size:20px}
+.columns{
+  columns:2 520px;column-gap:18px;
+}
+.card{
+  break-inside:avoid;display:inline-block;width:100%;vertical-align:top;
+  margin:0 0 18px;padding:18px 19px 17px;
+  background:linear-gradient(180deg,rgba(248,241,220,.99),rgba(234,218,183,.99));
+  border:1px solid #b09161;box-shadow:var(--shadow);position:relative;
+}
+.card:before{
+  content:"";position:absolute;left:13px;right:13px;top:10px;border-top:1px solid rgba(166,134,86,.35)
+}
+.card h2{
+  margin:4px 0 10px;color:var(--red);font-size:24px;line-height:1.05;font-weight:500;
+}
+.ref{font-size:.64em;color:var(--red);white-space:nowrap}
+.card h3{margin:13px 0 5px;color:#342d24;font-size:16px}
+.card p{margin:7px 0;line-height:1.45;font-size:15px}
+.card ul{margin:7px 0 4px;padding-left:21px}
+.card li{margin:5px 0;line-height:1.38;font-size:15px}
+.label{
+  display:inline-block;background:#f1c966;color:#4b3618;padding:2px 7px;margin-right:5px;
+  font-weight:800;font-size:13px;transform:skew(-2deg)
+}
+.example{
+  display:inline;background:#f2d27e;padding:1px 4px;font-weight:700;font-style:italic
+}
+.mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.result{
+  border:1px solid #b09364;background:#f7eed6;padding:10px 8px;text-align:center;
+}
+.result strong{display:block;font-size:18px;color:#30281e}
+.result span{display:block;margin-top:3px;font-size:12px;font-weight:700}
+.result.good{border-top:5px solid #c69738}
+.result.mixed{border-top:5px solid #876f38}
+.result.bad{border-top:5px solid #514e54}
+.tag-demo{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 4px}
+.tag-chip{
+  background:#f1d67e;border:1px solid #d2af55;border-radius:2px;padding:4px 7px;
+  font-weight:800;font-size:13px;transform:rotate(-1deg)
+}
+.tag-chip:nth-child(even){transform:rotate(1deg)}
+.callout{
+  border-left:4px solid var(--gold2);padding:9px 11px;background:rgba(210,179,113,.18);
+  margin:10px 0;font-size:14px;line-height:1.45
+}
+.rule{
+  border-top:1px solid rgba(158,126,80,.42);margin:13px 0 10px;padding-top:10px
+}
+.status-track{display:flex;gap:4px;margin:8px 0}
+.status-track i{
+  font-style:normal;display:grid;place-items:center;width:28px;height:22px;
+  background:#e1c978;border:1px solid #b69545;font:800 11px ui-monospace,SFMono-Regular,Consolas,monospace
+}
+.power-list li strong{color:var(--red2)}
+.footer{
+  color:#d8d0ba;border-top:1px solid rgba(235,220,183,.22);margin-top:22px;padding-top:14px;
+  display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  font:650 9px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace
+}
+.footer a{color:#f1d99d;text-decoration:none}
+.mobile-tip{display:none}
+@media(max-width:760px){
+  .wrap{padding:10px 10px 34px}
+  .topbar{align-items:flex-start;flex-direction:column}
+  .hero{padding:29px 18px 27px}
+  .hero:before,.hero:after{left:12px;right:12px}
+  h1{font-size:51px}
+  .subtitle{font-size:19px}
+  .hero-note{font-size:11px;line-height:1.35}
+  .scene-flow{padding:14px}
+  .flow{gap:6px}.flow span{padding:7px 8px;font-size:13px}.flow b{font-size:15px}
+  .columns{columns:1}
+  .card{padding:17px 15px 15px;margin-bottom:12px}
+  .card h2{font-size:22px}
+  .card p,.card li{font-size:15px}
+  .mini-grid{grid-template-columns:1fr}
+  .mobile-tip{display:block;color:#6c5e49;font-size:12px;margin-top:9px}
+}
+@media print{
+  @page{size:A4;margin:11mm}
+  body{background:#fff}
+  .wrap{max-width:none;padding:0}
+  .topbar,.quicknav,.footer,.mobile-tip{display:none!important}
+  .hero,.scene-flow,.card{box-shadow:none}
+  .hero{padding:20px 24px}
+  h1{font-size:48px}
+  .subtitle{font-size:19px}
+  .columns{columns:2 330px;column-gap:9mm}
+  .card{margin-bottom:8mm}
+  .card p,.card li{font-size:10.3pt}
+  .card h2{font-size:17pt}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="topbar">
+    <a href="https://rpgup.com.br/">RPG UP // SUA AVENTURA, NOSSA QUEST</a>
+    <div class="top-actions">
+      <a class="btn" href="#rolagem">Ir para Rolagem</a>
+      <button class="btn" type="button" onclick="window.print()">Imprimir / Salvar PDF</button>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow">Legend in the Mist</div>
+    <h1>Como Jogar</h1>
+    <div class="subtitle">Em Resumo</div>
+    <div class="hero-note">Veja também o Glossário (p. 231) e o Exemplo de Jogo (p. 234).</div>
+    <div class="mobile-tip">No celular, role normalmente: cada bloco foi reorganizado como um cartão independente.</div>
+  </header>
+
+  <nav class="quicknav" aria-label="Navegação rápida">
+    <a href="#tags">Tags</a><a href="#temas">Temas</a><a href="#status">Status</a>
+    <a href="#cena">Cena</a><a href="#rolagem">Rolagem</a><a href="#poder">Gastar Poder</a>
+    <a href="#acampamento">Acampamento</a><a href="#reacao">Reação</a>
+  </nav>
+
+  <section class="scene-flow" id="cena">
+    <h2>Durante uma Cena</h2>
+    <p>Repita o ciclo até o status da cena mudar — seja perdido, adiado ou até a cena chegar a uma conclusão. Então siga para a próxima cena ou para o acampamento.</p>
+    <div class="flow"><span>Estabelecer</span><b>→</b><span>Ação</span><b>→</b><span>Consequências</span><b>↻</b></div>
+  </section>
+
+  <section class="columns">
+    <article class="card" id="tags">
+      <h2>Este Jogo Funciona com Tags <span class="ref">(p. 76)</span></h2>
+      <p>Descritores curtos que dizem o que é verdade e dão Poder às suas ações de Herói.</p>
+      <div class="tag-demo">
+        <span class="tag-chip">atraente</span>
+        <span class="tag-chip">efeito do sono</span>
+        <span class="tag-chip">ferimento grave</span>
+        <span class="tag-chip">encantado</span>
+      </div>
+    </article>
+
+    <article class="card" id="temas">
+      <h2>Temas <span class="ref">(p. 74)</span></h2>
+      <p>Conjuntos relacionados de tags e Missões. Seu Herói tem quatro temas, cada um com:</p>
+      <p><span class="label">Tags de Poder</span> Tags positivas que dão Poder às suas ações. Elas podem ser temporariamente riscadas <strong>//</strong>, tornando-se inutilizáveis até serem recuperadas.</p>
+      <p><span class="label">Tags de Fraqueza</span> Tags negativas que diminuem o Poder das suas ações. Quando invocadas, permitem marcar <strong>Aprimoramento</strong> no tema.</p>
+      <p><strong>MISSÃO</strong> — uma motivação para o tema, algo que seu Herói busca, defende ou protege.</p>
+    </article>
+
+    <article class="card">
+      <h2>Tags de História <span class="ref">(p. 164)</span></h2>
+      <p>Tags temporárias que podem ser positivas ou negativas conforme a situação, como <span class="example">item</span> ou <span class="example">ponto de vantagem</span>.</p>
+      <ul>
+        <li>Removidas quando riscadas <strong>//</strong>.</li>
+        <li>Expiram com o tempo.</li>
+        <li>Registradas na mochila de rastreamento, se houver, ou em um Cartão de Rastreamento.</li>
+      </ul>
+    </article>
+
+    <article class="card" id="status">
+      <h2>Status <span class="ref">(p. 166)</span></h2>
+      <p>Tags que descrevem condições com nível de <strong>1</strong> (leve) a <strong>6</strong> (grave ou transformativo), como <em>ferido 3</em> ou <em>enfeitiçado 2</em>.</p>
+      <div class="status-track"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div>
+      <ul>
+        <li><strong>Registro:</strong> escreva a tag de status e marque seu nível no Cartão de Rastreamento.</li>
+        <li><strong>Acúmulo:</strong> ao receber o mesmo status, ou um semelhante, marque o novo nível no mesmo cartão. O nível mais alto marcado é o atual.</li>
+        <li><strong>Reduzindo:</strong> mova as marcações para a esquerda conforme o número de tiers reduzidos.</li>
+        <li><strong>Limites:</strong> no tier 5, você é superado pelo status. No tier 6, ele mata ou transforma.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Desenvolvimento do Herói <span class="ref">(p. 186)</span></h2>
+      <ul>
+        <li>Marque <strong>Aprimoramento</strong> sempre que uma de suas Tags de Fraqueza for invocada. No 3º Aprimoramento, a tag recebe um novo Poder — normalmente, uma nova Tag de Poder.</li>
+        <li>Marque <strong>Abandono</strong> sempre que ignorar ou trair sua Missão. No 3º Abandono, sua Missão é substituída.</li>
+        <li>Marque <strong>Marco</strong> sempre que alcançar um objetivo da sua Missão. No 3º Marco, seu tema evolui.</li>
+      </ul>
+      <p>Substituir ou evoluir um tema concede sua <strong>Promessa</strong>, que desbloqueia Momentos de Plenitude maiores.</p>
+    </article>
+
+    <article class="card">
+      <h2>A Companhia <span class="ref">(p. 138)</span></h2>
+      <p>Um tema compartilhado que pode ser usado por qualquer um dos Heróis.</p>
+      <p><span class="label">Tags de Poder</span> Uso único: são riscadas <strong>//</strong> ao serem invocadas. Não podem ser recuperadas pelo Poder; voltam durante o acampamento.</p>
+      <p><span class="label">Tags de Fraqueza</span> Marque Aprimoramento no tema da Companhia quando uma delas for invocada.</p>
+      <p><span class="label">Tags de Relacionamento</span> Uso único que representa uma história positiva ou negativa entre Heróis. Recuperadas durante o acampamento.</p>
+    </article>
+
+    <article class="card">
+      <h2>Estabelecer <span class="ref">(p. 146)</span></h2>
+      <h3>O Narrador…</h3>
+      <ul>
+        <li>(Re)descreve a cena.</li>
+        <li>Destaca o que está em jogo — por que esta cena importa.</li>
+        <li>Introduz os <strong>Desafios</strong>.</li>
+        <li>Faz as primeiras ações de Ameaça iniciadas pelos Desafios.</li>
+        <li>Pergunta aos jogadores “O que vocês fazem?” e dá destaque a um Herói diferente a cada turno.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Ação <span class="ref">(p. 149)</span></h2>
+      <p><strong>O Herói em destaque descreve sua ação.</strong></p>
+      <p>O Narrador escolhe como determinar o resultado:</p>
+      <ul>
+        <li><strong>Simples</strong> — chamada do Narrador.</li>
+        <li><strong>Rápido</strong> — Rolagem.</li>
+        <li><strong>Detalhado</strong> — Rolagem + Gasto.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Consequências <span class="ref">(p. 160)</span></h2>
+      <h3>O Narrador pode entregar Consequências se:</h3>
+      <ul>
+        <li>Uma Ameaça foi deixada sem resposta — a ação do Desafio gerou materialização.</li>
+        <li>A Ameaça do Desafio se tornou real.</li>
+        <li>O Narrador invoca a Tag de Ameaça de um Herói para Consequências — o Herói pode invocar a própria Tag de Fraqueza.</li>
+      </ul>
+      <h3>Decisão do Narrador:</h3>
+      <ul>
+        <li>Narrar.</li>
+        <li>Dar ou riscar uma tag — qualquer número de tags.</li>
+        <li>Reduzir um status — qualquer tier.</li>
+      </ul>
+      <div class="callout">O Herói pode reagir, se o Narrador permitir.</div>
+    </article>
+
+    <article class="card">
+      <h2>Desafios <span class="ref">(p. 147)</span></h2>
+      <p>Adversários, obstáculos ou perigos que colocam seu Herói ou seus objetivos em risco.</p>
+      <ul>
+        <li>Desafie os jogadores criando <strong>Ameaças</strong> durante Estabelecer e entregando Consequências.</li>
+        <li>Você supera Desafios com um <strong>Sucesso</strong> em uma resolução Rápida ou, no Detalhado, trabalhando seus status até alcançar os Limites adequados.</li>
+        <li>Dependendo do conflito, isso pode significar <strong>banir</strong>, <strong>convencer</strong> ou simplesmente superar o obstáculo.</li>
+      </ul>
+    </article>
+
+    <article class="card" id="rolagem">
+      <h2>Fazendo uma Rolagem <span class="ref">(p. 151)</span></h2>
+      <p><strong>Conte o Poder das ações.</strong></p>
+      <p>Invoque tags e status relevantes do Herói, do alvo e do ambiente, nesta ordem:</p>
+      <ul class="power-list">
+        <li><strong>+/-1 Poder</strong> para cada tag positiva ou negativa.</li>
+        <li><strong>+3 Poder</strong> por riscar uma Tag de Poder positiva — Gastando uma Tag por Poder.</li>
+        <li><strong>+/-1</strong> por tier de status do alvo.</li>
+        <li><strong>+/-3 Poder</strong> se Favorecido ou Impulsionado devido à Grandeza (p. 171); <strong>+/-6 Poder</strong> se Extremo.</li>
+      </ul>
+      <p><strong>Marque Aprimoramento</strong> para cada Tag de Fraqueza invocada.</p>
+      <p>Role <strong>2d6 + Poder</strong>.</p>
+      <div class="mini-grid">
+        <div class="result good"><strong>10 ou mais</strong><span>Sucesso</span></div>
+        <div class="result mixed"><strong>7 a 9</strong><span>Sucesso e Consequências</span></div>
+        <div class="result bad"><strong>6 ou menos</strong><span>Consequências</span></div>
+      </div>
+    </article>
+
+    <article class="card" id="poder">
+      <h2>Gastando Poder <span class="ref">(p. 154)</span></h2>
+      <p>Gaste seu Poder nos <strong>Efeitos</strong> da sua ação. Em geral, gaste 1 Poder a mais para fazer duas coisas ou menos.</p>
+      <ul>
+        <li>Adicionar, riscar <strong>//</strong> ou recuperar uma tag — <strong>2 Poder</strong>.</li>
+        <li>Dar ou reduzir um status — <strong>1 Poder por tier</strong>.</li>
+        <li>Descobrir um detalhe valioso — <strong>1 Poder</strong>.</li>
+        <li>Vantagem extra além de outros Efeitos — <strong>1 Poder</strong>.</li>
+        <li>Adicionar uma tag de uso único que dure — <strong>1 Poder</strong>.</li>
+      </ul>
+    </article>
+
+    <article class="card" id="acampamento">
+      <h2>Acampamento <span class="ref">(p. 179)</span></h2>
+      <p>O Narrador encerra as tags de história.</p>
+      <p>Cada Herói escolhe <strong>2 atividades</strong> — ou 3 com Consequências:</p>
+      <ul>
+        <li><strong>DESCANSAR:</strong> recuperar alguns status e Tags de Poder riscadas, a critério do Narrador.</li>
+        <li><strong>REFLETIR:</strong> marcar Aprimoramento em um tema.</li>
+        <li><strong>AÇÃO DE ACAMPAMENTO:</strong> conte o Poder e gaste metade dele sem rolar, arredondando para baixo; ou role.</li>
+      </ul>
+      <p>Cada Herói também escolhe recuperar uma Tag de Poder da Companhia ou criar uma nova Tag de Relacionamento com outro Herói — máximo de 1 por outro Herói.</p>
+    </article>
+
+    <article class="card" id="reacao">
+      <h2>Reação <span class="ref">(p. 162)</span></h2>
+      <p>Se o Narrador permitir, o Herói pode reagir para atenuar Consequências ao custo de <strong>1 Poder por status</strong> ou <strong>2 Poder</strong> para um alvo distante.</p>
+      <p>Descreva, conte o Poder e role como em Detalhado.</p>
+      <ul>
+        <li><strong>10 ou mais</strong> — gaste Poder + 1 em qualquer Efeito.</li>
+        <li><strong>7 a 9</strong> — Sucesso: 1 Poder a menos.</li>
+        <li><strong>6 ou menos</strong> — receba as Consequências como estão.</li>
+      </ul>
+    </article>
+  </section>
+
+  <footer class="footer">
+    <span>Referência rápida não oficial para uso nas mesas da RPG Up. Legend in the Mist é de Son of Oak Game Studio.</span>
+    <span><a href="https://rpgup.com.br/">RPG Up</a></span>
+  </footer>
+</main>
+</body>
+</html>
