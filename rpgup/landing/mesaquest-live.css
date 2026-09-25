@@ -1,0 +1,76 @@
+/* RPG Up — live MesaQuest vacancy layer */
+.rpgup-live-vacancy{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:10px 0 0;
+  padding:8px 10px;
+  border:1px solid rgba(120,208,159,.38);
+  background:rgba(28,78,54,.18);
+  border-radius:10px;
+  font:800 10px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;
+  letter-spacing:.035em;
+  text-transform:uppercase;
+}
+.rpgup-live-vacancy.is-last{
+  border-color:rgba(235,179,73,.52);
+  background:rgba(121,79,17,.18);
+}
+.rpgup-live-vacancy.is-full{
+  border-color:rgba(170,177,180,.36);
+  background:rgba(82,89,91,.2);
+}
+.rpgup-live-label{font-weight:900}
+.rpgup-live-count{opacity:.82}
+.rpgup-live-dots{display:inline-flex;gap:4px;margin-left:auto;align-items:center}
+.rpgup-live-dots i{
+  display:block;width:8px;height:8px;border-radius:999px;
+  border:1px solid currentColor;opacity:.45;
+}
+.rpgup-live-dots i.is-filled{opacity:1;background:currentColor}
+.rpgup-live-dots b{font-size:8px;opacity:.7}
+
+.rpgup-live-created-card{
+  position:relative;
+  overflow:hidden;
+  min-width:min(320px,88vw);
+  max-width:360px;
+  flex:0 0 min(320px,88vw);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:18px;
+  background:linear-gradient(180deg,#151d19,#0f1512);
+  color:#f4efe4;
+  box-shadow:0 16px 40px rgba(0,0,0,.24);
+}
+.rpgup-live-created-card .rpgup-live-card-link{
+  color:inherit;text-decoration:none;display:block;
+}
+.rpgup-live-cover{
+  min-height:170px;
+  background:
+    radial-gradient(circle at 35% 20%,rgba(181,154,93,.26),transparent 42%),
+    linear-gradient(135deg,#27342c,#111713);
+  background-size:cover;background-position:center;
+  position:relative;
+}
+.rpgup-live-kicker{
+  position:absolute;left:14px;top:14px;
+  padding:6px 8px;border-radius:999px;
+  background:rgba(11,16,13,.78);border:1px solid rgba(255,255,255,.22);
+  font:900 9px/1 ui-monospace,SFMono-Regular,Consolas,monospace;
+  letter-spacing:.08em;text-transform:uppercase;
+}
+.rpgup-live-body{padding:15px 15px 4px}
+.rpgup-live-body h3{margin:0;font-size:20px;line-height:1.1}
+.rpgup-live-source{
+  margin:7px 0 0;opacity:.65;
+  font:700 9px/1.3 ui-monospace,SFMono-Regular,Consolas,monospace;
+  text-transform:uppercase;
+}
+.rpgup-live-created-card>.rpgup-live-vacancy{margin:10px 15px 15px}
+
+@media(max-width:640px){
+  .rpgup-live-created-card{min-width:84vw;flex-basis:84vw}
+  .rpgup-live-vacancy{font-size:9px}
+}
