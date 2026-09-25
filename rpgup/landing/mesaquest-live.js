@@ -17,9 +17,9 @@
     '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'
   }[c]));
 
-  function findLink(item){
+  function findLinks(item,root=document){
     const wanted=norm(item.url);
-    return [...document.querySelectorAll('a[href]')].find(a=>norm(a.href)===wanted)||null;
+    return [...root.querySelectorAll('a[href]')].filter(a=>norm(a.href)===wanted);
   }
 
   function findCard(a){
@@ -94,23 +94,23 @@
   }
 
   function updateExisting(item){
-    const a=findLink(item);
-    if(!a) return false;
-    const card=findCard(a);
-    if(!card) return true;
+    const links=findLinks(item);
+    if(!links.length) return false;
+    const cards=links.map(findCard).filter(Boolean).filter((v,i,a)=>a.indexOf(v)===i);
+    cards.forEach(card=>{
+      card.dataset.rpgupMesaLive=item.key||'1';
+      card.classList.toggle('rpgup-mesa-full',!!item.full);
+      replaceStaleVacancyText(card,item);
 
-    card.dataset.rpgupMesaLive=item.key||'1';
-    card.classList.toggle('rpgup-mesa-full',!!item.full);
-    replaceStaleVacancyText(card,item);
-
-    const old=card.querySelector('.rpgup-live-vacancy');
-    const fresh=badge(item);
-    if(old) old.replaceWith(fresh);
-    else{
-      const target=card.querySelector('[class*="vaga"],[class*="slot"],[class*="status"],[class*="meta"]');
-      if(target && target.parentElement) target.insertAdjacentElement('afterend',fresh);
-      else card.appendChild(fresh);
-    }
+      const old=card.querySelector('.rpgup-live-vacancy');
+      const fresh=badge(item);
+      if(old) old.replaceWith(fresh);
+      else{
+        const target=card.querySelector('[class*="vaga"],[class*="slot"],[class*="status"],[class*="meta"]');
+        if(target && target.parentElement) target.insertAdjacentElement('afterend',fresh);
+        else card.appendChild(fresh);
+      }
+    });
     return true;
   }
 
@@ -121,29 +121,21 @@
       .filter(c=>!c.classList.contains('rpgup-live-created-card'));
   }
 
-  function findContainer(){
+  function findContainers(){
     const cards=mesaquestCards();
     if(cards.length){
-      // Prefer a shared parent that already contains more than one MesaQuest card.
-      const counts=new Map();
-      cards.forEach(c=>{
-        let p=c.parentElement;
-        for(let i=0;i<3&&p;i++,p=p.parentElement){
-          counts.set(p,(counts.get(p)||0)+1);
-        }
-      });
-      const ranked=[...counts.entries()].filter(([,n])=>n>=2).sort((a,b)=>b[1]-a[1]);
-      if(ranked.length) return {parent:ranked[0][0],sample:cards[0]};
-      return {parent:cards[0].parentElement,sample:cards[0]};
+      const direct=[...new Set(cards.map(c=>c.parentElement).filter(Boolean))]
+        .filter(p=>cards.filter(c=>c.parentElement===p).length>=1);
+      if(direct.length) return direct;
     }
 
     const headings=[...document.querySelectorAll('h1,h2,h3,h4')];
     const h=headings.find(x=>/(mesas|aventuras|próxima aventura|jogue comigo)/i.test(x.textContent||''));
     if(h){
       const section=h.closest('section,main,div');
-      if(section) return {parent:section,sample:null};
+      if(section) return [section];
     }
-    return {parent:document.querySelector('main')||document.body,sample:null};
+    return [document.querySelector('main')||document.body];
   }
 
   function createdCard(item,parent){
@@ -177,19 +169,22 @@
   function ensureMissing(item){
     if(!item.showOnLanding) return;
     if(item.full && !item.keepWhenFull) return;
-    if(findLink(item)) return;
-    if(document.querySelector('[data-rpgup-mesa-live="'+CSS.escape(item.key||'')+'"]')) return;
 
-    const {parent}=findContainer();
-    if(!parent) return;
-    const card=createdCard(item,parent);
-    parent.appendChild(card);
+    const containers=findContainers();
+    containers.forEach(parent=>{
+      if(!parent) return;
+      if(findLinks(item,parent).length) return;
+      if(parent.querySelector('[data-rpgup-mesa-live="'+CSS.escape(item.key||'')+'"]')) return;
 
-    try{
-      if(parent.swiper && typeof parent.swiper.update==='function') parent.swiper.update();
-      const sw=parent.closest('.swiper');
-      if(sw && sw.swiper && typeof sw.swiper.update==='function') sw.swiper.update();
-    }catch(_){}
+      const card=createdCard(item,parent);
+      parent.appendChild(card);
+
+      try{
+        if(parent.swiper && typeof parent.swiper.update==='function') parent.swiper.update();
+        const sw=parent.closest('.swiper');
+        if(sw && sw.swiper && typeof sw.swiper.update==='function') sw.swiper.update();
+      }catch(_){}
+    });
   }
 
   function apply(items){
