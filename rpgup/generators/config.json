@@ -1,11 +1,13 @@
 {
-  "version": 1,
+  "version": 2,
   "generators": {
     "consorcio-orbital": {
       "enabled": true,
       "title": "Gerador de Dossiê — Consórcio Orbital",
       "slug": "gerador-de-dossie-consorcio-orbital",
-      "aliases": ["gerador-estacao-da-desgraca"],
+      "aliases": [
+        "gerador-estacao-da-desgraca"
+      ],
       "template": "local:dossie",
       "remote_base": "https://raw.githubusercontent.com/henriquebot/litmv2br/main/rpgup/estacao-da-desgraca/",
       "rest_route": "rpgup/v1/dossie",
@@ -17,13 +19,30 @@
       "enabled": true,
       "title": "Gerador de Personagem — Sob as Asas do Corvo",
       "slug": "gerador-de-personagem-sob-as-asas-do-corvo",
-      "aliases": ["gerador-de-personagem-sob-as-asas-do-corvo-rustic"],
+      "aliases": [
+        "gerador-de-personagem-sob-as-asas-do-corvo-rustic"
+      ],
       "template": "local:corvo",
       "remote_base": "https://raw.githubusercontent.com/henriquebot/litmv2br/main/rpgup/sob-as-asas-do-corvo-rustic/",
       "rest_route": "rpgup/v1/corvo",
       "config_name": "RPGUP_CORVO_CONFIG",
       "adventure_url": "https://mesaquest.com.br/mesas/legend-in-the-mist-sob-as-asas-do-corvo-6wfph4dx",
       "menu_order": 30
+    },
+    "litm-como-jogar": {
+      "enabled": true,
+      "title": "Legend in the Mist — Como Jogar",
+      "slug": "legend-in-the-mist-como-jogar",
+      "aliases": [
+        "litm-como-jogar",
+        "como-jogar-litm"
+      ],
+      "template": "https://raw.githubusercontent.com/henriquebot/litmv2br/main/rpgup/litm-como-jogar/index.html",
+      "remote_base": "",
+      "rest_route": "",
+      "config_name": "RPGUP_LITM_RULES_CONFIG",
+      "adventure_url": "",
+      "menu_order": 40
     }
   }
 }
