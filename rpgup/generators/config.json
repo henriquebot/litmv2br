@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "generators": {
     "consorcio-orbital": {
       "enabled": true,
@@ -58,24 +58,6 @@
       "config_name": "RPGUP_LITM_PLAYER_REF_CONFIG",
       "adventure_url": "",
       "menu_order": 41
-    }
-  },
-  "tables": {
-    "sob-as-asas-do-corvo": {
-      "enabled": true,
-      "title": "Legend in the Mist — Sob as Asas do Corvo",
-      "url": "https://mesaquest.com.br/mesas/legend-in-the-mist-sob-as-asas-do-corvo-6wfph4dx",
-      "show_on_landing": true,
-      "keep_when_full": true,
-      "sort_order": 20
-    },
-    "a-estacao-da-desgraca": {
-      "enabled": true,
-      "title": "A Estação da Desgraça",
-      "url": "https://mesaquest.com.br/mesas/a-estacao-da-desgraca-gtn2anp9",
-      "show_on_landing": true,
-      "keep_when_full": true,
-      "sort_order": 30
     }
   }
 }
