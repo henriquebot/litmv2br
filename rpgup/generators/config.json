@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "generators": {
     "consorcio-orbital": {
       "enabled": true,
@@ -43,6 +43,21 @@
       "config_name": "RPGUP_LITM_RULES_CONFIG",
       "adventure_url": "",
       "menu_order": 40
+    },
+    "litm-referencia-jogador": {
+      "enabled": true,
+      "title": "Legend in the Mist — Referência do Jogador",
+      "slug": "legend-in-the-mist-referencia-do-jogador",
+      "aliases": [
+        "litm-referencia-jogador",
+        "referencia-do-jogador-litm"
+      ],
+      "template": "https://raw.githubusercontent.com/henriquebot/litmv2br/main/rpgup/litm-referencia-jogador/index.html",
+      "remote_base": "",
+      "rest_route": "",
+      "config_name": "RPGUP_LITM_PLAYER_REF_CONFIG",
+      "adventure_url": "",
+      "menu_order": 41
     }
   }
 }
