@@ -730,6 +730,32 @@
     }
   }
 
+  function syncPrintFields(){
+    document.querySelectorAll(".theme-card input, .theme-card textarea, .theme-card select").forEach(function(field){
+      var mirror=field.nextElementSibling;
+      if(!mirror || !mirror.classList.contains("rpgup-print-value")){
+        mirror=document.createElement("div");
+        mirror.className="rpgup-print-value";
+        field.insertAdjacentElement("afterend",mirror);
+      }
+      var text="";
+      if(field.tagName==="SELECT"){
+        var opt=field.options && field.selectedIndex>=0 ? field.options[field.selectedIndex] : null;
+        text=opt ? opt.textContent : "";
+      }else{
+        text=field.value || "";
+      }
+      mirror.textContent=(text || "—").trim();
+    });
+  }
+
+  window.addEventListener("beforeprint",syncPrintFields);
+  document.addEventListener("input",function(ev){
+    if(ev.target && ev.target.matches && ev.target.matches(".theme-card input, .theme-card textarea, .theme-card select")){
+      syncPrintFields();
+    }
+  });
+
   function installFinalActions(){
     if(el("dossierFinalActions")) return;
     var panel=el("litmThemesPanel");
