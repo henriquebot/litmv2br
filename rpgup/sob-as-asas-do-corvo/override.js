@@ -690,6 +690,32 @@
       }
     }
 
+    function syncPrintFields(){
+      document.querySelectorAll('.theme-card input, .theme-card textarea, .theme-card select').forEach(field=>{
+        let mirror=field.nextElementSibling;
+        if(!mirror || !mirror.classList.contains('rpgup-print-value')){
+          mirror=document.createElement('div');
+          mirror.className='rpgup-print-value';
+          field.insertAdjacentElement('afterend',mirror);
+        }
+        let text='';
+        if(field.tagName==='SELECT'){
+          const opt=field.options && field.selectedIndex>=0 ? field.options[field.selectedIndex] : null;
+          text=opt ? opt.textContent : '';
+        }else{
+          text=field.value || '';
+        }
+        mirror.textContent=(text || '—').trim();
+      });
+    }
+
+    window.addEventListener('beforeprint',syncPrintFields);
+    document.addEventListener('input',ev=>{
+      if(ev.target && ev.target.matches && ev.target.matches('.theme-card input, .theme-card textarea, .theme-card select')){
+        syncPrintFields();
+      }
+    });
+
     const lead=document.querySelector('.lead');
     if(lead){
       lead.innerHTML='A última noite do festival em <strong>Lar dos Corvos</strong> está chegando ao fim. Quando as fogueiras apagarem, você deixará a vila para trás e seguirá estrada afora com a caravana que passa por aqui quase todos os anos. Este gerador ajuda a descobrir <strong>quem você é, o que está deixando para trás e por que decidiu partir agora</strong> — sem fechar sua história antes que ela comece.';
