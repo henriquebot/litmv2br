@@ -826,16 +826,14 @@
   });
 
   var randomAll=el("randomAll");
-  if(randomAll) randomAll.addEventListener("click",function(){
-    selectedPersonality=Math.floor(Math.random()*personalityProfiles.length);
-    selectedPast=Math.floor(Math.random()*pastProfiles.length);
-    renderSourceChoices("personalityChoices",personalityProfiles,function(){return selectedPersonality;},function(i){selectedPersonality=i;});
-    renderSourceChoices("pastChoices",pastProfiles,function(){return selectedPast;},function(i){selectedPast=i;});
-    later(function(){
-      themeDirty={};
-      refreshThemeSuggestions(true);
-    });
-  });
+  if(randomAll) randomAll.onclick=function(){
+    var d=getData();
+    if(d && d.objects && d.objects.length){
+      el("object").value=d.objects[Math.floor(Math.random()*d.objects.length)];
+    }
+    try { if(typeof update==="function") update(); } catch(e){}
+    later(refresh);
+  };
 
   var mo=new MutationObserver(function(){ keepPortrait(); });
   var initials=el("initials");
